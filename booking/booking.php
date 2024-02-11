@@ -124,7 +124,7 @@ if (isset($_POST['btnSubmit'])) {
 
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="SELFSTUDIO - Photo Studio & Event Photobooth">
+    <meta name="description" content="Pixify Selfstudio - Photo Studio">
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"><!-- Favicon-->
     <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-icon-57x57.png">
@@ -204,7 +204,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="hidden-md-up">
               <div class="logo logo-header">
                 <a href="index.html">
-                  <img src="./assets/images/logo-sf-white1.png" alt="logo">
+                  <img src="" alt="logo">
                   <p class="use-text-subtitle2">Silahkan isi formulir berikut </p>
 
                 </a>
@@ -225,7 +225,7 @@ if (isset($_POST['btnSubmit'])) {
                       <div class="hidden-sm-down">
                         <div class="greeting">
                           <div class="deco">
-                            <div class="primary-light"></div>
+                            <!-- <div class="primary-light"></div> -->
                             <div class="secondary-main"></div>
                             <div class="secondary-light"></div>
                           </div>
@@ -233,11 +233,11 @@ if (isset($_POST['btnSubmit'])) {
                           <br>
                           <br>
 
-                          <div class="logo" style="">
+                          <!-- <div class="logo" style="">
 
                             <img src="./assets/images/logo-sf-white1.png" alt="logo" />
-                            <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
-                          </div>
+                          </div> -->
+                          <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                           <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
                         </div>
                       </div>
