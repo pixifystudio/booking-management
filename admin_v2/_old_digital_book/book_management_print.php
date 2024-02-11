@@ -1,0 +1,248 @@
+<?php
+ob_start();
+require('fpdf.php');
+require("library/inc.connection.php");
+//require("library/inc.library.php");
+require("library/phpqrcode/qrlib.php");
+
+
+
+class PDF extends FPDF
+{
+  // Page header
+  function Header()
+  {
+    $x = $this->GetX();
+    $y = $this->GetY();
+    $this->SetXY($x + 100, $y + 0);
+    $header        = isset($_GET['header']) ?  $_GET['header'] : 'yes';
+    // $this->Image('../app-assets/images/logo/difan.png', 10, 10);
+    $this->Ln();
+  }
+
+  // Page footer
+  function Footer()
+  {
+    $this->AliasNbPages('{totalPages}');
+    $this->SetY(-40);
+    $y = $this->GetY();
+    $this->SetFont('Arial', 'I', 8);
+    //$this->Image('images/PO_footer.png',10,$y);
+
+  }
+  var $widths;
+  var $aligns;
+
+  function SetWidths($w)
+  {
+    $this->widths = $w;
+  }
+
+  function SetAligns($a)
+  {
+    $this->aligns = $a;
+  }
+  function Row($data)
+  {
+    $nb = 0;
+    for ($i = 0; $i < count($data); $i++)
+      $nb = max($nb, $this->NbLines($this->widths[$i], $data[$i]));
+    $h = 4 * $nb;
+    $this->CheckPageBreak($h);
+    for ($i = 0; $i < count($data); $i++) {
+      $w = $this->widths[$i];
+      $a = isset($this->aligns[$i]) ? $this->aligns[$i] : 'L';
+      $x = $this->GetX();
+      $y = $this->GetY();
+      $this->Rect($x, $y, $w, $h);
+      $this->MultiCell($w, 4, $data[$i], 0, $a);
+      $this->SetXY($x + $w, $y);
+    }
+    $this->Ln($h);
+  }
+  function CheckPageBreak($h)
+  {
+    if ($this->GetY() + $h > $this->PageBreakTrigger)
+      $this->AddPage($this->CurOrientation);
+  }
+
+  function NbLines($w, $txt)
+  {
+    $cw = &$this->CurrentFont['cw'];
+    if ($w == 0)
+      $w = $this->w - $this->rMargin - $this->x;
+    $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
+    $s = str_replace("\r", '', $txt);
+    $nb = strlen($s);
+    if ($nb > 0 and $s[$nb - 1] == "\n")
+      $nb--;
+    $sep = -1;
+    $i = 0;
+    $j = 0;
+    $l = 0;
+    $nl = 1;
+    while ($i < $nb) {
+      $c = $s[$i];
+      if ($c == "\n") {
+        $i++;
+        $sep = -1;
+        $j = $i;
+        $l = 0;
+        $nl++;
+        continue;
+      }
+      if ($c == ' ')
+        $sep = $i;
+      $l += $cw[$c];
+      if ($l > $wmax) {
+        if ($sep == -1) {
+          if ($i == $j)
+            $i++;
+        } else
+          $i = $sep + 1;
+        $sep = -1;
+        $j = $i;
+        $l = 0;
+        $nl++;
+      } else
+        $i++;
+    }
+    return $nl;
+  }
+}
+
+$Code        = isset($_GET['id']) ?  $_GET['id'] : '';
+$Version    = isset($_GET['v']) ?  $_GET['v'] : '';
+// $mySql        = "SELECT * FROM view_purchase WHERE purchase_id='$Code' and purchase_version='$Version'";
+// $myQry        = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+// $myData     = mysqli_fetch_array($myQry);
+// $purFor     = $myData['purchase_for'];
+// if ($purFor == 'BAHAN BAKU') {
+//   $mySql2        = "SELECT status_name FROM master_status WHERE status_group='Purchase_Delivery_Address' AND status_code = 'Bahan Baku'";
+// } else {
+//   $mySql2        = "SELECT status_name FROM master_status WHERE status_group='Purchase_Delivery_Address' AND status_code = 'Head Office'";
+// }
+// $myQry2        = mysqli_query($koneksidb, $mySql2)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+// $myData2     = mysqli_fetch_array($myQry2);
+// $path = "./uploads/qrcode/purchase/";
+// $file = $path . str_replace("/", "-", $myData['purchase_id']) . ".png";
+// QRcode::png($link . '/?page=PDF-FOP-Purchase-Order&id=' . $myData['purchase_id'] . '&v=' . $Version . '', $file, QR_ECLEVEL_H, 5);
+// $Note       = $myData['purchase_note'];
+// if ($myData['purchase_date'] < '2022-04-01') {
+//   $dataPPN = 0.1;
+//   $typePPN = 10;
+// } else {
+//   $typePPN = 11;
+//   $dataPPN = 0.11;
+// }
+//PDF format
+$pdf = new PDF('P', 'mm', 'A5');
+$pdf->SetLeftMargin(10);
+$pdf->SetRightMargin(10);
+$pdf->AddPage();
+// $pdf->Image('../app-assets/images/logo/difan.png', 10, 10);
+
+//baris ke-1
+$pdf->SetY(31);
+$pdf->SetFont('Arial', 'B', 14);
+$pdf->Cell(190, 7, 'PURCHASE ORDER ( PO )', '1', '0', 'C', 0);
+$pdf->Ln();
+
+//baris ke-2
+$pdf->SetY(40);
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(2, 5, '', 'LT', '0', 'R', 0);
+$pdf->Cell(23, 5, 'KEPADA YTH : ', 'T', '0', 'L', 0);
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(95, 5, '', 'T', '0', 'L', 0);
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(30, 5, 'TANGGAL', '1', '0', 'L', 0);
+$pdf->SetFont('Arial', 'B', 8);
+//baris ke-9
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(190, 5, '', 'LR', '0', 'L', 0);
+$pdf->Ln();
+//baris ke-10
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(190, 5, '', 'LR', '0', 'L', 0);
+$pdf->Ln();
+//baris ke-11
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(190, 5, '   MOHON DIKIRIM PESANAN SESUAI DENGAN TYPE DIBAWAH INI : ', 'LR', '0', 'L', 0);
+$pdf->Ln();
+//baris ke-12
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(190, 1, '', 'LR', '0', 'L', 0);
+$pdf->Ln();
+// Purchase detail
+//header tabel detail
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->SetFillColor(230, 230, 230);
+$pdf->Cell(10, 5, 'No', '1', 0, 'C', TRUE);
+$pdf->Cell(30, 5, 'Product', '1', 0, 'C', TRUE);
+$pdf->Cell(15, 5, 'QTY', '1', 0, 'C', TRUE);
+$pdf->Cell(15, 5, 'UNIT', '1', 0, 'C', TRUE);
+$pdf->Cell(50, 5, 'KETERANGAN', '1', 0, 'C', TRUE);
+$pdf->Cell(30, 5, 'HARGA SATUAN', '1', 0, 'C', TRUE);
+$pdf->Cell(40, 5, 'TOTAL HARGA', '1', 0, 'C', TRUE);
+$pdf->Ln();
+$pdf->Cell(10, 2, '', 'LR', 0, 'C', 0);
+$pdf->Cell(30, 2, '', 'LR', 0, 'R', 0);
+$pdf->Cell(15, 2, '', 'LR', 0, 'C', 0);
+$pdf->Cell(15, 2, '', 'LR', 0, 'C', 0);
+$pdf->Cell(50, 2, '', 'LR', 0, 'L', 0);
+$pdf->Cell(30, 2, '', 'LR', 0, 'R', 0);
+$pdf->Cell(40, 2, '', 'LR', 0, 'R', 0);
+$pdf->Ln();
+//tabel detail
+$pdf->SetFont('Arial', '', 8);
+
+
+//note
+$pdf->SetFont('Arial', 'I', 8);
+$pdf->Cell(190, 5, 'Purchase Order (PO) ini telah ditandatangani secara elektronik sehingga tidak diperlukan tanda tangan basah pada PO ini.', 'LR', 0, 'C', 0);
+$pdf->Ln();
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(190, 5, 'HARAP MENCANTUMKAN NOMOR PO PADA SURAT JALAN DAN FAKTUR', 'LTR', 0, 'C', 0);
+$pdf->Ln();
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell(190, 5, 'PENERIMAAN BARANG', 'LR', 0, 'C', 0);
+$pdf->Ln();
+$pdf->Cell(20, 5, 'TANGGAL', '1', 0, 'C', TRUE);
+$pdf->Cell(15, 5, 'QTY', '1', 0, 'C', TRUE);
+$pdf->Cell(155, 5, 'KETERANGAN', '1', 0, 'C', TRUE);
+$pdf->Ln();
+$pdf->Cell(20, 5, '', '1', 0, 'C', 0);
+$pdf->Cell(15, 5, '', '1', 0, 'C', 0);
+$pdf->Cell(155, 5, '', '1', 0, 'C', 0);
+
+$pdf->Ln();
+$pdf->Cell(20, 5, '', '1', 0, 'C', 0);
+$pdf->Cell(15, 5, '', '1', 0, 'C', 0);
+$pdf->Cell(155, 5, '', '1', 0, 'C', 0);
+$pdf->Ln();
+$pdf->Cell(20, 5, '', '1', 0, 'L', 0);
+$pdf->Cell(15, 5, '', '1', 0, 'C', 0);
+$pdf->Cell(155, 5, '', '1', 0, 'R', 0);
+$pdf->Ln();
+$x = $pdf->GetX();
+$y = $pdf->GetY();
+$pdf->SetXY($x + 36, $y - 15);
+$pdf->MultiCell(153, 5, '');
+$pdf->SetXY($x, $y);
+$pdf->Cell(100, 5, '', '', 0, 'L', 0);
+$pdf->Cell(90, 5, date('Y-m-d H:i:s'), '', 0, 'R', 0);
+$pdf->Ln();
+//$pdf->SetFont('Arial', '',8);  
+//$pdf->Cell(5,5,'','L',0,'L',0); 
+//$pdf->Cell(185,5,'NOTE :','R',0,'L',0); 
+//$pdf->Ln();
+//$pdf->SetFont('Arial', '',8);  
+//$pdf->Cell(5,5,'','LB',0,'L',0); 
+//$pdf->Cell(185,5,'','RB',0,'L',0);
+//$pdf->Ln();
+$filename = str_replace('/', '-', 'PO-.pdf');
+// $pdf->SetTitle($filename);
+$pdf->Output('I', $filename);
+
+ob_end_flush();

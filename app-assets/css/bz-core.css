@@ -1,0 +1,66 @@
+.table {
+    font-size: .9rem;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left:15px;
+}
+
+.select2-container--classic .select2-selection--single, .select2-container--default .select2-selection--single{
+    padding-left:10px;
+}
+
+.avatar {
+    background-color: transparent;
+}
+
+.kanan {
+    text-align: right;
+}
+
+.horizontal-menu .navbar.header-navbar .navbar-container {
+    padding: 0.3rem 2rem;
+}
+
+.menu-utama {
+    width: 120px;
+}
+
+.horizontal-menu .header-navbar.navbar-brand-center .navbar-header {
+    position: absolute;
+    left: calc(25% - 56px);
+    padding: 0;
+    z-index: 1000;
+}
+
+td.dt-control {
+    background: url('../images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+td.dt-nowrap { white-space: nowrap }
+
+tr.shown td.dt-control {
+
+    background: url('../images/details_close.png') no-repeat center center;
+}
+
+table.dataTable td,
+table.dataTable th {
+    padding: .5rem .7rem;
+    vertical-align: middle;
+}
+
+table.anak {
+    border-collapse: collapse;
+}
+
+table.anak tr {
+    border-bottom: 1pt solid #f1e9e9;
+}
+
+div.dataTables_wrapper .dataTables_info {
+    padding-top: 1.1rem !important;
+    color: #6e6b7b;
+}
+ 
