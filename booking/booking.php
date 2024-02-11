@@ -1,7 +1,6 @@
 <?php
 
-echo "sedang maintenance!";
-exit;
+
 include_once "library/inc.connection.php";
 
 
@@ -137,10 +136,10 @@ if (isset($_POST['btnSubmit'])) {
     <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="assets/images/logo-sf.png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
-    <link rel="icon" type="assets/images/logo-sf.png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="assets/images/logo-sf.png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
-    <link rel="icon" type="assets/images/logo-sf.png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+    <link rel="icon" type="assets/images/logo.png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
+    <link rel="icon" type="assets/images/logo.png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="assets/images/logo.png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="assets/images/logo.png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
     <link rel="manifest" href="./assets/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./assets/favicons/ms-icon-144x144.png"><!-- PWA primary color-->
@@ -205,7 +204,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="hidden-md-up">
               <div class="logo logo-header">
                 <a href="index.html">
-                  <img src="./assets/images/logo-sf-white.png" alt="logo">
+                  <img src="./assets/images/logo-sf-white1.png" alt="logo">
                   <p class="use-text-subtitle2">Silahkan isi formulir berikut </p>
 
                 </a>
@@ -236,7 +235,7 @@ if (isset($_POST['btnSubmit'])) {
 
                           <div class="logo" style="">
 
-                            <img src="./assets/images/logo-sf-white.png" alt="logo" />
+                            <img src="./assets/images/logo-sf-white1.png" alt="logo" />
                             <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                           </div>
                           <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
