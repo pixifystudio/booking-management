@@ -143,14 +143,14 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                             <p>
                               1. Cek email kamu untuk detail pemesanan.</p>
                             <p>
-                              2. Melakukan pembayaran DP sebesar Rp65.000 melalui rekening BCA 7175060341 a.n Muhammad Akhyar Fauzi</p>
+                              2. Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BCA 409101008799535 a.n Dicky Pramana Sukma</p>
                             <p>
-                              3. Kirim bukti pembayaran melalui no WhatsApp: 085173158153</p>
+                              3. Kirim bukti pembayaran melalui no WhatsApp: 089657756746</p>
                             <p> Sampai berjumpa di Self Studio :)</p>
                           </div>
 
                           <div class="btn-area mt-10">
-                            <a href="https://wa.me/6285173158153?text=Hallo+min+Selfish%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
+                            <a href="https://wa.me/6289657756746?text=Hallo+min+Selfish%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
                           </div>
                         </form>
                       </div>
