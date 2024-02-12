@@ -280,7 +280,7 @@ Appointment Type: $txtJenis <br>";
       $mail2->Port = 587;
 
       // Set informasi pengirim dan penerima
-      $mail2->setFrom('official@pixify.id', 'Self Studio');
+      $mail2->setFrom('official@pixify.id', 'Pixify');
       $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
       // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
