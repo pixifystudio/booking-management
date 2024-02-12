@@ -68,7 +68,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
   <meta property="og:image" content="/images/education-logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <title>SF Studio - Thank You! </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
+  <title>Pixify Studio - Thank You! </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
   <link href="./assets/css/vendors/materialize.css" rel="stylesheet">
@@ -94,7 +94,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
           <div class="hidden-md-up">
             <div class="logo logo-header">
               <a href="index.html">
-                <img src="./assets/images/logo-sf-white.png" alt="logo">
+                <!-- <img src="./assets/images/logo-sf-white.png" alt="logo"> -->
               </a>
             </div>
           </div>
@@ -116,7 +116,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           <div class="secondary-light"></div>
                         </div>
                         <div class="logo">
-                          <img src="./assets/images/logo-sf-white.png" alt="logo" />
+                          <!-- <img src="./assets/images/logo-sf-white.png" alt="logo" /> -->
                           <p class="use-text-subtitle2">Terima kasih sudah booking studio kami :D </p>
                         </div>
                       </div>
