@@ -200,13 +200,13 @@ if (isset($_POST['btnSubmit'])) {
       $mail->isSMTP();
       $mail->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
       $mail->SMTPAuth = true;
-      $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
-      $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
+      $mail->Username = 'official@pixify.id'; // Ganti dengan username SMTP Anda
+      $mail->Password = 'ForwardDigiCraft@123'; // Ganti dengan password SMTP Anda
       $mail->SMTPSecure = 'TLS';
       $mail->Port = 587;
 
       // Set informasi pengirim dan penerima
-      $mail->setFrom('official@sf-selfstudio.com', 'Self Studio');
+      $mail->setFrom('official@pixify.id', 'Pixify');
       $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
 
 
@@ -253,7 +253,7 @@ Appointment Type: $txtJenis <br>";
       // Set informasi email
       $mail->isHTML(true);
       $mail->MsgHTML($email_message);
-      $mail->Subject = 'SF Self Photo Studio Booking';
+      $mail->Subject = 'Pixify Self Photo Studio Booking';
 
       // Kirim email
       $mail->send();
@@ -274,13 +274,13 @@ Appointment Type: $txtJenis <br>";
       $mail2->isSMTP();
       $mail2->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
       $mail2->SMTPAuth = true;
-      $mail2->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
-      $mail2->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
+      $mail2->Username = 'official@pixify.id'; // Ganti dengan username SMTP Anda
+      $mail2->Password = 'ForwardDigiCraft@123'; // Ganti dengan password SMTP Anda
       $mail2->SMTPSecure = 'TLS';
       $mail2->Port = 587;
 
       // Set informasi pengirim dan penerima
-      $mail2->setFrom('official@sf-selfstudio.com', 'Self Studio');
+      $mail2->setFrom('official@pixify.id', 'Self Studio');
       $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
       // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
