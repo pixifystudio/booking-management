@@ -51,7 +51,7 @@
 				Silahkan langsung bertanya jika ada yang ingin dikonfirmasi melalui Instagram atau WhatsApp yaa :)
 				<br>
 
-				Terimakasih dan sampai berjumpa di SF Studio :D
+				Terimakasih dan sampai berjumpa di Pixify Studio :D
 
 				<hr />
 
