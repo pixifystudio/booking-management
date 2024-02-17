@@ -198,7 +198,7 @@ $randomToken = generateRandomToken();
   <div class="m-application theme--light transition-page" id="app">
 
     <div class="loading"></div>
-    <div class="m-content smart violet-var" id="main-wrap">
+    <div class="m-content smart passion-var" id="main-wrap">
       <div class="form-page">
         <div class="page-wrap">
           <div class="hidden-md-up">
