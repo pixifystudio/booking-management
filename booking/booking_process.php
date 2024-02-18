@@ -281,7 +281,7 @@ Appointment Type: $txtJenis <br>";
 
       // Set informasi pengirim dan penerima
       $mail2->setFrom('official@pixify.id', 'Pixify');
-      $mail2->addAddress('official@pixify.id'); // Ganti dengan alamat email tujuan
+      $mail2->addAddress('pixify.capture@gmail.com'); // Ganti dengan alamat email tujuan
       // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
 
