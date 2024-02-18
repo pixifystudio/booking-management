@@ -228,12 +228,12 @@
 }
 
 .smart-var {
-  --v-anchor-base: #00BCD4;
+  --v-anchor-base: #f25fed;
   --v-primarylight-base: #B2EBF2;
-  --v-primary-base: #90C9AA;
-  --v-primarydark-base: #436451;
-  --v-secondarylight-base: #8abea0;
-  --v-secondary-base: #436451;
+  --v-primary-base: #f25fed;
+  --v-primarydark-base: #644362;
+  --v-secondarylight-base: #fafafa;
+  --v-secondary-base: #fafafa;
   --v-secondarydark-base: #fafafa;
 }
 
