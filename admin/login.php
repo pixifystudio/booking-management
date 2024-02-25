@@ -59,7 +59,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="?page=Login" class="brand-logo">
-                                    <img src="../app-assets/images/logo/pixify-letter" alt="" height="30">
+                                    <img src="../app-assets/images/logo/pixify-letter.png" alt="" height="30">
                                 </a>
 
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
