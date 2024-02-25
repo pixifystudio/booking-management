@@ -184,6 +184,8 @@ if (isset($_POST['btnSubmit'])) {
   } else {
     # INSERT KE DATABASE BOOKING DAN KIRIM EMAIL
 
+
+
     $mySql = "INSERT INTO `booking`( `nama`, `email`, `no_wa`, `jenis`, `paket`, `background`, `instagram`, `tanggal`, `jam`, `status`, `updated_date`,`token`) VALUES 
       ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus', now(),'$txtToken') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
@@ -196,16 +198,24 @@ if (isset($_POST['btnSubmit'])) {
     } else  if ($txtPaket == 'Pas Photo') {
       $txtNominal = '30000';
     }
+
+    // ambil id terakhir
+    $mySqlID = "SELECT * FROM `booking` ORDER BY id DESC LIMIT 1";
+    $myQryID = mysqli_query($koneksidb, $mySqlID) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+    $DataID = mysqli_fetch_array($myQryID);
+
+    $id_terakhir = $DataID['id'];
+    
     #detail
     $mySql = "INSERT INTO `booking_detail`( `booking_id`, `item`, `nominal`, `updated_date`,`updated_by`) VALUES 
-      ('$last_id','$txtPaket','$txtNominal', now(),'$txtNama') ";
+      ('$id_terakhir','$txtPaket','$txtNominal', now(),'$txtNama') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
     // Kirim email customer
     // Inisialisasi PHPMailer
     $mail = new PHPMailer(true);
 
-    $urlcancel = "https://sf-selfstudio.com/booking/?page=Test-Booking-Cancel&id=" . $last_id;
+    $urlcancel = "https://sf-selfstudio.com/booking/?page=Test-Booking-Cancel&id=" . $id_terakhir;
 
 
     try {
