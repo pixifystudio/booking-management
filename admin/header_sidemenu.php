@@ -47,6 +47,7 @@
                         <ul class="dropdown-menu" data-bs-popper="none">
                             <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Incoming Booking</a>
                             <a class="dropdown-item" href="?page=Management-Booking-Process" data-bs-toggle="">Booking on Process</a>
+                            <a class="dropdown-item" href="?page=Management-Booking-Gdrive" data-bs-toggle="">Send Gdrive</a>
                             <a class="dropdown-item" href="?page=Management-History" data-bs-toggle="">History Booking</a>
                         </ul>
                     </li>
