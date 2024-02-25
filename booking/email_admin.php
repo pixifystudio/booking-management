@@ -34,7 +34,7 @@
 				</center>
 				<center>
 					<div style='color:black'>
-						<b>selfstudio</b>
+						<b>studio.</b>
 					</div>
 
 				</center>
