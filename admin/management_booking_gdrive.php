@@ -1,5 +1,5 @@
 <?php
-$_SESSION['SES_TITLE'] = "History";
+$_SESSION['SES_TITLE'] = "Gdrive";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-History";
@@ -67,7 +67,7 @@ function hari_ini($tanggal)
                         <h2 class="content-header-title float-start mb-0">Booking</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>History</a>
+                                <li class="breadcrumb-item"><a>Send Gdrive</a>
                                 </li>
                             </ol>
                         </div>
@@ -182,13 +182,7 @@ function hari_ini($tanggal)
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Hari</th>
-                                        <th>Tanggal</th>
-                                        <th>Jam</th>
                                         <th>No WA</th>
-                                        <th>Paket</th>
-                                        <th>Background</th>
-                                        <th>Status</th>
                                         <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
@@ -196,7 +190,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!=''";
+                                    $mySql   = "SELECT * FROM booking WHERE id!='' and status ='Selesai'";
                                     // jika tanggal, tipe dan paket !=''
                                     if ($Date != '') {
                                         $mySql .=  " AND tanggal ='$Date'";
@@ -227,24 +221,17 @@ function hari_ini($tanggal)
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['nama']; ?></td>
-                                            <td><?php echo $hari; ?></td>
-                                            <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $Jam; ?></td>
                                             <td><?php echo $myData['no_wa']; ?></td>
-                                            <td><?php echo $myData['paket']; ?></td>
-                                            <td><?php echo $myData['background']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($ses_group == 'Super Admin') { ?>
-                                                <td>
-                                                    <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                            <i data-feather="trash" class="me-50"></i>
-                                                            <span>Hapus</span>
-                                                    </a>
-                                                <?php } else{ ?>
-                                                    <td></td>
-                                                <?php } ?>
-
-                                                </td>
+                                            <td>
+                                                <a class="dropdown-item" href="https://drive.google.com/drive/folders/1Z2FxY9fjNmf2LXiNlKjB_zbWamvrA_RX" role="button"><i class="fa fa-check fa-fw">
+                                                        <i data-feather="trash" class="me-50"></i>
+                                                        <span>Link Check</span>
+                                                </a> |
+                                                <a class="dropdown-item" href=""role="button"><i class="fa fa-pencil fa-fw">
+                                                        <i data-feather="trash" class="me-50"></i>
+                                                        <span>Sent to WA</span>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>
