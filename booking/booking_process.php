@@ -363,7 +363,7 @@ Appointment Type: $txtJenis <br>";
     $last_id = mysqli_insert_id($koneksidb);
     # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&id=$last_id'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&id=$id_terakhir'>";
     } else {
       echo "Query Gagal";
     }
