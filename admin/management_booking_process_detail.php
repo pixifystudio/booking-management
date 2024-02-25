@@ -145,8 +145,8 @@ $id = $_GET['id'];
 
         </form>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
-
-          <h1>Detail Transaksi</h1>
+  <br>
+          <h3>Detail Transaksi</h3> 
           <div class="card-datatable">
             <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
               <thead>
