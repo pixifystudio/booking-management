@@ -3,6 +3,7 @@ $_SESSION['SES_TITLE'] = "History";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-History";
+$ses_group = $_SESSION['SES_GROUP'];
 
 # untuk validasi
 $Date = isset($_GET['date']) ? $_GET['date'] : '';
@@ -233,12 +234,17 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <td>
-                                                <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                        <i data-feather="trash" class="me-50"></i>
-                                                        <span>Hapus</span>
-                                                </a>
-                                            </td>
+                                            <?php if ($ses_group == 'Super Admin') { ?>
+                                                <td>
+                                                    <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <i data-feather="trash" class="me-50"></i>
+                                                            <span>Hapus</span>
+                                                    </a>
+                                                <?php } else{ ?>
+                                                    <td></td>
+                                                <?php } ?>
+
+                                                </td>
                                         </tr>
                                     <?php }
                                     ?>
