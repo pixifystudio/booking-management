@@ -12099,7 +12099,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   padding: 88px 40px 88px 40px;
-  background-size: 15%;
+  background-size: 100%;
 }
 
 .theme--light .form-page .page-wrap {
