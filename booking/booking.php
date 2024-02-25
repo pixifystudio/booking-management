@@ -420,7 +420,7 @@ $randomToken = generateRandomToken();
                           </div>
                           <br>
                           <div>
-                            <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
+                            <a class="btn primary btn-large block waves-effect" href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
                           </div>
 
                           </form>
