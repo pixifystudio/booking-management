@@ -233,10 +233,10 @@ if (isset($_POST['btnSubmit'])) {
                           <br>
                           <br>
 
-                          <!-- <div class="logo" style="">
+                          <div class="logo" style="">
 
-                            <img src="./assets/images/logo-sf-white1.png" alt="logo" />
-                          </div> -->
+                            <img src="./assets/images/pixify1.png" alt="logo" />
+                          </div>
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                           <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
                         </div>
