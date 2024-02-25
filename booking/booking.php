@@ -204,7 +204,7 @@ $randomToken = generateRandomToken();
           <div class="hidden-md-up">
             <div class="logo logo-header">
               <a href="index.html">
-                <img src="./assets/images/pixify1.png" alt="logo">
+                <img src="./assets/images/pixify1-white.png" alt="logo">
                 <p class="use-text-subtitle2">Silahkan isi formulir berikut </p>
 
               </a>
