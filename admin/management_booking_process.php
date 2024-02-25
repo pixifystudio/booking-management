@@ -93,6 +93,11 @@ function hari_ini($tanggal)
                     echo "&nbsp;<div class='alert alert-success'>";
                     echo "&nbsp;&nbsp; Berhasil di Konfirmasi<br>";
                     echo "</div>";
+                } else 
+                 if ($status == 'batalkan') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Berhasil di Batalkan<br>";
+                    echo "</div>";
                 } 
             }
             ?>
@@ -178,15 +183,15 @@ function hari_ini($tanggal)
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="?page=Management-Booking-Process-Detail&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="check" class="me-50"></i>
-                                                                    <span>Konfirmasi</span>
+                                                                    <span>Selesai</span>
                                                             </a>
                                                             <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="edit-2" class="me-50"></i>
                                                                     <span>Re-Schedule</span>
                                                             </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Cancel&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="trash" class="me-50"></i>
-                                                                    <span>Hapus</span>
+                                                                    <span>Batalkan</span>
                                                             </a>
                                                         </div>
                                                     </div>
