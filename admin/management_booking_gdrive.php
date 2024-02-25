@@ -227,7 +227,7 @@ function hari_ini($tanggal)
                                                         <i data-feather="external-link" class="me-50"></i>
                                                         <span>Link Check</span>
                                                 </a>
-                                                <a class="dropdown-item" href="" target="_blank" role="button"><i class="fa fa-pencil fa-fw">
+                                                <a class="dropdown-item" href="https://wa.me/6289657756746?text=Hallo+min%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" target="_blank" role="button"><i class="fa fa-pencil fa-fw">
                                                         <i data-feather="send" class="me-50"></i>
                                                         <span>Sent to WA</span>
                                                 </a>
