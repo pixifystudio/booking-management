@@ -48,6 +48,11 @@ if ($_GET) {
       include "management_booking_update.php";
       break;
 
+    case 'Management-Booking-Process':
+      if (!file_exists("management_booking_process.php")) die("Sorry Empty Page!");
+      include "management_booking_process.php";
+      break;
+
     case 'Management-Booking-Process-Detail':
       if (!file_exists("management_booking_process_detail.php")) die("Sorry Empty Page!");
       include "management_booking_process_detail.php";
