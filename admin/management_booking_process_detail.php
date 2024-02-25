@@ -195,7 +195,7 @@ $id = $_GET['id'];
               <tfoot>
                 <tr>
                   <td colspan="2" align="right">&nbsp;Total Pembayaran</td>
-                  <td align="right"><?php echo  'RP.   ' . number_format((), 0); ?></td>
+                  <td align="right"><?php echo  'RP. ' . number_format($total_pembayaran, 0); ?></td>
                   <td></td>
                 </tr>
               </tfoot>
