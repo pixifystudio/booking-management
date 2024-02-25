@@ -102,7 +102,6 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="?page=Login" class="brand-logo">
-                                    <img src="../app-assets/images/logo/logo-sf.png" alt="" height="30">
                                     <!-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                         <defs>
                                             <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
