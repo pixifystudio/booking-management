@@ -122,6 +122,8 @@ $id = $_GET['id'];
                             <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
+                        
+                        <hr>
 
                         <div class="col-md-3 col-12">
                           <div class="form-group">
@@ -146,7 +148,6 @@ $id = $_GET['id'];
 
 
         </form>
-        <hr>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
           <br>
           <h3>Detail Transaksi</h3>
