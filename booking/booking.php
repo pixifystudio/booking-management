@@ -163,7 +163,7 @@ $randomToken = generateRandomToken();
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/pixify1.png">
   <meta property="og:image" content="/images/pixify1.png">
-  <meta property="og:image:width" content="1200">
+  <meta property="og:image:width" content="1200"> 
   <meta property="og:image:height" content="630">
   <title>Pixify Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
