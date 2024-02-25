@@ -170,7 +170,6 @@ $id = $_GET['id'];
                   $nomor++;
                   $Code = $myData['booking_detail_id'];
                   $Code2 = $myData['booking_id'];
-                  $Jam = $myData['jam'];
 
 
                 ?>
