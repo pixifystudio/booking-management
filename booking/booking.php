@@ -174,7 +174,7 @@ if (isset($_POST['btnSubmit'])) {
     <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
     <link href="./assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
     <link href="./assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
-    <link href="./assets/css/styles_9.css" rel="stylesheet">
+    <link href="./assets/css/styles_10.css" rel="stylesheet">
     <link href="assets/css/date-picker.css" rel="stylesheet">
 
     <!-- font-awesome -->
