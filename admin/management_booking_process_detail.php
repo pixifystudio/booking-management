@@ -36,10 +36,12 @@ $id = $_GET['id'];
     $pesanError = array();
     # Baca variabel form
     $id   = $_GET['id'];
+    $dataGdrive  = $_POST['txtGdrive'];
+
     # UPDATE KE DATABASE BOOKING
 
     $mySql   = "UPDATE `booking` 
-      SET `status`='Selesai',`updated_date`=now() WHERE id='$id'";
+      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive' WHERE id='$id'";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
@@ -180,7 +182,7 @@ $id = $_GET['id'];
                     <td>
                       <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
-                          <span>Batalkan</span>
+                          <span></span>
                       </a>
                     </td>
                   </tr>
@@ -202,7 +204,12 @@ $id = $_GET['id'];
             </table>
           </div>
 
-
+          <div class="col-md-3 col-12">
+            <div class="form-group">
+              <label>Link Foto (Gdrive)<span class="required">*</span></label>
+              <input class="form-control" placeholder="Item" name="txtGdrive" type="text" value="" maxlength="100" required />
+            </div>
+          </div>
 
       </div>
       <div class="col-7 my-5">
