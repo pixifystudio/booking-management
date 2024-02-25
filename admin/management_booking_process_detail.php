@@ -126,6 +126,7 @@ $id = $_GET['id'];
                         </div>
 
                         <hr>
+                        <h3>Detail Transaksi</h3>
 
                         <div class="col-md-3 col-12">
                           <div class="form-group">
@@ -152,7 +153,6 @@ $id = $_GET['id'];
         </form>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
           <br>
-          <h3>Detail Transaksi</h3>
           <div class="card-datatable">
             <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
               <thead>
