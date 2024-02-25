@@ -228,7 +228,13 @@
 }
 
 .smart-var {
-
+  --v-anchor-base: #125440;
+  --v-primarylight-base: #B2EBF2;
+  --v-primary-base: #16b082;
+  --v-primarydark-base: #644362;
+  --v-secondarylight-base: #fafafa;
+  --v-secondary-base: #fafafa;
+  --v-secondarydark-base: #fafafa;
 }
 
 .burgundy-var {
