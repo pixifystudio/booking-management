@@ -44,7 +44,7 @@
 
 <!-- BEGIN: Body-->
 
-<body style='background: #436451;' class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+<body style='background: #ff9d7f;' class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
     <!-- BEGIN: Content-->
     <div class="app-content content ">
         <div class="content-overlay"></div>
@@ -73,7 +73,7 @@
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="login-password">Password</label>
-                                            <a style=" color: #436451" href="?page=Forgot-Password">
+                                            <a style=" color: #ff9d7f" href="?page=Forgot-Password">
                                                 <small>Forgot Password?</small>
                                             </a>
                                         </div>
@@ -82,7 +82,7 @@
                                             <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
-                                    <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnLogin" tabindex="4">Sign in</button>
+                                    <button class="btn w-100" style='background: #ff9d7f; color:white' type=" submit" name="btnLogin" tabindex="4">Sign in</button>
                                 </form>
 
 
