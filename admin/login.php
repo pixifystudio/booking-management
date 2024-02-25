@@ -11,8 +11,8 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Self Studio - Login</title>
-    <link rel="apple-touch-icon" href="../app-assets/images/logo/logo-sf.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/logo-sf.png">
+    <link rel="apple-touch-icon" href="../app-assets/images/logo/pixify1.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/pixify1.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
 
@@ -59,7 +59,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="?page=Login" class="brand-logo">
-                                    <img src="../app-assets/images/logo/logo-sf.png" alt="" height="30">
+                                    <img src="../app-assets/images/logo/pixify1.png" alt="" height="30">
                                     <!-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                         <defs>
                                             <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
