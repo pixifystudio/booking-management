@@ -145,8 +145,8 @@ $id = $_GET['id'];
 
         </form>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
-  <br>
-          <h3>Detail Transaksi</h3> 
+          <br>
+          <h3>Detail Transaksi</h3>
           <div class="card-datatable">
             <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
               <thead>
@@ -161,6 +161,7 @@ $id = $_GET['id'];
               <tbody>
 
                 <?php
+                $total_pembayaran = 0;
                 $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
                 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                 $nomor  = 0;
@@ -175,7 +176,7 @@ $id = $_GET['id'];
                   <tr>
                     <td><?php echo $nomor; ?></td>
                     <td><?php echo $myData['item']; ?></td>
-                    <td><?php echo 'RP. ' . number_format($myData['nominal'],0); ?></td>
+                    <td><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td>
                       <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
@@ -183,10 +184,21 @@ $id = $_GET['id'];
                       </a>
                     </td>
                   </tr>
-                <?php }
+
+                <?php
+                // akumulasi total pembayaran
+                $total_pembayaran = $total_pembayaran +  $myData['nominal'];
+              }
                 ?>
 
               </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2" align="right">&nbsp;Total Pembayaran</td>
+                  <td align="right"><?php echo number_format(($total_pembayaran), 0); ?></td>
+                  <td></td>
+                </tr>
+              </tfoot>
             </table>
           </div>
 
