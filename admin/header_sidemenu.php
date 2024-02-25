@@ -45,7 +45,8 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="camera"></i>Booking</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Booking</a>
+                            <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Konfirmasi Booking</a>
+                            <a class="dropdown-item" href="?page=Management-Booking-Process" data-bs-toggle="">Booking on Process</a>
                             <a class="dropdown-item" href="?page=Management-History" data-bs-toggle="">History</a>
                         </ul>
                     </li>
