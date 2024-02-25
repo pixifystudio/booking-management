@@ -163,7 +163,7 @@ $randomToken = generateRandomToken();
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/pixify1.png">
   <meta property="og:image" content="/images/pixify1.png">
-  <meta property="og:image:width" content="1200"> 
+  <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <title>Pixify Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
@@ -246,7 +246,7 @@ $randomToken = generateRandomToken();
 
                     <div class="form-wrap">
                       <div>
-                    
+
                         <div class="head">
                           <div class="title-main align-left">
                             <h4 class="secondary"><span>BOOKING</span></h4>
@@ -296,26 +296,17 @@ $randomToken = generateRandomToken();
                                           // tampilkan daftar jam minimal 1 jam dari jam sekarang
                                           if ($jam > $jamsekarang) {
                                             // jika hari seniin maka tutup
-                                            if ($nama_hari == 'Monday') { ?>
-                                              <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
-                                            <?php } else {
-                                            ?>
-                                              <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                    ?>
+                                            <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                           <?php
-                                            }
                                           }
                                           // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
                                         } else {
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                           ?>
-                                          <?php if ($nama_hari == 'Monday') { ?>
-                                            <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
-                                          <?php } else {
-                                          ?>
-                                            <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                          <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
-                                          }
                                         }
                                       }
                                     } else { ?>
