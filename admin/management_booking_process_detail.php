@@ -142,7 +142,7 @@ $id = $_GET['id'];
                       </div>
 
                       <div class="col-7 my-5">
-                        <button type="submit" name="btnTambah" class="btn btn-success me-3">Tambah Item</button>
+                        <button type="submit" name="btnTambah" class="btn btn-info me-3">Tambah Item</button>
                       </div>
 
         </form>
@@ -197,7 +197,7 @@ $id = $_GET['id'];
       </div>
       <div class="col-7 my-5">
         <a type="button" href="?page=Management-Booking-Process" class="btn btn-warning me-2">Kembali</a>
-        <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
+        <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
       </div>
     </div>
   </div>
