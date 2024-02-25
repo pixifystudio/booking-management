@@ -12095,6 +12095,11 @@ body {
   background-image: url("../images/education/bg2.jpg");
   background-repeat: repeat;
   width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 88px 40px 88px 40px;
+    background-size: 100%;
 }
 
 .theme--light .form-page .page-wrap {
