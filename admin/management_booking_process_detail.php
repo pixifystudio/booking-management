@@ -131,7 +131,7 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Nominal (Harga)<span class="required">*</span></label>
-                            <input class="form-control" placeholder="Item" name="txtNominal" type="number" value="" maxlength="100" required />
+                            <input class="form-control" placeholder="Nominal" name="txtNominal" type="number" value="" maxlength="100" required />
                           </div>
                         </div>
 
@@ -175,7 +175,7 @@ $id = $_GET['id'];
                   <tr>
                     <td><?php echo $nomor; ?></td>
                     <td><?php echo $myData['item']; ?></td>
-                    <td><?php echo $myData['nominal']; ?></td>
+                    <td><?php echo 'RP. ' . number_format($myData['nominal'],0); ?></td>
                     <td>
                       <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
