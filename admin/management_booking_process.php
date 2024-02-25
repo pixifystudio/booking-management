@@ -142,7 +142,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking where status ='Dibuat' and tanggal >= '$tanggal_hari_ini' order by tanggal desc";
+                                    $mySql   = "SELECT * FROM booking where status ='Dikonfirmasi' and tanggal >= '$tanggal_hari_ini' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -176,7 +176,7 @@ function hari_ini($tanggal)
                                                             <i data-feather="more-vertical"></i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Process-Detail&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="check" class="me-50"></i>
                                                                     <span>Konfirmasi</span>
                                                             </a>
