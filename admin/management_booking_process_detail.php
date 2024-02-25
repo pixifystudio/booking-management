@@ -28,8 +28,6 @@ $id = $_GET['id'];
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
     }
-
-
   }
 
   # Tombol Submit diklik
@@ -48,8 +46,6 @@ $id = $_GET['id'];
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&s=success'>";
     }
-
-    
   } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
@@ -139,16 +135,17 @@ $id = $_GET['id'];
                           </div>
                         </div>
 
+                        <div class="col-md-3 col-12">
+                          <button type=" submit" name="btnTambah" class="btn btn-info me-3">Tambah Item</button>
+                        </div>
+
                       </div>
 
-                      <div class="col-7 my-5">
-                        <button type="submit" name="btnTambah" class="btn btn-info me-3">Tambah Item</button>
-                      </div>
 
         </form>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
 
-        <h1>Detail Transaksi</h1>
+          <h1>Detail Transaksi</h1>
           <div class="card-datatable">
             <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
               <thead>
