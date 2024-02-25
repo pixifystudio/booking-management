@@ -176,7 +176,7 @@ $id = $_GET['id'];
                   <tr>
                     <td><?php echo $nomor; ?></td>
                     <td><?php echo $myData['item']; ?></td>
-                    <td><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
+                    <td align="right"><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td>
                       <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
@@ -186,16 +186,16 @@ $id = $_GET['id'];
                   </tr>
 
                 <?php
-                // akumulasi total pembayaran
-                $total_pembayaran = $total_pembayaran +  $myData['nominal'];
-              }
+                  // akumulasi total pembayaran
+                  $total_pembayaran = $total_pembayaran +  $myData['nominal'];
+                }
                 ?>
 
               </tbody>
               <tfoot>
                 <tr>
                   <td colspan="2" align="right">&nbsp;Total Pembayaran</td>
-                  <td align="right"><?php echo number_format(($total_pembayaran), 0); ?></td>
+                  <td align="right"><?php echo  'RP. ' . number_format(($total_pembayaran), 0); ?></td>
                   <td></td>
                 </tr>
               </tfoot>
