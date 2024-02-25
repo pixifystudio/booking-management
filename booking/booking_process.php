@@ -188,6 +188,19 @@ if (isset($_POST['btnSubmit'])) {
       ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus', now(),'$txtToken') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
+    #ambil harga
+    if ($txtPaket =='Basic') {
+      $txtNominal ='50000';
+    } else  if ($txtPaket == 'Photo Session') {
+      $txtNominal = '100000';
+    } else  if ($txtPaket == 'Pas Photo') {
+      $txtNominal = '30000';
+    }
+    #detail
+    $mySql = "INSERT INTO `booking_detail`( `booking_id`, `item`, `nominal`, `updated_date`,`updated_by`) VALUES 
+      ('$last_id','$txtPaket','$txtNominal', now(),'$txtNama') ";
+    $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+
     // Kirim email customer
     // Inisialisasi PHPMailer
     $mail = new PHPMailer(true);
