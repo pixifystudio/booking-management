@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 	VALUES ('booking','" . $_GET['id'] . "','" . $_SESSION['SES_NAMA'] . "', NOW())";
     $myQry1 = mysqli_query($koneksidb, $mySql1) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 
-    $mySql = "DELETE FROM booking_detail WHERE booking_detailid='" . $_GET['id'] . "'";
+    $mySql = "DELETE FROM booking_detail WHERE booking_detail_id='" . $_GET['id'] . "'";
     $myQry = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
     if ($myQry) {
         // Refresh halaman
