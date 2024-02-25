@@ -146,6 +146,7 @@ $id = $_GET['id'];
 
 
         </form>
+        <hr>
         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
           <br>
           <h3>Detail Transaksi</h3>
@@ -203,7 +204,7 @@ $id = $_GET['id'];
               </tfoot>
             </table>
           </div>
-
+          <hr>
           <div class="col-md-3 col-12">
             <div class="form-group">
               <label>Link Foto (Gdrive)<span class="required">*</span></label>
