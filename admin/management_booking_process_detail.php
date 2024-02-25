@@ -97,6 +97,8 @@ $id = $_GET['id'];
 
                   <div class="row">
                     <div class="card-body">
+                      <h3>Detail Booking</h3>
+
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <div class="mb-1">
@@ -122,7 +124,7 @@ $id = $_GET['id'];
                             <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
-                        
+
                         <hr>
 
                         <div class="col-md-3 col-12">
