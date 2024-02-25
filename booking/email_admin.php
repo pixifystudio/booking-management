@@ -30,10 +30,10 @@
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
 			<h1 style="font-size: 22px;">
-				<!-- <center> <img src="https://i.imghippo.com/files/1706428146.png" style="width: 20%;" alt="logo" />
-				</center> -->
+				<center> <img src="https://www.imghippo.com/i/GApEn1708857206.png" style="width: 20%;" alt="logo" />
+				</center>
 				<center>
-					<div style='color:green'>
+					<div style='color:black'>
 						<b>selfstudio</b>
 					</div>
 
