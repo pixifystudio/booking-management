@@ -95,7 +95,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
           <div class="hidden-md-up">
             <div class="logo logo-header">
               <a href="index.html">
-                <!-- <img src="./assets/images/logo-sf-white.png" alt="logo"> -->
+                <img src="./assets/images/pixify1-white.png" alt="logo">
               </a>
             </div>
           </div>
@@ -116,8 +116,10 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           <div class="secondary-main"></div>
                           <div class="secondary-light"></div>
                         </div>
+
                         <div class="logo">
-                          <!-- <img src="./assets/images/logo-sf-white.png" alt="logo" /> -->
+                          <img src="./assets/images/pixify1.png" alt="logo" />
+
                           <p class="use-text-subtitle2">Terima kasih sudah booking studio kami :D </p>
                         </div>
                       </div>
