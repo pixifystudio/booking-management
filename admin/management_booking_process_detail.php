@@ -211,7 +211,7 @@ $id = $_GET['id'];
           <div class="col-md-3 col-12">
             <div class="form-group">
               <label>Link Foto (Gdrive)<span class="required">*</span></label>
-              <input class="form-control" placeholder="Item" name="txtGdrive" type="text" value="" maxlength="100" required />
+              <input class="form-control" placeholder="Link" name="txtGdrive" type="text" value="" maxlength="100" required />
             </div>
           </div>
 
