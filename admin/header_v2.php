@@ -5,10 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Self Studio - <?= $_SESSION['SES_TITLE'] ?></title>
+    <title>Pixify Studio - <?= $_SESSION['SES_TITLE'] ?></title>
 
-    <link rel="apple-touch-icon" href="../app-assets/images/logo/logo-sf.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/logo-sf.png">
+    <link rel="apple-touch-icon" href="../app-assets/images/logo/pixify1-white.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/pixify1-white.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
