@@ -9,47 +9,47 @@ $id = $_GET['id'];
 <div class="app-content content ">
   <?php
 
+  # Tombol Tambah diklik
+  if (isset($_POST['btnTambah'])) {
+    $id = $_GET['id'];
+
+    #data post
+    $dataItem  = $_POST['txtItem'];
+    $dataNominal  = $_POST['txtNominal'];
+
+    $ses_nama = $_SESSION['SES_NAMA'];
+
+    #tambah data
+    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`, `nominal`, `updated_by`, `updated_date`)
+     VALUES ('$id','$dataItem','$dataNominal','$ses_nama',now())";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $nomor  = 0;
+    # Validasi Insert Sukses
+    if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
+    }
+
+
+  }
+
   # Tombol Submit diklik
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
-    $dataCode  = $_POST['txtCode'];
-    $dataTanggal  = $_POST['txtTanggal'];
-    $dataJam  = $_POST['txtJam'];
+    # Baca variabel form
+    $id   = $_GET['id'];
+    # UPDATE KE DATABASE BOOKING
 
-    # VALIDASI JAM 
-    # CEK APAKAH JAM TERSEBUT SUDAH DIGUNAKAN DI HARI YANG DIPILIH
-    $mySqlCek  = "SELECT tanggal, jam FROM booking WHERE tanggal='$dataTanggal' and jam ='$dataJam'";
-    $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
-    $JumlahDataCek = mysqli_num_rows($myQryCek);
+    $mySql   = "UPDATE `booking` 
+      SET `status`='Selesai',`updated_date`=now() WHERE id='$id'";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $nomor  = 0;
 
-    if ($JumlahDataCek >= 1) {
-      $pesanError[] = "Jam tersebut tidak tersedia untuk tanggal yang dipilih";
+    if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&s=success'>";
     }
-    #VALIDASI JAM SELESAI
 
-
-    # JIKA ADA PESAN ERROR DARI VALIDASI
-    if (count($pesanError) >= 1) {
-      echo "&nbsp;<div class='alert alert-warning'>";
-      $noPesan = 0;
-      foreach ($pesanError as $indeks => $pesan_tampil) {
-        $noPesan++;
-        echo "&nbsp;&nbsp; $pesan_tampil<br>";
-      }
-      echo "</div>";
-    } else {
-      # SIMPAN DATA KE DATABASE. 
-      // Jika tidak menemukan error, simpan data ke database
-
-      $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE booking set tanggal ='$dataTanggal', jam ='$dataJam' where id='$dataCode'";
-      $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
-      if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking&s=success'>";
-      }
-      exit;
-    }
+    
   } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
@@ -79,7 +79,7 @@ $id = $_GET['id'];
             <h2 class="content-header-title float-start mb-0">Booking</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a>Re-Schedule</a>
+                <li class="breadcrumb-item"><a>Konfirmasi Selesai</a>
                 </li>
               </ol>
             </div>
@@ -124,104 +124,88 @@ $id = $_GET['id'];
                             <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
+
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Tanggal Booking </label>
-                            <input class="form-control" placeholder="YYYY-MM-DD" name="txtTanggal" type="date" value="<?php echo $dataTanggal; ?>" autocomplete="off" required />
+                            <label>Item (Keterangan)<span class="required">*</span></label>
+                            <input class="form-control" placeholder="Item" name="txtItem" type="text" value="" maxlength="100" required />
                           </div>
                         </div>
+
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Jam Booking*</label>
-                            <select class="form-select" id="waktu" name="txtJam" aria-label="Default select example" autocomplete="off" required>
-                              <?php
-                              $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  order by j.jam asc;";
-
-                              $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                              while ($myData = mysqli_fetch_array($myQry)) {
-                                // set tanggal hari ini
-                                $hariini = date('Y-m-d');
-                                // jadwal jam yang tersedia
-                                $jam = date("H:i", strtotime($myData['jam']));
-                                $dataJam = date("H:i", strtotime($dataJam));
-                                #jam sesuaikan dengan jam yang diset sebelumnya
-                                if ($jam == $dataJam) {
-                                  $selected = "selected";
-                                } else {
-                                  $selected = "";
-                                }
-                              ?>
-                                <option <?= $selected ?> value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
-                              <?php
-                                // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
-
-                              }
-
-
-                              ?>
-                            </select>
+                            <label>Nominal (Harga)<span class="required">*</span></label>
+                            <input class="form-control" placeholder="Item" name="txtNominal" type="number" value="" maxlength="100" required />
                           </div>
                         </div>
+
                       </div>
 
-                      <div class="card-datatable">
-                        <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
-                          <thead>
-                            <tr>
-                              <th>No</th>
-                              <th>Item</th>
-                              <th>Nominal</th>
-                              <th>Hapus</th>
-                              <!-- <th>Reschedule</th> -->
-                            </tr>
-                          </thead>
-                          <tbody>
-
-                            <?php
-                            $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
-                            $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-                            $nomor  = 0;
-                            while ($myData = mysqli_fetch_array($myQry)) {
-                              $nomor++;
-                              $Code = $myData['booking_detail_id'];
-                              $Code2 = $myData['booking_id'];
-                              $Jam = $myData['jam'];
-
-
-                            ?>
-
-                              <tr>
-                                <td><?php echo $nomor; ?></td>
-                                <td><?php echo $myData['item']; ?></td>
-                                <td><?php echo $myData['nominal']; ?></td>
-                                <td>
-                                  <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                      <i data-feather="trash" class="me-50"></i>
-                                      <span>Batalkan</span>
-                                  </a>
-                                </td>
-                              </tr>
-                            <?php }
-                            ?>
-
-                          </tbody>
-                        </table>
+                      <div class="col-7 my-5">
+                        <button type="submit" name="btnTambah" class="btn btn-success me-3">Tambah Item</button>
                       </div>
 
-
-
-                    </div>
-                    <div class="col-7 my-5">
-                      <a type="button" href="?page=Management-Booking" class="btn btn-warning me-2">Kembali</a>
-                      <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
         </form>
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
+
+          <div class="card-datatable">
+            <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Item</th>
+                  <th>Nominal</th>
+                  <th>Hapus</th>
+                  <!-- <th>Reschedule</th> -->
+                </tr>
+              </thead>
+              <tbody>
+
+                <?php
+                $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
+                $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+                $nomor  = 0;
+                while ($myData = mysqli_fetch_array($myQry)) {
+                  $nomor++;
+                  $Code = $myData['booking_detail_id'];
+                  $Code2 = $myData['booking_id'];
+                  $Jam = $myData['jam'];
+
+
+                ?>
+
+                  <tr>
+                    <td><?php echo $nomor; ?></td>
+                    <td><?php echo $myData['item']; ?></td>
+                    <td><?php echo $myData['nominal']; ?></td>
+                    <td>
+                      <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                          <i data-feather="trash" class="me-50"></i>
+                          <span>Batalkan</span>
+                      </a>
+                    </td>
+                  </tr>
+                <?php }
+                ?>
+
+              </tbody>
+            </table>
+          </div>
+
+
+
+      </div>
+      <div class="col-7 my-5">
+        <a type="button" href="?page=Management-Booking-Process" class="btn btn-warning me-2">Kembali</a>
+        <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
       </div>
     </div>
   </div>
+</div>
+</form>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
