@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
     $myQry = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
     if ($myQry) {
         // Refresh halaman
-        echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking&id=$id2'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id2'>";
     }
 } else {
     // Jika tidak ada data Code ditemukan di URL
