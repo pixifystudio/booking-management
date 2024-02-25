@@ -277,8 +277,6 @@ $randomToken = generateRandomToken();
 
                                       if ($nama_hari == 'Sunday') {
                                         $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='12:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-                                      } else if ($nama_hari == 'Monday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam ='00:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       } else {
                                         $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       }
