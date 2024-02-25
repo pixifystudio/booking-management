@@ -10,9 +10,9 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Self Studio - Forgot Password</title>
-    <link rel="apple-touch-icon" href="../app-assets/images/logo/logo-sf.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/logo-sf.png">
+    <title>Pixify Studio- Forgot Password</title>
+    <link rel="apple-touch-icon" href="../app-assets/images/logo/pixify1.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/pixify1.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
 
@@ -44,7 +44,7 @@
 
 <!-- BEGIN: Body-->
 
-<body style='background: #436451;' class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+<body style='background: #ff9d7f;' class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
     <!-- BEGIN: Content-->
     <div class="app-content content ">
         <div class="content-overlay"></div>
@@ -126,7 +126,8 @@
                                             </g>
                                         </g>
                                     </svg> -->
-                                    <h2 style='color: #436451;'>Self Studio</h2>
+                                    <img src="../app-assets/images/logo/pixify-letter.png" alt="" height="30">
+
                                 </a>
 
                                 <p class="card-text mb-2">Lupa Password</p>
@@ -136,7 +137,7 @@
                                         <label for="login-email" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" aria-describedby="login-email" tabindex="1" autofocus />
                                     </div>
-                                    <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnForgotPassword" tabindex="4">Sign in</button>
+                                    <button class="btn w-100" style='background: #ff9d7f; color:white' type=" submit" name="btnForgotPassword" tabindex="4">Sign in</button>
                                 </form>
 
 
