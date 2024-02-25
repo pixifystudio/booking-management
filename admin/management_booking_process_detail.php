@@ -169,73 +169,37 @@ $id = $_GET['id'];
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>Nama</th>
-                              <th>Hari</th>
-                              <th>Tanggal</th>
-                              <th>Jam</th>
-                              <th>No WA</th>
-                              <th>Paket</th>
-                              <th>Background</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                              <th>Item</th>
+                              <th>Nominal</th>
+                              <th>Hapus</th>
                               <!-- <th>Reschedule</th> -->
                             </tr>
                           </thead>
                           <tbody>
 
                             <?php
-                            $mySql   = "SELECT * FROM booking where status ='Dikonfirmasi' and tanggal >= '$tanggal_hari_ini' order by tanggal desc";
+                            $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
                             $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                             $nomor  = 0;
                             while ($myData = mysqli_fetch_array($myQry)) {
                               $nomor++;
-                              $Code = $myData['id'];
+                              $Code = $myData['booking_detail_id'];
+                              $Code2 = $myData['booking_id'];
                               $Jam = $myData['jam'];
 
-                              // ganti format jam
-                              $Jam = $Jam;
-                              $Jam = date("G:i", strtotime($Jam));
-                              // set hari
-                              $tanggal = $myData['tanggal'];
-                              $hari = hari_ini($tanggal);
 
                             ?>
 
                               <tr>
                                 <td><?php echo $nomor; ?></td>
-                                <td><?php echo $myData['nama']; ?></td>
-                                <td><?php echo $hari; ?></td>
-                                <td><?php echo $myData['tanggal']; ?></td>
-                                <td><?php echo $Jam; ?></td>
-                                <td><?php echo $myData['no_wa']; ?></td>
-                                <td><?php echo $myData['paket']; ?></td>
-                                <td><?php echo $myData['background']; ?></td>
-                                <td><?php echo $myData['status']; ?></td>
-                                <?php if ($myData['status'] == 'Dikonfirmasi') { ?>
-                                  <td>
-                                    <div class="dropdown">
-                                      <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                        <i data-feather="more-vertical"></i>
-                                      </button>
-                                      <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="?page=Management-Booking-Process-Detail&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                            <i data-feather="check" class="me-50"></i>
-                                            <span>Selesai</span>
-                                        </a>
-                                        <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
-                                            <i data-feather="edit-2" class="me-50"></i>
-                                            <span>Re-Schedule</span>
-                                        </a>
-                                        <a class="dropdown-item" href="?page=Management-Booking-Cancel&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                            <i data-feather="trash" class="me-50"></i>
-                                            <span>Batalkan</span>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </td>
-                                <?php } else { ?>
-                                  <td></td>
-                                <?php } ?>
+                                <td><?php echo $myData['item']; ?></td>
+                                <td><?php echo $myData['nominal']; ?></td>
+                                <td>
+                                  <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                      <i data-feather="trash" class="me-50"></i>
+                                      <span>Batalkan</span>
+                                  </a>
+                                </td>
                               </tr>
                             <?php }
                             ?>
