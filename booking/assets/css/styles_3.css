@@ -231,20 +231,20 @@
   --v-anchor-base: #125440;
   --v-primarylight-base: #B2EBF2;
   --v-primary-base: #16b082;
-  --v-primarydark-base: #644362;
+  --v-primarydark-base: #F8BBD0;
   --v-secondarylight-base: #fafafa;
   --v-secondary-base: #fafafa;
   --v-secondarydark-base: #fafafa;
 }
 
 .burgundy-var {
-  --v-anchor-base: #e91e63;
-  --v-primarylight-base: #f8bbd0;
-  --v-primary-base: #e91e63;
-  --v-primarydark-base: #ad1457;
-  --v-secondarylight-base: #bbdefb;
-  --v-secondary-base: #2196f3;
-  --v-secondarydark-base: #1565c0;
+  --v-anchor-base: #125440;
+    --v-primarylight-base: #ff9d7f;
+    --v-primary-base: #125440;
+    --v-primarydark-base: #ff9d7f;
+    --v-secondarylight-base: #125440;
+    --v-secondary-base: #ff9d7f;
+    --v-secondarydark-base: #ff9d7f;
 }
 
 .ocean-blue-var {
