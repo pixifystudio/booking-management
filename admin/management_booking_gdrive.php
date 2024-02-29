@@ -217,6 +217,8 @@ function hari_ini($tanggal)
                                         $hari = hari_ini($tanggal);
 
                                         $link_gdrive = $myData['link_gdrive'];
+                                        $no_wa = $myData['no_wa'];
+
                                         $encoded = str_rot13($link_gdrive);
 
                                     ?>
@@ -230,7 +232,7 @@ function hari_ini($tanggal)
                                                         <i data-feather="external-link" class="me-50"></i>
                                                         <span>Link Check</span>
                                                 </a>
-                                                <a class="dropdown-item" href="https://wa.me/6289657756746?text=Hallo%20berikut%20link%20gdrive%20nya%20ya%3A%0D%0ALink%3A+<?= $link_gdrive;?>" target="_blank" role="button"><i class="fa fa-pencil fa-fw">
+                                                <a class="dropdown-item" href="https://wa.me/<?= $no_wa?>?text=%E2%80%8EHai%20kak%2C%20senang%20banget%20bisa%20foto-foto%20bareng%20kamu%20di%20Pixify%20Studio!%20%F0%9F%93%B8%20gimana%20pengalaman%20fotonya%3F%20Kamu%20bisa%20share%20di%20sini%20yaa%3A%0A%0Ahttps%3A%2F%2Fg.page%2Fr%2FCUl21qMVJcfCEB0%2Freview%0A%0ARating%20dan%20review%20kamu%20sangat%20ngebantu%20banget%20buat%20berkembangnya%20pengalaman%20foto%20kamu%20kedepannya%20%F0%9F%A4%A9%0A%0ADan%20Ini%20nih%20link%20download%20foto-foto%20kamu%20yang%20keren%20abis%3A%0A%0A%5B<?= $link_gdrive; ?>%5D%0A*link%20berlaku%207%20hari%20yaa%0A%0A%F0%9F%98%8D%20%F0%9F%98%8D%F0%9F%98%8D%0AKapan-kapan%20main%20lagi%20ke%20studio%20kitayaa~%20Jangan%20lupa%20pamer%20foto-foto%20kamu%20di%20sosmed%20ya%2C%20sambil%20tag%20dan%20mention%20%40pxy.studio%20biar%20makin%20kecee%20%F0%9F%99%8C%F0%9F%8F%BB%0Ajgn%20lupa%20juga%20ikutin%20sosial%20media%20kita%20buat%20info%20promo%20menarik%20lainnya%20di%20%40pxy.studio%20%F0%9F%98%89" target="_blank" role="button"><i class="fa fa-pencil fa-fw">
                                                         <i data-feather="send" class="me-50"></i>
                                                         <span>Sent to WA</span>
                                                 </a>
