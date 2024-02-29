@@ -229,7 +229,7 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['nama']; ?></td>
                                             <td><?php echo $myData['no_wa']; ?></td>
                                             <td>
-                                                <a class="dropdown-item" href="https://drive.google.com/drive/folders/1Z2FxY9fjNmf2LXiNlKjB_zbWamvrA_RX" target="_blank" role="button"><i class="fa fa-check fa-fw">
+                                                <a class="dropdown-item" href="<?= $link_gdrive?>" target="_blank" role="button"><i class="fa fa-check fa-fw">
                                                         <i data-feather="external-link" class="me-50"></i>
                                                         <span>Link Check</span>
                                                 </a>
