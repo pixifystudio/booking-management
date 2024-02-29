@@ -1,5 +1,5 @@
 <?php
-                        error_reporting(0);
+error_reporting(0);
 
 include_once "library/inc.connection.php";
 
@@ -495,7 +495,7 @@ $randomToken = generateRandomToken();
                           </div> -->
 
                           <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
                           </div>
                           </form>
                         <?php  }
