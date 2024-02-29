@@ -1,5 +1,5 @@
 <?php
-echo error_reporting(0);
+ error_reporting(0);
 // include "main_maintenance.php";
 // exit;
 # KONTROL MENU PROGRAM
