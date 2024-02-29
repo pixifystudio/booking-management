@@ -3,6 +3,36 @@
 
 include_once "library/inc.connection.php";
 
+function remove_fbclid_from_url($url)
+{
+  // Parse URL
+  $url_components = parse_url($url);
+
+  // Pisahkan query string menjadi array
+  parse_str($url_components['query'], $query_params);
+
+  // Hapus parameter fbclid
+  unset($query_params['fbclid']);
+
+  // Rekonstruksi query string
+  $new_query_string = http_build_query($query_params);
+
+  // Rekonstruksi URL
+  $new_url = $url_components['scheme'] . '://' . $url_components['host'] . $url_components['path'];
+
+  // Tambahkan kembali query string jika ada
+  if (!empty($new_query_string)) {
+    $new_url .= '?' . $new_query_string;
+  }
+
+  return $new_url;
+}
+
+// Contoh penggunaan
+$original_url = "https://pixify.id/booking/?fbclid=PAAaaaoT0jUdLf5sUp9usirpovdebsmodsmA9k_PgFmovZ9Gfpsrbw9-tohO4";
+$cleaned_url = remove_fbclid_from_url($original_url);
+
+
 
 
 // Set the locale to a foreign language (e.g., French)
