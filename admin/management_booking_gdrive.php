@@ -218,7 +218,7 @@ function hari_ini($tanggal)
 
                                         $link_gdrive = $myData['link_gdrive'];
                                         $no_wa = $myData['no_wa'];
-                                        $nomor_telepon_baru = "62" . substr($no_wa, 1);
+                                        $no_wa = "62" . substr($no_wa, 1);
 
                                         $encoded = str_rot13($link_gdrive);
 
