@@ -34,7 +34,6 @@
 				</center>
 				<center>
 					<div style='color:black'>
-						<b>pixify studio.</b>
 					</div>
 
 				</center>
