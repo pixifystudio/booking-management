@@ -290,7 +290,7 @@ $randomToken = generateRandomToken();
                                         // jika tanggal yang dipilih hari ini, set validasi
                                         if ($hariini == $txtTanggal) {
                                           // set jam sekarang tambah 1 jam
-                                          $jamsekarang = date("H:i", strtotime("+60 minutes"));
+                                          $jamsekarang = date("H:i", strtotime("+0 minutes"));
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                           // tampilkan daftar jam minimal 1 jam dari jam sekarang
