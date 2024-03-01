@@ -146,7 +146,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                             <p>
                               1. Cek email kamu untuk detail pemesanan.</p>
                             <p>
-                              2. Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BCA 409101008799535 a.n Dicky Pramana Sukma</p>
+                              2. Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</p>
                             <p>
                               3. Kirim bukti pembayaran melalui no WhatsApp: 085171212096 </p>
                             <p> Sampai berjumpa di Self Studio :)</p>

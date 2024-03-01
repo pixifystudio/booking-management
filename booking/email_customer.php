@@ -46,7 +46,7 @@
 
 
 			<p class="stylefont">Tim kami akan segera menghubungi kamu <br>
-				melalui no WhatsApp <b>0851-7315-8153</b>
+				melalui no WhatsApp <b>0851-7121-2096</b>
 				<br>
 				Silahkan langsung bertanya jika ada yang ingin dikonfirmasi melalui Instagram atau WhatsApp yaa :)
 				<br>
