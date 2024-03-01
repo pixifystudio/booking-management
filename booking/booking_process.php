@@ -150,7 +150,7 @@ if (isset($_POST['btnSubmit'])) {
 
   $date_ini = $tanggal_ini . ' ' . $bulan_ini . ' ' . $tahun_ini;
 
-
+  
 
   // cek apakah detail transaksi dengan token yang diset sudah ada di database
   $mySql  = "SELECT token from booking where token ='$txtToken'";

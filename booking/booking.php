@@ -29,6 +29,14 @@ if (isset($_POST['btnSubmit'])) {
   if ($txtTanggal < $tanggal_sekarang) {
     $txtTanggal = '';
   }
+
+  $jam_sekarang = date("h:i");
+  $jam_tutup = date("18:00");
+
+  if ($jam_sekarang > $jam_tutup) {
+    echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Closed'>";
+    exit;
+  }
 }
 
 

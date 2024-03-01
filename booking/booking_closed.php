@@ -139,22 +139,17 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                         </div>
                         <form id="login_form" method="POST">
                           <div class="title-main align-left">
-                            <p>Terimakasih <?php echo $nama ?>,
+                            <p>Yaah..
                             </p>
                             <p>
-                              Selanjutnya yang harus kamu lakukan:</p>
+                              tanggal yang kamu pilih sudah ga ada jam kosong tersedia :(</p>
                             <p>
-                              1. Cek email kamu untuk detail pemesanan.</p>
-                            <p>
-                              2. Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</p>
-                            <p>
-                              3. Kirim bukti pembayaran melalui no WhatsApp: 085171212096 </p>
-                            <p> Sampai berjumpa di Self Studio :)</p>
+                              Silahkan pilih tanggal yang lain yaa</p>
                           </div>
 
                         </form>
                         <div class="title-main align-left" style="width:87%">
-                          <a href="https://wa.me/6285171212096?text=Hallo+min%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect" style='color:white'>Confirm Melalui WA</a>
+                          <a href="?page=Booking" class="btn secondary btn-large block waves-effect" style='color:white'>Pilih Tanggal Ulang</a>
                         </div>
                       </div>
 
