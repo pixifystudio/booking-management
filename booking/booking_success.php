@@ -138,7 +138,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           </a> -->
                         </div>
                         <form id="login_form" method="POST">
-                          <div class="row spacing3">
+                          <div class="row">
                             <p>Terimakasih <?php echo $nama ?>,
                             </p>
                             <p>
