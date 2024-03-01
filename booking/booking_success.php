@@ -156,9 +156,9 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                       </div>
                       <div class="title-main align-left">
                         <a href="https://wa.me/6285171212096?text=Hallo+min%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect" style='color:white'>Confirm Melalui WA</a>
-                      </div </div>
-                      >
+                      </div>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -166,25 +166,26 @@ $username = isset($myData['username']) ? $myData['username'] : '';
           </div>
         </div>
       </div>
-    </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
-    <script src="./assets/js/vendors/jquery.min.js"></script>
-    <script src="./assets/js/vendors/bootstrap.min.js"></script>
-    <script src="./assets/js/vendors/enquire.min.js"></script>
-    <script src="./assets/js/vendors/jquery.enllax.min.js"></script>
-    <script src="./assets/js/vendors/jquery.form-validator.min.js"></script>
-    <script src="./assets/js/vendors/jquery.touchSwipe.min.js"></script>
-    <script src="./assets/js/vendors/pace.min.js"></script>
-    <script src="./assets/js/vendors/slick.min.js"></script>
-    <script src="./assets/js/vendors/wow.min.js"></script>
-    <script src="./assets/js/vendors/jquery.navScroll.min.js"></script>
-    <script src="./assets/js/vendors/parallax.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
-    <script src="./assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <script src="./assets/js/vendors/materialize.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    </div>
+  </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
+  <script src="./assets/js/vendors/jquery.min.js"></script>
+  <script src="./assets/js/vendors/bootstrap.min.js"></script>
+  <script src="./assets/js/vendors/enquire.min.js"></script>
+  <script src="./assets/js/vendors/jquery.enllax.min.js"></script>
+  <script src="./assets/js/vendors/jquery.form-validator.min.js"></script>
+  <script src="./assets/js/vendors/jquery.touchSwipe.min.js"></script>
+  <script src="./assets/js/vendors/pace.min.js"></script>
+  <script src="./assets/js/vendors/slick.min.js"></script>
+  <script src="./assets/js/vendors/wow.min.js"></script>
+  <script src="./assets/js/vendors/jquery.navScroll.min.js"></script>
+  <script src="./assets/js/vendors/parallax.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
+  <script src="./assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <script src="./assets/js/vendors/materialize.js"></script>
+  <script src="./assets/js/scripts.js"></script>
 
 
-    <!-- Datepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <!-- Datepicker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 </body>
 
 <script>
