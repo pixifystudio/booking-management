@@ -44,6 +44,11 @@ if ($_GET) {
       include "booking_cancel.php";
       break;
 
+    case 'Booking-Closed':
+      if (!file_exists("booking_closed.php")) die("Sorry Empty Page!");
+      include "booking_closed.php";
+      break;
+
 
     case 'Booking-Notification':
       if (!file_exists("notification_30menitbooking.php")) die("Sorry Empty Page!");
