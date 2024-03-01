@@ -120,7 +120,6 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                         <div class="logo">
                           <img src="./assets/images/pixify1.png" alt="logo" />
 
-                          <p class="use-text-subtitle2">Terima kasih sudah booking studio kami :D </p>
                         </div>
                       </div>
                     </div>
