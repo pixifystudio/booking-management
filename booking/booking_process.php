@@ -276,7 +276,7 @@ Appointment Type: $txtJenis <br>";
       // Set informasi email
       $mail->isHTML(true);
       $mail->MsgHTML($email_message);
-      $mail->Subject = 'Pixify Self Photo Studio Booking';
+      $mail->Subject = 'Booking Kamu Telah Dikonfirmasi!';
 
       // Kirim email
       $mail->send();
