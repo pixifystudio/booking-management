@@ -615,6 +615,10 @@ $randomToken = generateRandomToken();
             var currentDate = new Date();
             currentDate.setHours(0, 0, 0, 0); // Set jam ke 00:00:00
 
+            // Tambahkan validasi tanggal yang sudah lewat
+            var DateClosed = new Date();
+            DateClosed.setHours(18, 0, 0, 0); // Set jam ke 18:00:00
+
             var cellDate = new Date(year, month, date);
 
 
@@ -655,8 +659,18 @@ $randomToken = generateRandomToken();
               cell.classList.add("disabled");
               cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
 
-              cell.innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
+              cell
+                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
             }
+            if (currentDate > DateClosed) {
+              cell.classList.add("disabled");
+              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+
+              cell
+                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
+            }
+
+
 
             row.appendChild(cell);
             date++;
