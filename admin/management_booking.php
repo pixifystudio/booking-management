@@ -166,8 +166,8 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['nama']; ?></td>
                                             <td><?php echo $hari; ?></td>
                                             <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $no_wa; ?></td>
-                                            <td> <a href="https://wa.me/<?=  $no_wa_baru ?>" class="btn secondary btn-large block waves-effect" style='color:white'><?= $no_wa ?></a></td>
+                                            <td><?php echo $Jam; ?></td>
+                                            <td> <a href="https://wa.me/<?=  $no_wa_baru ?>" class="btn secondary btn-large block waves-effect"><?= $no_wa ?></a></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
