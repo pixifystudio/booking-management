@@ -192,7 +192,7 @@ if (isset($_POST['btnSubmit'])) {
 
     #ambil harga
     if ($txtPaket =='Basic') {
-      $txtNominal ='50000';
+      $txtNominal ='25000';
     } else  if ($txtPaket == 'Photo Session') {
       $txtNominal = '100000';
     } else  if ($txtPaket == 'Pas Photo') {

@@ -156,7 +156,7 @@ function hari_ini($tanggal)
                                         // set hari
                                         $tanggal = $myData['tanggal'];
                                         $hari = hari_ini($tanggal);
-                                           $no_wa = $myData['no_wa'];
+                                        $no_wa = $myData['no_wa'];
                                         $no_wa_baru = "62" . substr($no_wa, 1);
 
                                     ?>
@@ -167,7 +167,7 @@ function hari_ini($tanggal)
                                             <td><?php echo $hari; ?></td>
                                             <td><?php echo $myData['tanggal']; ?></td>
                                             <td><?php echo $Jam; ?></td>
-                                            <td> <a href="https://wa.me/<?=  $no_wa_baru ?>" class="btn secondary btn-large block waves-effect"><?= $no_wa ?></a></td>
+                                            <td> <a href="https://wa.me/<?= $no_wa_baru ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $no_wa ?></a></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
