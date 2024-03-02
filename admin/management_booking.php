@@ -93,7 +93,7 @@ function hari_ini($tanggal)
                     echo "&nbsp;<div class='alert alert-success'>";
                     echo "&nbsp;&nbsp; Berhasil di Konfirmasi<br>";
                     echo "</div>";
-                } 
+                }
             }
             ?>
 
@@ -165,7 +165,7 @@ function hari_ini($tanggal)
                                             <td><?php echo $hari; ?></td>
                                             <td><?php echo $myData['tanggal']; ?></td>
                                             <td><?php echo $Jam; ?></td>
-                                            <td><?php echo $myData['no_wa']; ?></td>
+                                            <td> <a href="https://wa.me/<?= $myData['no_wa'] ?>" class="btn secondary btn-large block waves-effect" style='color:white'><?= $myData['no_wa'] ?></a></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
