@@ -30,19 +30,19 @@ if (isset($_POST['btnSubmit'])) {
     $txtTanggal = '';
   }
 
-  // kalau yang dipilih tanggal nya hari ini, maka validasi jam jalan
-  if ($txtTanggal == $tanggal_sekarang) {
-   echo  $jam_sekarang = date("G:i");
-   echo $jam_tutup = date("18:00");
-    // kalau jam yang dipilih melebihi jam tutup, validasi jalan
-  if ($jam_tutup > $jam_sekarang) {
-    echo  $jam_sekarang . '<br>';
-    echo $jam_tutup;
-    exit;
-    echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Closed'>";
-    exit;
-  }
-  }
+  // // kalau yang dipilih tanggal nya hari ini, maka validasi jam jalan
+  // if ($txtTanggal == $tanggal_sekarang) {
+  //  echo  $jam_sekarang = date("G:i");
+  //  echo $jam_tutup = date("18:00");
+  //   // kalau jam yang dipilih melebihi jam tutup, validasi jalan
+  // if ($jam_tutup > $jam_sekarang) {
+  //   echo  $jam_sekarang . '<br>';
+  //   echo $jam_tutup;
+  //   exit;
+  //   echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Closed'>";
+  //   exit;
+  // }
+  // }
 
 }
 
