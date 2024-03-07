@@ -208,7 +208,7 @@ function hari_ini($tanggal)
                                         $nomor++;
                                         $Code = $myData['id'];
                                         $Jam = $myData['jam'];
-
+                                        // TEST
                                         // ganti format jam
                                         $Jam = $Jam;
                                         $Jam = date("G:i", strtotime($Jam));
