@@ -190,7 +190,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!='' and status ='Selesai'";
+                                    $mySql   = "SELECT * FROM booking WHERE id!='' and status ='Selesai' order by updated_date desc";
                                     // jika tanggal, tipe dan paket !=''
                                     if ($Date != '') {
                                         $mySql .=  " AND tanggal ='$Date'";
