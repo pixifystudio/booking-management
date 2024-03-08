@@ -227,7 +227,7 @@ function hari_ini($tanggal)
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['nama']; ?></td>
-                                            <td><?php echo $myData['no_wa']; ?></td>
+                                            <td><?php echo $encoded ?></td>
                                             <td>
                                                 <a class="dropdown-item" href="<?= $link_gdrive ?>" target="_blank" role="button"><i class="fa fa-check fa-fw">
                                                         <i data-feather="external-link" class="me-50"></i>
