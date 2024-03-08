@@ -220,7 +220,7 @@ function hari_ini($tanggal)
                                         $no_wa = $myData['no_wa'];
                                         $no_wa_baru = "62" . substr($no_wa, 1);
 
-                                        $encoded = str_rot13($link_gdrive);
+                                        $encoded = urlencode($link_gdrive);
 
                                     ?>
 
