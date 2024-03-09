@@ -170,7 +170,7 @@ $randomToken = generateRandomToken();
   <meta property="twitter:domain" content="luxi.ux-maestro.com">
   <meta property="twitter:creator" content="luxi">
   <meta property="twitter:card" content="summary">
-  <meta property="twitter:image:src" content="./assets/images/pixify1.png">
+  <meta property="twitter:image:src" content="assets/images/pixify1.png">
   <meta property="og:url" content="alexstrap.ux-maestro.com/education">
   <meta property="og:title" content="PIXIFY STUDIO">
   <meta property="og:description" content="Pixify - Photo Studio">
