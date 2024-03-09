@@ -172,8 +172,8 @@ $randomToken = generateRandomToken();
   <meta property="twitter:card" content="summary">
   <meta property="twitter:image:src" content="./assets/images/pixify1.png">
   <meta property="og:url" content="alexstrap.ux-maestro.com/education">
-  <meta property="og:title" content="SELF STUDIO">
-  <meta property="og:description" content="SELFSTUDIO - Photo Studio & Event Photobooth">
+  <meta property="og:title" content="PIXIFY STUDIO">
+  <meta property="og:description" content="Pixify - Photo Studio">
   <meta name="twitter:site" content="alexstrap.ux-maestro.com/education">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/pixify1.png">
