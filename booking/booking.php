@@ -176,8 +176,8 @@ $randomToken = generateRandomToken();
   <meta property="og:description" content="Pixify - Photo Studio">
   <meta name="twitter:site" content="alexstrap.ux-maestro.com/education">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/pixify1.png">
-  <meta property="og:image" content="/images/pixify1.png">
+  <meta name="twitter:image" content="assets/images/pixify1.png">
+  <meta property="og:image" content="assets/images/pixify1.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <title>Pixify Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
