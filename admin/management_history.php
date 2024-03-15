@@ -186,6 +186,7 @@ function hari_ini($tanggal)
                                         <th>Tanggal</th>
                                         <th>Jam</th>
                                         <th>No WA</th>
+                                        <th>Instagram</th>
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
