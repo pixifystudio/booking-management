@@ -158,7 +158,7 @@ function hari_ini($tanggal)
                                         $tanggal = $myData['tanggal'];
                                         $hari = hari_ini($tanggal);
                                         $no_wa = $myData['no_wa'];
-                                        $instgram = $myData['instgram'];
+                                        $instagram = $myData['instagram'];
                                         $no_wa_baru = "62" . substr($no_wa, 1);
 
                                     ?>
