@@ -293,7 +293,7 @@ $randomToken = generateRandomToken();
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
                                         $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='09:00' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       } else {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='10:00' and j.jam <='18:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='10:00' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       }
 
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
