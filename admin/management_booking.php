@@ -132,6 +132,7 @@ function hari_ini($tanggal)
                                         <th>Tanggal</th>
                                         <th>Jam</th>
                                         <th>No WA</th>
+                                        <th>Instagram</th>
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
@@ -157,6 +158,7 @@ function hari_ini($tanggal)
                                         $tanggal = $myData['tanggal'];
                                         $hari = hari_ini($tanggal);
                                         $no_wa = $myData['no_wa'];
+                                        $instgram = $myData['instgram'];
                                         $no_wa_baru = "62" . substr($no_wa, 1);
 
                                     ?>
@@ -168,6 +170,7 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['tanggal']; ?></td>
                                             <td><?php echo $Jam; ?></td>
                                             <td> <a href="https://wa.me/<?= $no_wa_baru ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $no_wa ?></a></td>
+                                            <td> <a href="https://www.instagram.com/<?= $instagram ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $instagram ?></a></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
