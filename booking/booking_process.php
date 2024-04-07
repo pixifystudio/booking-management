@@ -247,7 +247,7 @@ Alamat Email: $txtEmail <br>
 No WhatsApp: $txtWhatsapp <br>
 Background: $txtBackground <br>
 Username Instagram: $txtInstagram <br>
-Appointment Type: $txtJenis <br>";
+Jenis Foto: $txtJenis <br>";
 
       // set variable 
       $swap_var = array(
@@ -323,7 +323,7 @@ Alamat Email: $txtEmail <br>
 No WhatsApp: $txtWhatsapp <br>
 Background: $txtBackground <br>
 Username Instagram: $txtInstagram <br>
-Appointment Type: $txtJenis <br>";
+Jenis Foto: $txtJenis <br>";
 
       // set variable 
       $swap_var = array(
