@@ -289,14 +289,14 @@ $randomToken = generateRandomToken();
                                       echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='09:00' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       }
                                       else {
-                                        if ($txtTanggal =='2024-03-25' || $txtTanggal == '2024-03-26' ) {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='09:00' and j.jam <='22:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        if ($nama_hari == 'Friday' ) {
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                         }
                                         else {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='09:00' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
 
                                         }
                                       }
