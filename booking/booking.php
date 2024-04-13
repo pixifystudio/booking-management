@@ -47,6 +47,11 @@ if (isset($_POST['btnSubmit'])) {
 }
 
 
+$sekarang = new DateTime();
+// Menambahkan 1 jam
+$sekarang->add(new DateInterval('PT1H'));
+// Formatkan dan tampilkan waktu setelah ditambah 1 jam
+$validasijam = $sekarang->format('H:i');
 
 
 
@@ -285,17 +290,17 @@ $randomToken = generateRandomToken();
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                     <?php
                                     if ($txtTanggal != '') {
-                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
+                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       }
                                       else {
                                         if ($nama_hari == 'Friday' ) {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                         }
                                         else {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
 
                                         }
                                       }
@@ -309,7 +314,7 @@ $randomToken = generateRandomToken();
                                         // jika tanggal yang dipilih hari ini, set validasi
                                         if ($hariini == $txtTanggal) {
                                           // set jam sekarang tambah 1 jam
-                                          $jamsekarang = date("H:i", strtotime("+60 minutes"));
+                                          $jamsekarang = date("H:i", strtotime("+0 minutes"));
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                           // tampilkan daftar jam minimal 1 jam dari jam sekarang
