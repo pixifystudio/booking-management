@@ -50,7 +50,6 @@ if (isset($_POST['btnSubmit'])) {
 
 
 
-
 // echo $txtTanggal;
 // ambil token
 function generateRandomToken($length = 32)
@@ -310,7 +309,7 @@ $randomToken = generateRandomToken();
                                         // jika tanggal yang dipilih hari ini, set validasi
                                         if ($hariini == $txtTanggal) {
                                           // set jam sekarang tambah 1 jam
-                                          $jamsekarang = date("H:i", strtotime("+0 minutes"));
+                                          $jamsekarang = date("H:i", strtotime("+60 minutes"));
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                           // tampilkan daftar jam minimal 1 jam dari jam sekarang
