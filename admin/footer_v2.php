@@ -90,8 +90,8 @@
 
         $('.datatables-basic').DataTable({
             lengthMenu: [
-                [50, 25, 10, -1],
-                [50, 25, 10, "All"]
+                [10,25,50,100, -1],
+                [10,25,50,100, "All"]
             ],
             dom: '<"d-flex justify-content-between align-items-center header-actions mx-2 row mt-50 mb-1"' +
                 '<"col-sm-12 col-md-4 col-lg-6"l>' +
