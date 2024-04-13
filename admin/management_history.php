@@ -122,11 +122,11 @@ function hari_ini($tanggal)
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
                                                     <label>Dari</label>
-                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtFrom' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" />
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtFrom' value='<?php echo $from ?>' aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <label>Sampai</label>
-                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtTo' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" />
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtTo' value='<?php echo $to ?>' aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
 
