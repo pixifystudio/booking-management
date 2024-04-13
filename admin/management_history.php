@@ -6,7 +6,8 @@ $_SESSION['SES_PAGE'] = "?page=Management-History";
 $ses_group = $_SESSION['SES_GROUP'];
 
 # untuk validasi
-$Date = isset($_GET['date']) ? $_GET['date'] : '';
+$from = isset($_GET['from']) ? $_GET['from'] : '';
+$to = isset($_GET['to']) ? $_GET['to'] : '';
 $DataPaket = isset($_GET['p']) ? $_GET['p'] : '';
 $DataBackground = isset($_GET['b']) ? $_GET['b'] : '';
 #
@@ -120,8 +121,12 @@ function hari_ini($tanggal)
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Tanggal</label>
-                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" />
+                                                    <label>Dari</label>
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtFrom' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                    <label>Sampai</label>
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtTo' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
 
@@ -199,8 +204,11 @@ function hari_ini($tanggal)
                                     <?php
                                     $mySql   = "SELECT * FROM booking WHERE id!=''";
                                     // jika tanggal, tipe dan paket !=''
-                                    if ($Date != '') {
-                                        $mySql .=  " AND tanggal ='$Date'";
+                                    if ($from != '') {
+                                        $mySql .=  " AND tanggal >='$from'";
+                                    }
+                                       if ($to != '') {
+                                        $mySql .=  " AND tanggal <='$to'";
                                     }
                                     if ($DataPaket != '') {
                                         $mySql .=  " AND paket ='$DataPaket'";
