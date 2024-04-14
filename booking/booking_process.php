@@ -215,7 +215,7 @@ if (isset($_POST['btnSubmit'])) {
     // Inisialisasi PHPMailer
     $mail = new PHPMailer(true);
 
-    $urlcancel = "https://sf-selfstudio.com/booking/?page=Test-Booking-Cancel&id=" . $id_terakhir;
+    $urlcancel = "https://pixify.id/booking/?page=Booking-Cancel&id=" . $id_terakhir;
 
 
     try {
