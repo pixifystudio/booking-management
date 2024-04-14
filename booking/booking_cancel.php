@@ -134,7 +134,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
                       <div>
                         <div class="head">
                           <div class="title-main align-left">
-                            <h4 class="secondary"><span>BOOKING</span></h4>
+                            <h4 class="secondary"><span>BATAL BOOKING</span></h4>
                             <p class="desc use-text-subtitle2"></p>
                           </div>
                           <!-- <a class="btn btn-flat waves-effect button-link" href="register.html">
