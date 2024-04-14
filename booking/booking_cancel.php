@@ -27,7 +27,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Alexstrap Education - HTML5 Bootstrap Landing Page Template">
+  <meta name="description" content="Pixify Selfstudio - Photo Studio">
   <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"><!-- Favicon-->
   <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
   <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-icon-57x57.png">
@@ -39,10 +39,10 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
   <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicons/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicons/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="assets/images/pixify1.png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
+  <link rel="icon" type="assets/images/pixify1.png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="assets/images/pixify1.png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
+  <link rel="icon" type="assets/images/pixify1.png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
   <link rel="manifest" href="./assets/favicons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="./assets/favicons/ms-icon-144x144.png"><!-- PWA primary color-->
@@ -58,30 +58,37 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
   <meta property="twitter:domain" content="luxi.ux-maestro.com">
   <meta property="twitter:creator" content="luxi">
   <meta property="twitter:card" content="summary">
-  <meta property="twitter:image:src" content="./assets/images/logo.png">
+  <meta property="twitter:image:src" content="assets/images/pixify1.png">
   <meta property="og:url" content="alexstrap.ux-maestro.com/education">
-  <meta property="og:title" content="Education">
-  <meta property="og:description" content="Alexstrap Education - HTML5 Bootstrap Landing Page Template">
+  <meta property="og:title" content="PIXIFY STUDIO">
+  <meta property="og:description" content="Pixify - Photo Studio">
   <meta name="twitter:site" content="alexstrap.ux-maestro.com/education">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/education-logo.png">
-  <meta property="og:image" content="/images/education-logo.png">
+  <meta name="twitter:image" content="assets/images/pixify1.png">
+  <meta property="og:image" content="assets/images/pixify1.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <title>Pixify Studio - Batal Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
-  <link href="./assets/css/vendors/materialize.css" rel="stylesheet">
+  <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
   <link href="./assets/css/vendors/hamburger-menu.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
-  <link href="./assets/css/styles.css" rel="stylesheet">
+  <link href="./assets/css/styles_13.css" rel="stylesheet">
+  <link href="assets/css/date-picker.css" rel="stylesheet">
+
   <!-- font-awesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- datepicker styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+  <!-- timepicker style -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- bahasa indonesia for datepicker -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+
+
 </head>
 
 <body>
