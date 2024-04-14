@@ -30,11 +30,10 @@
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
 			<h1 style="font-size: 22px;">
-				<center> <img src="https://i.imghippo.com/files/QemjM1713056172.png" style="width: 20%;" alt="logo" />
+				<center> <img src="https://i.imghippo.com/files/QemjM1713056172.png" style="width: 30%;" alt="logo" />
 				</center>
 				<center>
 					<div style='color:black'>
-						<b>pixify studio.</b>
 					</div>
 
 				</center>
