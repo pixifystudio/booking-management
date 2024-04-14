@@ -68,7 +68,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
   <meta property="og:image" content="/images/education-logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <title>SF Studio - Batal Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
+  <title>Pixify Studio - Batal Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
   <link href="./assets/css/vendors/materialize.css" rel="stylesheet">
@@ -94,7 +94,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
           <div class="hidden-md-up">
             <div class="logo logo-header">
               <a href="?page=Booking">
-                <img src="./assets/images/logo-sf-white.png" alt="logo">
+                <img src="./assets/images/pixify1.png" alt="logo" />
               </a>
             </div>
           </div>
@@ -116,7 +116,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
                           <div class="secondary-light"></div>
                         </div>
                         <div class="logo">
-                          <img src="./assets/images/logo-sf-white.png" alt="logo" />
+                          <img src="./assets/images/pixify1.png" alt="logo" />
                           <p class="use-text-subtitle2"></p>
                         </div>
                       </div>
