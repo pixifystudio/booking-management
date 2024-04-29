@@ -140,21 +140,6 @@ $randomToken = generateRandomToken();
   }
 </style>
 
-<script>
-  // Tangani perubahan pada elemen date-picked
-  document.getElementById('selectedDate').addEventListener('change', function() {
-    // Periksa apakah selectedDate terisi atau tidak
-    var datePickedValue = document.getElementById('selectedDate').innerHTML;
-    if (datePickedValue.trim() !== '') {
-      // Jika terisi, tampilkan tombol Confirm Tanggal
-      document.getElementById('confirm-tanggal-btn').style.display = 'block';
-    } else {
-      // Jika tidak terisi, sembunyikan tombol Confirm Tanggal
-      document.getElementById('confirm-tanggal-btn').style.display = 'none';
-    }
-  });
-</script>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -511,7 +496,7 @@ $randomToken = generateRandomToken();
 
 
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-                                <!-- <div id="date-picked"></div> -->
+                                <div id="date-picked"></div>
 
                                 <input type="hidden" id="selectedDate" name="selectedDate">
 
@@ -532,16 +517,13 @@ $randomToken = generateRandomToken();
                             </div>
                           </div> -->
 
-                          <div class="btn-area mt-10" id="confirm-tanggal-btn" style="display: none;">
-                            <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
-                            </div>
+                          <div class="btn-area mt-10">
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
                           </div>
-                            </form>
-                          <?php  }
-                          ?>
+                          </form>
+                        <?php  }
+                        ?>
 
-                          </div>
                       </div>
                     </div>
                   </div>
@@ -551,224 +533,225 @@ $randomToken = generateRandomToken();
           </div>
         </div>
       </div>
-    </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
+    </div>
+  </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
 
-    <script>
-      var today = new Date();
-      var currentMonth = today.getMonth();
-      var currentYear = today.getFullYear();
-      var selectYear = document.getElementById("year");
-      var selectMonth = document.getElementById("month");
-      var monthHeader = document.getElementById("monthHeader");
-      var yearHeader = document.getElementById("yearHeader");
-      var nextBtn = document.getElementById("next");
-      var previousBtn = document.getElementById("previous");
-      var datePicked = document.getElementById("date-picked");
-      var months = "";
-      var days = "";
-      var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      var daysArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  <script>
+    var today = new Date();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+    var selectYear = document.getElementById("year");
+    var selectMonth = document.getElementById("month");
+    var monthHeader = document.getElementById("monthHeader");
+    var yearHeader = document.getElementById("yearHeader");
+    var nextBtn = document.getElementById("next");
+    var previousBtn = document.getElementById("previous");
+    var datePicked = document.getElementById("date-picked");
+    var months = "";
+    var days = "";
+    var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var daysArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-      months = monthsArr;
-      days = daysArr;
+    months = monthsArr;
+    days = daysArr;
 
-      var tableHeaderMonth = document.getElementById("thead-month");
-      var dataHead = "<tr>";
-      var startDay = "";
+    var tableHeaderMonth = document.getElementById("thead-month");
+    var dataHead = "<tr>";
+    var startDay = "";
 
-      // Seleksi tombol submit
-      var btnSubmit = document.getElementById("btnSubmit");
+    // Seleksi tombol submit
+    var btnSubmit = document.getElementById("btnSubmit");
 
-      // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
-      window.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
-      });
+    // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+    });
 
+ 
 
+    for (dhead in days) {
+      days[dhead] === "Sun" ? startDay = "red-text" : startDay = "";
+      dataHead += "<th data-days='" + days[dhead] + "' class='" + startDay + "'>" + days[dhead] + "</th>";
+    }
 
-      for (dhead in days) {
-        days[dhead] === "Sun" ? startDay = "red-text" : startDay = "";
-        dataHead += "<th data-days='" + days[dhead] + "' class='" + startDay + "'>" + days[dhead] + "</th>";
+    dataHead += "</tr>";
+    tableHeaderMonth.innerHTML = dataHead;
+    showCalendar(currentMonth, currentYear);
+
+    nextBtn.addEventListener("click", next, false);
+    previousBtn.addEventListener("click", previous, false);
+
+    function yearRange(start, end) {
+      var years = "";
+
+      for (var year = start; year <= end; year++) {
+        years += "<option value='" + year + "'>" + year + "</option>";
       }
 
-      dataHead += "</tr>";
-      tableHeaderMonth.innerHTML = dataHead;
+      return years;
+    }
+
+    var createYear = yearRange(1970, 2050);
+    selectYear.innerHTML = createYear;
+
+    function next() {
+      currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+      currentMonth = (currentMonth + 1) % 12;
       showCalendar(currentMonth, currentYear);
+    }
 
-      nextBtn.addEventListener("click", next, false);
-      previousBtn.addEventListener("click", previous, false);
+    function previous() {
+      currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+      currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+      showCalendar(currentMonth, currentYear);
+    }
 
-      function yearRange(start, end) {
-        var years = "";
+    function jump() {
+      currentYear = parseInt(selectYear.value);
+      currentMonth = parseInt(selectMonth.value);
+      showCalendar(currentMonth, currentYear);
+    }
 
-        for (var year = start; year <= end; year++) {
-          years += "<option value='" + year + "'>" + year + "</option>";
-        }
+    function showCalendar(month, year) {
+      var firstDay = new Date(year, month).getDay();
+      var monthString = monthsArr[month];
 
-        return years;
-      }
+      table = document.getElementById("calendar-body");
+      table.innerHTML = "";
+      monthHeader.innerHTML = monthString.substring(0, 3);
+      yearHeader.innerHTML = year;
+      selectYear.value = year;
+      selectMonth.value = month;
 
-      var createYear = yearRange(1970, 2050);
-      selectYear.innerHTML = createYear;
+      var date = 1;
 
-      function next() {
-        currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-        currentMonth = (currentMonth + 1) % 12;
-        showCalendar(currentMonth, currentYear);
-      }
+      for (var i = 0; i < 6; i++) {
+        var row = document.createElement("tr");
 
-      function previous() {
-        currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-        showCalendar(currentMonth, currentYear);
-      }
+        for (var j = 0; j < 7; j++) {
+          if (i === 0 && j < firstDay) {
+            cell = document.createElement("td");
+            cellText = document.createTextNode("");
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+          } else if (date > daysInMonth(month, year)) {
+            break;
+          } else {
+            cell = document.createElement("td");
+            cell.setAttribute("data-date", date);
+            cell.setAttribute("data-month", month + 1);
+            cell.setAttribute("data-year", year);
+            cell.setAttribute("data-month-name", months[month]);
+            cell.className = "date-picker";
+            cell.innerHTML = "<span>" + date + "</span>";
+            // Tambahkan validasi tanggal yang sudah lewat
+            var currentDate = new Date();
+            currentDate.setHours(0, 0, 0, 0); // Set jam ke 00:00:00
 
-      function jump() {
-        currentYear = parseInt(selectYear.value);
-        currentMonth = parseInt(selectMonth.value);
-        showCalendar(currentMonth, currentYear);
-      }
+            // Tambahkan validasi tanggal yang sudah lewat
+            var DateClosed = new Date();
+            DateClosed.setHours(18, 0, 0, 0); // Set jam ke 18:00:00
 
-      function showCalendar(month, year) {
-        var firstDay = new Date(year, month).getDay();
-        var monthString = monthsArr[month];
-
-        table = document.getElementById("calendar-body");
-        table.innerHTML = "";
-        monthHeader.innerHTML = monthString.substring(0, 3);
-        yearHeader.innerHTML = year;
-        selectYear.value = year;
-        selectMonth.value = month;
-
-        var date = 1;
-
-        for (var i = 0; i < 6; i++) {
-          var row = document.createElement("tr");
-
-          for (var j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay) {
-              cell = document.createElement("td");
-              cellText = document.createTextNode("");
-              cell.appendChild(cellText);
-              row.appendChild(cell);
-            } else if (date > daysInMonth(month, year)) {
-              break;
-            } else {
-              cell = document.createElement("td");
-              cell.setAttribute("data-date", date);
-              cell.setAttribute("data-month", month + 1);
-              cell.setAttribute("data-year", year);
-              cell.setAttribute("data-month-name", months[month]);
-              cell.className = "date-picker";
-              cell.innerHTML = "<span>" + date + "</span>";
-              // Tambahkan validasi tanggal yang sudah lewat
-              var currentDate = new Date();
-              currentDate.setHours(0, 0, 0, 0); // Set jam ke 00:00:00
-
-              // Tambahkan validasi tanggal yang sudah lewat
-              var DateClosed = new Date();
-              DateClosed.setHours(18, 0, 0, 0); // Set jam ke 18:00:00
-
-              var cellDate = new Date(year, month, date);
+            var cellDate = new Date(year, month, date);
 
 
 
-              // Modify the onclick function to include saving to the form input
-              cell.onclick = function(event) {
-                var dates = document.querySelectorAll('.date-picker');
-                var currentTarget = event.currentTarget;
-                var date = currentTarget.dataset.date;
-                var month = currentTarget.dataset.month - 1;
-                var year = currentTarget.dataset.year;
+            // Modify the onclick function to include saving to the form input
+            cell.onclick = function(event) {
+              var dates = document.querySelectorAll('.date-picker');
+              var currentTarget = event.currentTarget;
+              var date = currentTarget.dataset.date;
+              var month = currentTarget.dataset.month - 1;
+              var year = currentTarget.dataset.year;
 
-                for (var i = 0; i < dates.length; i++) {
-                  dates[i].classList.remove('selected');
-                }
-
-                currentTarget.classList.add('selected');
-                datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
-
-
-
-                // Save to the form input
-                document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
-              };
-
-              function pad(number, length) {
-                var str = '' + number;
-                while (str.length < length) {
-                  str = '0' + str;
-                }
-                return str;
+              for (var i = 0; i < dates.length; i++) {
+                dates[i].classList.remove('selected');
               }
 
+              currentTarget.classList.add('selected');
+              datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
 
-              if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                cell.className = "date-picker selected";
+
+
+              // Save to the form input
+              document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
+            };
+
+            function pad(number, length) {
+              var str = '' + number;
+              while (str.length < length) {
+                str = '0' + str;
               }
-
-              if (cellDate < currentDate) {
-                cell.classList.add("disabled");
-                cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
-
-                cell
-                  .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
-              }
-              if (currentDate > DateClosed) {
-                cell.classList.add("disabled");
-                cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
-
-                cell
-                  .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
-              }
-
-
-
-              row.appendChild(cell);
-              date++;
+              return str;
             }
+
+
+            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+              cell.className = "date-picker selected";
+            }
+
+            if (cellDate < currentDate) {
+              cell.classList.add("disabled");
+              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+
+              cell
+                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
+            }
+            if (currentDate > DateClosed) {
+              cell.classList.add("disabled");
+              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+
+              cell
+                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
+            }
+
+
+
+            row.appendChild(cell);
+            date++;
           }
-
-          table.appendChild(row);
         }
+
+        table.appendChild(row);
       }
+    }
 
-      function daysInMonth(month, year) {
-        return 32 - new Date(year, month, 32).getDate();
-      }
-    </script>
-
-
-    <!-- <script src="assets/js/date-picker.js"></script> -->
-    <script src="./assets/js/vendors/jquery.min.js"></script>
-    <script src="./assets/js/vendors/bootstrap.min.js"></script>
-    <script src="./assets/js/vendors/enquire.min.js"></script>
-    <script src="./assets/js/vendors/jquery.enllax.min.js"></script>
-    <script src="./assets/js/vendors/jquery.form-validator.min.js"></script>
-    <script src="./assets/js/vendors/jquery.touchSwipe.min.js"></script>
-    <script src="./assets/js/vendors/pace.min.js"></script>
-    <script src="./assets/js/vendors/slick.min.js"></script>
-    <script src="./assets/js/vendors/wow.min.js"></script>
-    <script src="./assets/js/vendors/jquery.navScroll.min.js"></script>
-    <script src="./assets/js/vendors/parallax.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
-    <script src="./assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <!-- <script src="./assets/js/vendors/materialize.js"></script> -->
-    <script src="./assets/js/scripts.js"></script>
-    <!-- Chaindrop -->
-    <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
-    <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
+    function daysInMonth(month, year) {
+      return 32 - new Date(year, month, 32).getDate();
+    }
+  </script>
 
 
-    <!-- Include jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- <script src="assets/js/date-picker.js"></script> -->
+  <script src="./assets/js/vendors/jquery.min.js"></script>
+  <script src="./assets/js/vendors/bootstrap.min.js"></script>
+  <script src="./assets/js/vendors/enquire.min.js"></script>
+  <script src="./assets/js/vendors/jquery.enllax.min.js"></script>
+  <script src="./assets/js/vendors/jquery.form-validator.min.js"></script>
+  <script src="./assets/js/vendors/jquery.touchSwipe.min.js"></script>
+  <script src="./assets/js/vendors/pace.min.js"></script>
+  <script src="./assets/js/vendors/slick.min.js"></script>
+  <script src="./assets/js/vendors/wow.min.js"></script>
+  <script src="./assets/js/vendors/jquery.navScroll.min.js"></script>
+  <script src="./assets/js/vendors/parallax.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
+  <script src="./assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <!-- <script src="./assets/js/vendors/materialize.js"></script> -->
+  <script src="./assets/js/scripts.js"></script>
+  <!-- Chaindrop -->
+  <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
+  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
 
-    <!-- Include jQuery UI library -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <!-- Include jQuery UI Timepicker Addon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- Include jQuery UI library -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Include jQuery UI Timepicker Addon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
 
 
