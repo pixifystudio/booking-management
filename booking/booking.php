@@ -518,7 +518,7 @@ $randomToken = generateRandomToken();
                           </div> -->
 
                           <div class="btn-area mt-10" id="confirm-tanggal-btn" style="display: none;">
-                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
+                            <button class="btn secondary btn-large block waves-effect" name="btnConfirm" type=" submit" style="color:white">Confirm Tanggal</button>
                           </div>
                           </form>
                         <?php  }
