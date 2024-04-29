@@ -142,9 +142,9 @@ $randomToken = generateRandomToken();
 
 <script>
   // Tangani perubahan pada elemen date-picked
-  document.getElementById('date-picked').addEventListener('change', function() {
-    // Periksa apakah date-picked terisi atau tidak
-    var datePickedValue = document.getElementById('date-picked').innerHTML;
+  document.getElementById('selectedDate').addEventListener('change', function() {
+    // Periksa apakah selectedDate terisi atau tidak
+    var datePickedValue = document.getElementById('selectedDate').innerHTML;
     if (datePickedValue.trim() !== '') {
       // Jika terisi, tampilkan tombol Confirm Tanggal
       document.getElementById('confirm-tanggal-btn').style.display = 'block';
