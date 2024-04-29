@@ -214,6 +214,20 @@ $randomToken = generateRandomToken();
 <body>
 
 
+  <script>
+    // Tangani perubahan pada input selectedDate
+    document.getElementById('selectedDate').addEventListener('change', function() {
+      // Periksa apakah nilai input terisi atau tidak
+      var selectedDateValue = document.getElementById('selectedDate').value;
+      if (selectedDateValue.trim() !== '') {
+        // Jika terisi, tampilkan tombol Confirm Tanggal
+        document.getElementById('confirm-tanggal-btn').style.display = 'block';
+      } else {
+        // Jika tidak terisi, sembunyikan tombol Confirm Tanggal
+        document.getElementById('confirm-tanggal-btn').style.display = 'none';
+      }
+    });
+  </script>
 
   <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.5; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="./assets/images/loading.gif" alt="loading"></div>
   <div class="m-application theme--light transition-page" id="app">
@@ -537,18 +551,6 @@ $randomToken = generateRandomToken();
   </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
 
   <script>
-    // Tangani perubahan pada input selectedDate
-    document.getElementById('selectedDate').addEventListener('change', function() {
-      // Periksa apakah nilai input terisi atau tidak
-      var selectedDateValue = document.getElementById('selectedDate').value;
-      if (selectedDateValue.trim() !== '') {
-        // Jika terisi, tampilkan tombol Confirm Tanggal
-        document.getElementById('confirm-tanggal-btn').style.display = 'block';
-      } else {
-        // Jika tidak terisi, sembunyikan tombol Confirm Tanggal
-        document.getElementById('confirm-tanggal-btn').style.display = 'none';
-      }
-    });
     var today = new Date();
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
