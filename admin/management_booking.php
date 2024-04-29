@@ -193,6 +193,10 @@ function hari_ini($tanggal)
                                                                     <i data-feather="trash" class="me-50"></i>
                                                                     <span>Hapus</span>
                                                             </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Cancel&id=<?php echo $Code; ?>" onclick="return confirm('INGIN CANCEL DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="trash" class="me-50"></i>
+                                                                    <span>Batalkan</span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </td>
