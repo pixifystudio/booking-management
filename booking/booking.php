@@ -496,7 +496,7 @@ $randomToken = generateRandomToken();
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <div id="date-picked"></div>
 
-                                <input type="hidden" id="selectedDate" name="selectedDate" required>
+                                <input type="hidden" id="selectedDate" name="selectedDate">
 
                                 <!-- Your existing calendar code here -->
 
@@ -659,18 +659,18 @@ $randomToken = generateRandomToken();
                 dates[i].classList.remove('selected');
               }
 
-              currentTarget.classList.add('selected');
-              datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
+              // currentTarget.classList.add('selected');
+              // datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
 
-              // Tambahkan event listener untuk memantau perubahan pada input tanggal yang dipilih
-              datePicked.addEventListener("input", function() {
-                // Jika input tanggal terisi, aktifkan tombol submit, jika tidak, nonaktifkan
-                if (datePicked.innerHTML !== "") {
-                  btnSubmit.disabled = false;
-                } else {
-                  btnSubmit.disabled = true;
-                }
-              });
+              // // Tambahkan event listener untuk memantau perubahan pada input tanggal yang dipilih
+              // datePicked.addEventListener("input", function() {
+              //   // Jika input tanggal terisi, aktifkan tombol submit, jika tidak, nonaktifkan
+              //   if (datePicked.innerHTML !== "") {
+              //     btnSubmit.disabled = false;
+              //   } else {
+              //     btnSubmit.disabled = true;
+              //   }
+              // });
 
               // Save to the form input
               document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
