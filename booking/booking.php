@@ -294,14 +294,11 @@ $randomToken = generateRandomToken();
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
                                         $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-                                      }
-                                      else {
-                                        if ($nama_hari == 'Friday' ) {
+                                      } else {
+                                        if ($nama_hari == 'Friday') {
                                           $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-                                        }
-                                        else {
+                                        } else {
                                           $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-
                                         }
                                       }
 
@@ -708,6 +705,24 @@ $randomToken = generateRandomToken();
     function daysInMonth(month, year) {
       return 32 - new Date(year, month, 32).getDate();
     }
+  </script>
+
+  <script>
+    var btnSubmit = document.getElementById("btnSubmit");
+
+    // Fungsi untuk memeriksa apakah tanggal sudah dipilih
+    function isDateSelected() {
+      var selectedDate = document.getElementById('selectedDate').value;
+      return selectedDate !== '';
+    }
+
+    // Menambahkan event listener untuk tombol submit
+    btnSubmit.addEventListener("click", function(event) {
+      if (!isDateSelected()) {
+        event.preventDefault(); // Mencegah perilaku default saat tombol submit diklik
+        alert("Please select a date before submitting.");
+      }
+    });
   </script>
   <!-- <script src="assets/js/date-picker.js"></script> -->
   <script src="./assets/js/vendors/jquery.min.js"></script>
