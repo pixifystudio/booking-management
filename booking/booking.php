@@ -498,7 +498,7 @@ $randomToken = generateRandomToken();
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <div id="date-picked"></div>
 
-                                <input  id="selectedDate" name="selectedDate">
+                                <input type="hidden" id="selectedDate" name="selectedDate">
 
                                 <!-- Your existing calendar code here -->
 
@@ -567,7 +567,7 @@ $randomToken = generateRandomToken();
       document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
     });
 
- 
+
 
     for (dhead in days) {
       days[dhead] === "Sun" ? startDay = "red-text" : startDay = "";
@@ -719,6 +719,19 @@ $randomToken = generateRandomToken();
     function daysInMonth(month, year) {
       return 32 - new Date(year, month, 32).getDate();
     }
+
+    // Tangani perubahan pada input selectedDate
+    document.getElementById('selectedDate').addEventListener('change', function() {
+      // Periksa apakah nilai input terisi atau tidak
+      var selectedDateValue = document.getElementById('selectedDate').value;
+      if (selectedDateValue.trim() !== '') {
+        // Jika terisi, tampilkan tombol Confirm Tanggal
+        document.getElementById('confirm-tanggal-btn').style.display = 'block';
+      } else {
+        // Jika tidak terisi, sembunyikan tombol Confirm Tanggal
+        document.getElementById('confirm-tanggal-btn').style.display = 'none';
+      }
+    });
   </script>
 
 
