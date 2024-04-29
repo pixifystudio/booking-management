@@ -516,7 +516,7 @@ $randomToken = generateRandomToken();
                           </div> -->
 
                           <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect"   style="color:white">Confirm Tanggal</button>
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
                           </div>
                           </form>
                         <?php  }
@@ -662,15 +662,7 @@ $randomToken = generateRandomToken();
               currentTarget.classList.add('selected');
               datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
 
-              // Tambahkan event listener untuk memantau perubahan pada input tanggal yang dipilih
-              datePicked.addEventListener("input", function() {
-                // Jika input tanggal terisi, aktifkan tombol submit, jika tidak, nonaktifkan
-                if (datePicked.innerHTML !== "") {
-                  btnSubmit.disabled = false;
-                } else {
-                  btnSubmit.disabled = true;
-                }
-              });
+
 
               // Save to the form input
               document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
@@ -718,6 +710,9 @@ $randomToken = generateRandomToken();
     function daysInMonth(month, year) {
       return 32 - new Date(year, month, 32).getDate();
     }
+
+    // Panggil fungsi showCalendar dengan parameter tanggal dan bulan saat ini
+    showCalendar(today.getMonth(), today.getFullYear());
   </script>
 
 
