@@ -60,13 +60,10 @@
 					Pembayaran yang sudah dilakukan tidak bisa dikembalikan.
 				</li>
 				<li>
-					Kamu bisa mengatur ulang jadwal hanya 1x dalam rentang waktu 1 hari sebelum hari foto.
-				</li>
-				<li>
 					Dianjurkan 10 menit sebelumnya sudah berada di studio.
 				</li>
 				<li>
-					Keterlambatan tanpa konfirmasi dianggap membatalkan booking dan pembayaran tidak bisa dikembalikan.
+					⁠Keterlambatan tanpa konfirmasi dianggap membatalkan booking dan pembayaran tidak bisa dikembalikan.	
 				</li>
 				<li>
 					Anak dibawah 1 tahun tidak dikenakan biaya tambahan
