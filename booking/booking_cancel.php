@@ -156,7 +156,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
 
                           <div class="btn-area mt-10">
                            
-                              <a href="https://wa.me/6285171212096" class="btn secondary btn-large block waves-effect" style='color:white'>Confirm Melalui WA</a>
+                              <a href="https://wa.me/6285171212096" class="btn secondary btn-large block waves-effect" style='color:white'>Chat WA Admin</a>
                           </div>
                         </form>
                       </div>
