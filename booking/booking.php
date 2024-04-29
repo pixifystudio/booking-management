@@ -688,20 +688,20 @@ $randomToken = generateRandomToken();
               cell.className = "date-picker selected";
             }
 
-            // if (cellDate < currentDate) {
-            //   cell.classList.add("disabled");
-            //   cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+            if (cellDate < currentDate) {
+              cell.classList.add("disabled");
+              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
 
-            //   cell
-            //     .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
-            // }
-            // if (currentDate > DateClosed) {
-            //   cell.classList.add("disabled");
-            //   cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+              cell
+                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
+            }
+            if (currentDate > DateClosed) {
+              cell.classList.add("disabled");
+              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
 
-            //   cell
-            //     .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
-            // }
+              cell
+                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
+            }
 
 
 
