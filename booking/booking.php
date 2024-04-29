@@ -429,101 +429,100 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
                           </div>
-                          <div class="btn-area mt-10" id="confirm-tanggal-btn" style="display: none;">
-                            <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
-                            </div>
+
+                          <div class="btn-area mt-10">
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
                           </div>
-                            <br>
-                            <div>
-                              <a class="btn primary btn-large block waves-effect" href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
-                            </div>
+                          <br>
+                          <div>
+                            <a class="btn primary btn-large block waves-effect" href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
+                          </div>
 
-                            </form>
+                          </form>
 
 
-                          <?php } else { ?>
-                            <!-- jika tanggal belum diisi -->
+                        <?php } else { ?>
+                          <!-- jika tanggal belum diisi -->
 
-                            <!-- <h2>Jam Buka</h2>
+                          <!-- <h2>Jam Buka</h2>
                           <h4>Senin 09:00 - 18:00</h4>
                           <h4>Senin 09:00 - 18:00</h4> -->
 
 
-                            <div class="wrapper">
-                              <div class="container-calendar">
+                          <div class="wrapper">
+                            <div class="container-calendar">
 
-                                <div class="button-container-calendar">
+                              <div class="button-container-calendar">
 
-                                  <button id="previous">&#8249;</button>
+                                <button id="previous">&#8249;</button>
 
-                                  <button id="next">&#8250;</button>
+                                <button id="next">&#8250;</button>
 
-                                  <h3 id="monthHeader"></h3>
-                                  <p id="yearHeader"></p>
-                                </div>
-                                <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
-                                <table class="table-calendar" id="">
+                                <h3 id="monthHeader"></h3>
+                                <p id="yearHeader"></p>
+                              </div>
+                              <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
+                              <table class="table-calendar" id="">
 
-                                  <thead id="thead-month"></thead>
+                                <thead id="thead-month"></thead>
 
-                                  <tbody id="calendar-body"></tbody>
+                                <tbody id="calendar-body"></tbody>
 
-                                </table>
-
-
-
-                                <div class="footer-container-calendar">
-
-                                  <label for="month">Jump To: </label>
-
-                                  <select id="month">
-
-                                    <option value=0>Jan</option>
-
-                                    <option value=1>Feb</option>
-
-                                    <option value=2>Mar</option>
-
-                                    <option value=3>Apr</option>
-
-                                    <option value=4>May</option>
-
-                                    <option value=5>Jun</option>
-
-                                    <option value=6>Jul</option>
-
-                                    <option value=7>Aug</option>
-
-                                    <option value=8>Sep</option>
-
-                                    <option value=9>Oct</option>
-
-                                    <option value=10>Nov</option>
-
-                                    <option value=11>Dec</option>
-
-                                  </select>
-
-                                  <select id="year"></select>
-
-                                </div>
+                              </table>
 
 
 
-                                <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-                                  <div id="date-picked"></div>
+                              <div class="footer-container-calendar">
 
-                                  <input type="hidden" id="selectedDate" name="selectedDate">
+                                <label for="month">Jump To: </label>
 
-                                  <!-- Your existing calendar code here -->
+                                <select id="month">
 
+                                  <option value=0>Jan</option>
+
+                                  <option value=1>Feb</option>
+
+                                  <option value=2>Mar</option>
+
+                                  <option value=3>Apr</option>
+
+                                  <option value=4>May</option>
+
+                                  <option value=5>Jun</option>
+
+                                  <option value=6>Jul</option>
+
+                                  <option value=7>Aug</option>
+
+                                  <option value=8>Sep</option>
+
+                                  <option value=9>Oct</option>
+
+                                  <option value=10>Nov</option>
+
+                                  <option value=11>Dec</option>
+
+                                </select>
+
+                                <select id="year"></select>
 
                               </div>
 
+
+
+                              <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+                                <div id="date-picked"></div>
+
+                                <input type="hidden" id="selectedDate" name="selectedDate">
+
+                                <!-- Your existing calendar code here -->
+
+
                             </div>
 
-                            <!-- <div class="row">
+                          </div>
+
+                          <!-- <div class="row">
                             <div class="col-12">
                               Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>
                               Kamis <b>09-18</b>,
@@ -533,9 +532,11 @@ $randomToken = generateRandomToken();
                             </div>
                           </div> -->
 
+                          <div class="btn-area mt-10" id="confirm-tanggal-btn" style="display: none;">
                             <div class="btn-area mt-10">
                               <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
                             </div>
+                          </div>
                             </form>
                           <?php  }
                           ?>
