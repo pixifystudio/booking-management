@@ -143,10 +143,18 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
                         </div>
                         <form id="login_form" method="POST">
                           <div class="row spacing3">
-                            <p>Terimakasih <?php echo $nama ?>,
+                            <p>Yahh sayang banget kamu gajadi foto di studio kita :( tapi gapapa semoga bisa foto di lain waktu :D
                             </p>
-                            <p>
-                              Booking kamu telah dibatalkan.</p>
+                          </div>
+
+                          <div class="btn-area mt-10">
+                            <a href="?page=Booking-Cancel" class="btn secondary btn-large block waves-effect" type=" submit" style="color:white">Booking</a>
+                          </div>
+
+                          <div class="btn-area mt-10">
+                            <div class="title-main align-left" style="width:87%">
+                              <a href="https://wa.me/6285171212096" class="btn secondary btn-large block waves-effect" style='color:white'>Confirm Melalui WA</a>
+                            </div>
                           </div>
                         </form>
                       </div>
