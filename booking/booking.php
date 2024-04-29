@@ -560,6 +560,20 @@ $randomToken = generateRandomToken();
     // Seleksi tombol submit
     var btnSubmit = document.getElementById("btnSubmit");
 
+    // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+    });
+
+    // Tambahkan fungsi pad() setelah fungsi showCalendar()
+    function pad(number, length) {
+      var str = '' + number;
+      while (str.length < length) {
+        str = '0' + str;
+      }
+      return str;
+    }
+
     for (dhead in days) {
       days[dhead] === "Sun" ? startDay = "red-text" : startDay = "";
       dataHead += "<th data-days='" + days[dhead] + "' class='" + startDay + "'>" + days[dhead] + "</th>";
@@ -710,9 +724,6 @@ $randomToken = generateRandomToken();
     function daysInMonth(month, year) {
       return 32 - new Date(year, month, 32).getDate();
     }
-
-    // Panggil fungsi showCalendar dengan parameter tanggal dan bulan saat ini
-    showCalendar(today.getMonth(), today.getFullYear());
   </script>
 
 
