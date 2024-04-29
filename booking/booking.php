@@ -496,7 +496,7 @@ $randomToken = generateRandomToken();
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <div id="date-picked"></div>
 
-                                <input type="hidden" id="selectedDate" name="selectedDate">
+                                <input type="hidden" id="selectedDate" name="selectedDate" required>
 
                                 <!-- Your existing calendar code here -->
 
@@ -516,7 +516,7 @@ $randomToken = generateRandomToken();
                           </div> -->
 
                           <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect" id="btnSubmit"  type=" submit" style="color:white">Confirm Tanggal</button>
+                            <button class="btn secondary btn-large block waves-effect" id="btnSubmit" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
                           </div>
                           </form>
                         <?php  }
