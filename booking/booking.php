@@ -511,7 +511,7 @@ $randomToken = generateRandomToken();
 
 
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-                                <div id="date-picked"></div>
+                                <!-- <div id="date-picked"></div> -->
 
                                 <input type="hidden" id="selectedDate" name="selectedDate">
 
