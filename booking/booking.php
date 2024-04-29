@@ -537,6 +537,18 @@ $randomToken = generateRandomToken();
   </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
 
   <script>
+    // Tangani perubahan pada input selectedDate
+    document.getElementById('selectedDate').addEventListener('change', function() {
+      // Periksa apakah nilai input terisi atau tidak
+      var selectedDateValue = document.getElementById('selectedDate').value;
+      if (selectedDateValue.trim() !== '') {
+        // Jika terisi, tampilkan tombol Confirm Tanggal
+        document.getElementById('confirm-tanggal-btn').style.display = 'block';
+      } else {
+        // Jika tidak terisi, sembunyikan tombol Confirm Tanggal
+        document.getElementById('confirm-tanggal-btn').style.display = 'none';
+      }
+    });
     var today = new Date();
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
@@ -719,19 +731,6 @@ $randomToken = generateRandomToken();
     function daysInMonth(month, year) {
       return 32 - new Date(year, month, 32).getDate();
     }
-
-    // Tangani perubahan pada input selectedDate
-    document.getElementById('selectedDate').addEventListener('change', function() {
-      // Periksa apakah nilai input terisi atau tidak
-      var selectedDateValue = document.getElementById('selectedDate').value;
-      if (selectedDateValue.trim() !== '') {
-        // Jika terisi, tampilkan tombol Confirm Tanggal
-        document.getElementById('confirm-tanggal-btn').style.display = 'block';
-      } else {
-        // Jika tidak terisi, sembunyikan tombol Confirm Tanggal
-        document.getElementById('confirm-tanggal-btn').style.display = 'none';
-      }
-    });
   </script>
 
 
