@@ -516,7 +516,7 @@ $randomToken = generateRandomToken();
                           </div> -->
 
                           <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect" id="btnSubmit" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
+                            <button class="btn secondary btn-large block waves-effect" id="btnSubmit" name="btnSubmit"  style="color:white">Confirm Tanggal</button>
                           </div>
                           </form>
                         <?php  }
@@ -659,18 +659,18 @@ $randomToken = generateRandomToken();
                 dates[i].classList.remove('selected');
               }
 
-              // currentTarget.classList.add('selected');
-              // datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
+              currentTarget.classList.add('selected');
+              datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
 
-              // // Tambahkan event listener untuk memantau perubahan pada input tanggal yang dipilih
-              // datePicked.addEventListener("input", function() {
-              //   // Jika input tanggal terisi, aktifkan tombol submit, jika tidak, nonaktifkan
-              //   if (datePicked.innerHTML !== "") {
-              //     btnSubmit.disabled = false;
-              //   } else {
-              //     btnSubmit.disabled = true;
-              //   }
-              // });
+              // Tambahkan event listener untuk memantau perubahan pada input tanggal yang dipilih
+              datePicked.addEventListener("input", function() {
+                // Jika input tanggal terisi, aktifkan tombol submit, jika tidak, nonaktifkan
+                if (datePicked.innerHTML !== "") {
+                  btnSubmit.disabled = false;
+                } else {
+                  btnSubmit.disabled = true;
+                }
+              });
 
               // Save to the form input
               document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
