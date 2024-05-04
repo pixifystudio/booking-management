@@ -3,7 +3,7 @@ $_SESSION['SES_TITLE'] = "Booking";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking";
-$tanggal_hari_ini = date('Y-m-d');
+$tanggal_hari_ini = date('Y-m-d', strtotime('-1 day'));
 
 
 function hari_ini($tanggal)
