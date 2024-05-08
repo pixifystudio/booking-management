@@ -143,7 +143,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking where status ='Dibuat' and tanggal >= '$tanggal_hari_ini' order by tanggal asc";
+                                    $mySql   = "SELECT * FROM booking where status ='Dibuat' and tanggal >= '$tanggal_hari_ini' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
