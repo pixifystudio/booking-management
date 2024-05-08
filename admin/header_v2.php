@@ -66,8 +66,8 @@
 include "language.php";
 ?>
 
-<body class="vertical-layout vertical-menu navbar-floating footer-static" data-open="hover" data-menu="vertical-menu" data-col="">
+<!-- <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col=""> -->
 
-    <!-- <body class="vertical-layout vertical-menu-modern navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col=""> -->
+    <body class="vertical-layout vertical-menu-modern navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="">
     <?php include 'header_top.php'; ?>
     <?php include 'header_sidemenu.php'; ?>
