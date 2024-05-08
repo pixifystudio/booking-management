@@ -12,9 +12,7 @@
         <div class="header-navbar navbar-expand-sm navbar navbar-horizontal floating-nav navbar-shadow menu-border" role="navigation" data-menu="menu-wrapper" data-menu-type="floating-nav">
             <div class="navbar-header">
                 <ul class="nav navbar-nav flex-row">
-                    <li class="nav-item me-auto">
-                        <img src="../base-app-assets/images/logo/libra3.png" style="height:45px!important">
-                    </li>
+
                     <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i></a></li>
                 </ul>
             </div>
