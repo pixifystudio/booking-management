@@ -29,7 +29,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
   }
 
   ol {
-    padding-left: 20px;
+    padding-left: 10px;
     /* untuk membuat list menjadi rata kiri */
   }
 
