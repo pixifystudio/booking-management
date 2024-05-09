@@ -18,6 +18,10 @@ if (isset($_POST['btnSubmit'])) {
   // set validasi
   # Baca variabel form
   $txtTanggal   = isset($_POST['selectedDate']) ? $_POST['selectedDate'] : $tanggal_sekarang;
+
+  if ($txtTanggal == '') {
+    $txtTanggal = $tanggal_sekarang;
+  }
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
