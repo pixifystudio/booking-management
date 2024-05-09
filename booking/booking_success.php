@@ -25,7 +25,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
 <style>
   p,
   ol {
-    text-align: justify;
+    text-align: left;
   }
 
   ol {
