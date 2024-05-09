@@ -22,6 +22,23 @@ $username = isset($myData['username']) ? $myData['username'] : '';
 
 ?>
 
+<style>
+  p,
+  ol {
+    text-align: justify;
+  }
+
+  ol {
+    padding-left: 20px;
+    /* untuk membuat list menjadi rata kiri */
+  }
+
+  li {
+    margin-bottom: 10px;
+    /* agar setiap item list memiliki jarak antara satu dengan yang lain */
+  }
+</style>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -139,11 +156,13 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                         </div>
                         <form id="login_form" method="POST">
                           <div class="title-main align-left">
-                            <p>Terimakasih <?php echo $nama ?>,</p>
+                            <p>Terimakasih <?php echo $nama ?></p>
                             <p>Selanjutnya yang harus kamu lakukan:</p>
-                            <p>1. Cek email kamu untuk detail pemesanan.</p>
-                            <p>2. Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</p>
-                            <p>3. Kirim bukti pembayaran melalui no WhatsApp: 085171212096</p>
+                            <ol>
+                              <li>Cek email kamu untuk detail pemesanan</li>
+                              <li>Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</li>
+                              <li>Kirim bukti pembayaran melalui no WhatsApp: 08517121209</li>
+                            </ol>
                             <p>Sampai berjumpa di Self Studio :)</p>
                           </div>
 
