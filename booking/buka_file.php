@@ -29,6 +29,11 @@ if ($_GET) {
       include "booking.php";
       break;
 
+    case 'Booking-Test':
+      if (!file_exists("booking_test.php")) die("Empty Main Page!");
+      include "booking_test.php";
+      break;
+
     case 'Booking-Process':
       if (!file_exists("booking_process.php")) die("Sorry Empty Page!");
       include "booking_process.php";
