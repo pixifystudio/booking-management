@@ -17,7 +17,7 @@ if (isset($_POST['btnSubmit'])) {
   $pesanError = array();
   // set validasi
   # Baca variabel form
-  $txtTanggal   = $_POST['selectedDate'];
+  $txtTanggal   = isset($_POST['selectedDate']) ? $_POST['selectedDate'] : $tanggal_sekarang;
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
