@@ -66,11 +66,7 @@
 include "language.php";
 ?>
 
-<<<<<<< HEAD
-<!-- <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col=""> -->
-=======
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col="">
->>>>>>> parent of 303c5f1 (Update header_v2.php)
 
     <!-- <body class="vertical-layout vertical-menu-modern navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col=""> -->
     <?php include 'header_top.php'; ?>
