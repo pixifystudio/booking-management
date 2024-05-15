@@ -289,10 +289,10 @@ $randomToken = generateRandomToken();
 
 
                           <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
-                            <div class="row spacing3">
+                            <div class="row spacing3" >
                               <!-- jika tanggal sudah diisi -->
 
-                              <div class="col-12">
+                              <div class="col-11">
                                 <div class="form-group">
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
