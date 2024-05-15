@@ -379,7 +379,7 @@ $randomToken = generateRandomToken();
 
                               <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Pilihan Paket*</label>
-                                <select class="form-select" name="txtPaket" style='width:80%' id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
                               </div>
@@ -387,7 +387,7 @@ $randomToken = generateRandomToken();
 
                               <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Background*</label>
-                                <select class="form-select" id="background" style='width:80%' name="txtBackground" aria-label="Default select example" autocomplete="off" required>
+                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
                                   <?php
                                   // panggil database
@@ -428,7 +428,7 @@ $randomToken = generateRandomToken();
                             <div class="btn-area mt-10">
                               <button class="btn secondary btn-large block waves-effect" style='width:75%' name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
                             </div>
-                            <div class="btn-area mt-1">
+                            <div class="btn-area mt-5">
                               <a class="btn primary btn-large block waves-effect" style='width:75%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
                             </div>
 
