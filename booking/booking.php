@@ -289,7 +289,7 @@ $randomToken = generateRandomToken();
 
 
                           <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
-                            <div class="row spacing3">
+                            <div class="row spacing3" >
                               <!-- jika tanggal sudah diisi -->
 
                               <div class="col-10" style="padding-left: 10px;">
@@ -350,7 +350,7 @@ $randomToken = generateRandomToken();
                               </div>
 
 
-                              <div class="col-10" style="padding-left: 10px;">
+                                                            <div class="col-10" style="padding-left: 10px;">
 
                                 <div class="form-group">
                                   <label>Nama*</label>
@@ -360,7 +360,7 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                                                            <div class="col-10" style="padding-left: 10px;">
 
                                 <label for="email">Jenis Foto*</label>
                                 <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
@@ -379,7 +379,7 @@ $randomToken = generateRandomToken();
 
                               <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Pilihan Paket*</label>
-                                <select class="form-select" style="width: 75%;" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
                               </div>
@@ -408,7 +408,7 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                                                            <div class="col-10" style="padding-left: 10px;">
 
                                 <div class="form-group">
                                   <label>Whatsapp*</label>
@@ -416,7 +416,7 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                                                            <div class="col-10" style="padding-left: 10px;">
 
                                 <div class="form-group">
                                   <label>Instagram</label>
@@ -430,7 +430,7 @@ $randomToken = generateRandomToken();
                             </div>
                             <br>
                             <div>
-                              <a class="btn primary btn-large block waves-effect" style='width:75%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
+                              <a class="btn primary btn-large block waves-effect" style='width:80%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
                             </div>
 
                           </form>
