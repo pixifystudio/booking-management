@@ -292,7 +292,7 @@ $randomToken = generateRandomToken();
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
-                              <div class="col-12 col-sm-6">
+                              <div class="col-12 col-sm-6 col-xl-4">
                                 <div class="form-group">
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
