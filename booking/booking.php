@@ -350,7 +350,8 @@ $randomToken = generateRandomToken();
                               </div>
 
 
-                              <div class="col-lg-12 col-sm-6">
+                                                            <div class="col-10" style="padding-left: 10px;">
+
                                 <div class="form-group">
                                   <label>Nama*</label>
                                   <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
@@ -359,7 +360,8 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6">
+                                                            <div class="col-10" style="padding-left: 10px;">
+
                                 <label for="email">Jenis Foto*</label>
                                 <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
@@ -375,7 +377,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="col-lg-12" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
@@ -383,7 +385,7 @@ $randomToken = generateRandomToken();
                               </div>
 
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="col-lg-12" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Background*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
@@ -399,21 +401,23 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="col-lg-12" style="padding-top: 15px; padding-left: 10px;">
                                 <div class="form-group">
                                   <label>Email*</label>
                                   <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
                                 </div>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6">
+                                                            <div class="col-10" style="padding-left: 10px;">
+
                                 <div class="form-group">
                                   <label>Whatsapp*</label>
                                   <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
                                 </div>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6">
+                                                            <div class="col-10" style="padding-left: 10px;">
+
                                 <div class="form-group">
                                   <label>Instagram</label>
                                   <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
