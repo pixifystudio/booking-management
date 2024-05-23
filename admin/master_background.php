@@ -76,20 +76,20 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Paket</label>
-                                                    <select class="form-select" name="txtPaket" aria-label="Default select example" autocomplete="off" required>
+                                                    <label>Jenis</label>
+                                                    <select class="form-select" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                                         <option value="">Pilih Jenis</option>
                                                         <?php
                                                         // panggil database
-                                                        $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
+                                                        $mySql  = "SELECT * from master_jenis group by jenis order by paket asc";
                                                         $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                                         while ($myData = mysqli_fetch_array($myQry)) {
-                                                            if ($myData['paket'] == $dataPaket) {
+                                                            if ($myData['jenis'] == $dataPaket) {
                                                                 $cek = 'Selected';
                                                             } else {
                                                                 $cek = '';
                                                             }
-                                                            echo "<option value='$myData[paket]' $cek> $myData[paket] </option>";
+                                                            echo "<option value='$myData[jenis]' $cek> $myData[jenis] </option>";
                                                         }
                                                         ?>
                                                     </select>
