@@ -292,7 +292,7 @@ $randomToken = generateRandomToken();
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
-                              <div class="col-10">
+                              <div class="col-10" style="padding-left: 10px;">
                                 <div class="form-group">
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
@@ -349,92 +349,90 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-2">
-                              </div>
 
-                                <div class="col-10">
+                              <div class="col-10" style="padding-left:20px;">
 
-                                  <div class="form-group">
-                                    <label>Nama*</label>
-                                    <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
-                                    <input class="form-control" type="hidden" placeholder="" name="txtTanggal" value="<?php echo $txtTanggal ?>" autocomplete="off" required>
-                                    <input class="form-control" type="hidden" placeholder="" name="txtToken" value="<?php echo $randomToken ?>" autocomplete="off" required>
-                                  </div>
-                                </div>
-
-                                <div class="col-10">
-
-                                  <label for="email">Jenis Foto*</label>
-                                  <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
-                                    <option selected value="">Pilih</option>
-                                    <?php
-                                    // panggil database
-                                    $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
-                                    $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                    while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                      <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
-                                    <?php
-                                    };
-                                    ?>
-                                  </select>
-                                </div>
-
-                                <div class="col-10 mt-2">
-
-                                  <label for="email">Pilihan Paket*</label>
-                                  <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
-                                    <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
-                                  </select>
-                                </div>
-
-                                <div class="col-10 mt-2">
-
-                                  <label for="email">Pilihan Paket*</label>
-                                  <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
-                                    <option selected value="">Pilih</option>
-                                    <?php
-                                    // panggil database
-                                    $mySql  = "SELECT * from master_background order by id asc";
-                                    $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                    while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                      <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
-                                    <?php
-                                    };
-                                    ?>
-                                  </select>
-                                </div>
-
-                                <div class="col-10">
-
-                                  <div class="form-group">
-                                    <label>Email*</label>
-                                    <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
-                                  </div>
-                                </div>
-
-                                <div class="col-10">
-
-                                  <div class="form-group">
-                                    <label>Whatsapp*</label>
-                                    <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
-                                  </div>
-                                </div>
-
-                                <div class="col-10">
-
-                                  <div class="form-group">
-                                    <label>Instagram</label>
-                                    <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
-                                  </div>
+                                <div class="form-group">
+                                  <label>Nama*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
+                                  <input class="form-control" type="hidden" placeholder="" name="txtTanggal" value="<?php echo $txtTanggal ?>" autocomplete="off" required>
+                                  <input class="form-control" type="hidden" placeholder="" name="txtToken" value="<?php echo $randomToken ?>" autocomplete="off" required>
                                 </div>
                               </div>
 
-                              <div class="btn-area mt-10">
-                                <button class="btn secondary btn-large block waves-effect" style='width:75%' name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
+                              <div class="col-10" style="padding-left: 10px;">
+
+                                <label for="email">Jenis Foto*</label>
+                                <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                                  <option selected value="">Pilih</option>
+                                  <?php
+                                  // panggil database
+                                  $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                    <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
+                                  <?php
+                                  };
+                                  ?>
+                                </select>
                               </div>
-                              <div class="btn-area mt-5">
-                                <a class="btn primary btn-large block waves-effect" style='width:75%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
+
+                              <div class="col-10 mt-2" style="padding-left: 10px;">
+
+                                <label for="email">Pilihan Paket*</label>
+                                <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
+                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                                </select>
                               </div>
+
+                              <div class="col-10 mt-2" style="padding-left: 10px;">
+
+                                <label for="email">Pilihan Paket*</label>
+                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
+                                  <option selected value="">Pilih</option>
+                                  <?php
+                                  // panggil database
+                                  $mySql  = "SELECT * from master_background order by id asc";
+                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                    <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
+                                  <?php
+                                  };
+                                  ?>
+                                </select>
+                              </div>
+
+                              <div class="col-10" style="padding-left: 10px;">
+
+                                <div class="form-group">
+                                  <label>Email*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
+                                </div>
+                              </div>
+
+                              <div class="col-10" style="padding-left: 10px;">
+
+                                <div class="form-group">
+                                  <label>Whatsapp*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
+                                </div>
+                              </div>
+
+                              <div class="col-10" style="padding-left: 10px;">
+
+                                <div class="form-group">
+                                  <label>Instagram</label>
+                                  <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="btn-area mt-10">
+                              <button class="btn secondary btn-large block waves-effect" style='width:75%' name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
+                            </div>
+                            <div class="btn-area mt-5">
+                              <a class="btn primary btn-large block waves-effect" style='width:75%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
+                            </div>
 
                           </form>
 
