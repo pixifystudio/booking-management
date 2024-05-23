@@ -113,7 +113,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Paket</th>
+                                        <th>Nama Jenis</th>
                                         <th>Nama Background</th>
                                         <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
