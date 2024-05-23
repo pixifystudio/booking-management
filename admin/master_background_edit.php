@@ -59,7 +59,6 @@ $id = $_GET['id'];
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['id'];
   $dataJenis    = $myData['jenis'];
-  $dataPaket   = $myData['paket'];
  $dataBackground   = $myData['background'];
   ?>
   <!-- BEGIN: Content-->
