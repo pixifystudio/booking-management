@@ -60,6 +60,7 @@ $id = $_GET['id'];
   $dataCode    = $myData['id'];
   $dataJenis    = $myData['jenis'];
   $dataPaket   = $myData['paket'];
+ $dataBackground   = $myData['background'];
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
@@ -71,7 +72,7 @@ $id = $_GET['id'];
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">Paket</h2>
+            <h2 class="content-header-title float-start mb-0">Background</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a>Edit</a>
@@ -116,15 +117,15 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Paket <span class="required">*</span></label>
-                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtPaket' value="<?php echo $dataPaket; ?>" aria-describedby="basic-addon-name" />
+                            <label>Background <span class="required">*</span></label>
+                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtBackground' value="<?php echo $dataBackground; ?>" aria-describedby="basic-addon-name" />
                           </div>
                         </div>
                       </div>
 
                     </div>
                     <div class="col-7 my-5">
-                      <a type="button" href="?page=Master-Paket" class="btn btn-warning me-2">Kembali</a>
+                      <a type="button" href="?page=Master-Background" class="btn btn-warning me-2">Kembali</a>
                       <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
                     </div>
                   </div>
