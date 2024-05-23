@@ -377,7 +377,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                              <div class="col-10 mt-2" style="padding-left: 10px;">
 
                                 <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
@@ -385,16 +385,9 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-10" style="padding-left: 10px;">
+                              <div class="col-10 mt-2" style="padding-left: 10px;">
+
                                 <label for="email">Pilihan Paket*</label>
-                                <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
-                                </select>
-                              </div>
-
-
-                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
-                                <label for="email">Background*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
                                   <?php
@@ -408,6 +401,11 @@ $randomToken = generateRandomToken();
                                   ?>
                                 </select>
                               </div>
+
+
+
+
+                          
 
                               <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <div class="form-group">
