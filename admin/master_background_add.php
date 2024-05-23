@@ -3,12 +3,12 @@ include "library/inc.connection.php";
 
 # ADD KE DATABASE BOOKING
 
-$txtPaket = $_POST['txtPaket'];
+$txtJenis = $_POST['txtJenis'];
 $txtBackground = $_POST['txtBackground'];
 $ses_nama = $_SESSION['SES_NAMA'];
 
     $mySql   = "INSERT INTO `master_background`( `background`,`jenis`, `updated_by`, `updated_date`)
-     VALUES ('$txtBackground','$txtPaket','$ses_nama', now())";
+     VALUES ('$txtBackground','$txtJenis','$ses_nama', now())";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
    # Validasi Insert Sukses
