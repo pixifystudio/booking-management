@@ -461,7 +461,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-11" style="padding-left: 40px;">
+                              <div class="col-11 mt-2" style="padding-left: 40px;">
 
                                 <div class="form-group">
                                   <label>Email*</label>
