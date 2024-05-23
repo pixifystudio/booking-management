@@ -377,7 +377,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-10 mt11" style="padding-left: 40px;">
+                              <div class="col-11 mt-2" style="padding-left: 40px;">
 
                                 <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
@@ -385,7 +385,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-10 mt11" style="padding-left: 40px;">
+                              <div class="col-11 mt-2" style="padding-left: 40px;">
 
                                 <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
