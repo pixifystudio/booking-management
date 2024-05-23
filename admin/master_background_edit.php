@@ -53,7 +53,7 @@ $id = $_GET['id'];
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
   $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
-  $mySql  = "SELECT * FROM master_jenis WHERE id='$Code'";
+  $mySql  = "SELECT * FROM master_background WHERE id='$Code'";
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
