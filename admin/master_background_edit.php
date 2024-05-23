@@ -39,7 +39,7 @@ $id = $_GET['id'];
       # SIMPAN DATA KE DATABASE. 
       // Jika tidak menemukan error, update data ke database
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_background set background ='$dataPaket' where id='$id'";
+      $mySql    = "UPDATE master_background set background ='$dataBackground' where id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
 
     
