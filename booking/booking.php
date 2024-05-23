@@ -292,6 +292,19 @@ $randomToken = generateRandomToken();
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
+                              <!-- ambil tanggal dan hari -->
+                              <?php 
+                              $haritanggal = $nama_hari . ', ' . $txtTanggal;
+                              ?>
+
+                              <div class="col-11" style="padding-left: 40px;">
+
+                                <div class="form-group">
+                                  <label>Hari, Tanggal*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="" value="<?= $haritanggal?>" autocomplete="off" required>
+                                </div>
+                              </div>
+
                               <div class="col-11" style="padding-left: 40px;">
                                 <div class="form-group">
                                   <label>Waktu*</label>
