@@ -292,7 +292,7 @@ $randomToken = generateRandomToken();
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
-                              <div class="col-12">
+                              <div class="col-10" style="padding-left: 10px;">
                                 <div class="form-group">
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
@@ -350,7 +350,8 @@ $randomToken = generateRandomToken();
                               </div>
 
 
-                              <div class="col-lg-12 col-sm-6">
+                              <div class="col-10" style="padding-left: 10px;">
+
                                 <div class="form-group">
                                   <label>Nama*</label>
                                   <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
@@ -359,7 +360,8 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6">
+                              <div class="col-10" style="padding-left: 10px;">
+
                                 <label for="email">Jenis Foto*</label>
                                 <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
@@ -375,15 +377,15 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Pilihan Paket*</label>
-                                <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
                               </div>
 
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <label for="email">Background*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
@@ -399,21 +401,23 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <div class="form-group">
                                   <label>Email*</label>
                                   <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
                                 </div>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6">
+                              <div class="col-10" style="padding-left: 10px;">
+
                                 <div class="form-group">
                                   <label>Whatsapp*</label>
                                   <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
                                 </div>
                               </div>
 
-                              <div class="col-lg-12 col-sm-6">
+                              <div class="col-10" style="padding-left: 10px;">
+
                                 <div class="form-group">
                                   <label>Instagram</label>
                                   <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
@@ -422,11 +426,10 @@ $randomToken = generateRandomToken();
                             </div>
 
                             <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
+                              <button class="btn secondary btn-large block waves-effect" style='width:75%' name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
                             </div>
-                            <br>
-                            <div>
-                              <a class="btn primary btn-large block waves-effect" href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
+                            <div class="btn-area mt-5">
+                              <a class="btn primary btn-large block waves-effect" style='width:75%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
                             </div>
 
                           </form>
@@ -514,7 +517,7 @@ $randomToken = generateRandomToken();
                             </div>
 
                             <!-- <div class="row">
-                            <div class="col-12">
+                            <div class="lg-col-12">
                               Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>
                               Kamis <b>09-18</b>,
                               Jum'at <b>09-18</b>,
