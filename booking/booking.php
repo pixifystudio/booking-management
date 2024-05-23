@@ -337,6 +337,9 @@ $randomToken = generateRandomToken();
                                 return  $hari_ini;
                               }
 
+                               $newDate = date("d F Y", strtotime($txtTanggal));
+
+
                               $haritanggal = hari_ini($nama_hari) . ', ' . $txtTanggal;
                               ?>
 
