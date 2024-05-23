@@ -292,7 +292,7 @@ $randomToken = generateRandomToken();
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
-                              <div class="col-10" style="padding-left: 10px;">
+                              <div class="col-11" style="padding-left: 40px;">
                                 <div class="form-group">
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
@@ -350,7 +350,7 @@ $randomToken = generateRandomToken();
                               </div>
 
 
-                              <div class="col-10" style="padding-left: 10px;">
+                              <div class="col-11" style="padding-left: 40px;">
 
                                 <div class="form-group">
                                   <label>Nama*</label>
@@ -360,7 +360,7 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                              <div class="col-11" style="padding-left: 40px;">
 
                                 <label for="email">Jenis Foto*</label>
                                 <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
@@ -377,16 +377,17 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
+                              <div class="col-11 mt-2" style="padding-left: 40px;">
+
                                 <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
-                              </div> 
+                              </div>
 
+                              <div class="col-11 mt-2" style="padding-left: 40px;">
 
-                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
-                                <label for="email">Background*</label>
+                                <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
                                   <?php
@@ -401,14 +402,15 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
+                              <div class="col-11" style="padding-left: 40px;">
+
                                 <div class="form-group">
                                   <label>Email*</label>
                                   <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
                                 </div>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                              <div class="col-11" style="padding-left: 40px;">
 
                                 <div class="form-group">
                                   <label>Whatsapp*</label>
@@ -416,7 +418,7 @@ $randomToken = generateRandomToken();
                                 </div>
                               </div>
 
-                              <div class="col-10" style="padding-left: 10px;">
+                              <div class="col-11" style="padding-left: 40px;">
 
                                 <div class="form-group">
                                   <label>Instagram</label>
