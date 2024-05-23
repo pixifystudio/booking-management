@@ -293,15 +293,58 @@ $randomToken = generateRandomToken();
                               <!-- jika tanggal sudah diisi -->
 
                               <!-- ambil tanggal dan hari -->
-                              <?php 
-                              $haritanggal = $nama_hari . ', ' . $txtTanggal;
+                              <?php
+
+                              function hari_ini($tanggal)
+                              {
+                                $tanggal =
+                                  $hari = date("D", strtotime($tanggal));
+
+                                switch ($hari) {
+                                  case 'Sun':
+                                    $hari_ini = "Minggu";
+                                    break;
+
+                                  case 'Mon':
+                                    $hari_ini = "Senin";
+                                    break;
+
+                                  case 'Tue':
+                                    $hari_ini = "Selasa";
+                                    break;
+
+                                  case 'Wed':
+                                    $hari_ini = "Rabu";
+                                    break;
+
+                                  case 'Thu':
+                                    $hari_ini = "Kamis";
+                                    break;
+
+                                  case 'Fri':
+                                    $hari_ini = "Jumat";
+                                    break;
+
+                                  case 'Sat':
+                                    $hari_ini = "Sabtu";
+                                    break;
+
+                                  default:
+                                    $hari_ini = "Tidak di ketahui";
+                                    break;
+                                }
+
+                                return "<b>" . $hari_ini . "</b>";
+                              }
+
+                              $haritanggal = hari_ini($nama_hari) . ', ' . $txtTanggal;
                               ?>
 
                               <div class="col-11" style="padding-left: 40px;">
 
                                 <div class="form-group">
                                   <label>Hari, Tanggal*</label>
-                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="" value="<?= $haritanggal?>" autocomplete="off" required>
+                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="" value="<?= $haritanggal?>" autocomplete="off" readonly>
                                 </div>
                               </div>
 
