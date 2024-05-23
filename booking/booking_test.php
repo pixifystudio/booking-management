@@ -402,12 +402,8 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
+                              <div class="col-10" style="padding-left: 10px;">
 
-
-
-                          
-
-                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
                                 <div class="form-group">
                                   <label>Email*</label>
                                   <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
