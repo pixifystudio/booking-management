@@ -340,7 +340,7 @@ $randomToken = generateRandomToken();
                                $newDate = date("d F Y", strtotime($txtTanggal));
 
 
-                              $haritanggal = hari_ini($nama_hari) . ', ' . $txtTanggal;
+                              $haritanggal = hari_ini($nama_hari) . ', ' . $newDate;
                               ?>
 
                               <div class="col-11" style="padding-left: 40px;">
