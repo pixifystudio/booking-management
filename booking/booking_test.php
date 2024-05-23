@@ -377,7 +377,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-lg-10" style="padding-top: 15px; padding-left: 10px;">
+                              <div class="col-lg-10 mt-2" style="padding-left: 10px;">
                                 <label for="email">Pilihan Paket*</label>
                                 <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
