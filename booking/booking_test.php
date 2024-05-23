@@ -379,9 +379,17 @@ $randomToken = generateRandomToken();
 
                               <div class="col-lg-10 mt-2" style="padding-left: 10px;">
                                 <label for="email">Pilihan Paket*</label>
-                                <!-- <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
-                                </select> -->
+                                <select class="form-select" name="txtPaket" id="paket" disabled autocomplete="off" required>
+                                  <?php
+                                  // panggil database
+                                  $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                    <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
+                                  <?php
+                                  };
+                                  ?>
+                                </select>
                               </div>
 
 
