@@ -30,6 +30,9 @@ $y = $pdf->GetY();
 $pdf->SetXY($x, $y);
 $pdf->SetFont('Arial', 'B', 13); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(53, 6, 'STRUK', '', 0, 'C', 0);
+$pdf->Ln(5);
+$pdf->Image('../app-assets/images/logo/pixify.png',10,10);
+
 
 $pdf->Ln(15);
 $pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
