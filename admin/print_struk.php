@@ -17,10 +17,10 @@ class PDF extends FPDF
 }
 
 // Create instance of FPDF class
-$pdf = new PDF('P', 'mm', array(20, 30)); // P for Portrait, mm for millimeters, array(58, 30) for custom size
+$pdf = new PDF('P', 'mm', array(10, 30)); // P for Portrait, mm for millimeters, array(58, 30) for custom size
 
 // Add a new page
-// $pdf->AddPage();
+$pdf->AddPage();
 
 // Set font
 $pdf->SetFont('Arial', 'B', 12);
