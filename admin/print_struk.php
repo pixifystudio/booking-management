@@ -29,7 +29,8 @@ $y = $pdf->GetY();
 
 $pdf->SetXY($x, $y + 8);
 $pdf->SetFont('Arial', 'B', 8); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(0, 0.1, 'Testing', 0, 1, 'C'); // Teks dipusatkan
+$pdf->Cell(3, 2, 'tesing', '', 0, 'C', 0);
+
 $pdf->Ln(1.8);
 // Atur font
 
