@@ -29,7 +29,7 @@ $y = $pdf->GetY();
 
 $pdf->SetXY($x, $y);
 $pdf->SetFont('Arial', 'B', 13); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(53, 6, 'STRUK', '', 0, 'C', 0);
+$pdf->Cell(40, 6, 'STRUK', '', 0, 'C', 0);
 $pdf->Ln(5);
 $pdf->Image('../app-assets/images/logo/pixify.png',10,10);
 
@@ -45,7 +45,7 @@ $pdf->Cell(53, 6, '50.000', '', 0, 'L', 0);
 
 $pdf->Ln(20);
 
-$pdf->Cell(53, 6, 'TERIMAKASIH!', '', 0, 'C', 0);
+$pdf->Cell(40, 6, 'TERIMAKASIH!', '', 0, 'C', 0);
 
 
 
