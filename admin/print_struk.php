@@ -34,7 +34,7 @@ $pdf->Ln(5);
 $pdf->Image('../app-assets/images/logo/pixify.png',10,10);
 
 
-$pdf->Ln(15);
+$pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Photobox', '', 0, 'L', 0);
 $pdf->Cell(53, 6, '30.000', '', 0, 'L', 0);
