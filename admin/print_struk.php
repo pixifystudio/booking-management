@@ -26,7 +26,7 @@ $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 12);
 
 // Add text
-$pdf->Cell(0, 10, 'Testing', 0, 1, 'C'); // Centered text
+$pdf->Cell(0, 3, 'Testing', 0, 1, 'C'); // Centered text
 
 // Output the document
 $pdf->Output('I', 'test_print.pdf'); // I for inline view in browser, test_print.pdf as the file name
