@@ -17,19 +17,23 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(10, 10)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(30, 30)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 
 // Tambahkan halaman baru
 $pdf->AddPage();
+$x = $pdf->GetX();
+$y = $pdf->GetY();
 
-// Atur font
+$pdf->SetXY($x, $y + 8);
 $pdf->SetFont('Arial', 'B', 8); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->Cell(0, 0.1, 'Testing', 0, 1, 'C'); // Teks dipusatkan
+$pdf->Ln(1.8);
+// Atur font
 
 // Tambahkan teks
-$pdf->Cell(0, 0.1, 'Testing', 0, 1, 'C'); // Teks dipusatkan
 
 // Hasilkan dokumen
 $pdf->Output('I', 'test_print.pdf'); // I untuk menampilkan dalam browser, test_print.pdf sebagai nama file
