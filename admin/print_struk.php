@@ -43,7 +43,7 @@ $pdf->Cell(45, 6, 'self photo', '', 0, 'L', 0);
 $pdf->Cell(53, 6, '50.000', '', 0, 'L', 0);
 
 
-$pdf->Ln(12);
+$pdf->Ln(7);
 
 $pdf->Cell(53, 6, 'TERIMAKASIH!', '', 0, 'C', 0);
 
