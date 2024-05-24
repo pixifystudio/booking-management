@@ -273,6 +273,13 @@ if ($_GET) {
       include "lupa_password_validasi.php";
       break;
 
+      # PRINT STRUK
+
+    case 'Print-Struk':
+      if (!file_exists("print_struk.php")) die("Sorry Empty Page!");
+      include "print_struk.php";
+      break;
+
 
 
 
