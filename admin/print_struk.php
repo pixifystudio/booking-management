@@ -31,9 +31,10 @@ $pdf->SetXY($x, $y);
 $pdf->SetFont('Arial', 'B', 13); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(53, 6, 'STRUK', '', 0, 'C', 0);
 
-$pdf->SetFont('Arial', 'B', 8); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->Ln(5);
+$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(53, 6, 'Photobox', '', 0, 'L', 0);
-$pdf->Ln(1.9);
+$pdf->Ln(2);
 $pdf->Cell(53, 6, 'self photo', '', 0, 'L', 0);
 
 
