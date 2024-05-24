@@ -16,17 +16,17 @@ class PDF extends FPDF
   }
 }
 
-// Create instance of FPDF class
-$pdf = new PDF('P', 'mm', array(20, 50)); // P for Portrait, mm for millimeters, array(58, 30) for custom size
+// Buat instance dari kelas FPDF
+$pdf = new PDF('P', 'mm', array(30, 30)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
-// Add a new page
+// Tambahkan halaman baru
 $pdf->AddPage();
 
-// Set font
-$pdf->SetFont('Arial', 'B', 12);
+// Atur font
+$pdf->SetFont('Arial', 'B', 8); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 
-// Add text
-$pdf->Cell(0, 10, 'Testing', 0, 1, 'C'); // Centered text
+// Tambahkan teks
+$pdf->Cell(0, 10, 'Testing', 0, 1, 'C'); // Teks dipusatkan
 
-// Output the document
-$pdf->Output('I', 'test_print.pdf'); // I for inline view in browser, test_print.pdf as the file name
+// Hasilkan dokumen
+$pdf->Output('I', 'test_print.pdf'); // I untuk menampilkan dalam browser, test_print.pdf sebagai nama file
