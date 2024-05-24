@@ -33,10 +33,10 @@ $pdf->Cell(53, 6, 'STRUK', '', 0, 'C', 0);
 
 $pdf->Ln(15);
 $pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(30, 6, 'Photobox', '', 0, 'L', 0);
+$pdf->Cell(45, 6, 'Photobox', '', 0, 'L', 0);
 $pdf->Cell(53, 6, '30.000', '', 0, 'L', 0);
-$pdf->Ln(8);
-$pdf->Cell(30, 6, 'self photo', '', 0, 'L', 0);
+$pdf->Ln(5);
+$pdf->Cell(45, 6, 'self photo', '', 0, 'L', 0);
 $pdf->Cell(53, 6, '50.000', '', 0, 'L', 0);
 
 
