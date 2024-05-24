@@ -29,7 +29,7 @@ $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 8); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 
 // Tambahkan teks
-$pdf->Cell(0, 2, 'Testing', 0, 1, 'C'); // Teks dipusatkan
+$pdf->Cell(0, 0.1, 'Testing', 0, 1, 'C'); // Teks dipusatkan
 
 // Hasilkan dokumen
 $pdf->Output('I', 'test_print.pdf'); // I untuk menampilkan dalam browser, test_print.pdf sebagai nama file
