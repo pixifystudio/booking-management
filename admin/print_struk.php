@@ -27,7 +27,7 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 
-$pdf->SetXY($x, $y + 8);
+$pdf->SetXY($x, $y);
 $pdf->SetFont('Arial', 'B', 8); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(3, 2, 'tesing', '', 0, 'C', 0);
 
