@@ -17,7 +17,7 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(58, 30)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(58, 58)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
