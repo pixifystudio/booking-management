@@ -43,7 +43,7 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->Image('../app-assets/images/logo/difan.png', 10, 20, 60);
+$pdf->Image('../app-assets/images/logo/pixify.png', 10, 20, 60);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(5);
