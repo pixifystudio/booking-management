@@ -44,7 +44,7 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 17, 0, 15);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 20, 75, 10);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 20, 67, 10);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(10);
