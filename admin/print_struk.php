@@ -14,6 +14,23 @@ class PDF extends FPDF
   {
     // Nothing needed here for this simple example
   }
+
+  function DashedLine($x1, $y1, $x2, $y2, $dash_length = 1, $space_length = 1)
+  {
+    $this->SetLineWidth(0.2);
+    $length = sqrt(pow($x2 - $x1, 2) + pow($y2 - $y1, 2));
+    $dash_count = $length / ($dash_length + $space_length);
+    $x_step = ($x2 - $x1) / $dash_count;
+    $y_step = ($y2 - $y1) / $dash_count;
+
+    for ($i = 0; $i < $dash_count; $i++) {
+      $x_start = $x1 + $i * ($x_step + $space_length);
+      $y_start = $y1 + $i * ($y_step + $space_length);
+      $x_end = $x_start + $x_step;
+      $y_end = $y_start + $y_step;
+      $this->Line($x_start, $y_start, $x_end, $y_end);
+    }
+  }
 }
 
 // Buat instance dari kelas FPDF
@@ -50,6 +67,8 @@ $pdf->Cell(2, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, '20 Mei 2024 14.02', '', 0, 'L', 0);
 $pdf->Ln(2);
+
+$pdf->DashedLine(0, 30, 200, 30);
 
 
 
