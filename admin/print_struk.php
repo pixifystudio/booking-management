@@ -46,7 +46,7 @@ $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 15, 0, 20);
 $pdf->SetXY($x, $y);
 
-$pdf->Ln(10);
+$pdf->Ln(15);
 $pdf->SetFont('Arial', 'B', 10); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'R E C E I P T', '', 0, 'C', 0);
 $pdf->Ln(5);
