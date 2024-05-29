@@ -89,7 +89,7 @@ $pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
 $pdf->Ln(2);
 $pdf->SetFont('Arial', '', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
-$pdf->Cell(35, 6, '2 x Rp 50.000', '', 0, 'L', 0);
+$pdf->Cell(25, 6, '2 x Rp 50.000', '', 0, 'L', 0);
 $pdf->Cell(25, 6, 'Rp 60.000', '', 0, 'L', 0);
 
 
