@@ -46,7 +46,7 @@ $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 17, 0, 15);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 20, 60, 8);
 $pdf->Image('../app-assets/images/logo/instagram.png', 24.2, 69.2, 1.5);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 13, 69.2, 1.5);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 12.8, 69.2, 1.5);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(10);
@@ -147,7 +147,7 @@ $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '',
 
 $pdf->Ln(12);
 
-$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, '0851-7121-2096       @PXY.STUDIO', '', 0, 'C', 0);
 
 
