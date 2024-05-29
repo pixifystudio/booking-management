@@ -28,10 +28,16 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 
 $pdf->SetXY($x, $y);
+$pdf->Image('../app-assets/images/logo/pixify.png', 30, 30);
 $pdf->SetFont('Arial', 'B', 13); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(45, 6, 'STRUK', '', 0, 'C', 0);
+$pdf->Cell(45, 6, 'R E C E I P T', '', 0, 'C', 0);
 $pdf->Ln(5);
-$pdf->Image('../app-assets/images/logo/pixify.png',10,10);
+
+$pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
+$pdf->Ln(2);
+$pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
+$pdf->Ln(2);
+
 
 
 $pdf->Ln(10);
