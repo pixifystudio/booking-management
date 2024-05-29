@@ -43,7 +43,7 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->DashedLine(10, 30, 200, 30);
+
 $pdf->SetXY($x, $y);
 $pdf->Image('../app-assets/images/logo/pixify.png', 30, 30);
 $pdf->SetFont('Arial', 'B', 10); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
@@ -67,6 +67,9 @@ $pdf->Cell(2, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, '20 Mei 2024 14.02', '', 0, 'L', 0);
 $pdf->Ln(2);
+
+
+$pdf->Cell(160, 6, '-----------------------------------------------------------------', '', 0, 'L', 0);
 
 
 
