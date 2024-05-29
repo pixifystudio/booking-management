@@ -141,9 +141,6 @@ $pdf->Cell(45, 6, 'Kamu bisa share pengalaman foto kamu dengan cara scan QR beri
 $pdf->Ln(2);
 $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '', 0, 'C', 0);
 
-$pdf->Ln(20);
-
-$pdf->Cell(45, 6, 'TERIMAKASIH!', '', 0, 'C', 0);
 
 
 
