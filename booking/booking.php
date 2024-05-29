@@ -503,29 +503,29 @@ $randomToken = generateRandomToken();
                           <h4>Senin 09:00 - 18:00</h4>
                           <h4>Senin 09:00 - 18:00</h4> -->
 
-                          <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-                            <div class="wrapper">
-                              <div class="container-calendar">
-
-                                <div class="button-container-calendar">
-
-                                  <div class="btn secondary btn-large block waves-effect" id="previous">&#8249;</div>
-
-                                  <div class="btn secondary btn-large block waves-effect" id="next">&#8250;</div>
-
-                                  <h3 id="monthHeader"></h3>
-                                  <p id="yearHeader"></p>
-                                </div>
-                                <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
+                          <div class="wrapper">
+                            <div class="container-calendar">
+                              
+                              <div class="button-container-calendar">
+                                
+                                <button id="previous">&#8249;</button>
+                                
+                                <button id="next">&#8250;</button>
+                                
+                                <h3 id="monthHeader"></h3>
+                                <p id="yearHeader"></p>
+                              </div>
+                              <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
+                                <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <table class="table-calendar" id="">
-
+                                  
                                   <thead id="thead-month"></thead>
-
+                                  
                                   <tbody id="calendar-body"></tbody>
-
+                                  
                                 </table>
-
-
+                                
+                                
 
                                 <div class="footer-container-calendar">
 
