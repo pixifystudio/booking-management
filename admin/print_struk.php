@@ -68,7 +68,7 @@ $pdf->Cell(28, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, '20 Mei 2024 14.02', '', 0, 'L', 0);
 $pdf->Ln(2);
 
-$pdf->DashedLine(0, 30, 200, 30);
+$pdf->DashedLine(1, 30, 200, 30);
 
 
 
