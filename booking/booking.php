@@ -630,7 +630,7 @@ $randomToken = generateRandomToken();
     var startDay = "";
 
     // Seleksi tombol submit
-    var btnSubmit = document.getElementById("btnSubmit");
+    // var btnSubmit = document.getElementById("btnSubmit");
 
     // // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
     // window.addEventListener('DOMContentLoaded', function() {
