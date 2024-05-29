@@ -632,10 +632,10 @@ $randomToken = generateRandomToken();
     // Seleksi tombol submit
     var btnSubmit = document.getElementById("btnSubmit");
 
-    // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
-    window.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
-    });
+    // // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
+    // window.addEventListener('DOMContentLoaded', function() {
+    //   document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+    // });
 
 
 
