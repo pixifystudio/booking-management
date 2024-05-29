@@ -88,25 +88,25 @@ $pdf->Ln(3);
 $pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
-$pdf->Ln(2);
+$pdf->Ln(1.5);
 $pdf->SetFont('Arial', '', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(30, 6, '2 x Rp 50.000', '', 0, 'L', 0);
 $pdf->Cell(25, 6, 'Rp 100.000', '', 0, 'L', 0);
 
-$pdf->Ln(3);
+$pdf->Ln(2);
 
 $pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
-$pdf->Ln(2);
+$pdf->Ln(1.5);
 $pdf->SetFont('Arial', '', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(30, 6, '2 x Rp 50.000', '', 0, 'L', 0);
 $pdf->Cell(25, 6, 'Rp 100.000', '', 0, 'L', 0);
 
 
-$pdf->Ln(5);
+$pdf->Ln(3);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
