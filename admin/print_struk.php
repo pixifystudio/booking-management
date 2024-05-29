@@ -115,21 +115,21 @@ $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
-$pdf->Cell(13, 6, 'Total: ', '', 0, 'L', 0);
+$pdf->Cell(15, 6, 'Total: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp 200.000 ', '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
-$pdf->Cell(13, 6, 'DP: ', '', 0, 'L', 0);
+$pdf->Cell(15, 6, 'DP: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp 20.000 ', '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
-$pdf->Cell(13, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
+$pdf->Cell(15, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp 180.000 ', '', 0, 'L', 0);
 
 
