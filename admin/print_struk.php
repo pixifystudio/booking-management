@@ -111,6 +111,26 @@ $y = $pdf->GetY();
 $pdf->SetXY($x - 60, $y);
 $pdf->Cell(198, 6, '-------------------------------------------------------------------------------------------------------------------------------------------------------', '', 0, 'L', 0);
 
+$pdf->Ln(3);
+
+$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->Cell(45, 6, '', '', 0, 'L', 0);
+$pdf->Cell(35, 6, 'Total', '', 0, 'L', 0);
+
+$pdf->Ln(3);
+
+$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->Cell(45, 6, '', '', 0, 'L', 0);
+$pdf->Cell(35, 6, 'DP', '', 0, 'L', 0);
+
+$pdf->Ln(3);
+
+$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->Cell(45, 6, '', '', 0, 'L', 0);
+$pdf->Cell(35, 6, 'Sisa Pembayaran', '', 0, 'L', 0);
+
+
+
 
 
 $pdf->Ln(20);
