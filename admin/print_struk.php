@@ -40,7 +40,7 @@ $pdf->Ln(2);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
 $pdf->Ln(4);
 
-$pdf->Line(20, 45, 100 - 20, 15); // 20mm from each edge
+$pdf->Line(10, 20, 200, 20); // A horizontal line from (10, 20) to (200, 20)
 
 
 
