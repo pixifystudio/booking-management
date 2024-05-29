@@ -38,9 +38,9 @@ $pdf->SetFont('Arial', '', 4); // Ukuran font disesuaikan agar sesuai dengan uku
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
 $pdf->Ln(2);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
-$pdf->Ln(10);
+$pdf->Ln(4);
 
-$pdf->Line(20, 45, 210 - 20, 45); // 20mm from each edge
+$pdf->Line(50, 45, 210 - 50, 45); // 50mm from each edge
 
 
 
