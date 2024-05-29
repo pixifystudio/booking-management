@@ -509,9 +509,9 @@ $randomToken = generateRandomToken();
 
                                 <div class="button-container-calendar">
 
-                                  <div id="previous">&#8249;</div>
+                                  <button id="previous">&#8249;</button>
 
-                                  <div id="next">&#8250;</div>
+                                  <button id="next">&#8250;</button>
 
                                   <h3 id="monthHeader"></h3>
                                   <p id="yearHeader"></p>
