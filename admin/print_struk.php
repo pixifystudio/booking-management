@@ -143,7 +143,7 @@ $pdf->Cell(45, 6, 'Kamu bisa share pengalaman foto kamu dengan cara scan QR beri
 $pdf->Ln(1.5);
 $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '', 0, 'C', 0);
 
-$pdf->Ln(10);
+$pdf->Ln(12);
 
 $pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, '0851-7121-2096       @PXY.STUDIO', '', 0, 'C', 0);
