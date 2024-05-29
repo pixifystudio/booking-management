@@ -35,7 +35,7 @@ class PDF extends FPDF
 
 // Buat instance dari kelas FPDF
 $pdf = new PDF('P', 'mm', array(50, 100)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
-$pdf->Image('../app-assets/images/logo/difan.png', 10, 20, 60);
+
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 
@@ -43,7 +43,7 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-
+$pdf->Image('../app-assets/images/logo/difan.png', 10, 20, 60);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(5);
