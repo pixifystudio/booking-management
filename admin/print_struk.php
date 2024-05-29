@@ -35,7 +35,7 @@ class PDF extends FPDF
 
 // Buat instance dari kelas FPDF
 $pdf = new PDF('P', 'mm', array(50, 100)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
-
+$pdf->Image('../app-assets/images/logo/pixify.png', 5, 5);
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 
@@ -45,7 +45,7 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 
 $pdf->SetXY($x, $y);
-$pdf->Image('../app-assets/images/logo/pixify.png', 100, 100);
+
 $pdf->Ln(5);
 $pdf->SetFont('Arial', 'B', 10); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'R E C E I P T', '', 0, 'C', 0);
