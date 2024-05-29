@@ -136,9 +136,9 @@ $pdf->Ln(4);
 
 $pdf->SetFont('Arial', '', 3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
-$pdf->Ln(1);
+$pdf->Ln(1.5);
 $pdf->Cell(45, 6, 'Kamu bisa share pengalaman foto kamu dengan cara scan QR berikut', '', 0, 'C', 0);
-$pdf->Ln(1);
+$pdf->Ln(1.5);
 $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '', 0, 'C', 0);
 
 
