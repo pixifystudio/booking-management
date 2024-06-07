@@ -84,7 +84,7 @@ function tgl_indo($tanggal)
   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 }
 
-$tanggal_cetak = tgl_indo(date('Y-m-d G:i:s')); // 21 Oktober 2017
+$tanggal_cetak = tgl_indo(date('Y-m-d')); // 21 Oktober 2017
 $tanggal_foto = tgl_indo($tanggal_foto); // 21 Oktober 2017
 
 
