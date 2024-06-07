@@ -84,7 +84,8 @@ $tanggal_foto = isset($myData['updated_date']) ? $myData['updated_date'] : 0;
 //   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 // }
 
-$tanggal_cetak = date('d-F-Y G:i:s'); // 21 Oktober 2017
+$tanggal_cetak = date('d F Y G:i:s'); // 21 Oktober 2017
+$tanggal_foto = date("d F Y G:i:s", strtotime($tanggal_foto));
 
 
 
@@ -103,11 +104,11 @@ $pdf->Ln(4.5);
 
 $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(1, 6, '', '', 0, 'L', 0);
-$pdf->Cell(26, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
+$pdf->Cell(24, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_cetak, '', 0, 'L', 0);
 $pdf->Ln(2);
 $pdf->Cell(1, 6, '', '', 0, 'L', 0);
-$pdf->Cell(26, 6, 'Tanggal Foto:', '', 0, 'L', 0);
+$pdf->Cell(24, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_foto, '', 0, 'L', 0);
 $pdf->Ln(2);
 
