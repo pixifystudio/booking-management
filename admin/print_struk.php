@@ -49,7 +49,7 @@ $pdf->Image('../app-assets/images/logo/instagram.png', 24.7, 69.2, 1.5);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 13.3, 69.2, 1.5);
 $pdf->SetXY($x, $y);
 
-$pdf->Ln(15);
+$pdf->Ln(17);
 $pdf->SetFont('Arial', 'B', 10); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'R E C E I P T', '', 0, 'C', 0);
 $pdf->Ln(5);
