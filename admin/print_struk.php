@@ -45,8 +45,8 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 12  , 0, 25);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 70, 18);
-$pdf->Image('../app-assets/images/logo/instagram.png', 23,86,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 3, 86,3);
+$pdf->Image('../app-assets/images/logo/instagram.png', 23,88,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 3, 88,3);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(18);
