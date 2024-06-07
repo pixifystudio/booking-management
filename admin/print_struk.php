@@ -45,8 +45,8 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 12  , 0, 25);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 18, 70, 15);
-$pdf->Image('../app-assets/images/logo/instagram.png', 22.7, 79.2,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 11.3, 79.2,3);
+$pdf->Image('../app-assets/images/logo/instagram.png', 17.7,110,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 6.3, 110,3);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(18);
@@ -160,7 +160,7 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 25);
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(5, 6,'', '', 0, 'L', 0);
+$pdf->Cell(3, 6,'', '', 0, 'L', 0);
 $pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
 
 
