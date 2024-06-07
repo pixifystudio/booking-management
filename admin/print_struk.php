@@ -59,33 +59,33 @@ $dp = isset($myData['dp']) ? $myData['dp'] : 0;
 $tanggal_foto = isset($myData['updated_date']) ? $myData['updated_date'] : 0;
 
 
-function tgl_indo($tanggal)
-{
-  $bulan = array(
-    1 =>   'Januari',
-    'Februari',
-    'Maret',
-    'April',
-    'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember'
-  );
-  $pecahkan = explode('-', $tanggal);
+// function tgl_indo($tanggal)
+// {
+//   $bulan = array(
+//     1 =>   'Januari',
+//     'Februari',
+//     'Maret',
+//     'April',
+//     'Mei',
+//     'Juni',
+//     'Juli',
+//     'Agustus',
+//     'September',
+//     'Oktober',
+//     'November',
+//     'Desember'
+//   );
+//   $pecahkan = explode('-', $tanggal);
 
-  // variabel pecahkan 0 = tanggal
-  // variabel pecahkan 1 = bulan
-  // variabel pecahkan 2 = tahun
+//   // variabel pecahkan 0 = tanggal
+//   // variabel pecahkan 1 = bulan
+//   // variabel pecahkan 2 = tahun
 
-  return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
-}
+//   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+// }
 
-$tanggal_cetak = tgl_indo(date('Y-m-d')); // 21 Oktober 2017
-$tanggal_foto = tgl_indo($tanggal_foto); // 21 Oktober 2017
+$tanggal_cetak = (date('Y-m-d')); // 21 Oktober 2017
+$tanggal_foto = ($tanggal_foto); // 21 Oktober 2017
 
 
 
