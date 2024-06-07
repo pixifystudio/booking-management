@@ -170,6 +170,7 @@ $id = $_GET['id'];
                   <th>No</th>
                   <th>Item</th>
                   <th>Nominal</th>
+                  <th>Qty</th>
                   <th>Hapus</th>
                   <!-- <th>Reschedule</th> -->
                 </tr>
