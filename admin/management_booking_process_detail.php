@@ -27,8 +27,8 @@ $id = $_GET['id'];
     // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     // $nomor  = 0;
     # Validasi Insert Sukses
+    echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
     }
   }
 
