@@ -88,14 +88,21 @@ $pdf->SetXY($x, $y);
 
 $pdf->Ln(5);
 
-$pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(4, 6, '', '', 0, 'L', 0);
-$pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
-$pdf->Ln(1.5);
-$pdf->SetFont('Arial', '', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(4, 6, '', '', 0, 'L', 0);
-$pdf->Cell(30, 6, '2 x Rp 50.000', '', 0, 'L', 0);
-$pdf->Cell(25, 6, 'Rp 100.000', '', 0, 'L', 0);
+// INSERT LIST ITEM
+
+$mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
+$myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+$nomor  = 0;
+while ($myData = mysqli_fetch_array($myQry)) {
+  $pdf->SetFont('Arial', 'B', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+  $pdf->Cell(2, 6, '', '', 0, 'L', 0);
+  $pdf->Cell(35, 6, $myData['item'], '', 0, 'L', 0);
+  $pdf->Ln(1.5);
+  $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+  $pdf->Cell(4, 6, '', '', 0, 'L', 0);
+  $pdf->Cell(30, 6, $myData['qty'] . ' x ' . $myData['nominal'], '', 0, 'L', 0);
+  $pdf->Cell(25, 6, ($myData['qty'] * $myData['nominal']), '', 0, 'L', 0);
+}
 
 
 $pdf->Ln(3);
