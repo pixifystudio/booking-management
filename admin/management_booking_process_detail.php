@@ -22,10 +22,10 @@ $id = $_GET['id'];
     $ses_nama = $_SESSION['SES_NAMA'];
 
     #tambah data
-    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now())";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
+    // $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
+    //  VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now())";
+    // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    // $nomor  = 0;
     # Validasi Insert Sukses
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
