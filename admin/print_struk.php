@@ -181,7 +181,9 @@ $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
 
-$pdf->Ln(4);
+$x = $pdf->GetX();
+$y = $pdf->GetY();
+$pdf->SetXY($x, $y + 20);
 
 $pdf->SetFont('Arial', '', 4.3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
@@ -192,9 +194,7 @@ $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '',
 
 $pdf->Ln(8);
 
-$x = $pdf->GetX();
-$y = $pdf->GetY();
-$pdf->SetXY($x, $y + 20);
+
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(5, 6,'', '', 0, 'L', 0);
 $pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
