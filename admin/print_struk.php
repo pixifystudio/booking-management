@@ -89,6 +89,7 @@ $pdf->SetXY($x, $y);
 $pdf->Ln(5);
 
 // INSERT LIST ITEM
+$id = $_GET['id'];
 
 $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
