@@ -158,7 +158,7 @@ $pdf->Ln(8);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->SetXY($x, $y - 60);
+$pdf->SetXY($x, $y + 30);
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(5, 6,'', '', 0, 'L', 0);
 $pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
