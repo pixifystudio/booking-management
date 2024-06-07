@@ -138,7 +138,7 @@ while ($myData1 = mysqli_fetch_array($myQry1)) {
   $pdf->SetFont('Arial', 'B', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(2, 6, '', '', 0, 'L', 0);
   $pdf->Cell(35, 6, $myData1['item'], '', 0, 'L', 0);
-  $pdf->Ln(2);
+
   $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(4, 6, '', '', 0, 'L', 0);
   $pdf->Cell(30, 6, $myData1['qty'] . ' x ' . number_format($myData1['nominal']), '', 0, 'L', 0);
