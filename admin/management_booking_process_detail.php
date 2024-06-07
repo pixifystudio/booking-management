@@ -47,8 +47,8 @@ $id = $_GET['id'];
     // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     // $nomor  = 0;
 
+    echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
     }
   } // Penutup Tombol Submit
 
