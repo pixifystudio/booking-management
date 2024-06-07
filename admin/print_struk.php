@@ -146,6 +146,7 @@ while ($myData1 = mysqli_fetch_array($myQry1)) {
 
 
   $total = $total + ($myData1['qty'] * $myData1['nominal']);
+
   $pdf->Ln(3);
 
 }
