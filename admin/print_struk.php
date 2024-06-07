@@ -44,9 +44,9 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 12  , 0, 25);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 18, 70, 15);
-$pdf->Image('../app-assets/images/logo/instagram.png', 17.7,110,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 6.3, 110,3);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 80, 18);
+$pdf->Image('../app-assets/images/logo/instagram.png', 17.7,75,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 6.3, 75,3);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(18);
