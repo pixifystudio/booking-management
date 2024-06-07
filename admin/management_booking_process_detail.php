@@ -16,12 +16,14 @@ $id = $_GET['id'];
     #data post
     $dataItem  = $_POST['txtItem'];
     $dataNominal  = $_POST['txtNominal'];
+    $dataQty  = $_POST['txtQty'];
+
 
     $ses_nama = $_SESSION['SES_NAMA'];
 
     #tambah data
-    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`, `nominal`, `updated_by`, `updated_date`)
-     VALUES ('$id','$dataItem','$dataNominal','$ses_nama',now())";
+    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
+     VALUES ('$id','$dataItem',$dataQty',$dataNominal','$ses_nama',now())";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     # Validasi Insert Sukses
@@ -46,7 +48,7 @@ $id = $_GET['id'];
     $nomor  = 0;
 
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&s=success'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
     }
   } // Penutup Tombol Submit
 
@@ -142,6 +144,14 @@ $id = $_GET['id'];
                           </div>
                         </div>
 
+
+                        <div class="col-md-3 col-12">
+                          <div class="form-group">
+                            <label>Qty (Kuantiti)<span class="required">*</span></label>
+                            <input class="form-control" placeholder="Qty" name="txtQty" type="number" value="" maxlength="100" required />
+                          </div>
+                        </div>
+
                         <div class="col-md-3 col-12">
                           <br>
                           <button type=" submit" name="btnTambah" class="btn btn-info me-3">Tambah Item</button>
@@ -182,6 +192,7 @@ $id = $_GET['id'];
                   <tr>
                     <td><?php echo $nomor; ?></td>
                     <td><?php echo $myData['item']; ?></td>
+                    <td><?php echo $myData['qty']; ?></td>
                     <td align="right"><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td>
                       <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
@@ -193,7 +204,7 @@ $id = $_GET['id'];
 
                 <?php
                   // akumulasi total pembayaran
-                  $total_pembayaran = $total_pembayaran +  $myData['nominal'];
+                  $total_pembayaran = $total_pembayaran +  ($myData['nominal'] * $myData['qty']);
                 }
                 ?>
 
