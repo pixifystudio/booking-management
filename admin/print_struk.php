@@ -197,6 +197,7 @@ $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 10);
 
 
+$pdf->Ln(1.5);
 
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(5, 6,'', '', 0, 'L', 0);
