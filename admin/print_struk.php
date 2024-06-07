@@ -120,7 +120,7 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 $pdf->Ln(3);
 
 
-$mySql   = "SELECT * FROM booking where booking_id='$id'  order by updated_date asc";
+$mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $myData = mysqli_fetch_array($myQry);
 
