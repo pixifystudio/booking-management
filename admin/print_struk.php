@@ -183,7 +183,7 @@ $pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->SetXY($x, $y + 20);
+$pdf->SetXY($x, $y + 40);
 
 $pdf->SetFont('Arial', '', 4.3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
