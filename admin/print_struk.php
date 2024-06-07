@@ -56,7 +56,7 @@ $pdf->Ln(5);
 
 $pdf->SetFont('Arial', '', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 
-$pdf->Line(0, 30, 260, 30); // A horizontal line from (10, 20) to (200, 20)
+$pdf->Line(0, 32, 260, 32); // A horizontal line from (10, 20) to (200, 20)
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
 $pdf->Ln(2);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
@@ -86,17 +86,7 @@ $pdf->SetXY($x, $y);
 
 
 
-$pdf->Ln(3);
-$pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(4, 6, '', '', 0, 'L', 0);
-$pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
-$pdf->Ln(1.5);
-$pdf->SetFont('Arial', '', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(4, 6, '', '', 0, 'L', 0);
-$pdf->Cell(30, 6, '2 x Rp 50.000', '', 0, 'L', 0);
-$pdf->Cell(25, 6, 'Rp 100.000', '', 0, 'L', 0);
-
-$pdf->Ln(2);
+$pdf->Ln(5);
 
 $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
