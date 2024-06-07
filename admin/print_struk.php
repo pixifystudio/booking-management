@@ -60,14 +60,14 @@ $pdf->Line(0, 32, 260, 32); // A horizontal line from (10, 20) to (200, 20)
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
 $pdf->Ln(2);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
-$pdf->Ln(5);
+$pdf->Ln(4.5);
 
 $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(2, 6, '', '', 0, 'L', 0);
+$pdf->Cell(1, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, '23 Mei 2024 14.02', '', 0, 'L', 0);
 $pdf->Ln(2);
-$pdf->Cell(2, 6, '', '', 0, 'L', 0);
+$pdf->Cell(1, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, '20 Mei 2024 14.02', '', 0, 'L', 0);
 $pdf->Ln(2);
