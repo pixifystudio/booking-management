@@ -94,6 +94,7 @@ $id = $_GET['id'];
 $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $nomor  = 0;
+$total = 0;
 while ($myData = mysqli_fetch_array($myQry)) {
   $pdf->SetFont('Arial', 'B', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(2, 6, '', '', 0, 'L', 0);
@@ -103,6 +104,9 @@ while ($myData = mysqli_fetch_array($myQry)) {
   $pdf->Cell(4, 6, '', '', 0, 'L', 0);
   $pdf->Cell(30, 6, $myData['qty'] . ' x ' . $myData['nominal'], '', 0, 'L', 0);
   $pdf->Cell(25, 6, ($myData['qty'] * $myData['nominal']), '', 0, 'L', 0);
+
+
+  $total = $total + ($myData['qty'] * $myData['nominal']);
 }
 
 
@@ -115,24 +119,31 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 
 $pdf->Ln(3);
 
+
+$mySql   = "SELECT * FROM booking where booking_id='$id'  order by updated_date asc";
+$myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+$myData = mysqli_fetch_array($myQry);
+
+$dp = isset($myData['dp']) ? $myData['dp'] :0;
+
 $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
 $pdf->Cell(14, 6, 'Total: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp 200.000 ', '', 0, 'L', 0);
+$pdf->Cell(10, 6, $total, '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B',5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
 $pdf->Cell(14, 6, 'DP: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp 20.000 ', '', 0, 'L', 0);
+$pdf->Cell(10, 6, $dp, '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
 $pdf->Cell(14, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp 180.000 ', '', 0, 'L', 0);
+$pdf->Cell(10, 6, ($total - $dp), '', 0, 'L', 0);
 
 $pdf->Ln(4);
 
