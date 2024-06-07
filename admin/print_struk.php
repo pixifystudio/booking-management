@@ -180,13 +180,13 @@ $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan uk
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
+$pdf->Ln(1.5);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 4);
 $pdf->SetFont('Arial', '', 4.3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
-$pdf->Ln(1.5);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
