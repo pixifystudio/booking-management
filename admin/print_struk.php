@@ -194,7 +194,7 @@ $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '',
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->SetXY($x, $y + 25);
+$pdf->SetXY($x, $y + 23);
 
 
 $pdf->Ln(1.5);
