@@ -45,9 +45,48 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 12  , 0, 25);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 70, 18);
-$pdf->Image('../app-assets/images/logo/instagram.png', 25.5,91.5,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 2.5, 91.5,3);
+$pdf->Image('../app-assets/images/logo/instagram.png', 25.5,91.3,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 2.5, 91.3,3);
 $pdf->SetXY($x, $y);
+
+
+$mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
+$myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+$myData = mysqli_fetch_array($myQry);
+
+$dp = isset($myData['dp']) ? $myData['dp'] : 0;
+$tanggal_foto = isset($myData['updated_date']) ? $myData['updated_date'] : 0;
+
+
+function tgl_indo($tanggal)
+{
+  $bulan = array(
+    1 =>   'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember'
+  );
+  $pecahkan = explode('-', $tanggal);
+
+  // variabel pecahkan 0 = tanggal
+  // variabel pecahkan 1 = bulan
+  // variabel pecahkan 2 = tahun
+
+  return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+}
+
+$tanggal_cetak = tgl_indo(date('Y-m-d G:i:s')); // 21 Oktober 2017
+$tanggal_foto = tgl_indo($tanggal_foto); // 21 Oktober 2017
+
+
 
 $pdf->Ln(18);
 $pdf->SetFont('Arial', 'B', 15); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
@@ -65,11 +104,11 @@ $pdf->Ln(4.5);
 $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(1, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
-$pdf->Cell(25, 6, '23 Mei 2024 14.02', '', 0, 'L', 0);
+$pdf->Cell(25, 6, $tanggal_cetak, '', 0, 'L', 0);
 $pdf->Ln(2);
 $pdf->Cell(1, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Foto:', '', 0, 'L', 0);
-$pdf->Cell(25, 6, '20 Mei 2024 14.02', '', 0, 'L', 0);
+$pdf->Cell(25, 6, $tanggal_foto, '', 0, 'L', 0);
 $pdf->Ln(2);
 
 
@@ -120,11 +159,6 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 $pdf->Ln(3);
 
 
-$mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
-$myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-$myData = mysqli_fetch_array($myQry);
-
-$dp = isset($myData['dp']) ? $myData['dp'] :0;
 
 $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
@@ -147,7 +181,7 @@ $pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
 
 $pdf->Ln(4);
 
-$pdf->SetFont('Arial', '', 4); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 4.7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
 $pdf->Ln(1.5);
 $pdf->Cell(45, 6, 'Kamu bisa share pengalaman foto kamu dengan cara scan QR berikut', '', 0, 'C', 0);
