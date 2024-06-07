@@ -39,11 +39,12 @@ $id = $_GET['id'];
     # Baca variabel form
     $id   = $_GET['id'];
     $dataGdrive  = $_POST['txtGdrive'];
+    $dataDP  = $_POST['txtDP'];
 
     # UPDATE KE DATABASE BOOKING
 
     $mySql   = "UPDATE `booking` 
-      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive' WHERE id='$id'";
+      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive', dp = '$dataDP' WHERE id='$id'";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
@@ -126,6 +127,7 @@ $id = $_GET['id'];
                             <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
+
 
                         <hr>
                         <h3>Detail Transaksi</h3>
@@ -224,6 +226,14 @@ $id = $_GET['id'];
             <div class="form-group">
               <label>Link Foto (Gdrive)<span class="required">*</span></label>
               <input class="form-control" placeholder="Link" name="txtGdrive" type="text" value="" maxlength="100" required />
+            </div>
+          </div>
+
+
+          <div class="col-md-3 col-12">
+            <div class="form-group">
+              <label>DP <span class="required">*</span></label>
+              <input class="form-control" placeholder="DP" name="txtDP" type="number" value="<?php echo $dataDP; ?>" maxlength="100" required />
             </div>
           </div>
 
