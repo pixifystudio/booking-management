@@ -49,6 +49,7 @@ $pdf->Image('../app-assets/images/logo/instagram.png', 25.5,91.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 2.5, 91.3,3);
 $pdf->SetXY($x, $y);
 
+$id = $_GET['id'];
 
 $mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
@@ -128,7 +129,6 @@ $pdf->SetXY($x, $y);
 $pdf->Ln(5);
 
 // INSERT LIST ITEM
-$id = $_GET['id'];
 
 $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
