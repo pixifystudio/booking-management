@@ -44,9 +44,9 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifystudio.png', 12  , 0, 25);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 20, 60, 8);
-$pdf->Image('../app-assets/images/logo/instagram.png', 24.7, 69.2, 1.5);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 13.3, 69.2, 1.5);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 18, 70, 15);
+$pdf->Image('../app-assets/images/logo/instagram.png', 22.7, 79.2,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 11.3, 79.2,3);
 $pdf->SetXY($x, $y);
 
 $pdf->Ln(18);
@@ -102,8 +102,8 @@ while ($myData = mysqli_fetch_array($myQry)) {
   $pdf->Ln(2);
   $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(4, 6, '', '', 0, 'L', 0);
-  $pdf->Cell(30, 6, $myData['qty'] . ' x ' . $myData['nominal'], '', 0, 'L', 0);
-  $pdf->Cell(25, 6, ($myData['qty'] * $myData['nominal']), '', 0, 'L', 0);
+  $pdf->Cell(30, 6, $myData['qty'] . ' x ' . number_format($myData['nominal']), '', 0, 'L', 0);
+  $pdf->Cell(25, 6, 'Rp. ' . number_format(($myData['qty'] * $myData['nominal'])), '', 0, 'L', 0);
 
 
   $total = $total + ($myData['qty'] * $myData['nominal']);
@@ -129,21 +129,21 @@ $dp = isset($myData['dp']) ? $myData['dp'] :0;
 $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'Total: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, $total, '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp. ' . number_format($total,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B',5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'DP: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, $dp, '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp. ' . number_format($dp,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, ($total - $dp), '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
 
 $pdf->Ln(4);
 
