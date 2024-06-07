@@ -22,13 +22,13 @@ $id = $_GET['id'];
     $ses_nama = $_SESSION['SES_NAMA'];
 
     #tambah data
-    // $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
-    //  VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now())";
-    // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    // $nomor  = 0;
+    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now())";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $nomor  = 0;
     # Validasi Insert Sukses
-    echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
     if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
     }
   }
 
@@ -42,10 +42,10 @@ $id = $_GET['id'];
 
     # UPDATE KE DATABASE BOOKING
 
-    $mySql   = "UPDATE `booking` 
-      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive' WHERE id='$id'";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
+    // $mySql   = "UPDATE `booking` 
+    //   SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive' WHERE id='$id'";
+    // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    // $nomor  = 0;
 
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
