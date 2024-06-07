@@ -34,7 +34,7 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(50, 100)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(50, 120)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
@@ -159,7 +159,6 @@ $pdf->Ln(8);
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x - 79, $y);
-$pdf->Cell(198, 6, '-------------------------------------------------------------------------------------------------------------------------------------------------------', '', 0, 'L', 0);
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'C', 0);
 
