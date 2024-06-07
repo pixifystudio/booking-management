@@ -49,12 +49,12 @@ $pdf->Image('../app-assets/images/logo/instagram.png', 24.7, 69.2, 1.5);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 13.3, 69.2, 1.5);
 $pdf->SetXY($x, $y);
 
-$pdf->Ln(17);
+$pdf->Ln(18);
 $pdf->SetFont('Arial', 'B', 15); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(45, 6, 'R E C E I P T', '', 0, 'C', 0);
+$pdf->Cell(45, 6, '  R E C E I P T', '', 0, 'C', 0);
 $pdf->Ln(5);
 
-$pdf->SetFont('Arial', '', 4); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 
 $pdf->Line(0, 25, 260, 25); // A horizontal line from (10, 20) to (200, 20)
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
@@ -62,7 +62,7 @@ $pdf->Ln(2);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
 $pdf->Ln(5);
 
-$pdf->SetFont('Arial', '', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(2, 6, '', '', 0, 'L', 0);
 $pdf->Cell(28, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, '23 Mei 2024 14.02', '', 0, 'L', 0);
@@ -87,7 +87,7 @@ $pdf->SetXY($x, $y);
 
 
 $pdf->Ln(3);
-$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
 $pdf->Ln(1.5);
@@ -98,11 +98,11 @@ $pdf->Cell(25, 6, 'Rp 100.000', '', 0, 'L', 0);
 
 $pdf->Ln(2);
 
-$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(35, 6, 'Self Photo', '', 0, 'L', 0);
 $pdf->Ln(1.5);
-$pdf->SetFont('Arial', '', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(4, 6, '', '', 0, 'L', 0);
 $pdf->Cell(30, 6, '2 x Rp 50.000', '', 0, 'L', 0);
 $pdf->Cell(25, 6, 'Rp 100.000', '', 0, 'L', 0);
@@ -117,28 +117,28 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
 $pdf->Cell(14, 6, 'Total: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp 200.000 ', '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B',6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
 $pdf->Cell(14, 6, 'DP: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp 20.000 ', '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 3.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(20, 6, '', '', 0, 'L', 0);
 $pdf->Cell(14, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp 180.000 ', '', 0, 'L', 0);
 
 $pdf->Ln(4);
 
-$pdf->SetFont('Arial', '', 3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
 $pdf->Ln(1.5);
 $pdf->Cell(45, 6, 'Kamu bisa share pengalaman foto kamu dengan cara scan QR berikut', '', 0, 'C', 0);
@@ -147,7 +147,7 @@ $pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '',
 
 $pdf->Ln(12);
 
-$pdf->SetFont('Arial', 'B', 3); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'C', 0);
 
 
