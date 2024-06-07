@@ -42,13 +42,13 @@ $id = $_GET['id'];
 
     # UPDATE KE DATABASE BOOKING
 
-    // $mySql   = "UPDATE `booking` 
-    //   SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive' WHERE id='$id'";
-    // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    // $nomor  = 0;
+    $mySql   = "UPDATE `booking` 
+      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive' WHERE id='$id'";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $nomor  = 0;
 
-    echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
     if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
     }
   } // Penutup Tombol Submit
 
