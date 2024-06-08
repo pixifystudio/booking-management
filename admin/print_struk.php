@@ -40,7 +40,7 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(50, 110)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(50, 120)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
@@ -96,7 +96,7 @@ $tanggal_foto = date("d F Y G:i:s", strtotime($tanggal_foto));
 
 
 $pdf->Ln(18);
-$pdf->SetFont('Arial', 'B', 15); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 20); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, '  R E C E I P T', '', 0, 'C', 0);
 $pdf->Ln(5);
 
