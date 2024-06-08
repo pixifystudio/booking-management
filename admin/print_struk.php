@@ -50,9 +50,9 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 38);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 90, 20);
-$pdf->Image('../app-assets/images/logo/instagram.png', 27.5,118.3,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 118.3,3);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 100, 20);
+$pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
 $pdf->SetXY($x, $y + 33);
 
 $id = $_GET['id'];
@@ -101,7 +101,7 @@ $pdf->Ln(5);
 
 $pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 
-$pdf->Line(0, 47, 260, 47); // A horizontal line from (10, 20) to (200, 20)
+$pdf->Line(0, 47, 260, 49); // A horizontal line from (10, 20) to (200, 20)
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
 $pdf->Ln(3);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
@@ -136,7 +136,7 @@ $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR BOOKING:  " . mysql
 $nomor  = 0;
 $total = 0;
 while ($myData1 = mysqli_fetch_array($myQry1)) {
-  $pdf->SetFont('Arial', 'B', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+  $pdf->SetFont('Arial', 'B', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(2, 6, '', '', 0, 'L', 0);
   $pdf->Cell(35, 6, $myData1['item'], '', 0, 'L', 0);
   $pdf->Ln(2);
@@ -163,21 +163,21 @@ $pdf->Ln(3);
 
 
 
-$pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'Total: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format($total,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B',5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B',6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'DP: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format($dp,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(18, 6, '', '', 0, 'L', 0);
 $pdf->Cell(16, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
