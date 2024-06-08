@@ -50,7 +50,7 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 38);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 95, 20);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 97, 20);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
 $pdf->SetXY($x, $y + 33);
@@ -164,22 +164,22 @@ $pdf->Ln(3);
 
 
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(16, 6, '', '', 0, 'L', 0);
-$pdf->Cell(18, 6, 'Total: ', '', 0, 'L', 0);
+$pdf->Cell(15, 6, '', '', 0, 'L', 0);
+$pdf->Cell(17, 6, 'Total: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format($total,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B',6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(16, 6, '', '', 0, 'L', 0);
-$pdf->Cell(18, 6, 'DP: ', '', 0, 'L', 0);
+$pdf->Cell(15, 6, '', '', 0, 'L', 0);
+$pdf->Cell(17, 6, 'DP: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format($dp,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(16, 6, '', '', 0, 'L', 0);
-$pdf->Cell(18, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
+$pdf->Cell(15, 6, '', '', 0, 'L', 0);
+$pdf->Cell(17, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
 $pdf->Ln(2);
 
