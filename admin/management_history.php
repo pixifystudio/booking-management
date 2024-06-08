@@ -207,7 +207,7 @@ function hari_ini($tanggal)
                                     if ($from != '') {
                                         $mySql .=  " AND tanggal >='$from'";
                                     }
-                                       if ($to != '') {
+                                    if ($to != '') {
                                         $mySql .=  " AND tanggal <='$to'";
                                     }
                                     if ($DataPaket != '') {
@@ -248,15 +248,22 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($ses_group == 'Super Admin') { ?>
-                                                <td>
+                                            <td>
+                                                <?php if ($ses_group == 'Super Admin') { ?>
                                                     <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="trash" class="me-50"></i>
                                                             <span>Hapus</span>
                                                     </a>
+                                                    <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <i data-feather="trash" class="me-50"></i>
+                                                            <span>Cetak Struk</span>
+                                                    </a>
                                                 <?php } else { ?>
-                                                <td></td>
-                                            <?php } ?>
+                                                    <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <i data-feather="trash" class="me-50"></i>
+                                                            <span>Cetak Struk</span>
+                                                    </a>
+                                                <?php } ?>
 
                                             </td>
                                         </tr>
