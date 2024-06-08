@@ -15,7 +15,7 @@ class PDF extends FPDF
     // Posisi 1.5 cm dari bawah
     $this->SetY(-11);
     // Arial italic 8
-    $this->SetFont('Arial', 'I', 6);
+    $this->SetFont('Arial', 'B', 6);
     // Nomor halaman
     $this->Cell(5, 6, '', '', 0, 'L', 0);
     $this->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
@@ -49,7 +49,7 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 38);
+$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 25);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 98, 20);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
@@ -146,7 +146,7 @@ while ($myData1 = mysqli_fetch_array($myQry1)) {
   $pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(3, 6, '', '', 0, 'L', 0);
   $pdf->Cell(30, 6, $myData1['qty'] . ' x ' . number_format($myData1['nominal']), '', 0, 'L', 0);
-  $pdf->Cell(25, 6, 'Rp. ' . number_format(($myData1['qty'] * $myData1['nominal'])), '', 0, 'L', 0);
+  $pdf->Cell(25, 6, 'Rp' . number_format(($myData1['qty'] * $myData1['nominal'])), '', 0, 'L', 0);
 
 
   $total = $total + ($myData1['qty'] * $myData1['nominal']);
@@ -169,21 +169,21 @@ $pdf->Ln(3);
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(14, 6, '', '', 0, 'L', 0);
 $pdf->Cell(19, 6, 'Total: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp. ' . number_format($total,0), '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp' . number_format($total,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B',6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(14, 6, '', '', 0, 'L', 0);
 $pdf->Cell(19, 6, 'DP: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp. ' . number_format($dp,0), '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp' . number_format($dp,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(14, 6, '', '', 0, 'L', 0);
 $pdf->Cell(19, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp. ' . number_format(($total - $dp)), '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp' . number_format(($total - $dp)), '', 0, 'L', 0);
 $pdf->Ln(2);
 
 $x = $pdf->GetX();
@@ -195,13 +195,8 @@ $pdf->Ln(2);
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y);
-$pdf->Cell(45, 6, 'Kamu bisa share pengalaman foto kamu dengan cara scan QR berikut', '', 0, 'C', 0);
+$pdf->Cell(45, 6, 'Jangan lupa rating kita ya! :D', '', 0, 'C', 0);
 $pdf->Ln(2);
-
-$x = $pdf->GetX();
-$y = $pdf->GetY();
-$pdf->SetXY($x, $y);
-$pdf->Cell(45, 6, 'atau upload keseruannya di socmed dan tag akun kita ya!', '', 0, 'C', 0);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
