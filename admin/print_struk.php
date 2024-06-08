@@ -49,10 +49,10 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 35);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 78, 18);
-$pdf->Image('../app-assets/images/logo/instagram.png', 27.5,98.3,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 98.3,3);
+$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 40);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 90, 20);
+$pdf->Image('../app-assets/images/logo/instagram.png', 27.5,118.3,3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 118.3,3);
 $pdf->SetXY($x, $y + 30);
 
 $id = $_GET['id'];
