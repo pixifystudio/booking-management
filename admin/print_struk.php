@@ -49,11 +49,11 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->Image('../app-assets/images/logo/pixifybw2.png', 9  , 0, 35);
+$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 9  , 0, 35);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 78, 18);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,98.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 98.3,3);
-$pdf->SetXY($x, $y);
+$pdf->SetXY($x, $y +25);
 
 $id = $_GET['id'];
 
@@ -95,9 +95,8 @@ $tanggal_foto = date("d F Y G:i:s", strtotime($tanggal_foto));
 
 
 
-$pdf->Ln(18);
 $pdf->SetFont('Arial', 'B', 20); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(45, 6, '  R E C E I P T', '', 0, 'C', 0);
+$pdf->Cell(45, 6, ' R E C E I P T', '', 0, 'C', 0);
 $pdf->Ln(5);
 
 $pdf->SetFont('Arial', '', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
