@@ -166,21 +166,21 @@ $pdf->Ln(3);
 
 
 
-$pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(14, 6, '', '', 0, 'L', 0);
 $pdf->Cell(19, 6, 'Total: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp' . number_format($total,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B',6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B',7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(14, 6, '', '', 0, 'L', 0);
 $pdf->Cell(19, 6, 'DP: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp' . number_format($dp,0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(14, 6, '', '', 0, 'L', 0);
 $pdf->Cell(19, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp' . number_format(($total - $dp)), '', 0, 'L', 0);
