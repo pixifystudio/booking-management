@@ -40,7 +40,7 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(60, 120)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(50, 120)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
@@ -103,11 +103,11 @@ $pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan uku
 
 $pdf->Line(0, 32, 260, 32); // A horizontal line from (10, 20) to (200, 20)
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
-$pdf->Ln(2);
+$pdf->Ln(3);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
 $pdf->Ln(4.5);
 
-$pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(1, 6, '', '', 0, 'L', 0);
 $pdf->Cell(24, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_cetak, '', 0, 'L', 0);
@@ -142,7 +142,7 @@ while ($myData1 = mysqli_fetch_array($myQry1)) {
   $pdf->Cell(2, 6, '', '', 0, 'L', 0);
   $pdf->Cell(35, 6, $myData1['item'], '', 0, 'L', 0);
   $pdf->Ln(2);
-  $pdf->SetFont('Arial', '', 5.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+  $pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
   $pdf->Cell(4, 6, '', '', 0, 'L', 0);
   $pdf->Cell(30, 6, $myData1['qty'] . ' x ' . number_format($myData1['nominal']), '', 0, 'L', 0);
   $pdf->Cell(25, 6, 'Rp. ' . number_format(($myData1['qty'] * $myData1['nominal'])), '', 0, 'L', 0);
