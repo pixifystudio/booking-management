@@ -62,7 +62,10 @@ $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_
 $myData = mysqli_fetch_array($myQry);
 
 $dp = isset($myData['dp']) ? $myData['dp'] : 0;
-$tanggal_foto = isset($myData['updated_date']) ? $myData['updated_date'] : 0;
+$tanggal = isset($myData['tanggal']) ? $myData['tanggal'] : 0;
+$jam = isset($myData['jam']) ? $myData['jam'] : 0;
+$tanggal_foto = $tanggal . ' ' . $jam;
+
 
 
 // function tgl_indo($tanggal)
