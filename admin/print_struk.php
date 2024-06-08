@@ -13,7 +13,7 @@ class PDF extends FPDF
   function Footer()
   {
     // Posisi 1.5 cm dari bawah
-    $this->SetY(-13);
+    $this->SetY(-11);
     // Arial italic 8
     $this->SetFont('Arial', 'I', 6);
     // Nomor halaman
@@ -50,7 +50,7 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 38);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 90, 20);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 95, 20);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
 $pdf->SetXY($x, $y + 33);
