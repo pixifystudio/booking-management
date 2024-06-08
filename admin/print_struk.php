@@ -15,7 +15,7 @@ class PDF extends FPDF
     // Posisi 1.5 cm dari bawah
     $this->SetY(-11);
     // Arial italic 8
-    $this->SetFont('Arial', 'B', 6);
+    $this->SetFont('Arial', 'B', 7);
     // Nomor halaman
     $this->Cell(5, 6, '', '', 0, 'L', 0);
     $this->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
