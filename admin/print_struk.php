@@ -90,8 +90,8 @@ $tanggal_foto = isset($myData['updated_date']) ? $myData['updated_date'] : 0;
 //   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 // }
 
-$tanggal_cetak = date('d F Y G:i:s'); // 21 Oktober 2017
-$tanggal_foto = date("d F Y G:i:s", strtotime($tanggal_foto));
+$tanggal_cetak = date('d F Y G:i'); // 21 Oktober 2017
+$tanggal_foto = date("d F Y G:i", strtotime($tanggal_foto));
 
 
 
