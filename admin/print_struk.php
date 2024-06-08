@@ -204,10 +204,11 @@ $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 22.4);
 
 
-$pdf->Ln(0);
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 3);
+$pdf->Ln(0);
+
 $pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(5, 6,'', '', 0, 'L', 0);
 $pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
