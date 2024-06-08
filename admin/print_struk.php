@@ -12,7 +12,12 @@ class PDF extends FPDF
   // Footer
   function Footer()
   {
-    // Nothing needed here for this simple example
+    // Posisi 1.5 cm dari bawah
+    $this->SetY(-15);
+    // Arial italic 8
+    $this->SetFont('Arial', 'I', 8);
+    // Nomor halaman
+    $this->Cell(0, 10, 'Halaman ' . $this->PageNo(), 0, 0, 'C');
   }
 
   function DashedLine($x1, $y1, $x2, $y2, $dash_length = 1, $space_length = 1)
@@ -124,8 +129,6 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y);
 
-
-
 $pdf->Ln(5);
 
 // INSERT LIST ITEM
@@ -203,15 +206,6 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 22.4);
 
-
-$x = $pdf->GetX();
-$y = $pdf->GetY();
-$pdf->SetXY($x, $y + 3);
-$pdf->Ln(0);
-
-$pdf->SetFont('Arial', 'B', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(5, 6,'', '', 0, 'L', 0);
-$pdf->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
 
 
 
