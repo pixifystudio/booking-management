@@ -13,7 +13,7 @@ class PDF extends FPDF
   function Footer()
   {
     // Posisi 1.5 cm dari bawah
-    $this->SetY(-15);
+    $this->SetY(-10);
     // Arial italic 8
     $this->SetFont('Arial', 'I', 6);
     // Nomor halaman
