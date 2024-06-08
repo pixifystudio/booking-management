@@ -53,7 +53,7 @@ $pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 25);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 98, 20);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
-$pdf->SetXY($x, $y + 33);
+$pdf->SetXY($x, $y + 27);
 
 $id = $_GET['id'];
 
@@ -98,8 +98,8 @@ $tanggal_foto = date("d F Y G:i", strtotime($tanggal_foto));
 
 
 
-$pdf->SetFont('Arial', 'B', 20); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-$pdf->Cell(45, 6, ' R E C E I P T', '', 0, 'C', 0);
+$pdf->SetFont('Arial', 'B', 19); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->Cell(45, 6, ' RECEIPT', '', 0, 'C', 0);
 $pdf->Ln(5);
 
 $pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
