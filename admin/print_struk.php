@@ -110,10 +110,10 @@ $pdf->Ln(4.5);
 $pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(24, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_cetak, '', 0, 'L', 0);
-$pdf->Ln(2);
+$pdf->Ln(3);
 $pdf->Cell(24, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_foto, '', 0, 'L', 0);
-$pdf->Ln(2);
+$pdf->Ln(3);
 
 
 $x = $pdf->GetX();
