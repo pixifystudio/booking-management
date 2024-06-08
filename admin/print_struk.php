@@ -189,7 +189,7 @@ $pdf->Ln(2);
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 3);
-$pdf->SetFont('Arial', '', 6); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
 $pdf->Ln(2);
 $x = $pdf->GetX();
