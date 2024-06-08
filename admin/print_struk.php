@@ -40,7 +40,7 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(50, 120)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(50, 130)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
 
 // Atur margin (opsional, jika ingin mengurangi margin default)
 $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
@@ -50,7 +50,7 @@ $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 38);
-$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 100, 20);
+$pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 90, 20);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
 $pdf->SetXY($x, $y + 33);
@@ -101,7 +101,7 @@ $pdf->Ln(5);
 
 $pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 
-$pdf->Line(0, 50, 260, 50); // A horizontal line from (10, 20) to (200, 20)
+$pdf->Line(0, 48, 260, 48); // A horizontal line from (10, 20) to (200, 20)
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
 $pdf->Ln(3);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
