@@ -18,7 +18,7 @@ class PDF extends FPDF
     $this->SetFont('Arial', 'B', 7);
     // Nomor halaman
     $this->Cell(5, 6, '', '', 0, 'L', 0);
-    $this->Cell(45, 6, '0851-7121-2096             @PXY.STUDIO', '', 0, 'L', 0);
+    $this->Cell(45, 6, '0851-7121-2096     @PXY.STUDIO', '', 0, 'L', 0);
   }
 
   function DashedLine($x1, $y1, $x2, $y2, $dash_length = 1, $space_length = 1)
