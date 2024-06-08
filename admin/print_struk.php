@@ -53,7 +53,7 @@ $pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 7  , 0, 40);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 90, 20);
 $pdf->Image('../app-assets/images/logo/instagram.png', 27.5,118.3,3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 118.3,3);
-$pdf->SetXY($x, $y + 30);
+$pdf->SetXY($x, $y + 33);
 
 $id = $_GET['id'];
 
