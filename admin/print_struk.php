@@ -130,7 +130,7 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y);
 
-$pdf->Ln(5);
+$pdf->Ln(2);
 
 // INSERT LIST ITEM
 
