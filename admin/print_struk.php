@@ -204,7 +204,7 @@ $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 22.4);
 
 
-
+$pdf->Ln(0);
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 3);
