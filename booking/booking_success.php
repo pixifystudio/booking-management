@@ -157,8 +157,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                         <form id="login_form" method="POST">
                           <div class="title-main align-left" style="padding-left: 10px">
                             <p>Terimakasih <?php echo $nama ?></p>
-                            <p>Se
-                              lanjutnya yang harus kamu lakukan:</p>
+                            <p>Selanjutnya yang harus kamu lakukan:</p>
                             <ol style="margin-left: 30px; line-height: 1.8;">
                               <li>Cek email kamu untuk detail pemesanan</li>
                               <li>Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</li>
