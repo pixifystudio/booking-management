@@ -158,7 +158,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           <div class="title-main align-left" style="padding-left: 10px">
                             <p>Terimakasih <?php echo $nama ?></p>
                             <p>Selanjutnya yang harus kamu lakukan:</p>
-                            <ol>
+                            <ol style="margin-left: 20px; line-height: 1.8;">
                               <li>Cek email kamu untuk detail pemesanan</li>
                               <li>Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</li>
                               <li>Kirim bukti pembayaran melalui no WhatsApp: 08517121209</li>
