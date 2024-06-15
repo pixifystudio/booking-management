@@ -155,7 +155,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           </a> -->
                         </div>
                         <form id="login_form" method="POST">
-                          <div class="title-main align-left" style="padding-left: 10px">
+                          <div class="title-main align-left" style="padding-left: 5px">
                             <p>Terimakasih <?php echo $nama ?></p>
                             <p>Selanjutnya yang harus kamu lakukan:</p>
                             <ol style="margin-left: 30px; line-height: 1.8;">
