@@ -298,7 +298,7 @@ $randomToken = generateRandomToken();
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                     <?php
                                     if ($txtTanggal != '') {
-                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
+                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal'  and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20')";
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
                                         $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20') order by j.jam asc;";
