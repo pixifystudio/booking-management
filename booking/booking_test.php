@@ -624,8 +624,10 @@ $randomToken = generateRandomToken();
       var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var daysArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-      // Set initial selected date
-      document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+      // Set initial selected date and display it
+      var initialDate = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+      document.getElementById('selectedDate').value = initialDate;
+      datePicked.innerHTML = `${today.getDate()} ${monthsArr[today.getMonth()]} ${today.getFullYear()}`;
 
       // Initialize month header
       var dataHead = "<tr>";
