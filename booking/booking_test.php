@@ -301,7 +301,7 @@ $randomToken = generateRandomToken();
                                       echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20') order by j.jam asc;";
                                       } else {
                                         if ($nama_hari == 'Friday') {
                                           $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
