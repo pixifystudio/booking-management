@@ -566,7 +566,7 @@ $randomToken = generateRandomToken();
 
 
 
-                                <!-- <div id="date-picked"></div> -->
+                                <div id="date-picked"></div>
 
                                 <input type="hidden" id="selectedDate" name="selectedDate">
 
