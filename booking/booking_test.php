@@ -292,21 +292,80 @@ $randomToken = generateRandomToken();
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
+                              <!-- ambil tanggal dan hari -->
+                              <?php
+
+                              function hari_ini($tanggal)
+                              {
+                                $tanggal =
+                                  $hari = date("D", strtotime($tanggal));
+
+                                switch ($hari) {
+                                  case 'Sun':
+                                    $hari_ini = "Minggu";
+                                    break;
+
+                                  case 'Mon':
+                                    $hari_ini = "Senin";
+                                    break;
+
+                                  case 'Tue':
+                                    $hari_ini = "Selasa";
+                                    break;
+
+                                  case 'Wed':
+                                    $hari_ini = "Rabu";
+                                    break;
+
+                                  case 'Thu':
+                                    $hari_ini = "Kamis";
+                                    break;
+
+                                  case 'Fri':
+                                    $hari_ini = "Jumat";
+                                    break;
+
+                                  case 'Sat':
+                                    $hari_ini = "Sabtu";
+                                    break;
+
+                                  default:
+                                    $hari_ini = "Tidak di ketahui";
+                                    break;
+                                }
+
+                                return  $hari_ini;
+                              }
+
+                              $newDate = date("d F Y", strtotime($txtTanggal));
+
+
+                              $haritanggal = hari_ini($nama_hari) . ', ' . $newDate;
+                              ?>
+
+                              <div class="col-11" style="padding-left: 40px;">
+
+                                <div class="form-group">
+                                  <label>Hari, Tanggal*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="" value="<?= $haritanggal ?>" autocomplete="off" readonly>
+                                </div>
+                              </div>
+
                               <div class="col-11" style="padding-left: 40px;">
                                 <div class="form-group">
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                     <?php
                                     if ($txtTanggal != '') {
-                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20') ";
+                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40') order by j.jam asc;";
                                       } else {
                                         if ($nama_hari == 'Friday') {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20') order by j.jam asc;";
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                         } else {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20') order by j.jam asc;";
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                         }
                                       }
 
@@ -387,7 +446,7 @@ $randomToken = generateRandomToken();
 
                               <div class="col-11 mt-2" style="padding-left: 40px;">
 
-                                <label for="email">Pilihan Paket*</label>
+                                <label for="email">Background*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
                                   <?php
@@ -402,7 +461,7 @@ $randomToken = generateRandomToken();
                                 </select>
                               </div>
 
-                              <div class="col-11" style="padding-left: 40px;">
+                              <div class="col-11 mt-2" style="padding-left: 40px;">
 
                                 <div class="form-group">
                                   <label>Email*</label>
@@ -444,20 +503,20 @@ $randomToken = generateRandomToken();
                           <h4>Senin 09:00 - 18:00</h4>
                           <h4>Senin 09:00 - 18:00</h4> -->
 
-                          <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-                            <div class="wrapper">
-                              <div class="container-calendar">
+                          <div class="wrapper">
+                            <div class="container-calendar">
 
-                                <div class="button-container-calendar">
+                              <div class="button-container-calendar">
 
-                                  <button id="previous">&#8249;</button>
+                                <button id="previous">&#8249;</button>
 
-                                  <button id="next">&#8250;</button>
+                                <button id="next">&#8250;</button>
 
-                                  <h3 id="monthHeader"></h3>
-                                  <p id="yearHeader"></p>
-                                </div>
-                                <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
+                                <h3 id="monthHeader"></h3>
+                                <p id="yearHeader"></p>
+                              </div>
+                              <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
+                              <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <table class="table-calendar" id="">
 
                                   <thead id="thead-month"></thead>
@@ -509,16 +568,16 @@ $randomToken = generateRandomToken();
 
                                 <div id="date-picked"></div>
 
-                                <input type="hidden" id="selectedDate" name="selectedDate" required>
+                                <input type="hidden" id="selectedDate" name="selectedDate">
 
                                 <!-- Your existing calendar code here -->
 
 
-                              </div>
-
                             </div>
 
-                            <!-- <div class="row">
+                          </div>
+
+                          <!-- <div class="row">
                             <div class="lg-col-12">
                               Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>
                               Kamis <b>09-18</b>,
@@ -528,9 +587,9 @@ $randomToken = generateRandomToken();
                             </div>
                           </div> -->
 
-                            <div class="btn-area mt-10" id="confirm-tanggal-btn">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
-                            </div>
+                          <div class="btn-area mt-10" id="confirm-tanggal-btn">
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
+                          </div>
                           </form>
                         <?php  }
                         ?>
@@ -548,188 +607,148 @@ $randomToken = generateRandomToken();
   </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
 
   <script>
-    var today = new Date();
-    var currentMonth = today.getMonth();
-    var currentYear = today.getFullYear();
-    var selectYear = document.getElementById("year");
-    var selectMonth = document.getElementById("month");
-    var monthHeader = document.getElementById("monthHeader");
-    var yearHeader = document.getElementById("yearHeader");
-    var nextBtn = document.getElementById("next");
-    var previousBtn = document.getElementById("previous");
-    var datePicked = document.getElementById("date-picked");
-    var months = "";
-    var days = "";
-    var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var daysArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    document.addEventListener('DOMContentLoaded', function() {
+      var today = new Date();
+      var currentMonth = today.getMonth();
+      var currentYear = today.getFullYear();
+      var selectYear = document.getElementById("year");
+      var selectMonth = document.getElementById("month");
+      var monthHeader = document.getElementById("monthHeader");
+      var yearHeader = document.getElementById("yearHeader");
+      var nextBtn = document.getElementById("next");
+      var previousBtn = document.getElementById("previous");
+      var datePicked = document.getElementById("date-picked");
+      var tableHeaderMonth = document.getElementById("thead-month");
+      var btnSubmit = document.getElementById("btnSubmit");
 
-    months = monthsArr;
-    days = daysArr;
+      var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var daysArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    var tableHeaderMonth = document.getElementById("thead-month");
-    var dataHead = "<tr>";
-    var startDay = "";
-
-    // Seleksi tombol submit
-    var btnSubmit = document.getElementById("btnSubmit");
-
-    // Tambahkan kode ini setelah deklarasi variabel "btnSubmit"
-    window.addEventListener('DOMContentLoaded', function() {
+      // Set initial selected date
       document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
-    });
 
+      // Initialize month header
+      var dataHead = "<tr>";
+      daysArr.forEach(day => {
+        dataHead += `<th data-days='${day}' class='${day === "Sun" ? "red-text" : ""}'>${day}</th>`;
+      });
+      dataHead += "</tr>";
+      tableHeaderMonth.innerHTML = dataHead;
 
+      // Populate year dropdown
+      selectYear.innerHTML = yearRange(1970, 2050);
 
-    for (dhead in days) {
-      days[dhead] === "Sun" ? startDay = "red-text" : startDay = "";
-      dataHead += "<th data-days='" + days[dhead] + "' class='" + startDay + "'>" + days[dhead] + "</th>";
-    }
-
-    dataHead += "</tr>";
-    tableHeaderMonth.innerHTML = dataHead;
-    showCalendar(currentMonth, currentYear);
-
-    nextBtn.addEventListener("click", next, false);
-    previousBtn.addEventListener("click", previous, false);
-
-    function yearRange(start, end) {
-      var years = "";
-
-      for (var year = start; year <= end; year++) {
-        years += "<option value='" + year + "'>" + year + "</option>";
-      }
-
-      return years;
-    }
-
-    var createYear = yearRange(1970, 2050);
-    selectYear.innerHTML = createYear;
-
-    function next() {
-      currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-      currentMonth = (currentMonth + 1) % 12;
+      // Show the initial calendar
       showCalendar(currentMonth, currentYear);
-    }
 
-    function previous() {
-      currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-      currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-      showCalendar(currentMonth, currentYear);
-    }
+      nextBtn.addEventListener("click", next, false);
+      previousBtn.addEventListener("click", previous, false);
+      selectYear.addEventListener("change", jump, false);
+      selectMonth.addEventListener("change", jump, false);
 
-    function jump() {
-      currentYear = parseInt(selectYear.value);
-      currentMonth = parseInt(selectMonth.value);
-      showCalendar(currentMonth, currentYear);
-    }
-
-    function showCalendar(month, year) {
-      var firstDay = new Date(year, month).getDay();
-      var monthString = monthsArr[month];
-
-      table = document.getElementById("calendar-body");
-      table.innerHTML = "";
-      monthHeader.innerHTML = monthString.substring(0, 3);
-      yearHeader.innerHTML = year;
-      selectYear.value = year;
-      selectMonth.value = month;
-
-      var date = 1;
-
-      for (var i = 0; i < 6; i++) {
-        var row = document.createElement("tr");
-
-        for (var j = 0; j < 7; j++) {
-          if (i === 0 && j < firstDay) {
-            cell = document.createElement("td");
-            cellText = document.createTextNode("");
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-          } else if (date > daysInMonth(month, year)) {
-            break;
-          } else {
-            cell = document.createElement("td");
-            cell.setAttribute("data-date", date);
-            cell.setAttribute("data-month", month + 1);
-            cell.setAttribute("data-year", year);
-            cell.setAttribute("data-month-name", months[month]);
-            cell.className = "date-picker";
-            cell.innerHTML = "<span>" + date + "</span>";
-            // Tambahkan validasi tanggal yang sudah lewat
-            var currentDate = new Date();
-            currentDate.setHours(0, 0, 0, 0); // Set jam ke 00:00:00
-
-            // Tambahkan validasi tanggal yang sudah lewat
-            var DateClosed = new Date();
-            DateClosed.setHours(18, 0, 0, 0); // Set jam ke 18:00:00
-
-            var cellDate = new Date(year, month, date);
-
-
-
-            // Modify the onclick function to include saving to the form input
-            cell.onclick = function(event) {
-              var dates = document.querySelectorAll('.date-picker');
-              var currentTarget = event.currentTarget;
-              var date = currentTarget.dataset.date;
-              var month = currentTarget.dataset.month - 1;
-              var year = currentTarget.dataset.year;
-
-              for (var i = 0; i < dates.length; i++) {
-                dates[i].classList.remove('selected');
-              }
-
-              currentTarget.classList.add('selected');
-              datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
-
-
-
-              // Save to the form input
-              document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
-            };
-
-            function pad(number, length) {
-              var str = '' + number;
-              while (str.length < length) {
-                str = '0' + str;
-              }
-              return str;
-            }
-
-
-            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-              cell.className = "date-picker selected";
-            }
-
-            if (cellDate < currentDate) {
-              cell.classList.add("disabled");
-              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
-
-              cell
-                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
-            }
-            if (currentDate > DateClosed) {
-              cell.classList.add("disabled");
-              cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
-
-              cell
-                .innerHTML = "<span class='past-date'>" + date + "</span>"; // Tambahkan kelas dan atur warna angka menjadi abu-abu
-            }
-
-
-
-            row.appendChild(cell);
-            date++;
-          }
+      function yearRange(start, end) {
+        var years = "";
+        for (var year = start; year <= end; year++) {
+          years += `<option value='${year}'>${year}</option>`;
         }
-
-        table.appendChild(row);
+        return years;
       }
-    }
 
-    function daysInMonth(month, year) {
-      return 32 - new Date(year, month, 32).getDate();
-    }
+      function next() {
+        currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+        currentMonth = (currentMonth + 1) % 12;
+        showCalendar(currentMonth, currentYear);
+      }
+
+      function previous() {
+        currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+        showCalendar(currentMonth, currentYear);
+      }
+
+      function jump() {
+        currentYear = parseInt(selectYear.value);
+        currentMonth = parseInt(selectMonth.value);
+        showCalendar(currentMonth, currentYear);
+      }
+
+      function showCalendar(month, year) {
+        var firstDay = new Date(year, month).getDay();
+        var monthString = monthsArr[month];
+        var table = document.getElementById("calendar-body");
+
+        table.innerHTML = "";
+        monthHeader.innerHTML = monthString.substring(0, 3);
+        yearHeader.innerHTML = year;
+        selectYear.value = year;
+        selectMonth.value = month;
+
+        var date = 1;
+        for (var i = 0; i < 6; i++) {
+          var row = document.createElement("tr");
+          for (var j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+              var cell = document.createElement("td");
+              cell.innerHTML = "";
+              row.appendChild(cell);
+            } else if (date > daysInMonth(month, year)) {
+              break;
+            } else {
+              var cell = document.createElement("td");
+              cell.setAttribute("data-date", date);
+              cell.setAttribute("data-month", month + 1);
+              cell.setAttribute("data-year", year);
+              cell.className = "date-picker";
+              cell.innerHTML = `<span>${date}</span>`;
+
+              var currentDate = new Date();
+              currentDate.setHours(0, 0, 0, 0);
+              var cellDate = new Date(year, month, date);
+
+              if (cellDate < currentDate) {
+                cell.classList.add("disabled");
+                cell.onclick = null;
+                cell.innerHTML = `<span class='past-date'>${date}</span>`;
+              } else {
+                cell.addEventListener("click", function(event) {
+                  var dates = document.querySelectorAll('.date-picker');
+                  dates.forEach(d => d.classList.remove('selected'));
+
+                  var currentTarget = event.currentTarget;
+                  var date = currentTarget.dataset.date;
+                  var month = currentTarget.dataset.month - 1;
+                  var year = currentTarget.dataset.year;
+
+                  currentTarget.classList.add('selected');
+                  datePicked.innerHTML = `${date} ${monthsArr[month]} ${year}`;
+                  document.getElementById('selectedDate').value = `${year}-${pad(month + 1, 2)}-${pad(date, 2)}`;
+                });
+              }
+
+              if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                cell.classList.add("selected");
+              }
+
+              row.appendChild(cell);
+              date++;
+            }
+          }
+          table.appendChild(row);
+        }
+      }
+
+      function daysInMonth(month, year) {
+        return 32 - new Date(year, month, 32).getDate();
+      }
+
+      function pad(number, length) {
+        var str = '' + number;
+        while (str.length < length) {
+          str = '0' + str;
+        }
+        return str;
+      }
+    });
   </script>
 
 
