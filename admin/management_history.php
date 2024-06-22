@@ -216,7 +216,7 @@ function hari_ini($tanggal)
                                     if ($DataBackground != '') {
                                         $mySql .=  " AND background ='$DataBackground'";
                                     }
-                                    $mySql .=  " ORDER BY tanggal ASC, jam DESC";
+                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
