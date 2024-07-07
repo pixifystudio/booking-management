@@ -505,27 +505,27 @@ $randomToken = generateRandomToken();
 
                           <div class="wrapper">
                             <div class="container-calendar">
-                              
+
                               <div class="button-container-calendar">
-                                
+
                                 <button id="previous">&#8249;</button>
-                                
+
                                 <button id="next">&#8250;</button>
-                                
+
                                 <h3 id="monthHeader"></h3>
                                 <p id="yearHeader"></p>
                               </div>
                               <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
-                                <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+                              <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <table class="table-calendar" id="">
-                                  
+
                                   <thead id="thead-month"></thead>
-                                  
+
                                   <tbody id="calendar-body"></tbody>
-                                  
+
                                 </table>
-                                
-                                
+
+
 
                                 <div class="footer-container-calendar">
 
@@ -573,11 +573,11 @@ $randomToken = generateRandomToken();
                                 <!-- Your existing calendar code here -->
 
 
-                              </div>
-
                             </div>
 
-                            <!-- <div class="row">
+                          </div>
+
+                          <!-- <div class="row">
                             <div class="lg-col-12">
                               Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>
                               Kamis <b>09-18</b>,
@@ -587,9 +587,9 @@ $randomToken = generateRandomToken();
                             </div>
                           </div> -->
 
-                            <div class="btn-area mt-10" id="confirm-tanggal-btn">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
-                            </div>
+                          <div class="btn-area mt-10" id="confirm-tanggal-btn">
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit" style="color:white">Confirm Tanggal</button>
+                          </div>
                           </form>
                         <?php  }
                         ?>
@@ -624,8 +624,10 @@ $randomToken = generateRandomToken();
       var monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var daysArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-      // Set initial selected date
-      document.getElementById('selectedDate').value = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+      // Set initial selected date and display it
+      var initialDate = today.getFullYear() + '-' + pad(today.getMonth() + 1, 2) + '-' + pad(today.getDate(), 2);
+      document.getElementById('selectedDate').value = initialDate;
+      datePicked.innerHTML = `${today.getDate()} ${monthsArr[today.getMonth()]} ${today.getFullYear()}`;
 
       // Initialize month header
       var dataHead = "<tr>";
