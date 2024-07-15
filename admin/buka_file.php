@@ -107,6 +107,11 @@ if ($_GET) {
       include "master_jadwal.php";
       break;
 
+    case 'Master-Product':
+      if (!file_exists("master_product.php")) die("Sorry Empty Page!");
+      include "master_product.php";
+      break;
+
     case 'Master-Jadwal-Update-Status':
       if (!file_exists("master_jadwal_update_status.php")) die("Sorry Empty Page!");
       include "master_jadwal_update_status.php";
