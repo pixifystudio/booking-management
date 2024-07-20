@@ -52,7 +52,7 @@ if (isset($_POST['btnSubmit'])) {
 
     $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
      $jumlahDataQry = mysqli_num_rows($myQry);
-    $jumlahDataQry = 0;
+    // $jumlahDataQry = 0;
     if ($jumlahDataQry <=0) {
        $alert = 'oke';
     //  set ke kosong
