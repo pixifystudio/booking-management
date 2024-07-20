@@ -216,7 +216,7 @@ function hari_ini($tanggal)
                                     if ($DataBackground != '') {
                                         $mySql .=  " AND background ='$DataBackground'";
                                     }
-                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC limit 1";
+                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     echo $mySql;
@@ -240,16 +240,7 @@ function hari_ini($tanggal)
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['nama']; ?></td>
-                                            <td><?php echo $hari; ?></td>
-                                            <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $Jam; ?></td>
-                                            <td> <a href="https://wa.me/<?= $no_wa_baru ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $no_wa ?></a></td>
-                                            <td> <a href="https://www.instagram.com/<?= $instagram ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $instagram ?></a></td>
-                                            <td><?php echo $myData['paket']; ?></td>
-                                            <td><?php echo $myData['background']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
-                                           
+                                          
                                         </tr>
                                     <?php }
                                     ?>
