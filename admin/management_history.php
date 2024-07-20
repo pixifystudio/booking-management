@@ -202,7 +202,10 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!=''";
+                                    $mySql   = "SELECT * FROM booking WHERE id!='' ";
+                                    // jika tanggal, tipe dan paket !=''
+                                   
+                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -216,6 +219,7 @@ function hari_ini($tanggal)
                                         // set hari
                                         $tanggal = $myData['tanggal'];
                                         $hari = hari_ini($tanggal);
+
                                         $no_wa = $myData['no_wa'];
                                         $instagram = $myData['instagram'];
                                         $no_wa_baru = "62" . substr($no_wa, 1);
@@ -233,35 +237,24 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($myData['status'] == 'Dibuat') { ?>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                                            <i data-feather="more-vertical"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="check" class="me-50"></i>
-                                                                    <span>Konfirmasi</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="edit-2" class="me-50"></i>
-                                                                    <span>Re-Schedule</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="trash" class="me-50"></i>
-                                                                    <span>Hapus</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Cancel&id=<?php echo $Code; ?>" onclick="return confirm('INGIN CANCEL DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="trash" class="me-50"></i>
-                                                                    <span>Batalkan</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            <?php } else { ?>
-                                                <td></td>
-                                            <?php } ?>
+                                            <td>
+                                                <?php if ($ses_group == 'Super Admin') { ?>
+                                                    <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <i data-feather="trash" class="me-50"></i>
+                                                            <span>Hapus</span>
+                                                    </a>
+                                                    <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <i data-feather="print" class="me-50"></i>
+                                                            <span>Cetak Struk</span>
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <i data-feather="print" class="me-50"></i>
+                                                            <span>Cetak Struk</span>
+                                                    </a>
+                                                <?php } ?>
+
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>
