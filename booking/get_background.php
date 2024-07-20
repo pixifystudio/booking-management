@@ -24,6 +24,7 @@ if (mysqli_num_rows($sql) >= 1) {
 if ($validasi != 'YES') {
 	$html .= "Jenis Foto belum ditentukan."; // Tambahkan tag option ke variabel $htm
 } else {
+	$html .= "<option value='#'> Pilih Background   </option>"; // Tambahkan tag option ke variabel $html
 	while ($data = mysqli_fetch_array($sql)) { // Ambil semua data dari hasil eksekusi $sql
 		$html .= "<option value='" . $data['background'] . "'>" . $data['background'] . "    </option>"; // Tambahkan tag option ke variabel $html
 	}
