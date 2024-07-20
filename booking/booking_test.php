@@ -53,7 +53,7 @@ if (isset($_POST['btnSubmit'])) {
     $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
     $jumlahDataQry = mysqli_num_rows($myQry);
     if ($jumlahDataQry <=0) {
-      $alert 'oke';
+      $alert = 'oke';
     }
 
   // // kalau yang dipilih tanggal nya hari ini, maka validasi jam jalan
