@@ -27,8 +27,7 @@ if (isset($_POST['btnSubmit'])) {
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
 
 
- echo $nama_hari = date("l", strtotime($txtTanggal));
- exit;
+  $nama_hari = date("l", strtotime($txtTanggal));
   // echo "Hari ini adalah: " . $nama_hari;
 
   if ($txtTanggal < $tanggal_sekarang) {
