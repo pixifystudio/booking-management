@@ -202,7 +202,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!=''";
+                                    $mySql   = "SELECT * FROM booking WHERE id!='' limit 1";
                                     // jika tanggal, tipe dan paket !=''
                                     if ($from != '') {
                                         $mySql .=  " AND tanggal >='$from'";
