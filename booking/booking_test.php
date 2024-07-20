@@ -54,7 +54,7 @@ if (isset($_POST['btnSubmit'])) {
      $jumlahDataQry = mysqli_num_rows($myQry);
     $jumlahDataQry = 0;
     if ($jumlahDataQry <=0) {
-     echo  $alert = 'oke';
+       $alert = 'oke';
     //  set ke kosong
       $txtTanggal = '';
     }
@@ -544,7 +544,7 @@ $randomToken = generateRandomToken();
                           }
                           ?>
 
-                          
+
                           <div class="wrapper">
                             <div class="container-calendar">
 
