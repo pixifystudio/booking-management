@@ -202,7 +202,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!='' limit 1";
+                                    $mySql   = "SELECT * FROM booking WHERE id!='' ";
                                     // jika tanggal, tipe dan paket !=''
                                     if ($from != '') {
                                         $mySql .=  " AND tanggal >='$from'";
@@ -216,7 +216,7 @@ function hari_ini($tanggal)
                                     if ($DataBackground != '') {
                                         $mySql .=  " AND background ='$DataBackground'";
                                     }
-                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC";
+                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC limit 1";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
