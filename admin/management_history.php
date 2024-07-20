@@ -195,7 +195,7 @@ function hari_ini($tanggal)
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
@@ -248,8 +248,8 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <!-- <td>
-                                                <?php if ($ses_group == 'Super Admin') { ?>
+                                            <td>
+                                                <!-- <?php if ($ses_group == 'Super Admin') { ?>
                                                     <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="trash" class="me-50"></i>
                                                             <span>Hapus</span>
@@ -263,9 +263,9 @@ function hari_ini($tanggal)
                                                             <i data-feather="print" class="me-50"></i>
                                                             <span>Cetak Struk</span>
                                                     </a>
-                                                <?php } ?>
+                                                <?php } ?> -->
 
-                                            </td> -->
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>
