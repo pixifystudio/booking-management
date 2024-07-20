@@ -195,7 +195,7 @@ function hari_ini($tanggal)
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <!-- <th>Action</th> -->
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
@@ -204,7 +204,18 @@ function hari_ini($tanggal)
                                     <?php
                                     $mySql   = "SELECT * FROM booking WHERE id!='' ";
                                     // jika tanggal, tipe dan paket !=''
-                                   
+                                    if ($from != '') {
+                                        $mySql .=  " AND tanggal >='$from'";
+                                    }
+                                    if ($to != '') {
+                                        $mySql .=  " AND tanggal <='$to'";
+                                    }
+                                    if ($DataPaket != '') {
+                                        $mySql .=  " AND paket ='$DataPaket'";
+                                    }
+                                    if ($DataBackground != '') {
+                                        $mySql .=  " AND background ='$DataBackground'";
+                                    }
                                     $mySql .=  " ORDER BY tanggal DESC, jam DESC";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
@@ -237,7 +248,7 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <td>
+                                            <!-- <td>
                                                 <?php if ($ses_group == 'Super Admin') { ?>
                                                     <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="trash" class="me-50"></i>
@@ -254,7 +265,7 @@ function hari_ini($tanggal)
                                                     </a>
                                                 <?php } ?>
 
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php }
                                     ?>
