@@ -27,7 +27,7 @@ if (isset($_POST['btnSubmit'])) {
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
 
 
-  $nama_hari = date("l", strtotime($txtTanggal));
+ echo $nama_hari = date("l", strtotime($txtTanggal));
   // echo "Hari ini adalah: " . $nama_hari;
 
   if ($txtTanggal < $tanggal_sekarang) {
@@ -38,7 +38,7 @@ if (isset($_POST['btnSubmit'])) {
 
   $alert = '';
         if ($txtTanggal != '') {
-         echo  "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
+         echo  "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam < DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
 
           if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
             $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40') order by j.jam asc;";
