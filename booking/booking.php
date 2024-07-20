@@ -477,9 +477,18 @@ $randomToken = generateRandomToken();
 
                               <div class="col-11 mt-2" style="padding-left: 40px;">
 
-                                <label for="email">Pilihan Background*</label>
-                                <select class="form-select" name="txtBackground" id="background" disabled autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                                <label for="email">Background*</label>
+                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
+                                  <option selected value="">Pilih</option>
+                                  <?php
+                                  // panggil database
+                                  $mySql  = "SELECT * from master_background order by id asc";
+                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                    <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
+                                  <?php
+                                  };
+                                  ?>
                                 </select>
                               </div>
 

@@ -474,13 +474,11 @@ $randomToken = generateRandomToken();
                                   <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
                               </div>
-
                               <div class="col-11 mt-2" style="padding-left: 40px;">
 
-                                <label for="email">Background*</label>
-                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis paket terlebih dahulu</option>
-
+                                <label for="email">Pilihan Background*</label>
+                                <select class="form-select" name="txtBackground" id="background" disabled autocomplete="off" required>
+                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
                               </div>
 
