@@ -487,9 +487,9 @@ $randomToken = generateRandomToken();
                             </div>
 
                             <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" style='width:75%' name="btnSubmit" type="submit" style="color:white">Confirm Booking</button>
+                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type="submit" style="color:white;width:75%">Confirm Booking</button>
                             </div>
-                            <div class="btn-area mt-5">
+                            <div class="btn-area mt-7">
                               <a class="btn primary btn-large block waves-effect" style='width:75%' href="https://pixify.id/booking/">Pilih Ulang Tanggal</a>
                             </div>
 
