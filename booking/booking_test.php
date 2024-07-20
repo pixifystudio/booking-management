@@ -55,6 +55,8 @@ if (isset($_POST['btnSubmit'])) {
     $jumlahDataQry = 0;
     if ($jumlahDataQry <=0) {
      echo  $alert = 'oke';
+    //  set ke kosong
+      $txtTanggal = '';
     }
   }
 
@@ -307,13 +309,7 @@ $randomToken = generateRandomToken();
 
 
                         <?php if ($txtTanggal != '') {
-                          if ($alert!='') { ?>
-                          <div class="alert">
-                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                              <strong> Yaah,</strong> tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
-                            </div>
-                          <?php
-                          }
+                       
                         ?>
 
                         
@@ -537,7 +533,18 @@ $randomToken = generateRandomToken();
                           <!-- <h2>Jam Buka</h2>
                           <h4>Senin 09:00 - 18:00</h4>
                           <h4>Senin 09:00 - 18:00</h4> -->
+                          <!-- set alert -->
+                          <?php
+                             if ($alert!='') { ?>
+                          <div class="alert">
+                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                              <strong> Yaah,</strong> tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
+                            </div>
+                          <?php
+                          }
+                          ?>
 
+                          
                           <div class="wrapper">
                             <div class="container-calendar">
 
