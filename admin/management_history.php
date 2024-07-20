@@ -202,24 +202,9 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!='' ";
-                                    // jika tanggal, tipe dan paket !=''
-                                    if ($from != '') {
-                                        $mySql .=  " AND tanggal >='$from'";
-                                    }
-                                    if ($to != '') {
-                                        $mySql .=  " AND tanggal <='$to'";
-                                    }
-                                    if ($DataPaket != '') {
-                                        $mySql .=  " AND paket ='$DataPaket'";
-                                    }
-                                    if ($DataBackground != '') {
-                                        $mySql .=  " AND background ='$DataBackground'";
-                                    }
-                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC";
+                                    $mySql   = "SELECT * FROM booking where status ='Dibuat' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
-                                    echo $mySql;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
                                         $Code = $myData['id'];
@@ -231,7 +216,6 @@ function hari_ini($tanggal)
                                         // set hari
                                         $tanggal = $myData['tanggal'];
                                         $hari = hari_ini($tanggal);
-
                                         $no_wa = $myData['no_wa'];
                                         $instagram = $myData['instagram'];
                                         $no_wa_baru = "62" . substr($no_wa, 1);
@@ -240,7 +224,44 @@ function hari_ini($tanggal)
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                          
+                                            <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $hari; ?></td>
+                                            <td><?php echo $myData['tanggal']; ?></td>
+                                            <td><?php echo $Jam; ?></td>
+                                            <td> <a href="https://wa.me/<?= $no_wa_baru ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $no_wa ?></a></td>
+                                            <td> <a href="https://www.instagram.com/<?= $instagram ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $instagram ?></a></td>
+                                            <td><?php echo $myData['paket']; ?></td>
+                                            <td><?php echo $myData['background']; ?></td>
+                                            <td><?php echo $myData['status']; ?></td>
+                                            <?php if ($myData['status'] == 'Dibuat') { ?>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                            <i data-feather="more-vertical"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="check" class="me-50"></i>
+                                                                    <span>Konfirmasi</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="edit-2" class="me-50"></i>
+                                                                    <span>Re-Schedule</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="trash" class="me-50"></i>
+                                                                    <span>Hapus</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Cancel&id=<?php echo $Code; ?>" onclick="return confirm('INGIN CANCEL DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="trash" class="me-50"></i>
+                                                                    <span>Batalkan</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td></td>
+                                            <?php } ?>
                                         </tr>
                                     <?php }
                                     ?>
