@@ -254,11 +254,11 @@ function hari_ini($tanggal)
                                                             <i data-feather="trash" class="me-50"></i>
                                                             <span>Hapus</span>
                                                     </a>
-                                                    <a class="dropdown-item" href="?page=Print-Struk&&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                    <a class="dropdown-item" href="?page=Print-Struk&&id=<?php echo $Code; ?>" target="_blank" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="printer" class="me-50"></i>
                                                             <span>Cetak Struk</span>
                                                     </a>
-                                            
+
                                                 <?php } else { ?>
                                                     <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="print" class="me-50"></i>
