@@ -478,7 +478,7 @@ $randomToken = generateRandomToken();
                               <div class="col-11 mt-2" style="padding-left: 40px;">
 
                                 <label for="email">Background*</label>
-                                <select class="form-select"  name="txtBackground" aria-label="Default select example" autocomplete="off" required>
+                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                   <option selected value="">Pilih</option>
                                   <?php
                                   // panggil database
