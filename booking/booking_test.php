@@ -37,25 +37,25 @@ if (isset($_POST['btnSubmit'])) {
   // validasi kalau isi nya kosong, munculkan notifikasi
 
   $alert = '';
-        if ($txtTanggal != '') {
-           "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam < DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
+  if ($txtTanggal != '') {
+    "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam < DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
 
-          if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
-            $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40') order by j.jam asc;";
-          } else {
-            if ($nama_hari == 'Friday') {
-              $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-            } else {
-              $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-            }
-          }
+    if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
+      $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40') order by j.jam asc;";
+    } else {
+      if ($nama_hari == 'Friday') {
+        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='13:00' and j.jam <='21:00' and j.jam not in ('17:20','17:40','18:00','18:20','18:40') and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+      } else {
+        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+      }
+    }
 
     $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-     $jumlahDataQry = mysqli_num_rows($myQry);
+    $jumlahDataQry = mysqli_num_rows($myQry);
     // $jumlahDataQry = 0;
-    if ($jumlahDataQry <=0) {
-       $alert = 'oke';
-    //  set ke kosong
+    if ($jumlahDataQry <= 0) {
+      $alert = 'oke';
+      //  set ke kosong
       $txtTanggal = '';
     }
   }
@@ -309,10 +309,10 @@ $randomToken = generateRandomToken();
 
 
                         <?php if ($txtTanggal != '') {
-                       
+
                         ?>
 
-                        
+
 
 
 
@@ -386,7 +386,7 @@ $randomToken = generateRandomToken();
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                     <?php
                                     if ($txtTanggal != '') {
-                                       "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
+                                      "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' AND j.jam > DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR), '%H:%i')   and j.jam not in (select jam from booking where tanggal = '$txtTanggal' and  j.jam  not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40')";
 
                                       if ($nama_hari == 'Sunday' || $nama_hari == 'Saturday') {
                                         $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='10:00' and j.jam <='21:00'  and j.jam not in (select jam from booking where tanggal = '$txtTanggal') and j.jam not in ('16:00','16:20','16:40','17:00','17:20','17:40','18:00','18:20','18:40') order by j.jam asc;";
@@ -398,7 +398,7 @@ $randomToken = generateRandomToken();
                                         }
                                       }
 
-                                      
+
 
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                       while ($myData = mysqli_fetch_array($myQry)) {
@@ -479,16 +479,8 @@ $randomToken = generateRandomToken();
 
                                 <label for="email">Background*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected value="">Pilih</option>
-                                  <?php
-                                  // panggil database
-                                  $mySql  = "SELECT * from master_background order by id asc";
-                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                    <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
-                                  <?php
-                                  };
-                                  ?>
+                                  <option selected="selected">Silahkan pilih jenis paket terlebih dahulu</option>
+
                                 </select>
                               </div>
 
@@ -535,9 +527,9 @@ $randomToken = generateRandomToken();
                           <h4>Senin 09:00 - 18:00</h4> -->
                           <!-- set alert -->
                           <?php
-                             if ($alert!='') { ?>
-                          <div class="alert">
-                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                          if ($alert != '') { ?>
+                            <div class="alert">
+                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                               <strong> Yaah,</strong> tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
                             </div>
                           <?php
