@@ -55,6 +55,7 @@ if (isset($_POST['btnSubmit'])) {
     if ($jumlahDataQry <=0) {
       $alert = 'oke';
     }
+  }
 
   // // kalau yang dipilih tanggal nya hari ini, maka validasi jam jalan
   // if ($txtTanggal == $tanggal_sekarang) {
