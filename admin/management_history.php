@@ -199,78 +199,7 @@ function hari_ini($tanggal)
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
-                                <tbody>
-
-                                    <?php
-                                    $mySql   = "SELECT * FROM booking WHERE id!='' ";
-                                    // jika tanggal, tipe dan paket !=''
-                                    if ($from != '') {
-                                        $mySql .=  " AND tanggal >='$from'";
-                                    }
-                                    if ($to != '') {
-                                        $mySql .=  " AND tanggal <='$to'";
-                                    }
-                                    if ($DataPaket != '') {
-                                        $mySql .=  " AND paket ='$DataPaket'";
-                                    }
-                                    if ($DataBackground != '') {
-                                        $mySql .=  " AND background ='$DataBackground'";
-                                    }
-                                    $mySql .=  " ORDER BY tanggal DESC, jam DESC limit 1";
-                                    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-                                    $nomor  = 0;
-                                    while ($myData = mysqli_fetch_array($myQry)) {
-                                        $nomor++;
-                                        $Code = $myData['id'];
-                                        $Jam = $myData['jam'];
-
-                                        // ganti format jam
-                                        $Jam = $Jam;
-                                        $Jam = date("G:i", strtotime($Jam));
-                                        // set hari
-                                        $tanggal = $myData['tanggal'];
-                                        $hari = hari_ini($tanggal);
-
-                                        $no_wa = $myData['no_wa'];
-                                        $instagram = $myData['instagram'];
-                                        $no_wa_baru = "62" . substr($no_wa, 1);
-
-                                    ?>
-
-                                        <tr>
-                                            <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['nama']; ?></td>
-                                            <td><?php echo $hari; ?></td>
-                                            <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $Jam; ?></td>
-                                            <td> <a href="https://wa.me/<?= $no_wa_baru ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $no_wa ?></a></td>
-                                            <td> <a href="https://www.instagram.com/<?= $instagram ?>" class="btn secondary btn-large block waves-effect" target="_blank"><?= $instagram ?></a></td>
-                                            <td><?php echo $myData['paket']; ?></td>
-                                            <td><?php echo $myData['background']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
-                                            <td>
-                                                <?php if ($ses_group == 'Super Admin') { ?>
-                                                    <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                            <i data-feather="trash" class="me-50"></i>
-                                                            <span>Hapus</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
-                                                            <i data-feather="print" class="me-50"></i>
-                                                            <span>Cetak Struk</span>
-                                                    </a>
-                                                <?php } else { ?>
-                                                    <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
-                                                            <i data-feather="print" class="me-50"></i>
-                                                            <span>Cetak Struk</span>
-                                                    </a>
-                                                <?php } ?>
-
-                                            </td>
-                                        </tr>
-                                    <?php }
-                                    ?>
-
-                                </tbody>
+                               
                             </table>
                         </div>
                     </div>
