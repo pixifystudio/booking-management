@@ -250,10 +250,10 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['status']; ?></td>
                                             <td>
                                                 <?php if ($ses_group == 'Super Admin') { ?>
-                                                    <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                    <!-- <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="trash" class="me-50"></i>
                                                             <span>Hapus</span>
-                                                    </a>
+                                                    </a> -->
                                                     <a class="dropdown-item" href="?page=Print-Struk&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
                                                             <i data-feather="print" class="me-50"></i>
                                                             <span>Cetak Struk</span>
