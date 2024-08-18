@@ -67,57 +67,58 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                            <div class="card-datatable">
-                                <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
-                                    <thead>
+                        <div class="card-datatable">
+                            <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Produk</th>
+                                        <th>Stock</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+                                    $mySql   = "SELECT * FROM product_stock where `type` = 'inventory' order by `name` asc";
+                                    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+                                    $nomor  = 0;
+                                    while ($myData = mysqli_fetch_array($myQry)) {
+                                        $nomor++;
+
+                                        $Code =  $myData['id'];
+
+
+                                    ?>
+
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Produk</th>
-                                            <th>Stock</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
 
-                                        <?php
-                                        $mySql   = "SELECT * FROM master_product order by `name` asc";
-                                        $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-                                        $nomor  = 0;
-                                        while ($myData = mysqli_fetch_array($myQry)) {
-                                            $nomor++;
+                                            <td><?php echo $nomor; ?></td>
+                                            <td><?php echo $myData['name']; ?></td>
+                                            <td><?php echo $myData['stock']; ?></td>
+                                            <td><?php echo $myData['updated_date']; ?></td>
 
-                                            $Code =  $myData['id'];
-
-
-                                        ?>
-
-                                            <tr>
-
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $myData['name']; ?></td>
-                                                <td><?php echo $myData['stock']; ?></td>
-
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                                            <i data-feather="more-vertical"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="?page=Master-Product-Stock-Adjustment&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="edit-2" class="me-50"></i>
-                                                                    <span>Atur Jumlah Stock</span>
-                                                            </a>
-                                                        </div>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="?page=Master-Product-Stock-Adjustment&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                                <i data-feather="edit-2" class="me-50"></i>
+                                                                <span>Atur Jumlah Stock</span>
+                                                        </a>
                                                     </div>
-                                                </td>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                        <?php }
-                                        ?>
+                                        </tr>
+                                    <?php }
+                                    ?>
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
