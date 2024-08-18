@@ -282,6 +282,11 @@ if ($_GET) {
       include "master_product_price_edit.php";
       break;
 
+    case 'Master-Product-Stock':
+      if (!file_exists("master_product_stock.php")) die("Sorry Empty Page!");
+      include "master_product_stock.php";
+      break;
+
 
 
 
