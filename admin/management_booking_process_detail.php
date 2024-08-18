@@ -144,15 +144,11 @@ $id = $_GET['id'];
                               $mySql  = "SELECT * from master_product where `type` = 'booking' group by `name` order by `name` asc";
                               $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                               while ($myData = mysqli_fetch_array($myQry)) {
-                                if ($dataType == $myData[`name`]) {
-                                  $cek = 'Selected';
-                                } else {
-                                  $cek = '';
-                                }
+                 
                               ?>
 
 
-                                <option value="<?php echo $myData[`name`]  ?>" <?= $cek ?>><?php echo $myData[`name`] ?></option>;
+                                <option value="<?php echo $myData[`name`]  ?>"><?php echo $myData[`name`] ?></option>;
                               <?php
                               };
                               ?>
