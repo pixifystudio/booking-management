@@ -19,7 +19,7 @@ $id = $_GET['id'];
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
 
-    $mySqlCek  = "SELECT background FROM master_background WHERE  jenis ='$dataJenis' and background ='$dataBackground' ";
+    $mySqlCek  = "SELECT background FROM master_background WHERE  paket ='$dataJenis' and background ='$dataBackground' ";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
     if ($JumlahDataCek >= 1) {
@@ -101,15 +101,15 @@ $id = $_GET['id'];
                             <option value="">Pilih Jenis</option>
                             <?php
                             // panggil database
-                            $mySql  = "SELECT * from master_jenis_head order by jenis asc";
+                            $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                             while ($myData = mysqli_fetch_array($myQry)) {
-                              if ($myData['jenis'] == $dataJenis ) {
+                              if ($myData['paket'] == $dataJenis ) {
                                 $cek = 'Selected';
                               } else {
                                 $cek = '';
                               }
-                              echo "<option value='$myData[jenis]' $cek> $myData[jenis] </option>";
+                              echo "<option value='$myData[paket]' $cek> $myData[paket] </option>";
                             }
                             ?>
                           </select>
