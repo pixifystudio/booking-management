@@ -89,11 +89,11 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <label>Nama Produk</label>
-                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtProduct' value="<?= $dataName ?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Nama Product" aria-label="Name" name='txtProduct' value="<?= $dataName ?>" aria-describedby="basic-addon-name" readonly />
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Harga</label>
-                          <input type="number" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtHarga' value="<?= $dataPrice ?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="number" id="basic-addon-name" class="form-control" placeholder="Harga" aria-label="Harga" name='txtHarga' value="<?= $dataPrice ?>" aria-describedby="basic-addon-name" />
                         </div>
                       </div>
 
