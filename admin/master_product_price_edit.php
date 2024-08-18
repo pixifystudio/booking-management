@@ -13,7 +13,7 @@ $id = $_GET['id'];
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
-    $dataType  = $_POST['txtHarga'];
+    $dataPrice  = $_POST['txtHarga'];
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
