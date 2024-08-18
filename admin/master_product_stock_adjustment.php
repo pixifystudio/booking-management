@@ -1,8 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Edit Product Price";
+$_SESSION['SES_TITLE'] = "Master Product Stock Adjusment";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Master-Product-Price-Edit";
+$_SESSION['SES_PAGE'] = "?page=Master-Product-Stock-Adjusment";
 $id = $_GET['id'];
 
 ?>
@@ -63,10 +63,10 @@ $id = $_GET['id'];
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">Product Price</h2>
+            <h2 class="content-header-title float-start mb-0">Product Adjusment</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a>Edit</a>
+                <li class="breadcrumb-item"><a></a>
                 </li>
               </ol>
             </div>
