@@ -19,7 +19,7 @@ $id = $_GET['id'];
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
 
-    $mySqlCek  = "SELECT background FROM master_background WHERE  paket ='$dataJenis' and background ='$dataBackground' ";
+    $mySqlCek  = "SELECT background FROM master_background WHERE  jenis ='$dataJenis' and background ='$dataBackground' ";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
     if ($JumlahDataCek >= 1) {
