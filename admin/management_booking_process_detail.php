@@ -134,7 +134,7 @@ $id = $_GET['id'];
 
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Tipe</label>
+                            <label>Product</label>
                             <select class="form-select" name="txtType" aria-label="Default select example" autocomplete="off" required>
                               <option selected value="">Pilih</option>
                               <?php
@@ -148,7 +148,7 @@ $id = $_GET['id'];
                               ?>
 
 
-                                <option value="<?php echo $myData[`name`]  ?>"><?php echo $myData[`name`] ?></option>;
+                                <option value="<?php echo $myData['name']  ?>"><?php echo $myData['name'] ?></option>;
                               <?php
                               };
                               ?>
