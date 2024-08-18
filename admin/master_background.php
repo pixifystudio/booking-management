@@ -76,7 +76,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Jenis</label>
+                                                    <label>Paket</label>
                                                     <select class="form-select" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                                         <option value="">Pilih Paket</option>
                                                         <?php
