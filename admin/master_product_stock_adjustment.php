@@ -33,9 +33,12 @@ $id = $_GET['id'];
   }
 
     // akumulasi stock akhir - / + jumlah input
-echo $dataJumlah;
-exit;
-    $dataTotal = $stock_akhir - $dataJumlah;
+
+    if ($dataType == 'Kurang') {
+      $dataTotal = $stock_akhir - $dataJumlah;
+    } else {
+      $dataTotal = $stock_akhir + $dataJumlah;
+    }
 
     if ($dataTotal <0) {
       $pesanError[] = "Jumlah stock kurang dari 0";
