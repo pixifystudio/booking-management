@@ -74,6 +74,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
                                         <th>No</th>
                                         <th>Nama Produk</th>
                                         <th>Stock</th>
+                                        <th>Updated Date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
