@@ -134,8 +134,29 @@ $id = $_GET['id'];
 
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Item (Keterangan)<span class="required">*</span></label>
-                            <input class="form-control" placeholder="Item" name="txtItem" type="text" value="" maxlength="100" required />
+                            <label>Tipe</label>
+                            <select class="form-select" name="txtType" aria-label="Default select example" autocomplete="off" required>
+                              <option selected value="">Pilih</option>
+                              <?php
+                              // deklarasi selected
+                              $cek = '';
+                              // panggil database
+                              $mySql  = "SELECT * from master_product where `type` = 'booking' group by `name` order by `name` asc";
+                              $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                              while ($myData = mysqli_fetch_array($myQry)) {
+                                if ($dataType == $myData[`name`]) {
+                                  $cek = 'Selected';
+                                } else {
+                                  $cek = '';
+                                }
+                              ?>
+
+
+                                <option value="<?php echo $myData[`name`]  ?>" <?= $cek ?>><?php echo $myData[`name`] ?></option>;
+                              <?php
+                              };
+                              ?>
+                            </select>
                           </div>
                         </div>
 
