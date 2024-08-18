@@ -1,8 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Product Price";
+$_SESSION['SES_TITLE'] = "Product Stock";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
+$_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
 
 ?>
 
@@ -19,7 +19,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
                         <h2 class="content-header-title float-start mb-0">Product Management</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Product Price</a>
+                                <li class="breadcrumb-item"><a>Product Stock</a>
                                 </li>
                             </ol>
                         </div>
@@ -73,8 +73,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Produk</th>
-                                            <th>Tipe</th>
-                                            <th>Harga</th>
+                                            <th>Stock</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -96,8 +95,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
 
                                                 <td><?php echo $nomor; ?></td>
                                                 <td><?php echo $myData['name']; ?></td>
-                                                <td><?php echo $myData['type']; ?></td>
-                                                <td><?php echo rupiah($myData['price']); ?></td>
+                                                <td><?php echo $myData['stock']; ?></td>
 
                                                 <td>
                                                     <div class="dropdown">
@@ -105,9 +103,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
                                                             <i data-feather="more-vertical"></i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="?page=Master-Product-Price-Edit&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                            <a class="dropdown-item" href="?page=Master-Product-Stock-Adjustment&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="edit-2" class="me-50"></i>
-                                                                    <span>Edit</span>
+                                                                    <span>Atur Jumlah Stock</span>
                                                             </a>
                                                         </div>
                                                     </div>
