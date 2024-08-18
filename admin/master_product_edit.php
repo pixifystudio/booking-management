@@ -13,7 +13,7 @@ $id = $_GET['id'];
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
-    $dataType  = $_POST['txtType'];
+    echo $dataType  = $_POST['txtType'];
     $dataName  = $_POST['txtProduct'];
 
     # VALIDASI JAM 
