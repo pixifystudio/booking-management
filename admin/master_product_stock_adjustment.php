@@ -33,7 +33,8 @@ $id = $_GET['id'];
   }
 
     // akumulasi stock akhir - / + jumlah input
-
+echo $dataJumlah;
+exit;
     $dataTotal = $stock_akhir - $dataJumlah;
 
     if ($dataTotal <0) {
