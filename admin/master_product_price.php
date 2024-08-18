@@ -97,7 +97,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
                                                 <td><?php echo $nomor; ?></td>
                                                 <td><?php echo $myData['name']; ?></td>
                                                 <td><?php echo $myData['type']; ?></td>
-                                                <td><?php echo $myData['price']; ?></td>
+                                                <td><?php echo rupiah($myData['price']); ?></td>
 
                                                 <td>
                                                     <div class="dropdown">

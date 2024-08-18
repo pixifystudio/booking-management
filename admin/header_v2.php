@@ -64,7 +64,20 @@
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col="">
 <?php
 include "language.php";
+
+    // function rupiah
+
+    function rupiah($angka)
+    {
+
+        $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
+        return $hasil_rupiah;
+    }
+
 ?>
+
+
+
 
 <body class="horizontal-layout horizontal-menu navbar-floating footer-static" data-open="hover" data-menu="horizontal-menu" data-col="">
 
