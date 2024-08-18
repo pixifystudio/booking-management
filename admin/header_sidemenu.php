@@ -73,11 +73,11 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Stock & Price Management</a>
+                        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Product Management</a>
                             <ul class="dropdown-menu" data-bs-popper="none">
                                 <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Product</a>
-                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Price</a>
-                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Inventory Stock</a>
+                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Product Price</a>
+                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Product Stock</a>
                             </ul>
                         </li>
 
