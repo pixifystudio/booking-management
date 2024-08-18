@@ -14,12 +14,19 @@ $id = $_GET['id'];
     $id = $_GET['id'];
 
     #data post
-    $dataItem  = $_POST['txtItem'];
-    $dataNominal  = $_POST['txtNominal'];
+    $dataProduct  = $_POST['txtProduct'];
     $dataQty  = $_POST['txtQty'];
 
 
     $ses_nama = $_SESSION['SES_NAMA'];
+
+    #ambil harga
+    $mySqlPrice = "SELECT * FROM `product_price` where id = '$dataProduct' ORDER BY id DESC LIMIT 1";
+    $myQryPrice = mysqli_query($koneksidb, $mySqlPrice) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+    $DataPrice = mysqli_fetch_array($myQryPrice);
+
+    $dataNominal = $DataPrice['price'];
+    $dataItem = $DataPrice['name'];
 
     #tambah data
     $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
@@ -148,18 +155,11 @@ $id = $_GET['id'];
                               ?>
 
 
-                                <option value="<?php echo $myData['name']  ?>"><?php echo $myData['name'] ?></option>;
+                                <option value="<?php echo $myData['id']  ?>"><?php echo $myData['name'] ?></option>;
                               <?php
                               };
                               ?>
                             </select>
-                          </div>
-                        </div>
-
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Nominal (Harga)<span class="required">*</span></label>
-                            <input class="form-control" placeholder="Nominal" name="txtNominal" type="number" value="" maxlength="100" required />
                           </div>
                         </div>
 
