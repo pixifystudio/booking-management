@@ -10,7 +10,7 @@
 
     <div class="horizontal-menu-wrapper">
         <div class="header-navbar navbar-expand-sm navbar navbar-horizontal floating-nav navbar-shadow menu-border" role="navigation" data-menu="menu-wrapper" data-menu-type="floating-nav">
-           
+
             <div class="shadow-bottom"></div>
             <div class="navbar-container main-menu-content" data-menu="menu-container">
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
@@ -70,6 +70,14 @@
                         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>User Management</a>
                             <ul class="dropdown-menu" data-bs-popper="none">
                                 <a class="dropdown-item" href="?page=Master-User" data-bs-toggle="">User</a>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Stock & Price Management</a>
+                            <ul class="dropdown-menu" data-bs-popper="none">
+                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Product</a>
+                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Price</a>
+                                <a class="dropdown-item" href="?page=Stock-Inventory" data-bs-toggle="">Inventory Stock</a>
                             </ul>
                         </li>
 
