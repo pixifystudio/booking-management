@@ -250,6 +250,29 @@ if ($_GET) {
       break;
 
 
+      #Master Product
+
+    case 'Master-Product':
+      if (!file_exists("master_product.php")) die("Sorry Empty Page!");
+      include "master_product.php";
+      break;
+
+    case 'Master-Product-Add':
+      if (!file_exists("master_product_add.php")) die("Sorry Empty Page!");
+      include "master_product_add.php";
+      break;
+
+    case 'Master-Product-Edit':
+      if (!file_exists("master_product_edit.php")) die("Sorry Empty Page!");
+      include "master_product_edit.php";
+      break;
+
+    case 'Master-Product-Delete':
+      if (!file_exists("master_product_delete.php")) die("Sorry Empty Page!");
+      include "master_product_delete.php";
+      break;
+
+
 
 
 
