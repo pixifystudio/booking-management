@@ -288,8 +288,8 @@ if ($_GET) {
       break;
 
     case 'Master-Product-Stock-Adjustment':
-      if (!file_exists("master_product_stock_adjusment.php")) die("Sorry Empty Page!");
-      include "master_product_stock_adjusment.php";
+      if (!file_exists("master_product_stock_adjustment.php")) die("Sorry Empty Page!");
+      include "master_product_stock_adjustment.php";
       break;
 
 
