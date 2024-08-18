@@ -273,8 +273,8 @@ if ($_GET) {
       break;
 
     case 'Master-Product-Price':
-      if (!file_exists("master_price.php")) die("Sorry Empty Page!");
-      include "master_price.php";
+      if (!file_exists("master_product_price.php")) die("Sorry Empty Page!");
+      include "master_product_price.php";
       break;
 
     case 'Master-Product-Price-Edit':
