@@ -272,6 +272,16 @@ if ($_GET) {
       include "master_product_delete.php";
       break;
 
+    case 'Master-Product-Price':
+      if (!file_exists("master_price.php")) die("Sorry Empty Page!");
+      include "master_price.php";
+      break;
+
+    case 'Master-Product-Price-Edit':
+      if (!file_exists("master_product_price_edit.php")) die("Sorry Empty Page!");
+      include "master_product_price_edit.php";
+      break;
+
 
 
 
