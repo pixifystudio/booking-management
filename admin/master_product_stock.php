@@ -80,7 +80,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM product_stock where `type` = 'inventory' order by `name` asc";
+                                    $mySql   = "SELECT * FROM master_product where `type` = 'inventory' order by `name` asc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
