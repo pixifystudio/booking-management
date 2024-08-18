@@ -14,6 +14,32 @@ $id = $_GET['id'];
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
     $dataJumlah  = $_POST['txtJumlah'];
+    $dataType  = $_POST['txtType'];
+
+    // validasi plus minus
+    if ($dataType =='Kurang') {
+      $dataJumlah = '-' . $dataJumlah;
+    }
+
+  // check stock akhir
+  $mySqlStock   = "SELECT stock FROM master_product where id ='$id'";
+  $myQryStock   = mysqli_query($koneksidb, $mySqlStock)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+  $myDataStock = mysqli_fetch_array($myQryStock);
+
+  $stock_akhir = $myDataStock['stock'];
+  // set default 1
+  if ($stock_akhir =='') {
+      $stock_akhir = 1;
+  }
+
+    // akumulasi stock akhir - / + jumlah input
+
+    $dataTotal = $stock_akhir - $dataJumlah;
+
+    if ($dataTotal <0) {
+      $pesanError[] = "Jumlah stock kurang dari 0";
+    }
+
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
@@ -29,6 +55,12 @@ $id = $_GET['id'];
       echo "</div>";
     } else {
       # SIMPAN DATA KE DATABASE. 
+
+      // Record Stock InOut
+      $mySql   = "INSERT INTO `master_product_stock`( `product_id`, `stock`, `updated_date`)
+     VALUES ('$id','$dataJumlah',now())";
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+
       // Jika tidak menemukan error, update data ke database
       $ses_nama  = $_SESSION['SES_NAMA'];
       $mySql    = "UPDATE master_product set  `stock` ='$dataTotal' where id='$id'";
@@ -36,7 +68,7 @@ $id = $_GET['id'];
 
 
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Product-Price&s=edited'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Product-Stock&s=edited'>";
       }
       exit;
     }
@@ -50,7 +82,7 @@ $id = $_GET['id'];
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['id'];
-  $dataPrice    = $myData['price'];
+  $dataStock    = $myData['stock'];
   $dataName   = $myData['name'];
   ?>
   <!-- BEGIN: Content-->
@@ -102,7 +134,7 @@ $id = $_GET['id'];
                             $mySql  = "SELECT * from master_status where status_name = 'adjustment' group by status_sub_name order by status_sub_name asc";
                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                             while ($myData = mysqli_fetch_array($myQry)) {
-                        
+
                             ?>
 
 
@@ -114,7 +146,8 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Jumlah</label>
-                          <input type="number" id="basic-addon-name" class="form-control" placeholder="Harga" aria-label="Harga" name='txtJumlah' value="<?= $dataPrice ?>" aria-describedby="basic-addon-name" />
+                          <input type="number" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtJumlah' aria-describedby="basic-addon-name" />
+                          <input type="hide" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtStock' value="<?= $dataStock ?>" aria-describedby="basic-addon-name" />
                         </div>
                       </div>
 
