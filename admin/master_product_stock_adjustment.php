@@ -147,7 +147,6 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <label>Jumlah</label>
                           <input type="number" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtJumlah' aria-describedby="basic-addon-name" />
-                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtStock' value="<?= $dataStock ?>" aria-describedby="basic-addon-name" />
                         </div>
                       </div>
 
