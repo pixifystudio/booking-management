@@ -59,7 +59,7 @@ $id = $_GET['id'];
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['id'];
   $dataName    = $myData['name'];
-  echo $dataType   = $myData['type'];
+  $dataType   = $myData['type'];
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
@@ -112,6 +112,8 @@ $id = $_GET['id'];
                               while ($myData = mysqli_fetch_array($myQry)) { 
                                 if ($dataType == $myData['status_sub_name'] ) {
                                  $cek = 'Selected';
+                                } else {
+                                  $cek = '';
                                 }
                                 ?>
 
