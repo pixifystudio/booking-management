@@ -81,7 +81,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Price";
                                     <tbody>
 
                                         <?php
-                                        $mySql   = "SELECT * FROM master_product where `type` = 'booking' order by `name` asc";
+                                        $mySql   = "SELECT * FROM master_product order by `name` asc";
                                         $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                         $nomor  = 0;
                                         while ($myData = mysqli_fetch_array($myQry)) {
