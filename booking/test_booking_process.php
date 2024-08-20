@@ -195,9 +195,9 @@ if (isset($_POST['btnSubmit'])) {
     $myQryPrice = mysqli_query($koneksidb, $mySqlPrice) or die("Query Insert Salah : " . mysqli_error($koneksidb));
     $DataPrice = mysqli_fetch_array($myQryPrice);
 
-    $txtNominal = $DataPrice['price'];
+   echo $txtNominal = $DataPrice['price'];
 
-
+exit;
 
     // ambil id terakhir
     $mySqlID = "SELECT * FROM `booking` ORDER BY id DESC LIMIT 1";
