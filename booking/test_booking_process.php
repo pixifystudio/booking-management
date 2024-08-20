@@ -191,13 +191,12 @@ if (isset($_POST['btnSubmit'])) {
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
     #ambil harga
-    echo $mySqlPrice = "SELECT * FROM `product_price` where `name` = '$txtPaket' ORDER BY id DESC LIMIT 1";
+     $mySqlPrice = "SELECT * FROM `master_product` where `name` = '$txtPaket' ORDER BY id DESC LIMIT 1";
     $myQryPrice = mysqli_query($koneksidb, $mySqlPrice) or die("Query Insert Salah : " . mysqli_error($koneksidb));
     $DataPrice = mysqli_fetch_array($myQryPrice);
 
-   echo $txtNominal = $DataPrice['price'];
+    $txtNominal = $DataPrice['price'];
 
-exit;
 
     // ambil id terakhir
     $mySqlID = "SELECT * FROM `booking` ORDER BY id DESC LIMIT 1";
