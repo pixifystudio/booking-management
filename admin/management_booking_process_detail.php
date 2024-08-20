@@ -148,7 +148,7 @@ $id = $_GET['id'];
                               // deklarasi selected
                               $cek = '';
                               // panggil database
-                              $mySql  = "SELECT * from master_product where `type` = 'booking' group by `name` order by `name` asc";
+                              $mySql  = "SELECT * from master_product  group by `name` order by `name` asc";
                               $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                               while ($myData = mysqli_fetch_array($myQry)) {
                  
