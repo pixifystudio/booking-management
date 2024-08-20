@@ -16,10 +16,7 @@ $id = $_GET['id'];
     $dataJumlah  = $_POST['txtJumlah'];
     $dataType  = $_POST['txtType'];
 
-    // validasi plus minus
-    if ($dataType =='Kurang') {
-      $dataJumlah = '-' . $dataJumlah;
-    }
+
 
   // check stock akhir
   $mySqlStock   = "SELECT stock FROM master_product where id ='$id'";
