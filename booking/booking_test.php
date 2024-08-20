@@ -317,7 +317,7 @@ $randomToken = generateRandomToken();
 
 
 
-                          <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
+                          <form class="form-signin" role="form" action="?page=Test-Booking-Process" method="POST" name="form1" target="_self" id="form1">
                             <div class="row spacing3">
                               <!-- jika tanggal sudah diisi -->
 
