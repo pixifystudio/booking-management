@@ -6,11 +6,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
 $s = isset($_GET['s']) ? $_GET['s'] : '';
 
 if (!empty($s)) {
-  // Alihkan ke halaman lain sebelum memulai output PDF
-  header("Location: https://pixify.id/admin/?page=Management-Booking-Process");
-  exit(); // Pastikan untuk menghentikan eksekusi skrip setelah pengalihan
+  // Menggunakan JavaScript untuk membuka halaman di tab baru setelah PDF selesai dibuat
+  echo "<script type='text/javascript'>
+            window.open('https://pixify.id/admin/?page=Management-Booking-Process', '_blank');
+          </script>";
 }
-
 // Lanjutkan jika $s kosong (atau jika validasi telah lewat)
 class PDF extends FPDF
 {
