@@ -34,13 +34,14 @@ $id = $_GET['id'];
       $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
      VALUES ('$dataProduct','-$dataQty',now())";
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
+      $id_terbaru = mysqli_insert_id($koneksidb);
     }
 
     
 
     #tambah data
-    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now())";
+    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$id_terbaru')";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     # Validasi Insert Sukses
