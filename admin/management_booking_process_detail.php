@@ -27,6 +27,16 @@ $id = $_GET['id'];
 
     $dataNominal = $DataPrice['price'];
     $dataItem = $DataPrice['name'];
+    $dataType= $DataPrice['type'];
+
+    // jika 
+    if ($dataType =='inventory') {
+      $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`, `updated_by`, `updated_date`)
+     VALUES ('$dataProduct','$dataQty','$ses_nama',now())";
+      $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
+    }
+
+    
 
     #tambah data
     $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`)
@@ -80,14 +90,16 @@ $id = $_GET['id'];
   <div class="header-navbar-shadow">
   </div>
   <div class="content-wrapper">
-    <div class="content-header row">
+    <div class="content-header r
+    ]/ ? .nw">
+    >.
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
             <h2 class="content-header-title float-start mb-0">Booking</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a>Konfirmasi Selesai</a>
+                <li class="breadcrumb-item"><a>Konfirmasi Selesai</a
                 </li>
               </ol>
             </div>
@@ -148,7 +160,8 @@ $id = $_GET['id'];
                               // deklarasi selected
                               $cek = '';
                               // panggil database
-                              $mySql  = "SELECT * from master_product  group by `name` order by `name` asc";
+                              $mySql  = "SELECT * from master_product 
+                                group by `name` order by `name` asc";
                               $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                               while ($myData = mysqli_fetch_array($myQry)) {
                  
