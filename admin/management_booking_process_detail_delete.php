@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 
     // ambil data stock order id untuk hapus stock order id
 
-    $mySqlBooking = "SELECT * FROM `booking_detail_id` where id = '" . $_GET['id'] . "'";
+    $mySqlBooking = "SELECT * FROM `booking_detail` where id = '" . $_GET['id'] . "'";
     $myQryBooking = mysqli_query($koneksidb, $mySqlBooking) or die("Query Insert Salah : " . mysqli_error($koneksidb));
     $DataBooking = mysqli_fetch_array($myQryBooking);
 
