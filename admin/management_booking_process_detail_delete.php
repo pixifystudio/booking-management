@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 
     // ambil data stock order id untuk hapus stock order id
 
-    $mySqlBooking = "SELECT * FROM `booking_detail` where id = '" . $_GET['id'] . "'";
+    $mySqlBooking = "SELECT * FROM `booking_detail` where booking_detail_id = '" . $_GET['id'] . "'";
     $myQryBooking = mysqli_query($koneksidb, $mySqlBooking) or die("Query Insert Salah : " . mysqli_error($koneksidb));
     $DataBooking = mysqli_fetch_array($myQryBooking);
 
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 	VALUES ('booking','" . $_GET['id'] . "','" . $_SESSION['SES_NAMA'] . "', NOW())";
     $myQry1 = mysqli_query($koneksidb, $mySql1) or die("PIXIFY ERROR 2: " . mysqli_error($koneksidb));
 
-    $mySql = "DELETE FROM booking_detail WHERE id='" . $_GET['id'] . "'";
+    $mySql = "DELETE FROM booking_detail WHERE booking_detail_id='" . $_GET['id'] . "'";
     $myQry = mysqli_query($koneksidb, $mySql) or die("PIXIFY ERROR 3: " . mysqli_error($koneksidb));
     if ($myQry) {
         // Refresh halaman
