@@ -27,17 +27,17 @@ $id = $_GET['id'];
 
     $dataNominal = $DataPrice['price'];
     $dataItem = $DataPrice['name'];
-    $dataType = $DataPrice['type'];
+    $dataType= $DataPrice['type'];
 
     // jika 
-    if ($dataType == 'inventory') {
+    if ($dataType =='inventory') {
       $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
      VALUES ('$dataProduct','-$dataQty',now())";
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
       $id_terbaru = mysqli_insert_id($koneksidb);
     }
 
-
+    
 
     #tambah data
     $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
@@ -66,12 +66,9 @@ $id = $_GET['id'];
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
-    if ($myQry) { ?>
-
-      <script type="text/javascript">
-        window.open("?page=Print-Struk&id=<?=$id?>&s=success", "_blank");
-      </script>
-  <?php }
+    if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
+    }
   } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
@@ -96,7 +93,7 @@ $id = $_GET['id'];
   <div class="content-wrapper">
     <div class="content-header r
     ]/ ? .nw">
-      >.
+    >.
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
@@ -104,7 +101,7 @@ $id = $_GET['id'];
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a>Konfirmasi Selesai</a
-                    </li>
+                </li>
               </ol>
             </div>
           </div>
@@ -168,7 +165,7 @@ $id = $_GET['id'];
                                 group by `name` order by `name` asc";
                               $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                               while ($myData = mysqli_fetch_array($myQry)) {
-
+                 
                               ?>
 
 
