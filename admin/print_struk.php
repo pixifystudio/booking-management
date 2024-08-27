@@ -49,13 +49,16 @@ $pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
 $pdf->AddPage();
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 12  , 0, 25);
+$pdf->Image('../app-assets/images/logo/pixifylogoonly.png', 12, 0, 25);
 $pdf->Image('../app-assets/images/logo/strukpixify.jpg', 15, 98, 20);
-$pdf->Image('../app-assets/images/logo/instagram.png', 27.5,120.3,3);
-$pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3,3);
+$pdf->Image('../app-assets/images/logo/instagram.png', 27.5, 120.3, 3);
+$pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3, 3);
 $pdf->SetXY($x, $y + 20);
 
 $id = $_GET['id'];
+$s = isset($_GET['s']) ? $_GET['s'] : '';
+
+
 
 $mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
@@ -152,7 +155,6 @@ while ($myData1 = mysqli_fetch_array($myQry1)) {
   $total = $total + ($myData1['qty'] * $myData1['nominal']);
 
   $pdf->Ln(3);
-
 }
 
 
@@ -169,14 +171,14 @@ $pdf->Ln(3);
 $pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(11, 6, '', '', 0, 'L', 0);
 $pdf->Cell(22, 6, 'Total: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp' . number_format($total,0), '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp' . number_format($total, 0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B',7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
 $pdf->Cell(11, 6, '', '', 0, 'L', 0);
 $pdf->Cell(22, 6, 'DP: ', '', 0, 'L', 0);
-$pdf->Cell(10, 6, 'Rp' . number_format($dp,0), '', 0, 'L', 0);
+$pdf->Cell(10, 6, 'Rp' . number_format($dp, 0), '', 0, 'L', 0);
 
 $pdf->Ln(3);
 
