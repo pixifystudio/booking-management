@@ -1,17 +1,12 @@
 <?php
+ob_start(); // Mulai output buffering untuk mencegah output sebelum header dikirim
+
 require('fpdf.php');
 
 // Validasi terlebih dahulu
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $s = isset($_GET['s']) ? $_GET['s'] : '';
 
-if (!empty($s)) {
-  // Menggunakan JavaScript untuk membuka halaman di tab baru setelah PDF selesai dibuat
-  echo "<script type='text/javascript'>
-            window.open('https://pixify.id/admin/?page=Management-Booking-Process', '_blank');
-          </script>";
-}
-// Lanjutkan jika $s kosong (atau jika validasi telah lewat)
 class PDF extends FPDF
 {
   // Header
@@ -148,12 +143,6 @@ $pdf->Ln(2);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
-$pdf->SetXY($x, $y + 3);
-$pdf->SetFont('Arial', '', 7);
-$pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
-$pdf->Ln(2);
-$x = $pdf->GetX();
-$y = $pdf->GetY();
 $pdf->SetXY($x, $y);
 $pdf->Cell(45, 6, 'Jangan lupa rating kita ya! :D', '', 0, 'C', 0);
 $pdf->Ln(2);
@@ -162,4 +151,14 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 22.4);
 
+// Tampilkan PDF
 $pdf->Output('I', 'test_print.pdf');
+
+// Cek apakah $s tidak kosong dan kemudian alihkan
+if (!empty($s)) {
+  echo "<script>
+    window.open('https://pixify.id/admin/?page=Management-Booking-Process', '_blank');
+  </script>";
+}
+
+ob_end_flush(); // Akhiri output buffering dan kirim output ke browser
