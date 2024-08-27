@@ -45,11 +45,9 @@ $id = $_GET['id'];
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     # Validasi Insert Sukses
-    if ($myQry) { ?>
-      <script type="text/javascript">
-        window.open("?page=Management-Booking-Process-Detail&id=<?php echo $id; ?>", "_blank");
-      </script>
-  <?php }
+    if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
+    }
   }
 
   # Tombol Submit diklik
@@ -68,9 +66,12 @@ $id = $_GET['id'];
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
-    if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
-    }
+    if ($myQry) { ?>
+
+      <script type="text/javascript">
+        window.open("?page=?page=Print-Struk&id=$id&s=success", "_blank");
+      </script>
+  <?php }
   } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
