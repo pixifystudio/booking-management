@@ -69,7 +69,7 @@ $id = $_GET['id'];
     if ($myQry) { ?>
 
       <script type="text/javascript">
-        window.open("?page=?page=Print-Struk&id=$id&s=success", "_blank");
+        window.open("?page=Print-Struk&id=<?=$id?>&s=success", "_blank");
       </script>
   <?php }
   } // Penutup Tombol Submit
