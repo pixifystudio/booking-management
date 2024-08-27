@@ -58,11 +58,11 @@ $pdf->SetXY($x, $y + 20);
 $id = $_GET['id'];
 $s = isset($_GET['s']) ? $_GET['s'] : '';
 
-if ($s != '') { ?>
-  <script type="text/javascript">
-    window.open("?page=Management-Booking-Process", "_blank");
-  </script>
-<?php }
+if (!empty($s)) {
+  echo "<script type='text/javascript'>
+        window.open('https://pixify.id/admin/?page=Management-Booking-Process', '_blank');
+    </script>";
+}
 
 
 $mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
