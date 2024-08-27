@@ -1,6 +1,17 @@
 <?php
-require('fpdf.php'); // Ganti 'path/to/fpdf.php' dengan path yang sesuai ke file fpdf.php di proyek Anda
+require('fpdf.php');
 
+// Validasi terlebih dahulu
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$s = isset($_GET['s']) ? $_GET['s'] : '';
+
+if (!empty($s)) {
+  // Alihkan ke halaman lain sebelum memulai output PDF
+  header("Location: https://pixify.id/admin/?page=Management-Booking-Process");
+  exit(); // Pastikan untuk menghentikan eksekusi skrip setelah pengalihan
+}
+
+// Lanjutkan jika $s kosong (atau jika validasi telah lewat)
 class PDF extends FPDF
 {
   // Header
@@ -12,11 +23,8 @@ class PDF extends FPDF
   // Footer
   function Footer()
   {
-    // Posisi 1.5 cm dari bawah
     $this->SetY(-11);
-    // Arial italic 8
     $this->SetFont('Arial', 'B', 7);
-    // Nomor halaman
     $this->Cell(5, 6, '', '', 0, 'L', 0);
     $this->Cell(45, 6, '0851-7121-2096      @PXY.STUDIO', '', 0, 'L', 0);
   }
@@ -40,10 +48,10 @@ class PDF extends FPDF
 }
 
 // Buat instance dari kelas FPDF
-$pdf = new PDF('P', 'mm', array(50, 130)); // P untuk Portrait, mm untuk milimeter, array(30, 30) untuk ukuran khusus
+$pdf = new PDF('P', 'mm', array(50, 130));
 
-// Atur margin (opsional, jika ingin mengurangi margin default)
-$pdf->SetMargins(2, 2, 2); // Margin kiri, atas, kanan
+// Atur margin
+$pdf->SetMargins(2, 2, 2);
 
 // Tambahkan halaman baru
 $pdf->AddPage();
@@ -55,16 +63,6 @@ $pdf->Image('../app-assets/images/logo/instagram.png', 27.5, 120.3, 3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3, 3);
 $pdf->SetXY($x, $y + 20);
 
-$id = $_GET['id'];
-$s = isset($_GET['s']) ? $_GET['s'] : '';
-
-if (!empty($s)) {
-  echo "<script type='text/javascript'>
-        window.open('https://pixify.id/admin/?page=Management-Booking-Process', '_blank');
-    </script>";
-}
-
-
 $mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $myData = mysqli_fetch_array($myQry);
@@ -74,51 +72,22 @@ $tanggal = isset($myData['tanggal']) ? $myData['tanggal'] : 0;
 $jam = isset($myData['jam']) ? $myData['jam'] : 0;
 $tanggal_foto = $tanggal . ' ' . $jam;
 
-
-
-// function tgl_indo($tanggal)
-// {
-//   $bulan = array(
-//     1 =>   'Januari',
-//     'Februari',
-//     'Maret',
-//     'April',
-//     'Mei',
-//     'Juni',
-//     'Juli',
-//     'Agustus',
-//     'September',
-//     'Oktober',
-//     'November',
-//     'Desember'
-//   );
-//   $pecahkan = explode('-', $tanggal);
-
-//   // variabel pecahkan 0 = tanggal
-//   // variabel pecahkan 1 = bulan
-//   // variabel pecahkan 2 = tahun
-
-//   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
-// }
-
-$tanggal_cetak = date('d F Y G:i'); // 21 Oktober 2017
+$tanggal_cetak = date('d F Y G:i');
 $tanggal_foto = date("d F Y G:i", strtotime($tanggal_foto));
 
-
-
-$pdf->SetFont('Arial', 'B', 19); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+// Isi PDF
+$pdf->SetFont('Arial', 'B', 19);
 $pdf->Cell(45, 6, ' RECEIPT', '', 0, 'C', 0);
 $pdf->Ln(5);
+$pdf->SetFont('Arial', '', 7);
 
-$pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
-
-$pdf->Line(0, 35, 260, 35); // A horizontal line from (10, 20) to (200, 20)
+$pdf->Line(0, 35, 260, 35);
 $pdf->Cell(45, 6, 'Perumahan Villa Mutiara Lido 2 Blok A-17', '', 0, 'C', 0);
 $pdf->Ln(3);
 $pdf->Cell(45, 6, 'Benda, Cicurug, Sukabumi', '', 0, 'C', 0);
 $pdf->Ln(4.5);
 
-$pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 6.5);
 $pdf->Cell(24, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_cetak, '', 0, 'L', 0);
 $pdf->Ln(3);
@@ -126,43 +95,31 @@ $pdf->Cell(24, 6, 'Tanggal Foto:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_foto, '', 0, 'L', 0);
 $pdf->Ln(3);
 
-
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x - 60, $y);
 $pdf->Cell(198, 6, '-------------------------------------------------------------------------------------------------------------------------------------------------------', '', 0, 'L', 0);
 
-
-
-$x = $pdf->GetX();
-$y = $pdf->GetY();
-$pdf->SetXY($x, $y);
-
 $pdf->Ln(3);
 
 // INSERT LIST ITEM
-
 $mySql1   = "SELECT * FROM booking_detail where booking_id='$id' group by booking_detail_id  order by updated_date asc";
 $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $nomor  = 0;
 $total = 0;
 while ($myData1 = mysqli_fetch_array($myQry1)) {
-  $pdf->SetFont('Arial', 'B', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+  $pdf->SetFont('Arial', 'B', 6.5);
   $pdf->Cell(1, 6, '', '', 0, 'L', 0);
   $pdf->Cell(35, 6, $myData1['item'], '', 0, 'L', 0);
   $pdf->Ln(2);
-  $pdf->SetFont('Arial', '', 6.5); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+  $pdf->SetFont('Arial', '', 6.5);
   $pdf->Cell(3, 6, '', '', 0, 'L', 0);
   $pdf->Cell(30, 6, $myData1['qty'] . ' x ' . number_format($myData1['nominal']), '', 0, 'L', 0);
   $pdf->Cell(25, 6, 'Rp' . number_format(($myData1['qty'] * $myData1['nominal'])), '', 0, 'L', 0);
 
-
   $total = $total + ($myData1['qty'] * $myData1['nominal']);
-
   $pdf->Ln(3);
 }
-
-
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
@@ -171,23 +128,19 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 
 $pdf->Ln(3);
 
-
-
-$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 7);
 $pdf->Cell(11, 6, '', '', 0, 'L', 0);
 $pdf->Cell(22, 6, 'Total: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp' . number_format($total, 0), '', 0, 'L', 0);
-
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 7);
 $pdf->Cell(11, 6, '', '', 0, 'L', 0);
 $pdf->Cell(22, 6, 'DP: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp' . number_format($dp, 0), '', 0, 'L', 0);
-
 $pdf->Ln(3);
 
-$pdf->SetFont('Arial', 'B', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', 'B', 7);
 $pdf->Cell(11, 6, '', '', 0, 'L', 0);
 $pdf->Cell(22, 6, 'Sisa Pembayaran: ', '', 0, 'L', 0);
 $pdf->Cell(10, 6, 'Rp' . number_format(($total - $dp)), '', 0, 'L', 0);
@@ -196,7 +149,7 @@ $pdf->Ln(2);
 $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 3);
-$pdf->SetFont('Arial', '', 7); // Ukuran font disesuaikan agar sesuai dengan ukuran kertas kecil
+$pdf->SetFont('Arial', '', 7);
 $pdf->Cell(45, 6, 'Terimakasih sudah foto di Pixify Studio', '', 0, 'C', 0);
 $pdf->Ln(2);
 $x = $pdf->GetX();
@@ -209,15 +162,4 @@ $x = $pdf->GetX();
 $y = $pdf->GetY();
 $pdf->SetXY($x, $y + 22.4);
 
-
-
-
-
-
-
-// Atur font
-
-// Tambahkan teks
-
-// Hasilkan dokumen
-$pdf->Output('I', 'test_print.pdf'); // I untuk menampilkan dalam browser, test_print.pdf sebagai nama file
+$pdf->Output('I', 'test_print.pdf');
