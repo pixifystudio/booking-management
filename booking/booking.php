@@ -412,8 +412,16 @@ $randomToken = generateRandomToken();
 
                                         // jika tanggal yang dipilih hari ini, set validasi
                                         if ($hariini == $txtTanggal) {
+                                          // jika hari senin, validasi aktif
                                           // set jam sekarang tambah 1 jam
-                                          $jamsekarang = date("H:i", strtotime("+60 minutes"));
+                                          $haritanggal = hari_ini($nama_hari);
+                                          if ($haritanggal =='Senin') {
+                                            $jamsekarang = date("H:i", strtotime("+60 minutes"));
+                                           
+                                          }
+                                          else {
+                                            $jamsekarang = date("H:i", strtotime("+0 minutes"));
+                                          }
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                           // tampilkan daftar jam minimal 1 jam dari jam sekarang
