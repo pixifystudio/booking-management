@@ -64,6 +64,8 @@ if ($_GET) {
       include "management_booking_process_detail.php";
       break;
 
+      
+
     case 'Management-Booking-Process-Detail-Delete':
       if (!file_exists("management_booking_process_detail_delete.php")) die("Sorry Empty Page!");
       include "management_booking_process_detail_delete.php";
