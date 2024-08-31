@@ -155,7 +155,7 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Product</label>
-                            <select class="select2 form-select select2-hidden-accessible" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
+                            <select class="select2 form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
                               <option selected value="">Pilih</option>
                               <?php
                               // deklarasi selected
