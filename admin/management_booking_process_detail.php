@@ -31,9 +31,8 @@ $id = $_GET['id'];
 
     // jika 
     if ($dataType == 'inventory') {
-     echo $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
+      $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
      VALUES ('$dataProduct','-$dataQty',now())";
-     exit;
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
       $id_terbaru = mysqli_insert_id($koneksidb);
     }
