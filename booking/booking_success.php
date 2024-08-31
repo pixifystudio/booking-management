@@ -143,7 +143,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                     </div>
                   </div>
                   <div class="col-md-7">
-                    <div class="form-wrap">
+                    <div class="">
                       <div>
                         <div class="head">
                           <div class="title-main align-left">
