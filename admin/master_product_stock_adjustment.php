@@ -34,10 +34,11 @@ $id = $_GET['id'];
 
     if ($dataType == 'Kurang') {
       $dataTotal = $stock_akhir - $dataJumlah;
+      $dataJumlah = -$dataJumlah;
     } else {
       $dataTotal = $stock_akhir + $dataJumlah;
     }
-  echo $dataTotal;
+  echo $dataJumlah;
   exit;
 
     if ($dataTotal <0) {
