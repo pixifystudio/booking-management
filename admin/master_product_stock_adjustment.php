@@ -38,8 +38,7 @@ $id = $_GET['id'];
     } else {
       $dataTotal = $stock_akhir + $dataJumlah;
     }
-  echo $dataJumlah;
-  exit;
+
 
     if ($dataTotal <0) {
       $pesanError[] = "Jumlah stock kurang dari 0";
