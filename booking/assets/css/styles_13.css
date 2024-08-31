@@ -12512,6 +12512,7 @@ body {
 
 @media (min-width: 600px) {
   .form-page .form-wrap {
+    padding-left: 200px;
     padding: 40px;
   }
 }
