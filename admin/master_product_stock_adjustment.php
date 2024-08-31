@@ -19,11 +19,12 @@ $id = $_GET['id'];
 
 
   // check stock akhir
-  $mySqlStock   = "SELECT stock FROM master_product where id ='$id'";
+  $mySqlStock   = "SELECT mp.id, mp.name, mp.price, sum(mps.stock) as total_stock, mps.updated_date FROM `master_product` mp left join `master_product_stock`  mps on (mp.id = mps.product_id)  where mp.type ='inventory' and mp.id ='$id'
+                                                    group by mp.id order by mp.name asc";
   $myQryStock   = mysqli_query($koneksidb, $mySqlStock)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
   $myDataStock = mysqli_fetch_array($myQryStock);
 
-  $stock_akhir = $myDataStock['stock'];
+  $stock_akhir = $myDataStock['total_stock'];
   // set default 1
   if ($stock_akhir =='') {
       $stock_akhir = 1;
@@ -36,6 +37,7 @@ $id = $_GET['id'];
     } else {
       $dataTotal = $stock_akhir + $dataJumlah;
     }
+  
 
     if ($dataTotal <0) {
       $pesanError[] = "Jumlah stock kurang dari 0";
