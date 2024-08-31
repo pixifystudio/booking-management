@@ -81,7 +81,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT mp.id, mp.name, mp.price, sum(mps.stock) as total_stock FROM `master_product` mp left join `master_product_stock`  mps on (mp.id = mps.product_id)  where mp.type ='inventory'
+                                    $mySql   = "SELECT mp.id, mp.name, mp.price, sum(mps.stock) as total_stock, mps.updated_date FROM `master_product` mp left join `master_product_stock`  mps on (mp.id = mps.product_id)  where mp.type ='inventory'
                                                     group by mp.id order by mp.name asc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
