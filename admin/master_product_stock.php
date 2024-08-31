@@ -81,7 +81,8 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM master_product where `type` = 'inventory' order by `name` asc";
+                                    $mySql   = "SELECT mp.id, mp.name, mp.price, sum(mps.stock) as total_stock FROM `master_product` mp left join `master_product_stock`  mps on (mp.id = mps.product_id)  where mp.type ='inventory'
+                                                    group by mp.id order by mp.name asc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -96,7 +97,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock";
 
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['name']; ?></td>
-                                            <td><?php echo $myData['stock']; ?></td>
+                                            <td><?php echo $myData['total_stock']; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
 
                                             <td>
