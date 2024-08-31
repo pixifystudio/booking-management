@@ -27,17 +27,17 @@ $id = $_GET['id'];
 
     $dataNominal = $DataPrice['price'];
     $dataItem = $DataPrice['name'];
-    $dataType= $DataPrice['type'];
+    $dataType = $DataPrice['type'];
 
     // jika 
-    if ($dataType =='inventory') {
+    if ($dataType == 'inventory') {
       $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
      VALUES ('$dataProduct','-$dataQty',now())";
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
       $id_terbaru = mysqli_insert_id($koneksidb);
     }
 
-    
+
 
     #tambah data
     $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
@@ -93,7 +93,7 @@ $id = $_GET['id'];
   <div class="content-wrapper">
     <div class="content-header r
     ]/ ? .nw">
-    >.
+      >.
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
@@ -101,7 +101,7 @@ $id = $_GET['id'];
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a>Konfirmasi Selesai</a
-                </li>
+                    </li>
               </ol>
             </div>
           </div>
@@ -155,7 +155,7 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Product</label>
-                            <select class="form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
+                            <select class="select2 form-select select2-hidden-accessible" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
                               <option selected value="">Pilih</option>
                               <?php
                               // deklarasi selected
@@ -165,7 +165,7 @@ $id = $_GET['id'];
                                 group by `name` order by `name` asc";
                               $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                               while ($myData = mysqli_fetch_array($myQry)) {
-                 
+
                               ?>
 
 
