@@ -11,7 +11,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
   # Tombol Tambah diklik
   if (isset($_POST['btnTambah'])) {
-    $id = $_GET['id'];
+    // $id = $_GET['id'];
 
     #data post
     $dataProduct  = $_POST['txtProduct'];
@@ -46,7 +46,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
     }
 
     #tambah detail qr
-    $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
+    $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
      VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$stock_order_id')";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
