@@ -82,7 +82,7 @@ $_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
 
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
-  $Code  = isset($_GET['id']) ?  $_GET['id'] : $_POST['txtCode'];
+  $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
   $mySql  = "SELECT * FROM booking WHERE id='$Code'";
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
