@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
 
     // kalau data kosong, qr nya di hapus
         if ($jumlahdata < 1) {
-        $mySql = "DELETE FROM data_qr WHERE id='" . $_GET['id2'] . "'";
+        $mySql = "DELETE FROM data_qr WHERE transaction_id='" . $_GET['id2'] . "'";
         $myQry = mysqli_query($koneksidb, $mySql) or die("PIXIFY ERROR : " . mysqli_error($koneksidb));
         $id = '';
         }
