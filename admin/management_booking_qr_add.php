@@ -67,7 +67,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
    
 
 
-exit;
     # Validasi Insert Sukses
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-QR-Add&id=$id_transaction'>";
