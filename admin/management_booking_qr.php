@@ -82,8 +82,12 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     order by d.updated_date desc";
                   $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                   $nomor  = 0;
-                  while ($myData = mysqli_fetch_array($myQry)) { ?>
+                  while ($myData = mysqli_fetch_array($myQry)) { 
+                    $nomor++;
+                    ?>
+                  
                     <tr>
+                      
                       <td><?= $nomor ?></td>
                       <td><?= $myData['transaction_id'] ?></td>
                       <td><?= $myData['updated_date'] ?></td>
