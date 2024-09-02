@@ -3,7 +3,7 @@ $_SESSION['SES_TITLE'] = "Re-Schedule Booking";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
-// $id = $_GET['id'];
+$id = isset($_GET['id']) ? $_GET['id'] :'';
 
 ?>
 <div class="app-content content ">
