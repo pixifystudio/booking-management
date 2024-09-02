@@ -58,17 +58,14 @@ $pdf->Image('../app-assets/images/logo/instagram.png', 27.5, 120.3, 3);
 $pdf->Image('../app-assets/images/logo/whatsapp.png', 4.5, 120.3, 3);
 $pdf->SetXY($x, $y + 20);
 
-$mySql   = "SELECT * FROM booking where id='$id'  order by updated_date asc";
+$mySql   = "SELECT * FROM data_qr where transaction_id='$id'  order by updated_date asc";
 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $myData = mysqli_fetch_array($myQry);
 
 $dp = isset($myData['dp']) ? $myData['dp'] : 0;
-$tanggal = isset($myData['tanggal']) ? $myData['tanggal'] : 0;
-$jam = isset($myData['jam']) ? $myData['jam'] : 0;
-$tanggal_foto = $tanggal . ' ' . $jam;
+$tanggal = isset($myData['updated_date']) ? $myData['updated_date'] : 0;
 
-$tanggal_cetak = date('d F Y G:i');
-$tanggal_foto = date("d F Y G:i", strtotime($tanggal_foto));
+$tanggal_cetak = date("d F Y G:i", strtotime($tanggal));
 
 // Isi PDF
 $pdf->SetFont('Arial', 'B', 19);
@@ -85,10 +82,10 @@ $pdf->Ln(4.5);
 $pdf->SetFont('Arial', '', 6.5);
 $pdf->Cell(24, 6, 'Tanggal Cetak:', '', 0, 'L', 0);
 $pdf->Cell(25, 6, $tanggal_cetak, '', 0, 'L', 0);
-$pdf->Ln(3);
-$pdf->Cell(24, 6, 'Tanggal Foto:', '', 0, 'L', 0);
-$pdf->Cell(25, 6, $tanggal_foto, '', 0, 'L', 0);
-$pdf->Ln(3);
+// $pdf->Ln(3);
+// $pdf->Cell(24, 6, 'Tanggal Foto:', '', 0, 'L', 0);
+// $pdf->Cell(25, 6, $tanggal_foto, '', 0, 'L', 0);
+// $pdf->Ln(3);
 
 $x = $pdf->GetX();
 $y = $pdf->GetY();
@@ -98,7 +95,7 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 $pdf->Ln(3);
 
 // INSERT LIST ITEM
-$mySql1   = "SELECT * FROM booking_detail where booking_id='$id' group by booking_detail_id  order by updated_date asc";
+$mySql1   = "SELECT * FROM data_qr_detail where transaction_id='$id' group by id  order by updated_date asc";
 $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $nomor  = 0;
 $total = 0;
@@ -154,11 +151,5 @@ $pdf->SetXY($x, $y + 22.4);
 // Tampilkan PDF
 $pdf->Output('I', 'test_print.pdf');
 
-// Cek apakah $s tidak kosong dan kemudian alihkan
-if (!empty($s)) {
-  echo "<script>
-    window.open('https://pixify.id/admin/?page=Management-Booking-Process', '_blank');
-  </script>";
-}
 
 ob_end_flush(); // Akhiri output buffering dan kirim output ke browser
