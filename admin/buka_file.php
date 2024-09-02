@@ -64,6 +64,11 @@ if ($_GET) {
       include "management_booking_process_detail.php";
       break;
 
+    case 'Management-Booking-QR-Add':
+      if (!file_exists("management_booking_qr_add.php")) die("Sorry Empty Page!");
+      include "management_booking_qr_add.php";
+      break;
+
       
 
     case 'Management-Booking-Process-Detail-Delete':
@@ -329,6 +334,12 @@ if ($_GET) {
       if (!file_exists("print_struk.php")) die("Sorry Empty Page!");
       include "print_struk.php";
       break;
+
+    case 'Print-Struk-Non':
+      if (!file_exists("print_struk_non.php")) die("Sorry Empty Page!");
+      include "print_struk_non.php";
+      break;
+
 
 
 
