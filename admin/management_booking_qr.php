@@ -84,6 +84,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                   $nomor  = 0;
                   while ($myData = mysqli_fetch_array($myQry)) { ?>
                     <tr>
+                      <td><?= $nomor ?></td>
                       <td><?= $myData['transaction_id'] ?></td>
                       <td><?= $myData['updated_date'] ?></td>
                       <td>
