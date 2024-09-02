@@ -3,7 +3,7 @@ $_SESSION['SES_TITLE'] = "Re-Schedule Booking";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
-$id = isset($_GET['id']) ? $_GET['id'] :'';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
 
 ?>
 <div class="app-content content ">
@@ -51,7 +51,7 @@ $id = isset($_GET['id']) ? $_GET['id'] :'';
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
-    
+
 
     # Validasi Insert Sukses
     if ($myQry) {
@@ -87,7 +87,7 @@ $id = isset($_GET['id']) ? $_GET['id'] :'';
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
-  $dataCode    = isset($myData['transaction_id']) ? $myData['transaction_id'] :'';
+  $dataCode    = isset($myData['transaction_id']) ? $myData['transaction_id'] : '';
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
@@ -122,7 +122,7 @@ $id = isset($_GET['id']) ? $_GET['id'] :'';
                     <div class="card-body">
 
                       <div class="row">
-                        
+
                         <h3>Detail Transaksi</h3>
 
                         <div class="col-md-3 col-12">
@@ -229,8 +229,12 @@ $id = isset($_GET['id']) ? $_GET['id'] :'';
 
       </div>
       <div class="col-7 my-5">
-        <a type="button" href="?page=Management-Booking-QR" class="btn btn-warning me-2">Kembali</a>
-        <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
+        <a type="button" href="Management-Booking-QR" class="btn btn-warning me-2">Kembali</a>
+        <?php
+        if ($id != '') { ?>
+          <a type="button" href="?page=Print-Struk-Non&id=<?= $id ?>" class="btn btn-info me-2">Cetak</a>
+        <?php }
+        ?>
       </div>
     </div>
   </div>
