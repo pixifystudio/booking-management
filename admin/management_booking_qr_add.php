@@ -30,6 +30,14 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
     $dataItem = $DataPrice['name'];
     $dataType = $DataPrice['type'];
 
+    // kurangi qty
+    if ($dataType == 'inventory') {
+      $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
+     VALUES ('$dataProduct','-$dataQty',now())";
+      $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
+      $stock_order_id = mysqli_insert_id($koneksidb);
+    }
+
     if ($id == '') {
 
       #tambah head qr
@@ -54,13 +62,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
     }
 
 
-    // kurangi qty
-    if ($dataType == 'inventory') {
-      $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
-     VALUES ('$dataProduct','-$dataQty',now())";
-      $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
-      $stock_order_id = mysqli_insert_id($koneksidb);
-    }
+   
 
    
 
