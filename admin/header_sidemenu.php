@@ -42,6 +42,7 @@
                             <a class="dropdown-item" href="?page=Management-Booking-Process" data-bs-toggle="">Booking on Process</a>
                             <a class="dropdown-item" href="?page=Management-Booking-Gdrive" data-bs-toggle="">Send Gdrive</a>
                             <a class="dropdown-item" href="?page=Management-History" data-bs-toggle="">History Booking</a>
+                            <a class="dropdown-item" href="?page=Management-Booking-QR" data-bs-toggle="">Struk</a>
                         </ul>
                     </li>
 
