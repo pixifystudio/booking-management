@@ -3,7 +3,7 @@ $_SESSION['SES_TITLE'] = "Re-Schedule Booking";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
-$id = $_GET['id'];
+// $id = $_GET['id'];
 
 ?>
 <div class="app-content content ">
@@ -29,24 +29,33 @@ $id = $_GET['id'];
     $dataItem = $DataPrice['name'];
     $dataType = $DataPrice['type'];
 
-    // jika 
+
+
+    #tambah head qr
+    $mySql   = "INSERT INTO `data_qr`( `updated_by`, `updated_date`)
+     VALUES ('$ses_nama',now())";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $id_transaction = mysqli_insert_id($koneksidb);
+
+    // kurangi qty
     if ($dataType == 'inventory') {
       $mySql1   = "INSERT INTO `master_product_stock`( `product_id`,`stock`,`updated_date`)
      VALUES ('$dataProduct','-$dataQty',now())";
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT STOCK:  " . mysqli_error($koneksidb));
-      $id_terbaru = mysqli_insert_id($koneksidb);
+      $stock_order_id = mysqli_insert_id($koneksidb);
     }
 
-
-
-    #tambah data
-    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$id_terbaru')";
+    #tambah detail qr
+    $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
+     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$stock_order_id')";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
+
+    
+
     # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail&id=$id'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-QR-Add&id=$id'>";
     }
   }
 
@@ -120,36 +129,9 @@ $id = $_GET['id'];
 
                   <div class="row">
                     <div class="card-body">
-                      <h3>Detail Booking</h3>
 
                       <div class="row">
-                        <div class="col-md-3 col-12">
-                          <div class="mb-1">
-                            <label class="form-label" for="User ID">Booking ID</label>
-                            <input class="form-control" name="txtCode" type="text" value="<?php echo $dataCode; ?>" maxlength="20" required readonly />
-                          </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Nama <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Name" name="txtNama" type="text" value="<?php echo $dataNama; ?>" maxlength="100" required readonly />
-                          </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>No Whatsapp <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required readonly />
-                          </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Email <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
-                          </div>
-                        </div>
-
-
-                        <hr>
+                        
                         <h3>Detail Transaksi</h3>
 
                         <div class="col-md-3 col-12">
@@ -212,13 +194,13 @@ $id = $_GET['id'];
 
                 <?php
                 $total_pembayaran = 0;
-                $mySql   = "SELECT * FROM booking_detail where booking_id='$id'  order by updated_date asc";
+                $mySql   = "SELECT * FROM data_qr_detail where transaction_id='$id'  order by updated_date asc";
                 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                 $nomor  = 0;
                 while ($myData = mysqli_fetch_array($myQry)) {
                   $nomor++;
-                  $Code = $myData['booking_detail_id'];
-                  $Code2 = $myData['booking_id'];
+                  $Code = $myData['id'];
+                  $Code2 = $myData['transaction_id'];
 
 
                 ?>
@@ -229,7 +211,7 @@ $id = $_GET['id'];
                     <td align="right"><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td><?php echo $myData['qty']; ?></td>
                     <td>
-                      <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                      <a href="?page=Management-Booking-QR-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
                           <span></span>
                       </a>
@@ -253,24 +235,10 @@ $id = $_GET['id'];
             </table>
           </div>
           <hr>
-          <div class="col-md-3 col-12">
-            <div class="form-group">
-              <label>Link Foto (Gdrive)<span class="required">*</span></label>
-              <input class="form-control" placeholder="Link" name="txtGdrive" type="text" value="" maxlength="100" required />
-            </div>
-          </div>
-
-
-          <div class="col-md-3 col-12">
-            <div class="form-group">
-              <label>DP <span class="required">*</span></label>
-              <input class="form-control" placeholder="DP" name="txtDP" type="number" value="<?php echo $dataDP; ?>" maxlength="100" required />
-            </div>
-          </div>
 
       </div>
       <div class="col-7 my-5">
-        <a type="button" href="?page=Management-Booking-Process" class="btn btn-warning me-2">Kembali</a>
+        <a type="button" href="?page=Management-Booking-QR" class="btn btn-warning me-2">Kembali</a>
         <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
       </div>
     </div>
