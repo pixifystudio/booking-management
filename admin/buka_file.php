@@ -64,6 +64,12 @@ if ($_GET) {
       include "management_booking_process_detail.php";
       break;
 
+    case 'Management-Booking-QR':
+      if (!file_exists("management_booking_qr.php")) die("Sorry Empty Page!");
+      include "management_booking_qr.php";
+      break;
+
+
     case 'Management-Booking-QR-Add':
       if (!file_exists("management_booking_qr_add.php")) die("Sorry Empty Page!");
       include "management_booking_qr_add.php";
