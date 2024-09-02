@@ -1,7 +1,8 @@
 <?php
 $_SESSION['SES_TITLE'] = "Management Admin";
 include_once "library/inc.seslogin.php";
-include "header_difan.php";
+include "header_v2.php";
+
 $_SESSION['SES_PAGE'] = "?page=Management Admin";
 ?>
 <!-- BEGIN: Content-->
@@ -126,5 +127,6 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 <!-- END: Content-->
 
 <?php
-include "footer_difan.php";
+include "footer_v2.php";
+
 ?>
