@@ -95,7 +95,7 @@ $pdf->Cell(198, 6, '------------------------------------------------------------
 $pdf->Ln(3);
 
 // INSERT LIST ITEM
-$mySql1   = "SELECT * FROM data_qr_detail where transaction_id='$id' group by id  order by updated_date asc";
+$mySql1   = "SELECT * FROM data_qr_detail where transaction_id='$id' group by id  order by id asc";
 $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $nomor  = 0;
 $total = 0;
