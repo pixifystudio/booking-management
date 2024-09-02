@@ -17,7 +17,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             <h2 class="content-header-title float-start mb-0">Management Booking</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a>QR</a>
+                <li class="breadcrumb-item active"><a>Struk</a>
                 </li>
               </ol>
             </div>
@@ -87,7 +87,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                       <td><?= $myData['transaction_id'] ?></td>
                       <td><?= $myData['updated_date'] ?></td>
                       <td>
-                        <?php if ($ses_group == 'Super Admin') { ?>
+                      
                           <a class="dropdown-item" href="?page=Struk-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                               <i data-feather="trash" class="me-50"></i>
                               <span>Hapus</span>
@@ -97,12 +97,6 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                               <span>Cetak Struk</span>
                           </a>
 
-                        <?php } else { ?>
-                          <a class="dropdown-item" href="?page=Print-Struk-Non&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
-                              <i data-feather="print" class="me-50"></i>
-                              <span>Cetak Struk</span>
-                          </a>
-                        <?php } ?>
 
                       </td>
                     </tr>
