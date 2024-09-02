@@ -11,7 +11,8 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
   # Tombol Tambah diklik
   if (isset($_POST['btnTambah'])) {
-    // $id = $_GET['id'];
+    $id = isset($_GET['id']) ? $_GET['id'] :'';
+
 
     #data post
     $dataProduct  = $_POST['txtProduct'];
@@ -29,13 +30,29 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
     $dataItem = $DataPrice['name'];
     $dataType = $DataPrice['type'];
 
+    if ($id == '') {
 
-
-    #tambah head qr
-    $mySql   = "INSERT INTO `data_qr`( `updated_by`, `updated_date`)
+      #tambah head qr
+      $mySql   = "INSERT INTO `data_qr`( `updated_by`, `updated_date`)
      VALUES ('$ses_nama',now())";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $id_transaction = mysqli_insert_id($koneksidb);
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+      $id_transaction = mysqli_insert_id($koneksidb);
+
+      #tambah detail qr
+      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
+     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+      $nomor  = 0;
+    } else {
+      #tambah detail qr
+      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+      $nomor  = 0;
+
+      $id_transaction = $id;
+    }
+
 
     // kurangi qty
     if ($dataType == 'inventory') {
@@ -45,40 +62,36 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
       $stock_order_id = mysqli_insert_id($koneksidb);
     }
 
-    #tambah detail qr
-    $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
-     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
+   
 
 
 
     # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-QR-Add&id=$id'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-QR-Add&id=$id_transaction'>";
     }
   }
 
   # Tombol Submit diklik
-  if (isset($_POST['btnSubmit'])) {
-    # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
-    $pesanError = array();
-    # Baca variabel form
-    $id   = $_GET['id'];
-    $dataGdrive  = $_POST['txtGdrive'];
-    $dataDP  = $_POST['txtDP'];
+  // if (isset($_POST['btnSubmit'])) {
+  //   # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
+  //   $pesanError = array();
+  //   # Baca variabel form
+  //   $id   = $_GET['id'];
+  //   $dataGdrive  = $_POST['txtGdrive'];
+  //   $dataDP  = $_POST['txtDP'];
 
-    # UPDATE KE DATABASE BOOKING
+  //   # UPDATE KE DATABASE BOOKING
 
-    $mySql   = "UPDATE `booking` 
-      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive', dp = '$dataDP' WHERE id='$id'";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
+  //   $mySql   = "UPDATE `booking` 
+  //     SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive', dp = '$dataDP' WHERE id='$id'";
+  //   $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+  //   $nomor  = 0;
 
-    if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
-    }
-  } // Penutup Tombol Submit
+  //   if ($myQry) {
+  //     echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
+  //   }
+  // } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
