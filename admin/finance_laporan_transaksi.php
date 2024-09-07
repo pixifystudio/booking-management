@@ -134,7 +134,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM `transaction` WHERE id !='' ";
+                                    $mySql   = "SELECT * FROM `transaction` WHERE transaction_id !='' ";
                                                     if ($month !='') {
                                                         $monthstart = $month . '-01';
                                                         $monthend = $month . '-31'; 
