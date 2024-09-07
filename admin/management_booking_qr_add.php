@@ -11,12 +11,13 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
   # Tombol Tambah diklik
   if (isset($_POST['btnTambah'])) {
-    $id = isset($_GET['id']) ? $_GET['id'] :'';
+    $id = isset($_GET['id']) ? $_GET['id'] : '';
 
 
     #data post
     $dataProduct  = $_POST['txtProduct'];
     $dataQty  = $_POST['txtQty'];
+    $dataMetodePembayaran  = $_POST['txtMetodePembayaran'];
 
 
     $ses_nama = $_SESSION['SES_NAMA'];
@@ -47,14 +48,14 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
       $id_transaction = mysqli_insert_id($koneksidb);
 
       #tambah detail qr
-      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
-     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
+      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`,`metode_pembayaran`)
+     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$stock_order_id','$dataMetodePembayaran')";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
       $nomor  = 0;
     } else {
       #tambah detail qr
-      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
+      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`,`metode_pembayaran`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$stock_order_id','$dataMetodePembayaran')";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
       $nomor  = 0;
 
@@ -62,9 +63,9 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
     }
 
 
-   
 
-   
+
+
 
 
     # Validasi Insert Sukses
@@ -173,6 +174,18 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         </div>
 
                         <div class="col-md-3 col-12">
+                          <div class="form-group">
+                            <label>Metode Pembayaran DP</label>
+                            <select class="select2 form-select" name="txtMetodePembayaran" aria-label="Default select example" autocomplete="off" required>
+                              <option value="">Pilih</option>
+                              <option value="Cash">Cash</option>
+                              <option value="Transfer Bank">Transfer Bank</option>
+                              <option value="QRIS">QRIS</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 col-12">
                           <br>
                           <button type=" submit" name="btnTambah" class="btn btn-info me-3">Tambah Item</button>
                         </div>
@@ -191,6 +204,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                   <th>Item</th>
                   <th>Nominal</th>
                   <th>Qty</th>
+                  <th>Metode</th>
                   <th>Hapus</th>
                   <!-- <th>Reschedule</th> -->
                 </tr>
@@ -215,6 +229,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                     <td><?php echo $myData['item']; ?></td>
                     <td align="right"><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td><?php echo $myData['qty']; ?></td>
+                    <td><?php echo $myData['metode_pembayaran']; ?></td>
                     <td>
                       <a href="?page=Management-Booking-QR-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
