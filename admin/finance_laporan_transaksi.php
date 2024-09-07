@@ -85,7 +85,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
                                                     <label>Bulan Tahun</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $month . ' ' . $year ?>" aria-describedby="basic-addon-name" />
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $month ?>" aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <label>Metode</label>
@@ -134,7 +134,17 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM `transaction` order by `updated_date` asc";
+                                    $mySql   = "SELECT * FROM `transaction` WHERE id !='' ";
+                                                    if ($month !='') {
+                                                        $monthstart = $month . '-01';
+                                                        $monthend = $month . '-31'; 
+                                        $mySql .= " AND updated_date >='$monthstart' and updated_date <='$monthend'";
+                                                    }
+                                                    if ($metode!='') {
+                                        $mySql .= " AND metode ='$metode' ";
+
+                                                    }
+                                    $mySql .= " order by `updated_date` asc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
