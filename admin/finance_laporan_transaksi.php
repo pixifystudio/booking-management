@@ -126,9 +126,11 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>No</th>
                                         <th>Nama Produk</th>
                                         <th>Nominal</th>
+                                        <th>Qty</th>
                                         <th>Metode Pembayaran</th>
                                         <th>Book Detail ID</th>
                                         <th>Status</th>
+                                        <th>Updated Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -159,9 +161,10 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['keterangan']; ?></td>
                                             <td><?php echo $myData['nominal']; ?></td>
-                                            <td><?php echo $myData['metode']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
+                                            <td><?php echo $myData['qty']; ?></td>
+                                            <td><?php echo $myData['metode_pembayaran']; ?></td>
                                             <td><?php echo $myData['booking_detail_id']; ?></td>
+                                            <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
 
 
