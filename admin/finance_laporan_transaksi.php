@@ -162,7 +162,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['keterangan']; ?></td>
                                             <td><?php echo $myData['nominal']; ?></td>
                                             <td><?php echo $myData['qty']; ?></td>
-                                            <td><?php echo $myData['metode_pembayaran']; ?></td>
+                                            <td><?php echo $myData['metode']; ?></td>
                                             <td><?php echo $myData['booking_detail_id']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
