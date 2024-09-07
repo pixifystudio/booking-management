@@ -79,7 +79,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <h4 class="card-title"></h4>
                             </div>
                             <div class="content-header-right text-md-end col-md-12 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Master-Product-Add" method="POST" name="form1" target="_self" id="form1">
+                                <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="row">
