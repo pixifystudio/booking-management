@@ -351,6 +351,14 @@ if ($_GET) {
       include "print_struk_non.php";
       break;
 
+      # FINANCE
+
+    case 'Finance-Laporan-Transaksi':
+      if (!file_exists("finance_laporan_transaksi.php")) die("Sorry Empty Page!");
+      include "finance_laporan_transaksi.php";
+      break;
+
+
 
 
 

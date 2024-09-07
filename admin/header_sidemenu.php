@@ -87,6 +87,13 @@
                                 <a class="dropdown-item" href="#" data-bs-toggle="">Booking</a>
                             </ul>
                         </li>
+
+                        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="camera"></i>Finance</a>
+                            <ul class="dropdown-menu" data-bs-popper="none">
+                                <a class="dropdown-item" href="?page=Finance-Laporan-Transaksi" data-bs-toggle="">Laporan Transaksi</a>
+                                <a class="dropdown-item" href="#" data-bs-toggle="">Kas</a>
+                            </ul>
+                        </li>
                     <?php } ?>
 
                     <!-- superadmin -->
