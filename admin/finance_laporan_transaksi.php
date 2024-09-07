@@ -84,12 +84,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Bulan</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $month ?>" aria-describedby="basic-addon-name" />
-                                                </div>
-                                                <div class="col-md-2 col-12">
-                                                    <label>Year</label>
-                                                    <input type="year" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtYear' value="<?= $year ?>" aria-describedby="basic-addon-name" />
+                                                    <label>Bulan Tahun</label>
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $month . ' ' . $year ?>" aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <label>Metode</label>
@@ -115,7 +111,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 </div>
                                                 <div class="col-2">
                                                     <br>
-                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-info">Filter</button>
+                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
                                                 </div>
                                             </div>
                                         </div>
