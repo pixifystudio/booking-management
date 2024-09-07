@@ -67,6 +67,30 @@ $id = $_GET['id'];
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
+    // tambah ke transaksi
+
+    #cek dulu ke database booking detail
+    $mySqlBooking = "SELECT * FROM `booking_detail` where booking_id = '$id' ORDER BY id ASC";
+    $myQryBooking = mysqli_query($koneksidb, $mySqlBooking) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+    while ($DataBooking = mysqli_fetch_array($myQryBooking)) {
+
+      $item = $DataBooking['item'];
+      $nominal = $DataBooking['nominal'];
+      $qty = $DataBooking['qty'];
+      $metode = $DataBooking['metode'];
+      $booking_detail_id = $DataBooking['booking_detail_id'];
+
+      
+
+      $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id, `status`,`updated_date`)
+     VALUES ('$item','$nominal','$qty','$metode','$booking_detail_id','IN',now())";
+      $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
+    }
+
+
+
+
+
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
     }
