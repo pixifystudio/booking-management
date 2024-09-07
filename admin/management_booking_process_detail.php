@@ -77,8 +77,7 @@ $id = $_GET['id'];
       $item = $DataBooking['item'];
       $nominal = $DataBooking['nominal'];
       $qty = $DataBooking['qty'];
-      echo $metode = $DataBooking['metode_pembayaran'];
-      exit;
+     $metode = $DataBooking['metode_pembayaran'];
       $booking_detail_id = $DataBooking['booking_detail_id'];
 
       
