@@ -3,7 +3,7 @@ include "library/inc.connection.php";
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 
 // panggil data dari database
-$mySql  = "SELECT * from booking where id ='$id'";
+$mySql  = "SELECT * from test_booking where id ='$id'";
 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 $myData = mysqli_fetch_array($myQry);
 
@@ -22,29 +22,12 @@ $username = isset($myData['username']) ? $myData['username'] : '';
 
 ?>
 
-<style>
-  p,
-  ol {
-    text-align: left;
-  }
-
-  ol {
-    padding-left: 10px;
-    /* untuk membuat list menjadi rata kiri */
-  }
-
-  li {
-    margin-bottom: 10px;
-    /* agar setiap item list memiliki jarak antara satu dengan yang lain */
-  }
-</style>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Pixify Selfstudio - Photo Studio">
+  <meta name="description" content="Alexstrap Education - HTML5 Bootstrap Landing Page Template">
   <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"><!-- Favicon-->
   <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
   <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-icon-57x57.png">
@@ -56,10 +39,10 @@ $username = isset($myData['username']) ? $myData['username'] : '';
   <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicons/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicons/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-icon-180x180.png">
-  <link rel="icon" type="assets/images/pixify1.png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
-  <link rel="icon" type="assets/images/pixify1.png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="assets/images/pixify1.png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
-  <link rel="icon" type="assets/images/pixify1.png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
   <link rel="manifest" href="./assets/favicons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="./assets/favicons/ms-icon-144x144.png"><!-- PWA primary color-->
@@ -75,27 +58,26 @@ $username = isset($myData['username']) ? $myData['username'] : '';
   <meta property="twitter:domain" content="luxi.ux-maestro.com">
   <meta property="twitter:creator" content="luxi">
   <meta property="twitter:card" content="summary">
-  <meta property="twitter:image:src" content="./assets/images/pixify1.png">
+  <meta property="twitter:image:src" content="./assets/images/logo.png">
   <meta property="og:url" content="alexstrap.ux-maestro.com/education">
-  <meta property="og:title" content="SELF STUDIO">
-  <meta property="og:description" content="SELFSTUDIO - Photo Studio & Event Photobooth">
+  <meta property="og:title" content="Education">
+  <meta property="og:description" content="Alexstrap Education - HTML5 Bootstrap Landing Page Template">
   <meta name="twitter:site" content="alexstrap.ux-maestro.com/education">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/pixify1.png">
-  <meta property="og:image" content="/images/pixify1.png">
+  <meta name="twitter:image" content="/images/education-logo.png">
+  <meta property="og:image" content="/images/education-logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <title>Pixify Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
+  <title>SF Studio - Thank You! </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
-  <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
+  <link href="./assets/css/vendors/materialize.css" rel="stylesheet">
   <link href="./assets/css/vendors/hamburger-menu.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
-  <link href="./assets/css/styles_13.css" rel="stylesheet">
-  <link href="assets/css/date-picker.css" rel="stylesheet">
+  <link href="./assets/css/styles.css" rel="stylesheet">
   <!-- font-awesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- datepicker styles -->
@@ -112,7 +94,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
           <div class="hidden-md-up">
             <div class="logo logo-header">
               <a href="index.html">
-                <img src="./assets/images/pixify1-white.png" alt="logo">
+                <img src="./assets/images/logo-sf-white.png" alt="logo">
               </a>
             </div>
           </div>
@@ -133,17 +115,15 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           <div class="secondary-main"></div>
                           <div class="secondary-light"></div>
                         </div>
-
                         <div class="logo">
-                          <img src="./assets/images/pixify1.png" alt="logo" />
-
+                          <img src="./assets/images/logo-sf-white.png" alt="logo" />
                           <p class="use-text-subtitle2">Terima kasih sudah booking studio kami :D </p>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-7">
-                    <div class="">
+                    <div class="form-wrap">
                       <div>
                         <div class="head">
                           <div class="title-main align-left">
@@ -155,25 +135,26 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                           </a> -->
                         </div>
                         <form id="login_form" method="POST">
-                          <div class="title-main align-left" style="padding-left: 10px">
-                            <p>Terimakasih <?php echo $nama ?></p>
-                            <p>Selanjutnya yang harus kamu lakukan:</p>
-                            <ol style="margin-left: 15px; line-height: 1.8;">
-                              <li>Cek email kamu untuk detail pemesanan</li>
-                              <li>Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</li>
-                              <li>Kirim bukti pembayaran melalui no WhatsApp: 08517121209</li>
-                            </ol>
-                            <p>Sampai berjumpa di Pixify Studio :)</p>
+                          <div class="row spacing3">
+                            <p>Terimakasih <?php echo $nama ?>,
+                            </p>
+                            <p>
+                              Selanjutnya yang harus kamu lakukan:</p>
+                            <p>
+                              1. Cek email kamu untuk detail pemesanan.</p>
+                            <p>
+                              2. Melakukan pembayaran DP sebesar Rp65.000 melalui rekening BCA 7175060341 a.n Muhammad Akhyar Fauzi</p>
+                            <p>
+                              3. Kirim bukti pembayaran melalui no WhatsApp: 085173158153</p>
+                            <p> Sampai berjumpa di Self Studio :)</p>
                           </div>
 
+                          <div class="btn-area mt-10">
+                            <a href="https://wa.me/6285173158153?text=Hallo+min+Selfish%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
+                          </div>
                         </form>
-                        <div class="title-main align-left" style="width:87%">
-                          <a href="https://wa.me/6285171212096?text=Hallo+min%2C+saya+udah+booking+ya+dengan+detail+sebagai+berikut%3A%0D%0ATanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect" style='color:white'>Confirm Melalui WA</a>
-                        </div>
                       </div>
-
                     </div>
-
                   </div>
                 </div>
               </div>
