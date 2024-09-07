@@ -16,6 +16,7 @@ $id = $_GET['id'];
     #data post
     $dataProduct  = $_POST['txtProduct'];
     $dataQty  = $_POST['txtQty'];
+    $dataMetodePembayaran  = $_POST['txtMetodeTransaksi'];
 
 
     $ses_nama = $_SESSION['SES_NAMA'];
@@ -40,8 +41,8 @@ $id = $_GET['id'];
 
 
     #tambah data
-    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$id_terbaru')";
+    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`,`metode_pembayaran`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$id_terbaru','$dataMetodePembayaran')";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     # Validasi Insert Sukses
@@ -58,11 +59,11 @@ $id = $_GET['id'];
     $id   = $_GET['id'];
     $dataGdrive  = $_POST['txtGdrive'];
     $dataDP  = $_POST['txtDP'];
-
+    $dataMetodeTransaksiDP  = $_POST['txtMetodeTransaksiDP'];
     # UPDATE KE DATABASE BOOKING
 
     $mySql   = "UPDATE `booking` 
-      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive', dp = '$dataDP' WHERE id='$id'";
+      SET `status`='Selesai',`updated_date`=now(), link_gdrive ='$dataGdrive', dp = '$dataDP', metode_pembayaran_dp ='$dataMetodeTransaksiDP' WHERE id='$id' ";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
@@ -186,6 +187,18 @@ $id = $_GET['id'];
                         </div>
 
                         <div class="col-md-3 col-12">
+                          <div class="form-group">
+                            <label>Metode Pembayaran</label>
+                            <select class="select2 form-select" name="txtMetodeTransaksi" aria-label="Default select example" autocomplete="off" required>
+                              <option selected value="">Pilih</option>
+                              <option selected value="Cash">Cash</option>
+                              <option selected value="Transfer Bank">Transfer Bank</option>
+                              <option selected value="QRIS">QRIS</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3 col-12">
                           <br>
                           <button type=" submit" name="btnTambah" class="btn btn-info me-3">Tambah Item</button>
                         </div>
@@ -265,6 +278,18 @@ $id = $_GET['id'];
             <div class="form-group">
               <label>DP <span class="required">*</span></label>
               <input class="form-control" placeholder="DP" name="txtDP" type="number" value="<?php echo $dataDP; ?>" maxlength="100" required />
+            </div>
+          </div>
+
+          <div class="col-md-3 col-12">
+            <div class="form-group">
+              <label>Metode Pembayaran DP</label>
+              <select class="select2 form-select" name="txtMetodeTransaksiDP" aria-label="Default select example" autocomplete="off" required>
+                <option selected value="">Pilih</option>
+                <option selected value="Cash">Cash</option>
+                <option selected value="Transfer Bank">Transfer Bank</option>
+                <option selected value="QRIS">QRIS</option>
+              </select>
             </div>
           </div>
 
