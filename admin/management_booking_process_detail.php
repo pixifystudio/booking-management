@@ -67,6 +67,14 @@ $id = $_GET['id'];
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
+    $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
+     VALUES ('DP','$dataDP','1','$dataMetodeTransaksiDP','$id','IN',now())";
+    $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
+
+    $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
+     VALUES ('DP','$dataDP','1','$dataMetodeTransaksiDP','$id','OUT',now())";
+    $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
+
     // tambah ke transaksi
 
     #cek dulu ke database booking detail
