@@ -70,7 +70,7 @@ $id = $_GET['id'];
     // tambah ke transaksi
 
     #cek dulu ke database booking detail
-    $mySqlBooking = "SELECT * FROM `booking_detail` where booking_id = '$id' ORDER BY id ASC";
+    $mySqlBooking = "SELECT * FROM `booking_detail` where booking_id = '$id' ORDER BY booking_id ASC";
     $myQryBooking = mysqli_query($koneksidb, $mySqlBooking) or die("Query Insert Salah : " . mysqli_error($koneksidb));
     while ($DataBooking = mysqli_fetch_array($myQryBooking)) {
 
