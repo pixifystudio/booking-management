@@ -127,6 +127,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>Nama Produk</th>
                                         <th>Nominal</th>
                                         <th>Metode Pembayaran</th>
+                                        <th>Book Detail ID</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -134,22 +135,21 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                     <?php
                                     $mySql   = "SELECT * FROM `transaction` WHERE transaction_id !='' ";
-                                                    if ($month !='') {
-                                                        $monthstart = $month . '-01';
-                                                        $monthend = $month . '-31'; 
+                                    if ($month != '') {
+                                        $monthstart = $month . '-01';
+                                        $monthend = $month . '-31';
                                         $mySql .= " AND updated_date >='$monthstart' and updated_date <='$monthend'";
-                                                    }
-                                                    if ($metode!='') {
+                                    }
+                                    if ($metode != '') {
                                         $mySql .= " AND metode ='$metode' ";
-
-                                                    }
+                                    }
                                     $mySql .= " order by `updated_date` asc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
 
-                                        $Code =  $myData['id'];
+                                        $Code =  $myData['transaction_id'];
 
 
                                     ?>
@@ -161,8 +161,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['nominal']; ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
+                                            <td><?php echo $myData['booking_detail_id']; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
-                                        
+
 
                                         </tr>
                                     <?php }
