@@ -207,8 +207,8 @@ if (isset($_POST['btnSubmit'])) {
     $id_terakhir = $DataID['id'];
     
     #detail
-    $mySql = "INSERT INTO `booking_detail`( `booking_id`, `item`, `nominal`,`qty`, `updated_date`,`updated_by`) VALUES 
-      ('$id_terakhir','$txtPaket','$txtNominal','1', now(),'$txtNama') ";
+    $mySql = "INSERT INTO `booking_detail`( `booking_id`, `item`, `nominal`,`qty`, `updated_date`,`updated_by`,`metode_pembayaran`) VALUES 
+      ('$id_terakhir','$txtPaket','$txtNominal','1', now(),'$txtNama','Cash') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
     // Kirim email customer
