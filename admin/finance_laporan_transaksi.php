@@ -128,7 +128,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>Nominal</th>
                                         <th>Metode Pembayaran</th>
                                         <th>Status</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
