@@ -77,12 +77,12 @@ $id = $_GET['id'];
       $item = $DataBooking['item'];
       $nominal = $DataBooking['nominal'];
       $qty = $DataBooking['qty'];
-      $metode = $DataBooking['metode_pembayaran'];
+      $metode = $DataBooking['metode_pembayaran '];
       $booking_detail_id = $DataBooking['booking_detail_id'];
 
       
 
-      $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id, `status`,`updated_date`)
+      $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
      VALUES ('$item','$nominal','$qty','$metode','$booking_detail_id','IN',now())";
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
     }
