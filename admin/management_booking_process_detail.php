@@ -190,10 +190,10 @@ $id = $_GET['id'];
                           <div class="form-group">
                             <label>Metode Pembayaran</label>
                             <select class="select2 form-select" name="txtMetodeTransaksi" aria-label="Default select example" autocomplete="off" required>
-                              <option selected value="">Pilih</option>
-                              <option selected value="Cash">Cash</option>
-                              <option selected value="Transfer Bank">Transfer Bank</option>
-                              <option selected value="QRIS">QRIS</option>
+                              <option value="">Pilih</option>
+                              <option value="Cash">Cash</option>
+                              <option value="Transfer Bank">Transfer Bank</option>
+                              <option value="QRIS">QRIS</option>
                             </select>
                           </div>
                         </div>
@@ -287,10 +287,10 @@ $id = $_GET['id'];
             <div class="form-group">
               <label>Metode Pembayaran DP</label>
               <select class="select2 form-select" name="txtMetodeTransaksiDP" aria-label="Default select example" autocomplete="off" required>
-                <option selected value="">Pilih</option>
-                <option selected value="Cash">Cash</option>
-                <option selected value="Transfer Bank">Transfer Bank</option>
-                <option selected value="QRIS">QRIS</option>
+                <option  value="">Pilih</option>
+                <option  value="Cash">Cash</option>
+                <option  value="Transfer Bank">Transfer Bank</option>
+                <option  value="QRIS">QRIS</option>
               </select>
             </div>
           </div>
