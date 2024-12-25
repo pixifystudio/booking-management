@@ -382,6 +382,7 @@ $randomToken = generateRandomToken();
 
                               <div class="col-11" style="padding-left: 40px;">
                                 <div class="form-group">
+                          
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                     <?php
@@ -397,7 +398,7 @@ $randomToken = generateRandomToken();
                                           $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                         }
                                         else {
-                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='10:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                          $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  and j.jam >='11:00' and j.jam <='21:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                         }
                                       
                                       }
