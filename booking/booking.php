@@ -382,6 +382,7 @@ $randomToken = generateRandomToken();
 
                               <div class="col-11" style="padding-left: 40px;">
                                 <div class="form-group">
+                                  <?php echo $nama_hari ?>
                           
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
