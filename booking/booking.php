@@ -470,7 +470,7 @@ $randomToken = generateRandomToken();
                                   <option selected value="">Pilih</option>
                                   <?php
                                   // panggil database
-                                  $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                  $mySql  = "SELECT * from master_jenis group by jenis where jenis !='PixBox!' order by jenis asc";
                                   $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                   while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
