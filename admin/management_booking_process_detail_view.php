@@ -11,7 +11,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 $today = date('Y-m-d');
 
 
- $mySql   = "SELECT * FROM booking   where booking_id='$id'  order by id asc";
+ $mySql   = "SELECT * FROM booking   where id='$id'  order by id asc";
  $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
  $nomor  = 0;
  $myData = mysqli_fetch_array($myQry);
