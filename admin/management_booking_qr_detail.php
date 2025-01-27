@@ -13,6 +13,30 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                 $nomor  = 0;
              $myData = mysqli_fetch_array($myQry);
+
+
+ if (isset($_POST['btnSubmit'])) {
+    # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
+    $pesanError = array();
+    # Baca variabel form
+    $id   = $_GET['id'];
+
+    $txtMetode   = $_POST['txtMetodePembayaran'];
+    $txtID   = $_POST['txtID'];
+
+
+    # UPDATE KE DATABASE BOOKING
+
+    $mySql   = "UPDATE `data_qr_detail` 
+      SET `metode_pembayaran`='$txtMetode',`updated_date`=now() WHERE transaction_id='$txtID'";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $nomor  = 0;
+
+    if ($myQry) {
+      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk-Non&id=$id'>";
+    }
+  } // Penutup Tombol Submit
+
 ?>
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -144,7 +168,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                           <tr>
                                             <td colspan="2"></td>
                                             <td>Total</td>
-                                            <td>Total</td>
+                                            <td><?= $total ?></td>
                                           </tr>
                                         </tfoot>
                                     </table>
@@ -165,11 +189,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                 <!-- Invoice Note starts -->
                                 <div class="card-body invoice-padding pt-0">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <!-- <div class="col-12">
                                             <span class="fw-bold">Note:</span>
                                             <span>It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance
                                                 projects. Thank You!</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- Invoice Note ends -->
@@ -181,8 +205,19 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         <div class="col-xl-3 col-md-4 col-12 invoice-actions mt-md-0 mt-2">
                             <div class="card">
                                 <div class="card-body">
+                                    <div class="col-md-3 col-12">
+                                      <div class="form-group">
+                                        <label>Metode Pembayaran</label>
+                                        <select class="select2 form-select" name="txtMetodePembayaran" aria-label="Default select example" autocomplete="off" required>
+                                          <option value="">Pilih</option>
+                                          <option value="Cash">Cash</option>
+                                          <option value="Transfer Bank">Transfer Bank</option>
+                                          <option value="QRIS">QRIS</option>
+                                        </select>
+                                      </div>
+                                    </div>
                                     <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal" data-bs-target="#send-invoice-sidebar">
-                                        Send Invoice
+                                        Cetak
                                     </button>
                                     <button class="btn btn-outline-secondary w-100 btn-download-invoice mb-75">Download</button>
                                     <a class="btn btn-outline-secondary w-100 mb-75" href="./app-invoice-print.html" target="_blank"> Print </a>
@@ -204,43 +239,25 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                             <div class="modal-header mb-1">
                                 <h5 class="modal-title">
-                                    <span class="align-middle">Send Invoice</span>
+                                    <span class="align-middle">Pilih Metode Pembayaran</span>
+                                  
                                 </h5>
                             </div>
                             <div class="modal-body flex-grow-1">
-                                <form>
-                                    <div class="mb-1">
-                                        <label for="invoice-from" class="form-label">From</label>
-                                        <input type="text" class="form-control" id="invoice-from" value="shelbyComapny@email.com" placeholder="company@email.com" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label for="invoice-to" class="form-label">To</label>
-                                        <input type="text" class="form-control" id="invoice-to" value="qConsolidated@email.com" placeholder="company@email.com" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label for="invoice-subject" class="form-label">Subject</label>
-                                        <input type="text" class="form-control" id="invoice-subject" value="Invoice of purchased Admin Templates" placeholder="Invoice regarding goods" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label for="invoice-message" class="form-label">Message</label>
-                                        <textarea class="form-control" name="invoice-message" id="invoice-message" cols="3" rows="11" placeholder="Message...">
-Dear Queen Consolidated,
-
-Thank you for your business, always a pleasure to work with you!
-
-We have generated a new invoice in the amount of $95.59
-
-We would appreciate payment of this invoice by 05/11/2019</textarea>
-                                    </div>
-                                    <div class="mb-1">
-                                        <span class="badge badge-light-primary">
-                                            <i data-feather="link" class="me-25"></i>
-                                            <span class="align-middle">Invoice Attached</span>
-                                        </span>
-                                    </div>
+                                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
+                                   <div class="mb-1">
+                                    <label>Metode Pembayaran</label>
+                                        <select class="select2 form-select" name="txtMetodePembayaran" aria-label="Default select example" autocomplete="off" required>
+                                          <option value="">Pilih</option>
+                                          <option value="Cash">Cash</option>
+                                          <option value="Transfer Bank">Transfer Bank</option>
+                                          <option value="QRIS">QRIS</option>
+                                        </select>
+                                   </div>
+                                  
                                     <div class="mb-1 d-flex flex-wrap mt-2">
-                                        <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Send</button>
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                      <input type="hidden" name="txtID" value="<?= $myDataDetail['transaction_id'] ?>"> 
+                                        <button name="btnSubmit" type=" submit" class="btn btn-primary me-1" data-bs-dismiss="modal">Cetak</button>
                                     </div>
                                 </form>
                             </div>
@@ -248,55 +265,6 @@ We would appreciate payment of this invoice by 05/11/2019</textarea>
                     </div>
                 </div>
                 <!-- /Send Invoice Sidebar -->
-
-                <!-- Add Payment Sidebar -->
-                <div class="modal modal-slide-in fade" id="add-payment-sidebar" aria-hidden="true">
-                    <div class="modal-dialog sidebar-lg">
-                        <div class="modal-content p-0">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-                            <div class="modal-header mb-1">
-                                <h5 class="modal-title">
-                                    <span class="align-middle">Add Payment</span>
-                                </h5>
-                            </div>
-                            <div class="modal-body flex-grow-1">
-                                <form>
-                                    <div class="mb-1">
-                                        <input id="balance" class="form-control" type="text" value="Invoice Balance: 5000.00" disabled />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="amount">Payment Amount</label>
-                                        <input id="amount" class="form-control" type="number" placeholder="$1000" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="payment-date">Payment Date</label>
-                                        <input id="payment-date" class="form-control date-picker" type="text" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="payment-method">Payment Method</label>
-                                        <select class="form-select" id="payment-method">
-                                            <option value="" selected disabled>Select payment method</option>
-                                            <option value="Cash">Cash</option>
-                                            <option value="Bank Transfer">Bank Transfer</option>
-                                            <option value="Debit">Debit</option>
-                                            <option value="Credit">Credit</option>
-                                            <option value="Paypal">Paypal</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="payment-note">Internal Payment Note</label>
-                                        <textarea class="form-control" id="payment-note" rows="5" placeholder="Internal Payment Note"></textarea>
-                                    </div>
-                                    <div class="d-flex flex-wrap mb-0">
-                                        <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Send</button>
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Add Payment Sidebar -->
 
             </div>
   </div>
