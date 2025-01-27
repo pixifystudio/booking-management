@@ -98,9 +98,9 @@ $id = $_GET['id'];
 
 
 
-    if ($myQry) {
+    // if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail-View&id=$id&s=success'>";
-    }
+    // }
   } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
