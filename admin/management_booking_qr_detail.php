@@ -29,6 +29,8 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
     $mySql   = "UPDATE `data_qr_detail` 
       SET `metode_pembayaran`='$txtMetode',`updated_date`=now() WHERE transaction_id='$txtID'";
+      echo $mySql;
+      exit;
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
