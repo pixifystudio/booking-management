@@ -49,10 +49,11 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                            <img src="../app-assets/images/logo/pixify-letter.png" alt="" height="30">
                                             </a>
                                             </div>
-                                                 <p class="invoice-date-title">Tanggal Transaksi:</p>
-                                                <p class="invoice-date"><?= $myData['tanggal_transaksi'] ?></p>
+                                               
                                         </div>
                                         <div class="mt-md-0 mt-2">
+                                            <p class="invoice-date-title">Tanggal Transaksi:</p>
+                                                <p class="invoice-date"><?= $myData['tanggal_transaksi'] ?></p>
                                         </div>
                                     </div>
                                     <!-- Header ends -->
@@ -63,15 +64,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 <!-- Address and Contact starts -->
                                 <div class="card-body invoice-padding pt-0">
                                     <div class="row invoice-spacing">
-                                        <div class="col-xl-8 p-0">
-                                            <h6 class="mb-2">Invoice To:</h6>
-                                            <h6 class="mb-25">Thomas shelby</h6>
-                                            <p class="card-text mb-25">Shelby Company Limited</p>
-                                            <p class="card-text mb-25">Small Heath, B10 0HF, UK</p>
-                                            <p class="card-text mb-25">718-986-6062</p>
-                                            <p class="card-text mb-0">peakyFBlinders@gmail.com</p>
-                                        </div>
-                                        <div class="col-xl-4 p-0 mt-xl-0 mt-2">
+                                      
+                                        <!-- <div class="col-xl-4 p-0 mt-xl-0 mt-2">
                                             <h6 class="mb-2">Payment Details:</h6>
                                             <table>
                                                 <tbody>
@@ -97,7 +91,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- Address and Contact ends -->
@@ -107,77 +101,59 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th class="py-1">Task description</th>
-                                                <th class="py-1">Rate</th>
-                                                <th class="py-1">Hours</th>
+                                                <th class="py-1">Item</th>
+                                                <th class="py-1">Nominal</th>
+                                                <th class="py-1">Qty</th>
                                                 <th class="py-1">Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                          <?php 
+                                          // ambil data detail struk
+                                            $total = 0;
+                                            $mySqlDetail   = "SELECT dd.*, d.updated_date as tanggal_transaksi FROM data_qr_detail dd left join data_qr d on (d.transaction_id = dd.transaction_id) where dd.transaction_id='$id'  order by dd.id asc";
+                                            $myQryDetail   = mysqli_query($koneksidb, $mySqlDetail)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+                                            $nomor  = 0;
+                                       while ($myDataDetail = mysqli_fetch_array($myQryDetail)) {
+                                              $subtotal = $myDataDetail['nominal'] * $myDataDetail['qty'];
+                                             ?>              
                                             <tr>
                                                 <td class="py-1">
-                                                    <p class="card-text fw-bold mb-25">Native App Development</p>
-                                                    <p class="card-text text-nowrap">
-                                                        Developed a full stack native app using React Native, Bootstrap & Python
-                                                    </p>
+                                                    <p class="card-text fw-bold mb-25"><?= $myDataDetail['item'] ?></p>
+                                                   
                                                 </td>
                                                 <td class="py-1">
-                                                    <span class="fw-bold">$60.00</span>
+                                                    <span class="fw-bold"><?= $myDataDetail['nominal'] ?></span>
                                                 </td>
                                                 <td class="py-1">
-                                                    <span class="fw-bold">30</span>
+                                                    <span class="fw-bold"><?= $myDataDetail['qty'] ?></span>
                                                 </td>
                                                 <td class="py-1">
-                                                    <span class="fw-bold">$1,800.00</span>
+                                                    <span class="fw-bold"><?= $subtotal ?></span>
                                                 </td>
                                             </tr>
-                                            <tr class="border-bottom">
-                                                <td class="py-1">
-                                                    <p class="card-text fw-bold mb-25">Ui Kit Design</p>
-                                                    <p class="card-text text-nowrap">Designed a UI kit for native app using Sketch, Figma & Adobe XD</p>
-                                                </td>
-                                                <td class="py-1">
-                                                    <span class="fw-bold">$60.00</span>
-                                                </td>
-                                                <td class="py-1">
-                                                    <span class="fw-bold">20</span>
-                                                </td>
-                                                <td class="py-1">
-                                                    <span class="fw-bold">$1200.00</span>
-                                                </td>
-                                            </tr>
+
+                                          
+                                            <?php
+                                          $total =+ $subtotal;
+                                          }?>
                                         </tbody>
+                                        <tfoot>
+                                          <tr>
+                                            <td colspan="2"></td>
+                                            <td>Total</td>
+                                            <td>Total</td>
+                                          </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
 
                                 <div class="card-body invoice-padding pb-0">
                                     <div class="row invoice-sales-total-wrapper">
                                         <div class="col-md-6 order-md-1 order-2 mt-md-0 mt-3">
-                                            <p class="card-text mb-0">
-                                                <span class="fw-bold">Salesperson:</span> <span class="ms-75">Alfie Solomons</span>
-                                            </p>
+                                          
                                         </div>
-                                        <div class="col-md-6 d-flex justify-content-end order-md-2 order-1">
-                                            <div class="invoice-total-wrapper">
-                                                <div class="invoice-total-item">
-                                                    <p class="invoice-total-title">Subtotal:</p>
-                                                    <p class="invoice-total-amount">$1800</p>
-                                                </div>
-                                                <div class="invoice-total-item">
-                                                    <p class="invoice-total-title">Discount:</p>
-                                                    <p class="invoice-total-amount">$28</p>
-                                                </div>
-                                                <div class="invoice-total-item">
-                                                    <p class="invoice-total-title">Tax:</p>
-                                                    <p class="invoice-total-amount">21%</p>
-                                                </div>
-                                                <hr class="my-50" />
-                                                <div class="invoice-total-item">
-                                                    <p class="invoice-total-title">Total:</p>
-                                                    <p class="invoice-total-amount">$1690</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                      
                                     </div>
                                 </div>
                                 <!-- Invoice Description ends -->
