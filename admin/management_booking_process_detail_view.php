@@ -185,7 +185,9 @@ $today = date('Y-m-d');
                                     <div class="row">
                                         <div class="col-12">
                                             <span class="fw-bold">Note:</span>
+                                            <br>
                                             <span>Link Foto GDRIVE :<?=  $linkgdrive ?> </span>
+                                            <br>
                                             <span>Metode Pembayaran DP : <?= $pembayaran_dp ?> </span>
 
                                         </div>
