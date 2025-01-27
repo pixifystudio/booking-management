@@ -130,13 +130,18 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                                    
                                                 </td>
                                                 <td class="py-1">
-                                                    <span class="fw-bold"><?= $myDataDetail['nominal'] ?></span>
+                                                    <span class="fw-bold">
+                                                <?php echo 'RP. ' . number_format($myDataDetail['nominal'], 0); ?>
+                                                    
+                                                  </span>
                                                 </td>
                                                 <td class="py-1">
                                                     <span class="fw-bold"><?= $myDataDetail['qty'] ?></span>
                                                 </td>
                                                 <td class="py-1">
-                                                    <span class="fw-bold"><?= $subtotal ?></span>
+                                                    <span class="fw-bold">
+                                                   <?php echo 'RP. ' . number_format( $subtotal, 0); ?>
+                                                  </span>
                                                 </td>
                                             </tr>
 
@@ -149,7 +154,8 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                           <tr>
                                             <td colspan="2"></td>
                                             <td>Total</td>
-                                            <td><?= $total ?></td>
+                                                <?php echo 'RP. ' . number_format( $total, 0); ?>
+                                            <td></td>
                                           </tr>
                                         </tfoot>
                                     </table>
