@@ -23,7 +23,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
     $txtMetode   = $_POST['txtMetodePembayaran'];
     $txtID   = $_POST['txtID'];
-
+echo "oke";
 
     # UPDATE KE DATABASE BOOKING
 
