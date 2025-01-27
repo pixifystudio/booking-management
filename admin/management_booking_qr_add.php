@@ -10,7 +10,9 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
   <?php
 
   if (isset($_POST['btnSubmit2'])) {
-echo "oke";
+echo $_POST['txtID'];
+echo $_POST['txtMetodePembayaran'];
+
 exit;
 }
 
