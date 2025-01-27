@@ -119,7 +119,7 @@ $today = date('Y-m-d');
                                           <?php 
                                           // ambil data detail struk
                                             $total = 0;
-                                            $mySqlDetail   = "SELECT * FROM booking_detail  where booking_id='$id'  order by id asc";
+                                            $mySqlDetail   = "SELECT * FROM booking_detail  where booking_id='$id'  order by booking_detail_id asc";
                                             $myQryDetail   = mysqli_query($koneksidb, $mySqlDetail)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                             $nomor  = 0;
                                        while ($myDataDetail = mysqli_fetch_array($myQryDetail)) {
