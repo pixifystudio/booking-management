@@ -190,7 +190,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                     <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal" data-bs-target="#send-invoice-sidebar">
                                         Cetak
                                     </button>
-                                    <button class="btn btn-outline-secondary w-100 btn-download-invoice mb-75">Download</button>
                                     <a class="btn btn-outline-secondary w-100 mb-75" href="?page=Management-Booking-QR-Add&id=<?= $transaction_id ?>"> Edit </a>
                                 
                                 </div>
