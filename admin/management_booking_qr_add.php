@@ -262,7 +262,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
         <a type="button" href="Management-Booking-QR" class="btn btn-warning me-2">Kembali</a>
         <?php
         if ($id != '') { ?>
-          <a type="button" href="?page=Print-Struk-Non&id=<?= $id ?>" class="btn btn-info me-2">Cetak</a>
+          <a type="button" href="?page=Management-Booking-QR-Detail&id=<?= $id ?>" class="btn btn-info me-2">Cetak</a>
         <?php }
         ?>
       </div>
