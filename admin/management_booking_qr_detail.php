@@ -205,17 +205,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         <div class="col-xl-3 col-md-4 col-12 invoice-actions mt-md-0 mt-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="col-md-3 col-12">
-                                      <div class="form-group">
-                                        <label>Metode Pembayaran</label>
-                                        <select class="select2 form-select" name="txtMetodePembayaran" aria-label="Default select example" autocomplete="off" required>
-                                          <option value="">Pilih</option>
-                                          <option value="Cash">Cash</option>
-                                          <option value="Transfer Bank">Transfer Bank</option>
-                                          <option value="QRIS">QRIS</option>
-                                        </select>
-                                      </div>
-                                    </div>
+                                  
                                     <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal" data-bs-target="#send-invoice-sidebar">
                                         Cetak
                                     </button>
