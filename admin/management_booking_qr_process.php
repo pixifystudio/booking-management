@@ -15,7 +15,7 @@ $txtMetode =  $_POST['txtMetodePembayaran'];
   
     # UPDATE KE DATABASE BOOKING
 
-    $mySql   = "UPDATE `data_qr_detail`  SET `metode_pembayaran`='$txtMetode',`updated_date`=now() WHERE `transaction_id`='$txtID'";
+    $mySql   = "UPDATE `data_qr_detail`  SET `metode_pembayaran`='$txtMetode' WHERE `transaction_id`='$txtID'";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
