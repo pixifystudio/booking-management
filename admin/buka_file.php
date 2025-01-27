@@ -80,6 +80,10 @@ if ($_GET) {
       include "management_booking_qr_delete.php";
       break;
 
+    case 'Management-Booking-QR-Detail':
+      if (!file_exists("management_booking_qr_detail.php")) die("Sorry Empty Page!");
+      include "management_booking_qr_detail.php";
+      break;
       
 
     case 'Management-Booking-Process-Detail-Delete':
