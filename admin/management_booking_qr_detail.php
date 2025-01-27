@@ -15,27 +15,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
              $myData = mysqli_fetch_array($myQry);
 
 
- if (isset($_POST['btnSubmit'])) {
-    # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
-    $pesanError = array();
-    # Baca variabel form
-    $id   = $_GET['id'];
 
-    $txtMetode   = $_POST['txtMetodePembayaran'];
-    $txtID   = $_POST['txtID'];
-
-
-    # UPDATE KE DATABASE BOOKING
-
-   echo $mySql   = "UPDATE `data_qr_detail`  SET `metode_pembayaran`='$txtMetode',`updated_date`=now() WHERE `transaction_id`='$txtID'";
-    exit; 
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
-
-    if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk-Non&id=$id'>";
-    }
-  } // Penutup Tombol Submit
 
 ?>
 <!-- BEGIN: Content-->
