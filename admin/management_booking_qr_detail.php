@@ -154,8 +154,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                           <tr>
                                             <td colspan="2"></td>
                                             <td>Total</td>
+                                            <td>
                                                 <?php echo 'RP. ' . number_format( $total, 0); ?>
-                                            <td></td>
+
+                                            </td>
                                           </tr>
                                         </tfoot>
                                     </table>
