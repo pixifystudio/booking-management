@@ -94,6 +94,10 @@ if ($_GET) {
       if (!file_exists("management_booking_process_detail_delete.php")) die("Sorry Empty Page!");
       include "management_booking_process_detail_delete.php";
       break;
+    case 'Management-Booking-Process-Detail-View':
+      if (!file_exists("management_booking_process_detail_view.php")) die("Sorry Empty Page!");
+      include "management_booking_process_detail_view.php";
+      break;
 
     case 'Management-Booking-Rescheduled':
       if (!file_exists("management_booking_rescheduled.php")) die("Sorry Empty Page!");
