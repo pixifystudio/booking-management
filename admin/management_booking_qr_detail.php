@@ -6,6 +6,8 @@ include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management Admin";
 
 // ambil data 
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+
 
  $mySql   = "SELECT dd.*, d.updated_date as tanggal_transaksi FROM data_qr_detail dd left join data_qr d on (d.transaction_id = dd.transaction_id) where dd.transaction_id='$id'  order by dd.id asc";
                 $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
