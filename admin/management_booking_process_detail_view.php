@@ -16,6 +16,9 @@ $today = date('Y-m-d');
  $nomor  = 0;
  $myData = mysqli_fetch_array($myQry);
 
+ $linkgdrive = $myData['link_gdrive'];
+ $pembayaran_dp = $myData['metode_pembayaran_dp'];
+
 
 
 
@@ -180,11 +183,12 @@ $today = date('Y-m-d');
                                 <!-- Invoice Note starts -->
                                 <div class="card-body invoice-padding pt-0">
                                     <div class="row">
-                                        <!-- <div class="col-12">
+                                        <div class="col-12">
                                             <span class="fw-bold">Note:</span>
-                                            <span>It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance
-                                                projects. Thank You!</span>
-                                        </div> -->
+                                            <span>Link Foto GDRIVE :<?=  $linkgdrive ?> </span>
+                                            <span>Metode Pembayaran DP : <?= $pembayaran_dp ?> </span>
+
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Invoice Note ends -->
