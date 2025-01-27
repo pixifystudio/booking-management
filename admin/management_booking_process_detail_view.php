@@ -8,7 +8,6 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 // ambil data 
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 
-$today = date('Y-m-d');
 
 
  $mySql   = "SELECT * FROM booking   where id='$id'  order by id asc";
@@ -18,6 +17,7 @@ $today = date('Y-m-d');
 
  $linkgdrive = $myData['link_gdrive'];
  $pembayaran_dp = $myData['metode_pembayaran_dp'];
+$today = $myData['updated_date']  ;
 
 
 
@@ -216,7 +216,7 @@ $today = date('Y-m-d');
                 </section>
 
                 <!-- Send Invoice Sidebar -->
-            <form action="?page=Management-Booking-QR-Process" method="post" name="form1" target="_self" enctype="multipart/form-data">
+            <form action="?page=Management-Booking-Process-Print" method="post" name="form1" target="_self" enctype="multipart/form-data">
                 <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
                     <div class="modal-dialog sidebar-lg">
                         <div class="modal-content p-0">

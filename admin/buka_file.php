@@ -99,6 +99,11 @@ if ($_GET) {
       include "management_booking_process_detail_view.php";
       break;
 
+    case 'Management-Booking-Process-Print':
+      if (!file_exists("management_booking_process_print.php")) die("Sorry Empty Page!");
+      include "management_booking_process_print.php";
+      break;
+
     case 'Management-Booking-Rescheduled':
       if (!file_exists("management_booking_rescheduled.php")) die("Sorry Empty Page!");
       include "management_booking_rescheduled.php";

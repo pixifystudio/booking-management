@@ -16,7 +16,6 @@ $id = $_GET['id'];
     #data post
     $dataProduct  = $_POST['txtProduct'];
     $dataQty  = $_POST['txtQty'];
-    $dataMetodePembayaran  = $_POST['txtMetodeTransaksi'];
 
 
     $ses_nama = $_SESSION['SES_NAMA'];
@@ -41,8 +40,8 @@ $id = $_GET['id'];
 
 
     #tambah data
-    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`,`metode_pembayaran`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$id_terbaru','$dataMetodePembayaran')";
+    $mySql   = "INSERT INTO `booking_detail`( `booking_id`, `item`,`qty`, `nominal`, `updated_by`, `updated_date`,`stock_order_id`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$ses_nama',now(),'$id_terbaru')";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     # Validasi Insert Sukses
@@ -100,7 +99,7 @@ $id = $_GET['id'];
 
 
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$id&s=success'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process-Detail-View&id=$id&s=success'>";
     }
   } // Penutup Tombol Submit
 
@@ -218,17 +217,7 @@ $id = $_GET['id'];
                           </div>
                         </div>
 
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Metode Pembayaran</label>
-                            <select class="select2 form-select" name="txtMetodeTransaksi" aria-label="Default select example" autocomplete="off" required>
-                              <option value="">Pilih</option>
-                              <option value="Cash">Cash</option>
-                              <option value="Transfer Bank">Transfer Bank</option>
-                              <option value="QRIS">QRIS</option>
-                            </select>
-                          </div>
-                        </div>
+                      
 
                         <div class="col-md-3 col-12">
                           <br>
@@ -249,7 +238,6 @@ $id = $_GET['id'];
                   <th>Item</th>
                   <th>Nominal</th>
                   <th>Qty</th>
-                  <th>Metode</th>
                   <th>Hapus</th>
                   <!-- <th>Reschedule</th> -->
                 </tr>
@@ -274,7 +262,6 @@ $id = $_GET['id'];
                     <td><?php echo $myData['item']; ?></td>
                     <td align="right"><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td><?php echo $myData['qty']; ?></td>
-                    <td><?php echo $myData['metode_pembayaran']; ?></td>
                     <td>
                       <a href="?page=Management-Booking-Process-Detail-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
