@@ -23,7 +23,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
     $txtMetode   = $_POST['txtMetodePembayaran'];
     $txtID   = $_POST['txtID'];
-echo "oke";
+
 
     # UPDATE KE DATABASE BOOKING
 
@@ -142,6 +142,7 @@ echo "oke";
                                             $nomor  = 0;
                                        while ($myDataDetail = mysqli_fetch_array($myQryDetail)) {
                                               $subtotal = $myDataDetail['nominal'] * $myDataDetail['qty'];
+                                              $transaction_id =  $myDataDetail['transaction_id'];
                                              ?>              
                                             <tr>
                                                 <td class="py-1">
@@ -246,7 +247,7 @@ echo "oke";
                                    </div>
                                   
                                     <div class="mb-1 d-flex flex-wrap mt-2">
-                                      <input type="hidden" name="txtID" value="<?= $myDataDetail['transaction_id'] ?>"> 
+                                      <input type="hidden" name="txtID" value="<?= $transaction_id ?>"> 
                                         <button name="btnSubmit" type=" submit" class="btn btn-primary me-1" data-bs-dismiss="modal">Cetak</button>
                                     </div>
                                 </form>
