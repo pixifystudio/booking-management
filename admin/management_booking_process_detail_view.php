@@ -239,7 +239,7 @@ $today = $myData['updated_date']  ;
                                    </div>
                                   
                                     <div class="mb-1 d-flex flex-wrap mt-2">
-                                      <input type="hidden" name="txtID" value="<?= $transaction_id ?>"> 
+                                      <input type="hidden" name="txtID" value="<?= $id ?>"> 
                                         <button name="btnSubmit2" type="submit" class="btn btn-success me-1">Cetak</button>
                                     </div>
                             </div>
