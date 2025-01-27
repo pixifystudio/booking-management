@@ -248,7 +248,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                   
                                     <div class="mb-1 d-flex flex-wrap mt-2">
                                       <input type="hidden" name="txtID" value="<?= $transaction_id ?>"> 
-                                        <button name="btnSubmit" type=" submit" class="btn btn-primary me-1" data-bs-dismiss="modal">Cetak</button>
+                                        <button name="btnSubmit" type="submit" class="btn btn-primary me-1">Cetak</button>
                                     </div>
                                 </form>
                             </div>
