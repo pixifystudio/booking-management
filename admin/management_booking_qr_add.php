@@ -195,7 +195,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                   <th>Item</th>
                   <th>Nominal</th>
                   <th>Qty</th>
-                  <th>Metode</th>
                   <th>Hapus</th>
                   <!-- <th>Reschedule</th> -->
                 </tr>
@@ -220,7 +219,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                     <td><?php echo $myData['item']; ?></td>
                     <td align="right"><?php echo 'RP. ' . number_format($myData['nominal'], 0); ?></td>
                     <td><?php echo $myData['qty']; ?></td>
-                    <td><?php echo $myData['metode_pembayaran']; ?></td>
                     <td>
                       <a href="?page=Management-Booking-QR-Delete&id=<?php echo $Code; ?>&id2=<?php echo $Code2; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                           <i data-feather="trash" class="me-50"></i>
