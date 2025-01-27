@@ -9,9 +9,7 @@ require 'library/PHPMailer/src/Exception.php';
 require 'library/PHPMailer/src/PHPMailer.php';
 require 'library/PHPMailer/src/SMTP.php';
 
-if (isset($_POST['btnSubmit2'])) {
-echo "oke";
-exit;
+
 }
 
 if (isset($_POST['btnSubmit'])) {

@@ -224,7 +224,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 </section>
 
                 <!-- Send Invoice Sidebar -->
-            <form action="?page=Booking-Process" method="post" name="form1" target="_self" enctype="multipart/form-data">
+            <form action="?page=Management-Booking-QR-Add" method="post" name="form1" target="_self" enctype="multipart/form-data">
                 <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
                     <div class="modal-dialog sidebar-lg">
                         <div class="modal-content p-0">

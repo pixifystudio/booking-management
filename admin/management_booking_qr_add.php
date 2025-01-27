@@ -9,6 +9,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 <div class="app-content content ">
   <?php
 
+  if (isset($_POST['btnSubmit2'])) {
+echo "oke";
+exit;
+}
+
   # Tombol Tambah diklik
   if (isset($_POST['btnTambah'])) {
     $id = isset($_GET['id']) ? $_GET['id'] : '';
