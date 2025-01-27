@@ -224,6 +224,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 </section>
 
                 <!-- Send Invoice Sidebar -->
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
                 <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
                     <div class="modal-dialog sidebar-lg">
                         <div class="modal-content p-0">
@@ -235,7 +236,6 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                 </h5>
                             </div>
                             <div class="modal-body flex-grow-1">
-                                 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form1" target="_self" enctype="multipart/form-data">
                                    <div class="mb-1">
                                     <label>Metode Pembayaran</label>
                                         <select class="select2 form-select" name="txtMetodePembayaran" aria-label="Default select example" autocomplete="off" required>
@@ -250,11 +250,12 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                       <input type="hidden" name="txtID" value="<?= $transaction_id ?>"> 
                                         <button name="btnSubmit" type="submit" class="btn btn-primary me-1">Cetak</button>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                                </form>
+
                 <!-- /Send Invoice Sidebar -->
 
             </div>
