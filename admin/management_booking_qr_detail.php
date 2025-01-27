@@ -196,7 +196,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                                 <div class="card-body">
                                   
                                     <button class="btn btn-success w-100 mb-75" data-bs-toggle="modal" data-bs-target="#send-invoice-sidebar">
-                                        Cetak
+                                        Pilih Metode Pembayaran
                                     </button>
                                     <a class="btn btn-outline-secondary w-100 mb-75" href="?page=Management-Booking-QR-Add&id=<?= $transaction_id ?>"> Edit </a>
                                 
