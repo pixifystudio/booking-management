@@ -19,6 +19,10 @@ $txtMetode =  $_POST['txtMetodePembayaran'];
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
 
+    $mySql   = "UPDATE `transaction`  SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
+    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+    $nomor  = 0;
+
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$txtID'>";
     }
