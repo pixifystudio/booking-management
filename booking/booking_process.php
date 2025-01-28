@@ -10,9 +10,11 @@ require 'library/PHPMailer/src/PHPMailer.php';
 require 'library/PHPMailer/src/SMTP.php';
 
 
-}
 
 if (isset($_POST['btnSubmit'])) {
+
+  echo "oke";
+  exit;
 
   $pesanError = array();
   // set validasi
