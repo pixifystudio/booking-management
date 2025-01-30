@@ -152,7 +152,7 @@ $today = $myData['updated_date']  ;
 
                                           
                                             <?php
-                                          $total =+ $subtotal;
+                                          $total = $total + $subtotal;
                                           }?>
                                         </tbody>
                                         <tfoot>
