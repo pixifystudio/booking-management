@@ -148,7 +148,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     $nominal2 = $myData2['nominal'];
 
                                                     $total2 = $nominal2 * $nominal2;
-                                                    $sum_total2 += $total2;
+                                                    $sum_total2 = $sum_total2 + $total2;
 
                                                 }
 
