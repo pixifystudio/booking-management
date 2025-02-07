@@ -114,9 +114,17 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     <br>
                                                     <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
                                                 </div>
+                                                <?php 
+                                                // ambil pendapatan
+                                                $todaystart = date('Y-m-d 00:00:00');
+                                                $todayend = date('Y-m-d 23:59:59');
+
+                                               echo  $mySql   = "SELECT * FROM `transaction` WHERE transaction_id !='' AND updated_date >='$todaystart' and updated_date <='$todayend' ";
+
+                                                ?>
                                                 <div class="col-6">
-                                                    <h4 class="card-title mb-1">Earnings</h4>
-                                                    <div class="font-small-2">This Month</div>
+                                                    <h4 class="card-title mb-1">Pendapatan</h4>
+                                                    <div class="font-small-2">Hari ini</div>
                                                     <h5 class="mb-1">$4055.56</h5>
                                                     <p class="card-text text-muted font-small-2">
                                                         <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span>
