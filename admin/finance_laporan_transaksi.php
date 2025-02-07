@@ -81,14 +81,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                             <div class="content-header-right text-md-end col-md-12 col-12 d-md-block d-none">
                                 <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
-                                        <div class="col-6">
-                                            <h4 class="card-title mb-1">Earnings</h4>
-                                            <div class="font-small-2">This Month</div>
-                                            <h5 class="mb-1">$4055.56</h5>
-                                            <p class="card-text text-muted font-small-2">
-                                                <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span>
-                                            </p>
-                                        </div>
+
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
@@ -120,6 +113,14 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 <div class="col-2">
                                                     <br>
                                                     <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h4 class="card-title mb-1">Earnings</h4>
+                                                    <div class="font-small-2">This Month</div>
+                                                    <h5 class="mb-1">$4055.56</h5>
+                                                    <p class="card-text text-muted font-small-2">
+                                                        <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
