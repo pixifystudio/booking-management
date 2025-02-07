@@ -224,7 +224,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['keterangan']; ?></td>
                                             <td><?php echo $myData['nominal']; ?></td>
-                                            <td><?php echo $myData['qty']; ?></td>
+                                            <td><?php echo 'Rp' . number_format(($myData['qty'])) ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
                                             <td><?php echo $myData['booking_detail_id']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
