@@ -90,7 +90,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <label>Metode</label>
-                                                    <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off" required>
+                                                    <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off">
                                                         <option selected value="">All</option>
                                                         <?php
                                                         // panggil database
