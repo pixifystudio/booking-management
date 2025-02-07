@@ -91,7 +91,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 <div class="col-md-2 col-12">
                                                     <label>Metode</label>
                                                     <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off" required>
-                                                        <option selected value="">Pilih</option>
+                                                        <option selected value="">All</option>
                                                         <?php
                                                         // panggil database
                                                         $mySql  = "SELECT * from master_status where status_name = 'metode' group by status_sub_name order by status_sub_name asc";
