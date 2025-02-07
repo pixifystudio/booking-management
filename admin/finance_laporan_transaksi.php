@@ -115,7 +115,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
                                                 </div>
                                                 <?php 
-                                                // ambil pendapatan
+                                                // ambil pendapatan hari ini
                                                 $todaystart = date('Y-m-d 00:00:00');
                                                 $todayend = date('Y-m-d 23:59:59');
 
@@ -132,16 +132,49 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 }
 
+                                                 // ambil pendapatan bulanan
+                                              
+                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
+                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
+                                                $monthstart = $month1 . '-01';
+                                                $monthend = $month1 . '-31';     
+
+                                                $mySql2   = "SELECT qty,nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$monthstart' and updated_date <='$monthend' ";
+                                                $myQry2 = mysqli_query($koneksidb, $mySql2);
+                                                $sum_total2 = 0;
+
+                                                while ($myData2 = mysqli_fetch_array($myQry2)) {
+                                                    $qty2 = $myData2['qty'];
+                                                    $nominal2 = $myData2['nominal'];
+
+                                                    $total2 = $nominal2 * $nominal2;
+                                                    $sum_total2 += $total2;
+
+                                                }
+
 
 
                                                 ?>
                                                 <div class="col-6">
-                                                    <h4 class="card-title mb-1">Pendapatan</h4>
-                                                    <div class="font-small-2">Hari ini</div>
-                                                    <h5 class="mb-1"><?=  'Rp' . number_format(($sum_total)) ?></h5>
-                                                    <p class="card-text text-muted font-small-2">
-                                                        <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
-                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <h4 class="card-title mb-1">Pendapatan</h4>
+                                                            <div class="font-small-2">Hari ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format(($sum_total)) ?></h5>
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <h4 class="card-title mb-1">Pendapatan</h4>
+                                                            <div class="font-small-2">Bulan Ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format(($sum_total2)) ?></h5>
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div> 
