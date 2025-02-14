@@ -122,12 +122,13 @@ $today = $myData['updated_date']  ;
                                           <?php 
                                           // ambil data detail struk
                                             $total = 0;
-                                            $mySqlDetail   = "SELECT * FROM booking_detail  where booking_id='$id'  order by booking_detail_id asc";
+                                            $mySqlDetail   = "SELECT * FROM booking_detail bd left join booking b   where bd.booking_id='$id'  order by bd.booking_detail_id asc";
                                             $myQryDetail   = mysqli_query($koneksidb, $mySqlDetail)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                             $nomor  = 0;
                                        while ($myDataDetail = mysqli_fetch_array($myQryDetail)) {
                                               $subtotal = $myDataDetail['nominal'] * $myDataDetail['qty'];
                                               $booking_detail_id =  $myDataDetail['booking_detail_id'];
+                                              $dp =  $myDataDetail['dp'];
                                              ?>              
                                             <tr>
                                                 <td class="py-1">
@@ -153,7 +154,12 @@ $today = $myData['updated_date']  ;
                                           
                                             <?php
                                           $total = $total + $subtotal;
-                                          }?>
+                                          }
+                                          $total = $total - $dp;
+                                          ?>
+                                          <td>
+                                                   <?php echo 'RP. ' . number_format( $dp, 0); ?>
+                                          </td>
                                         </tbody>
                                         <tfoot>
                                           <tr>
