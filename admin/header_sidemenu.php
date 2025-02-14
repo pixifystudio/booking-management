@@ -79,6 +79,8 @@
                                 <a class="dropdown-item" href="?page=Master-Product" data-bs-toggle="">Product</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Price" data-bs-toggle="">Product Price</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Stock" data-bs-toggle="">Product Stock</a>
+                                <a class="dropdown-item" href="?page=Input-Keluar" data-bs-toggle="">Input Pengeluaran</a>
+
                             </ul>
                         </li>
 
@@ -97,14 +99,13 @@
                     <?php } ?>
 
                     <!-- superadmin -->
-                    <?php if ($_SESSION['SES_GROUP'] == 'Super Admin') { ?>
+                    <?php if ($_SESSION['SES_GROUP'] == 'Admin') { ?>
 
                         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Product Management</a>
                             <ul class="dropdown-menu" data-bs-popper="none">
                                 <a class="dropdown-item" href="?page=Master-Product" data-bs-toggle="">Product</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Price" data-bs-toggle="">Product Price</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Stock" data-bs-toggle="">Product Stock</a>
-                                <a class="dropdown-item" href="?page=Input-Keluar" data-bs-toggle="">Input Pengeluaran</a>
                             </ul>
                         </li>
 
