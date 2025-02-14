@@ -145,6 +145,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>Nama Produk / Keterangan</th>
                                         <th>Nominal</th>
                                         <th>Metode Pembayaran</th>
+                                        <th>Statu</th>
                                         <th>Updated Date</th>
                                     </tr>
                                 </thead>
@@ -177,6 +178,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['keterangan']; ?></td>
                                             <td><?php echo 'Rp' . number_format(($myData['nominal'])) ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
+                                            <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
 
 
