@@ -20,7 +20,7 @@ $txtMetode = $_POST['txtMetodePembayaran'];
 // $mySql = "UPDATE `transaction` SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
 // $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
 
-if ($myQry) {
+// if ($myQry) {
     // Redirect ke halaman Management-Booking-Process
     echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process'>";
 
@@ -28,5 +28,5 @@ if ($myQry) {
     echo "<script>
             window.open('?page=Print-Struk&id=$txtID', '_blank');
           </script>";
-}
+// }
 }
