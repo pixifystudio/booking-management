@@ -44,9 +44,9 @@ $id = $_GET['id'];
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
        // Record Stock IN
-      $mySql   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
+      $mySql2   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
      VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeKe','IN','$dataStatus',now())";
-      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+      $myQry2   = mysqli_query($koneksidb, $mySql2)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
     //   // Jika tidak menemukan error, update data ke database
     //   $ses_nama  = $_SESSION['SES_NAMA'];
