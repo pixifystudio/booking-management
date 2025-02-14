@@ -159,16 +159,15 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     <div class="row">
                                                         <div class="col-3">
                                                             <h4 class="card-title mb-1">Pendapatan</h4>
-                                                            <div class="font-small-2">Hari ini</div>
+                                                            <span>
+                                                                <div class="font-small-2">Hari ini</div>
                                                             <h5 class="mb-1"><?=  'Rp' . number_format($sum_total, 0, ',', '.')?></h5>
-                                                            <p class="card-text text-muted font-small-2">
-                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
-                                                             </p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <h4 class="card-title mb-1">Pendapatan</h4>
-                                                            <div class="font-small-2">Bulan Ini</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.') ?></h5>
+                                                            </span>
+                                                             <span>
+                                                                <div class="font-small-2">Bulan ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
+                                                            </span>
+                                                        
                                                             <p class="card-text text-muted font-small-2">
                                                                 <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
                                                              </p>
