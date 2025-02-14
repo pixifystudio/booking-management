@@ -25,8 +25,8 @@ $txtMetode = $_POST['txtMetodePembayaran'];
     echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&print=$txtID'>";
 
     // Membuka halaman Print-Struk di tab baru menggunakan JavaScript
-    echo "<script>
-            window.open('?page=Print-Struk&id=$txtID', '_blank');
-          </script>";
+    // echo "<script>
+    //         window.open('?page=Print-Struk&id=$txtID', '_blank');
+    //       </script>";
 // }
 }

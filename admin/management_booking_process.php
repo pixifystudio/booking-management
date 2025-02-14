@@ -7,9 +7,9 @@ $tanggal_hari_ini = date('Y-m-d', strtotime('-1 day'));
 $print = $_GET['print'];
 
 if ($print!='') {
-    echo "<script>
-            window.open('?page=Print-Struk&id=$print', '_blank');
-          </script>";
+    echo "oke";
+echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&print=$print' target='_blank'>";
+
 }
 
 
