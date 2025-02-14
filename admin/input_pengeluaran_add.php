@@ -92,7 +92,7 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <label>Keterangan</label>
-                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Nama Product" aria-label="Name" name='txtKeterangan'  aria-describedby="basic-addon-name" />
+                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Keterangan" aria-label="Name" name='txtKeterangan'  aria-describedby="basic-addon-name" />
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Tipe</label>
