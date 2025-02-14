@@ -97,7 +97,7 @@
                     <?php } ?>
 
                     <!-- superadmin -->
-                    <?php if ($_SESSION['SES_GROUP'] == 'Admin') { ?>
+                    <?php if ($_SESSION['SES_GROUP'] == 'Super Admin') { ?>
 
                         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Product Management</a>
                             <ul class="dropdown-menu" data-bs-popper="none">
