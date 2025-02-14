@@ -176,7 +176,7 @@ $id = $_GET['id'];
                           <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRIS'  value="<?=  'Rp' . number_format($sum_total3, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
                         </div>
 
-                        <div class="col-md-3 col-12">
+                        <div class="col-md-4 col-12">
                           <label>Dari Metode</label>
                              <select class="select2 form-select" name="txtMetodeDari" aria-label="Default select example" autocomplete="off" required>
                                           <option value="">Pilih</option>
@@ -185,13 +185,13 @@ $id = $_GET['id'];
                                           <option value="QRIS">QRIS</option>
                                         </select>
                         </div>
-                        <div class="col-md-3 col-12">
+                        <div class="col-md-4 col-12">
                           <label>Nominal</label>
                           <input type="number" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtNominalDari' aria-describedby="basic-addon-name" />
                         </div>
 
 
-                        <div class="col-md-3 col-12">
+                        <div class="col-md-4 col-12">
                           <label>Ke Metode</label>
                              <select class="select2 form-select" name="txtMetodeKe" aria-label="Default select example" autocomplete="off" required>
                                           <option value="">Pilih</option>
