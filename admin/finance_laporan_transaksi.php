@@ -235,7 +235,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                         </div>
 
                                                     <div class="col-3">
-                                                     <a type="button" href="?page=Pindah-Nonimal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Pindah Nominal</a>
+                                                            <h4 class="card-title mb-1">Metode</h4>
+
                                                             <span>
                                                                 <div class="font-small-2">Qris</div>
                                                             <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
@@ -254,7 +255,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                              </p>
                                                         </div>
                                                    <div class="col-2">
-                                                    <br>
+                                                  <a type="button" href="?page=Pindah-Nonimal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Pindah Nominal</a>
                                                 </div>
                                                     </div>
 
