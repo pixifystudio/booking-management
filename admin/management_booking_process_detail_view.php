@@ -170,7 +170,9 @@ $today = $myData['updated_date']  ;
                                             <td colspan="2"></td>
                                             <td>Total</td>
                                             <td>
+                                                   <span class="fw-bold">
                                                 <?php echo 'RP. ' . number_format( $total, 0); ?>
+                                                  </span>
 
                                             </td>
                                           </tr>
