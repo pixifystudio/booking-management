@@ -144,7 +144,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Product</label>
-                            <select class="example form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
+                            <select class="select-example form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
                               <option selected value="">Pilih</option>
                               <?php
                               // deklarasi selected
@@ -275,15 +275,12 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 <!-- END: Content-->
 
 <script>
-  $(document).ready(function () {
-    var table = $('#example').DataTable({
-        select: true, // Mengaktifkan fitur select
-    });
-
-    // Memilih baris pertama secara default
-    table.row(':eq(0)', { page: 'current' }).select();
+$(document).ready(function() {
+    $('#select-example').select2();
+    
+    // Set nilai default setelah Select2 diinisialisasi
+    $('#select-example').val('2').trigger('change');
 });
-
 </script>
 
 <?php
