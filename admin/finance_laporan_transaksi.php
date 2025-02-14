@@ -152,12 +152,72 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 }
 
+                                        // ambil pendapatan QRIS
+                                              
+                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
+                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
+                                                $monthstart = $month1 . '-01';
+                                                $monthend = $month1 . '-31';     
+
+                                                $mySql3   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN' AND metode='QRIS'";
+                                                $myQry3 = mysqli_query($koneksidb, $mySql3);
+                                                $sum_total3 = 0;
+
+                                                while ($myData3 = mysqli_fetch_array($myQry3)) {
+                                                    $qty3 = $myData3['qty'];
+                                                    $nominal3 = $myData3['nominal'];
+
+                                                    $total3 = $nominal3 * $qty3;
+                                                    $sum_total3 = $sum_total3 + $total3;
+
+                                                }
+
+                                        // ambil pendapatan CASH
+                                              
+                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
+                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
+                                                $monthstart = $month1 . '-01';
+                                                $monthend = $month1 . '-31';     
+
+                                                $mySql4   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN' AND metode='Cash'";
+                                                $myQry4 = mysqli_query($koneksidb, $mySql4);
+                                                $sum_total4 = 0;
+
+                                                while ($myData4 = mysqli_fetch_array($myQry4)) {
+                                                    $qty4 = $myData4['qty'];
+                                                    $nominal4 = $myData4['nominal'];
+
+                                                    $total4 = $nominal4 * $qty4;
+                                                    $sum_total4 = $sum_total4 + $total4;
+
+                                                }
+
+
+                                        // ambil pendapatan Transfer Bank
+                                              
+                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
+                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
+                                                $monthstart = $month1 . '-01';
+                                                $monthend = $month1 . '-31';     
+
+                                                $mySql5   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN' AND metode='Transfer Bank'";
+                                                $myQry5 = mysqli_query($koneksidb, $mySql5);
+                                                $sum_total5 = 0;
+
+                                                while ($myData5 = mysqli_fetch_array($myQry5)) {
+                                                    $qty5 = $myData5['qty'];
+                                                    $nominal5 = $myData5['nominal'];
+
+                                                    $total5 = $nominal5 * $qty5;
+                                                    $sum_total5 = $sum_total5 + $total5;
+
+                                                }
 
 
                                                 ?>
                                                 <div class="col-6">
                                                     <div class="row">
-                                                        <div class="col-12">
+                                                        <div class="col-6">
                                                             <h4 class="card-title mb-1">Pendapatan</h4>
                                                             <span>
                                                                 <div class="font-small-2">Hari ini</div>
@@ -166,6 +226,26 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                              <span>
                                                                 <div class="font-small-2">Bulan ini</div>
                                                             <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
+                                                            </span>
+                                                        
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+
+                                                         <div class="col-6">
+                                                            <h4 class="card-title mb-1">By Metode</h4>
+                                                            <span>
+                                                                <div class="font-small-2">Qris</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
+                                                            </span>
+                                                             <span>
+                                                                <div class="font-small-2">Cash</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total4, 0, ',', '.')?></h5>
+                                                            </span>
+                                                            <span>
+                                                                <div class="font-small-2">Transfer</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total5, 0, ',', '.')?></h5>
                                                             </span>
                                                         
                                                             <p class="card-text text-muted font-small-2">
