@@ -217,7 +217,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 ?>
                                                 <div class="col-6">
                                                     <div class="row">
-                                                        <div class="col-6">
+                                                        <div class="col-3">
                                                             <h4 class="card-title mb-1">Pendapatan</h4>
                                                             <span>
                                                                 <div class="font-small-2">Hari ini</div>
@@ -233,8 +233,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                              </p>
                                                         </div>
 
-                                                         <div class="col-6">
-                                                            <h4 class="card-title mb-1">By Metode</h4>
+                                                         <div class="col-3">
+                                                            <h4 class="card-title mb-1">Metode</h4>
                                                             <span>
                                                                 <div class="font-small-2">Qris</div>
                                                             <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
