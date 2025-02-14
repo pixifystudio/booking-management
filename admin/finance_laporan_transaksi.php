@@ -139,11 +139,12 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql2   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN'";
+                                                $mySql2   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
                                                 $sum_total2 = 0;
 
                                                 while ($myData2 = mysqli_fetch_array($myQry2)) {
+                                                    
                                                     $qty2 = $myData2['qty'];
                                                     $nominal2 = $myData2['nominal'];
 
@@ -159,7 +160,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql3   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN' AND metode='QRIS'";
+                                                $mySql3   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
 
@@ -179,7 +180,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql4   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN' AND metode='Cash'";
+                                                $mySql4   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='Cash'";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
 
@@ -200,7 +201,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql5   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN' AND metode='Transfer Bank'";
+                                                $mySql5   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='Transfer Bank'";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
 
@@ -233,8 +234,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                              </p>
                                                         </div>
 
-                                                         <div class="col-3">
-                                                            <h4 class="card-title mb-1">Metode</h4>
+                                                    <div class="col-3">
+                                                     <a type="button" href="?page=Pindah-Nonimal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Pindah Nominal</a>
                                                             <span>
                                                                 <div class="font-small-2">Qris</div>
                                                             <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
@@ -252,6 +253,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                                 <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
                                                              </p>
                                                         </div>
+                                                   <div class="col-2">
+                                                    <br>
+                                                </div>
                                                     </div>
 
                                                 </div>

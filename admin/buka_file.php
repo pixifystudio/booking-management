@@ -348,6 +348,12 @@ if ($_GET) {
       include "input_pemasukkan_add.php";
       break;
 
+   case 'Pindah-Nominal':
+      if (!file_exists("pindah_nominal.php")) die("Sorry Empty Page!");
+      include "pindah_nominal.php";
+      break;
+
+
 
 
 
