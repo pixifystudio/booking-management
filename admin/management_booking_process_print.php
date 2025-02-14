@@ -11,20 +11,22 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 
   if (isset($_POST['btnSubmit2'])) {
 $txtID = $_POST['txtID'];
-$txtMetode =  $_POST['txtMetodePembayaran'];
-  
-    # UPDATE KE DATABASE BOOKING
+$txtMetode = $_POST['txtMetodePembayaran'];
 
-    $mySql   = "UPDATE `booking_detail`  SET `metode_pembayaran`='$txtMetode' WHERE `booking_id`='$txtID'";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
+// # UPDATE KE DATABASE BOOKING
+// $mySql = "UPDATE `booking_detail` SET `metode_pembayaran`='$txtMetode' WHERE `booking_id`='$txtID'";
+// $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
 
-    $mySql   = "UPDATE `transaction`  SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
-    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-    $nomor  = 0;
+// $mySql = "UPDATE `transaction` SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
+// $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
 
-    if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&id=$txtID'>";
-    }
+if ($myQry) {
+    // Redirect ke halaman Management-Booking-Process
+    echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process'>";
 
+    // Membuka halaman Print-Struk di tab baru menggunakan JavaScript
+    echo "<script>
+            window.open('?page=Print-Struk&id=$txtID', '_blank');
+          </script>";
+}
 }
