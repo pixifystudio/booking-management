@@ -63,25 +63,36 @@ $id = $_GET['id'];
 
   // ambil nominal tiap type
 
-                                        // ambil pendapatan QRIS
+                                     // ambil pendapatan QRIS
                                               
                                                 $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
                                                 $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql3   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP'  and `status` = 'IN' AND metode='QRIS'";
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
+                                                $sum_total_out3 = 0;
 
                                                 while ($myData3 = mysqli_fetch_array($myQry3)) {
+                                                    $status3 =  $myData3['status'];
+                                                    if ($status3 =="IN") {
                                                     $qty3 = $myData3['qty'];
                                                     $nominal3 = $myData3['nominal'];
 
                                                     $total3 = $nominal3 * $qty3;
-                                                    $sum_total3 = $sum_total3 + $total3;
+                                                    $sum_total3 += $total3;
+                                                    } else {
+                                                    $qty3 = $myData3['qty'];
+                                                    $nominal3 = $myData3['nominal'];
 
+                                                    $total3 = $nominal3 * $qty3;
+                                                    $sum_total_out3 += $total3;  
+                                                    }
                                                 }
+                                                $sum_total3 = $sum_total3 - $sum_total_out3;
+
 
                                         // ambil pendapatan CASH
                                               
@@ -90,18 +101,29 @@ $id = $_GET['id'];
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql4   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP'  and `status` = 'IN' AND metode='Cash'";
+                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='Cash'";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
+                                                $sum_total_out4 = 0;
 
                                                 while ($myData4 = mysqli_fetch_array($myQry4)) {
+                                                    $status4 =  $myData4['status'];
+                                                    if ($status4 =="IN") {
                                                     $qty4 = $myData4['qty'];
                                                     $nominal4 = $myData4['nominal'];
 
                                                     $total4 = $nominal4 * $qty4;
-                                                    $sum_total4 = $sum_total4 + $total4;
+                                                    $sum_total4 += $total4;
+                                                    } else {
+                                                    $qty4 = $myData4['qty'];
+                                                    $nominal4 = $myData4['nominal'];
 
+                                                    $total4 = $nominal4 * $qty4;
+                                                    $sum_total_out4 += $total4;  
+                                                    }
                                                 }
+                                                $sum_total4 = $sum_total4 - $sum_total_out4;
+
 
 
                                         // ambil pendapatan Transfer Bank
@@ -111,18 +133,28 @@ $id = $_GET['id'];
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql5   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP'  and `status` = 'IN' AND metode='Transfer Bank'";
+                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='Transfer Bank'";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
+                                                $sum_total_out5 = 0;
 
                                                 while ($myData5 = mysqli_fetch_array($myQry5)) {
+                                                    $status5 =  $myData5['status'];
+                                                    if ($status5 =="IN") {
                                                     $qty5 = $myData5['qty'];
                                                     $nominal5 = $myData5['nominal'];
 
                                                     $total5 = $nominal5 * $qty5;
-                                                    $sum_total5 = $sum_total5 + $total5;
+                                                    $sum_total5 += $total5;
+                                                    } else {
+                                                    $qty5 = $myData5['qty'];
+                                                    $nominal5 = $myData5['nominal'];
 
+                                                    $total5 = $nominal5 * $qty5;
+                                                    $sum_total_out5 += $total5;  
+                                                    }
                                                 }
+                                                $sum_total5 = $sum_total5 - $sum_total_out5;
 
   ?>
   <!-- BEGIN: Content-->
