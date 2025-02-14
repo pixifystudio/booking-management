@@ -8,7 +8,7 @@ $print = $_GET['print'];
 
 if ($print!='') {
     echo "oke";
-echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&print=$print' target='_blank'>";
+echo "<meta http-equiv='refresh' content='0; url=?page=Print-Struk&print=$print' target='_blank'>";
 
 }
 
