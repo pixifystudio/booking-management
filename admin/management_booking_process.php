@@ -4,6 +4,13 @@ include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking";
 $tanggal_hari_ini = date('Y-m-d', strtotime('-1 day'));
+$print = $_GET['print'];
+
+if ($print!='') {
+    echo "<script>
+            window.open('?page=Print-Struk&id=$print', '_blank');
+          </script>";
+}
 
 
 function hari_ini($tanggal)

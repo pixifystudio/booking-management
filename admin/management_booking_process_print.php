@@ -22,7 +22,7 @@ $txtMetode = $_POST['txtMetodePembayaran'];
 
 // if ($myQry) {
     // Redirect ke halaman Management-Booking-Process
-    echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process'>";
+    echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&print=$txtID'>";
 
     // Membuka halaman Print-Struk di tab baru menggunakan JavaScript
     echo "<script>
