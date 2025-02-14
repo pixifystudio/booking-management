@@ -156,7 +156,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 while ($myData2 = mysqli_fetch_array($myQry2)) {
                                                     $status2 =  $myData2['status'];
-                                                    if ($status =="IN") {
+                                                    if ($status2 =="IN") {
                                                     $qty2 = $myData2['qty'];
                                                     $nominal2 = $myData2['nominal'];
 
@@ -187,7 +187,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 while ($myData3 = mysqli_fetch_array($myQry3)) {
                                                     $status3 =  $myData3['status'];
-                                                    if ($status =="IN") {
+                                                    if ($status3 =="IN") {
                                                     $qty3 = $myData3['qty'];
                                                     $nominal3 = $myData3['nominal'];
 
@@ -218,7 +218,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 while ($myData4 = mysqli_fetch_array($myQry4)) {
                                                     $status4 =  $myData4['status'];
-                                                    if ($status =="IN") {
+                                                    if ($status4 =="IN") {
                                                     $qty4 = $myData4['qty'];
                                                     $nominal4 = $myData4['nominal'];
 
@@ -250,7 +250,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 while ($myData5 = mysqli_fetch_array($myQry5)) {
                                                     $status5 =  $myData5['status'];
-                                                    if ($status =="IN") {
+                                                    if ($status5 =="IN") {
                                                     $qty5 = $myData5['qty'];
                                                     $nominal5 = $myData5['nominal'];
 
