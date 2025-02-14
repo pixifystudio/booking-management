@@ -269,7 +269,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                                 ?>
-                                                <div class="col-8">
+                                                <div class="col-6">
                                                     <div class="row">
                                                         <div class="col-3">
                                                             <h4 class="card-title mb-1">Pendapatan</h4>
