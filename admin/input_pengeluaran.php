@@ -84,7 +84,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                        
                                                 <div class="col-2">
                                                     <br>
-                                                    <a type="button" href="?page=Input-Pengeluaran-Add" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Input Pengeluaran</a>
+                                                    <a type="button" href="?page=Input-Pengeluaran-Add" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-danger">Input Pengeluaran</a>
                                                 </div>
                                                 <div class="col-2">
                                                     <br>
@@ -115,7 +115,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql2   = "SELECT qty,nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$monthstart' and updated_date <='$monthend' and `status` = 'IN'";
+                                                $mySql2   = "SELECT qty,nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$monthstart' and updated_date <='$monthend' ";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
                                                 $sum_total2 = 0;
 
