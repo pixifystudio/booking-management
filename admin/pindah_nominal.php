@@ -40,12 +40,12 @@ $id = $_GET['id'];
 
       // Record Stock OUT
       $mySql   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
-     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeDari','OUT','$dataStatus',now())";
+     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeDari','','OUT',now())";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
        // Record Stock IN
       $mySql2   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
-     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeKe','IN','$dataStatus',now())";
+     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeKe','','IN',now())";
       $myQry2   = mysqli_query($koneksidb, $mySql2)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
     //   // Jika tidak menemukan error, update data ke database
