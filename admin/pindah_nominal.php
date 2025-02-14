@@ -70,7 +70,7 @@ $id = $_GET['id'];
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='QRIS'";
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
                                                 $sum_total_out3 = 0;
@@ -101,7 +101,7 @@ $id = $_GET['id'];
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='Cash'";
+                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND metode='Cash'";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;
@@ -133,7 +133,7 @@ $id = $_GET['id'];
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'  AND metode='Transfer Bank'";
+                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND metode='Transfer Bank'";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
                                                 $sum_total_out5 = 0;
