@@ -255,7 +255,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                              </p>
                                                         </div>
                                                    <div class="col-2">
-                                                  <a type="button" href="?page=Pindah-Nonimal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
+                                                  <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
                                                 </div>
                                                     </div>
 
