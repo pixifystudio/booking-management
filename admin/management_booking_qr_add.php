@@ -5,7 +5,15 @@ include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 
+
+
 ?>
+
+<!-- select2 -->
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <div class="app-content content ">
   <?php
 
@@ -144,7 +152,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Product</label>
-                            <select class="select2" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
+                            <select class="js-example-basic-single form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
                               <option selected value="">Pilih</option>
                               <?php
                               // deklarasi selected
@@ -274,7 +282,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 </div>
 <!-- END: Content-->
 
-
+<script>
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
 
 <?php
 include "footer_v2.php";
