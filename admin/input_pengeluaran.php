@@ -85,7 +85,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                        
                                                 <div class="col-2">
                                                     <br>
-                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
+                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Input Pengeluaran</button>
                                                 </div>
                                                 <?php 
                                                 // ambil pendapatan hari ini
