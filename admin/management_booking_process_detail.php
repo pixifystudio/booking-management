@@ -187,7 +187,7 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Product</label>
-                            <select class="select2 form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
+                            <select class="js-example-basic-single form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
                               <option selected value="">Pilih</option>
                               <?php
                               // deklarasi selected
@@ -342,3 +342,10 @@ $id = $_GET['id'];
 <?php
 include "footer_v2.php";
 ?>
+
+
+<script>
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
