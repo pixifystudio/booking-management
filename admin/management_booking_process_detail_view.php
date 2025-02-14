@@ -157,8 +157,12 @@ $today = $myData['updated_date']  ;
                                           }
                                           $total = $total - $dp;
                                           ?>
+                                          <td colspan="3">
+                                            DP
+                                            </td>
                                           <td>
                                                    <?php echo 'RP. ' . number_format( $dp, 0); ?>
+
                                           </td>
                                         </tbody>
                                         <tfoot>
