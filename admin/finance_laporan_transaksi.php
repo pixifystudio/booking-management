@@ -157,7 +157,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 ?>
                                                 <div class="col-6">
                                                     <div class="row">
-                                                        <div class="col-3">
+                                                        <div class="col-12">
                                                             <h4 class="card-title mb-1">Pendapatan</h4>
                                                             <span>
                                                                 <div class="font-small-2">Hari ini</div>
