@@ -134,7 +134,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         <div class="card-datatable">
                             <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
                                 <thead>
