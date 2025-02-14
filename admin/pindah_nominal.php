@@ -207,7 +207,7 @@ $id = $_GET['id'];
                         </div>
                        <div class="col-md-12 col-12">
                           <label>Keterangan</label>
-                          <textarea id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtKeterangan' aria-describedby="basic-addon-name">
+                          <textarea id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtKeterangan' aria-describedby="basic-addon-name"></textarea>
                         </div>
                       </div>
 
