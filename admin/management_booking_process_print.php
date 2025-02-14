@@ -13,14 +13,14 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 $txtID = $_POST['txtID'];
 $txtMetode = $_POST['txtMetodePembayaran'];
 
-# UPDATE KE DATABASE BOOKING
-$mySql = "UPDATE `booking_detail` SET `metode_pembayaran`='$txtMetode' WHERE `booking_id`='$txtID'";
-$myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
+// # UPDATE KE DATABASE BOOKING
+// $mySql = "UPDATE `booking_detail` SET `metode_pembayaran`='$txtMetode' WHERE `booking_id`='$txtID'";
+// $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
 
-$mySql = "UPDATE `transaction` SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
-$myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
+// $mySql = "UPDATE `transaction` SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
+// $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
 
-if ($myQry) {
+// if ($myQry) {
     // Redirect ke halaman Management-Booking-Process
     echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&print=$txtID'>";
 
@@ -28,5 +28,5 @@ if ($myQry) {
     echo "<script>
             window.open('?page=Print-Struk&id=$txtID', '_blank');
           </script>";
-}
+// }
 }
