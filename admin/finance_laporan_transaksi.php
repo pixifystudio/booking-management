@@ -119,7 +119,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $todaystart = date('Y-m-d 00:00:00');
                                                 $todayend = date('Y-m-d 23:59:59');
 
-                                               echo $mySql1   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$todaystart' and updated_date <='$todayend' and `status` = 'IN' ";
+                                                $mySql1   = "SELECT qty,nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$todaystart' and updated_date <='$todayend' and `status` = 'IN' ";
                                                 $myQry1 = mysqli_query($koneksidb, $mySql1);
                                                 $sum_total = 0;
 
@@ -127,7 +127,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     $qty = $myData1['qty'];
                                                     $nominal = $myData1['nominal'];
 
-                                                    $total = $nominal * $nominal;
+                                                    $total = $nominal * $qty;
                                                     $sum_total += $total;
 
                                                 }
