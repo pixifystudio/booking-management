@@ -16,7 +16,6 @@ $id = $_GET['id'];
     $dataMetodeDari  = $_POST['txtMetodeDari'];
     $dataMetodeKe  = $_POST['txtMetodeKe'];
     $dataNominalDari  = $_POST['txtNominalDari'];
-    $dataNominalKe  = $_POST['txtNominalKe'];
     $dataKeterangan  = $_POST['txtKeterangan'];
     $dataQty = 1;
     $dataStatus = "IN";
@@ -46,7 +45,7 @@ $id = $_GET['id'];
 
        // Record Stock IN
       $mySql   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
-     VALUES ('$dataKeterangan','$dataNominalKe','$dataQty','$dataMetodeKe','IN','$dataStatus',now())";
+     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeKe','IN','$dataStatus',now())";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
     //   // Jika tidak menemukan error, update data ke database
@@ -200,10 +199,6 @@ $id = $_GET['id'];
                                           <option value="Transfer Bank">Transfer Bank</option>
                                           <option value="QRIS">QRIS</option>
                                         </select>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <label>Nominal</label>
-                          <input type="number" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtNominalKe' aria-describedby="basic-addon-name" />
                         </div>
                        <div class="col-md-12 col-12">
                           <label>Keterangan</label>
