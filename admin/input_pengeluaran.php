@@ -26,7 +26,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                         <h2 class="content-header-title float-start mb-0">Finance</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Pengeluaran</a>
+                                <li class="breadcrumb-item"><a>Transaksi</a>
                                 </li>
                             </ol>
                         </div>
@@ -79,13 +79,16 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <h4 class="card-title"></h4>
                             </div>
                             <div class="content-header-right text-md-end col-md-12 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Input-Pengeluaran-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
 
                                        
                                                 <div class="col-2">
                                                     <br>
-                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Input Pengeluaran</button>
+                                                    <a type="button" href="?page=Input-Pengeluaran-Add" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Input Pengeluaran</a>
+                                                </div>
+                                                <div class="col-2">
+                                                    <br>
+                                                    <button type="button" href="?page=Input-Pemasukkan-Add"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Input Pemasukkan</button>
                                                 </div>
                                                 <?php 
                                                 // ambil pendapatan hari ini
@@ -132,7 +135,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             </div>
                                         </div> 
                                     </div>
-                                </form>
                             </div>
                         <!-- </div> -->
                         <div class="card-datatable">

@@ -343,6 +343,12 @@ if ($_GET) {
       break;
 
 
+    case 'Input-Pemasukkan-Add':
+      if (!file_exists("input_pemasukkan_add.php")) die("Sorry Empty Page!");
+      include "input_pemasukkan_add.php";
+      break;
+
+
 
 
 
