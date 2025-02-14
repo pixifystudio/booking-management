@@ -327,6 +327,22 @@ if ($_GET) {
       include "master_product_stock_adjustment.php";
       break;
 
+      
+
+
+    case 'Input-Pengeluaran':
+      if (!file_exists("input_pengeluaran.php")) die("Sorry Empty Page!");
+      include "input_pengeluaran.php";
+      break;
+
+
+
+    case 'Input-Pengeluaran-Add':
+      if (!file_exists("input_pengeluaran_add.php")) die("Sorry Empty Page!");
+      include "input_pengeluaran_add.php";
+      break;
+
+
 
 
 

@@ -104,6 +104,7 @@
                                 <a class="dropdown-item" href="?page=Master-Product" data-bs-toggle="">Product</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Price" data-bs-toggle="">Product Price</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Stock" data-bs-toggle="">Product Stock</a>
+                                <a class="dropdown-item" href="?page=Input-Keluar" data-bs-toggle="">Input Pengeluaran</a>
                             </ul>
                         </li>
 
