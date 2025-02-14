@@ -26,7 +26,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                         <h2 class="content-header-title float-start mb-0">Finance</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Transaksi</a>
+                                <li class="breadcrumb-item"><a>Transaksi Non-Struk</a>
                                 </li>
                             </ol>
                         </div>

@@ -79,7 +79,6 @@
                                 <a class="dropdown-item" href="?page=Master-Product" data-bs-toggle="">Product</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Price" data-bs-toggle="">Product Price</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Stock" data-bs-toggle="">Product Stock</a>
-                                <a class="dropdown-item" href="?page=Input-Pengeluaran" data-bs-toggle="">Input Transaksi Non-Struk</a>
 
                             </ul>
                         </li>
@@ -94,6 +93,8 @@
                             <ul class="dropdown-menu" data-bs-popper="none">
                                 <a class="dropdown-item" href="?page=Finance-Laporan-Transaksi" data-bs-toggle="">Laporan Transaksi</a>
                                 <a class="dropdown-item" href="#" data-bs-toggle="">Kas</a>
+                                <a class="dropdown-item" href="?page=Input-Pengeluaran" data-bs-toggle="">Input Transaksi Non-Struk</a>
+
                             </ul>
                         </li>
                     <?php } ?>
@@ -106,6 +107,13 @@
                                 <a class="dropdown-item" href="?page=Master-Product" data-bs-toggle="">Product</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Price" data-bs-toggle="">Product Price</a>
                                 <a class="dropdown-item" href="?page=Master-Product-Stock" data-bs-toggle="">Product Stock</a>
+                            </ul>
+                        </li>
+
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="camera"></i>Finance</a>
+                            <ul class="dropdown-menu" data-bs-popper="none">
+                                <a class="dropdown-item" href="?page=Input-Pengeluaran" data-bs-toggle="">Input Transaksi Non-Struk</a>
+
                             </ul>
                         </li>
 
