@@ -55,16 +55,6 @@ $id = $_GET['id'];
     }
   } // Penutup Tombol Submit
 
-  # MASUKKAN DATA KE VARIABEL
-  # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
-  $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
-  $mySql  = "SELECT * FROM master_product WHERE id='$Code'";
-  $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
-  $myData = mysqli_fetch_array($myQry);
-  # MASUKKAN DATA KE VARIABEL
-  $dataCode    = $myData['id'];
-  $dataStock    = $myData['stock'];
-  $dataName   = $myData['name'];
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
