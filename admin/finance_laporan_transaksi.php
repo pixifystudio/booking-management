@@ -149,7 +149,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01 00:00:00');
                                             $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');
 
-                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='QRIS'";
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
                                                 $sum_total_out3 = 0;
@@ -342,8 +342,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     <?php
                                     $mySql   = "SELECT * FROM `transaction` WHERE keterangan !='DP' ";
                                     if ($txtDateFrom != '') {
-                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01 00:00:00');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');;   
                                         $mySql .= " AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                     }
                                     if ($metode != '') {
