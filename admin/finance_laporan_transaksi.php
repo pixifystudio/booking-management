@@ -276,15 +276,15 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                   <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
                                                 </div>
 
-                                                <div class="col-md-2 col-12">
+                                                <div class="col-md-2 col-12 mt-2">
                                                     <label>Dari Tanggal</label>
                                                     <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
                                                 </div>
-                                             <div class="col-md-2 col-12">
+                                             <div class="col-md-2 col-12 mt-2">
                                                     <label>Sampai Tanggal</label>
                                                     <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateUntil' value="<?= $txtDateUntil ?>" aria-describedby="basic-addon-name" />
                                                 </div>
-                                                <div class="col-md-2 col-12">
+                                                <div class="col-md-2 col-12 mt-2">
                                                     <label>Metode</label>
                                                     <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off">
                                                         <option selected value="">All</option>
