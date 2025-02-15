@@ -339,7 +339,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                     <?php
                                     $mySql   = "SELECT * FROM `transaction` WHERE keterangan !='DP' ";
-                                    if ($month != '') {
+                                    if ($txtDateFrom != '') {
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
                                             $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
                                         $mySql .= " AND updated_date >='$monthstart' and updated_date <='$monthend'";
