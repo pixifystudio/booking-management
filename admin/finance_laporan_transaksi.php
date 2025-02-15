@@ -342,7 +342,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
                                             $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
-                                        $mySql .= " AND updated_date >='$monthstart' and updated_date <='$monthend'";
+                                        $mySql .= " AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                     }
                                     if ($metode != '') {
                                         $mySql .= " AND metode ='$metode' ";
