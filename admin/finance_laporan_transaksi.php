@@ -117,8 +117,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                  // ambil pendapatan bulanan
                                               
-                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01 00:00:00');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');
 
                                                 $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
@@ -146,8 +146,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan QRIS
                                               
-                                                $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
-                                                $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01 00:00:00');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');
 
                                                 $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
@@ -177,7 +177,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                               
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');  
 
-                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='Cash'";
+                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Cash'";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;
@@ -206,7 +206,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                               
                                             $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;     
 
-                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='Transfer Bank'";
+                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Transfer Bank'";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
                                                 $sum_total_out5 = 0;
