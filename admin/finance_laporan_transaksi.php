@@ -306,7 +306,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                         ?>
                                                     </select>
                                                 </div>
-                                                <div class="col-2">
+                                                <div class="col-2 mt-2">
                                                     <br>
                                                     <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
                                                 </div>
