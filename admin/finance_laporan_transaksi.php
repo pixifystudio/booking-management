@@ -86,88 +86,13 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <div class="col-12">
                                             <div class="row">
 
-                                                                                            <div class="col-12">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                                            <h4 class="card-title mb-1">Pendapatan</h4>
-                                                            <span>
-                                                                <div class="font-small-2">Hari ini</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total, 0, ',', '.')?></h5>
-                                                            </span>
-                                                             <span>
-                                                                <div class="font-small-2">Bulan ini</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
-                                                            </span>
-                                                        
-                                                            <p class="card-text text-muted font-small-2">
-                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
-                                                             </p>
-                                                        </div>
+                                            <?php 
+                                            // query 
+                                             // ambil pendapatan hari ini
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
 
-                                                    <div class="col-3">
-                                                            <h4 class="card-title mb-1">Metode</h4>
-
-                                                            <span>
-                                                                <div class="font-small-2">Qris</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
-                                                            </span>
-                                                             <span>
-                                                                <div class="font-small-2">Cash</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total4, 0, ',', '.')?></h5>
-                                                            </span>
-                                                            <span>
-                                                                <div class="font-small-2">Transfer</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total5, 0, ',', '.')?></h5>
-                                                            </span>
-                                                        
-                                                            <p class="card-text text-muted font-small-2">
-                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
-                                                             </p>
-                                                        </div>
-                                                   <div class="col-3">
-                                                  <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
-                                                </div>
-
-                                                <div class="col-md-2 col-12">
-                                                    <label>Dari Tanggal</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
-                                                </div>
-                                             <div class="col-md-2 col-12">
-                                                    <label>Sampai Tanggal</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateUntil' value="<?= $txtDateUntil ?>" aria-describedby="basic-addon-name" />
-                                                </div>
-                                                <div class="col-md-2 col-12">
-                                                    <label>Metode</label>
-                                                    <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off">
-                                                        <option selected value="">All</option>
-                                                        <?php
-                                                        // panggil database
-                                                        $mySql  = "SELECT * from master_status where status_name = 'metode' group by status_sub_name order by status_sub_name asc";
-                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                        while ($myData = mysqli_fetch_array($myQry)) {
-                                                            if ($myData['status_sub_name'] == $metode) {
-                                                                $cek = 'selected';
-                                                            } else {
-                                                                $cek = '';
-                                                            }
-                                                        ?>
-
-                                                            <option value="<?php echo $myData['status_sub_name']  ?>" <?= $cek ?>><?php echo $myData['status_sub_name'] ?></option>;
-                                                        <?php
-                                                        };
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="col-2">
-                                                    <br>
-                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
-                                                </div>
-                                                <?php 
-                                                // ambil pendapatan hari ini
-                                                $todaystart = date('Y-m-d 00:00:00');
-                                                $todayend = date('Y-m-d 23:59:59');
-
-                                                $mySql1   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$todaystart' and updated_date <='$todayend' ";
+                                                $mySql1   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
                                                 $myQry1 = mysqli_query($koneksidb, $mySql1);
                                                 $sum_total = 0;
                                                 $sum_total_out = 0;
@@ -306,6 +231,85 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
 
+                                            ?>
+                                                     <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <h4 class="card-title mb-1">Pendapatan</h4>
+                                                            <span>
+                                                                <div class="font-small-2">Hari ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total, 0, ',', '.')?></h5>
+                                                            </span>
+                                                             <span>
+                                                                <div class="font-small-2">Bulan ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
+                                                            </span>
+                                                        
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+
+                                                    <div class="col-3">
+                                                            <h4 class="card-title mb-1">Metode</h4>
+
+                                                            <span>
+                                                                <div class="font-small-2">Qris</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
+                                                            </span>
+                                                             <span>
+                                                                <div class="font-small-2">Cash</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total4, 0, ',', '.')?></h5>
+                                                            </span>
+                                                            <span>
+                                                                <div class="font-small-2">Transfer</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total5, 0, ',', '.')?></h5>
+                                                            </span>
+                                                        
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+                                                   <div class="col-3">
+                                                  <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
+                                                </div>
+
+                                                <div class="col-md-2 col-12">
+                                                    <label>Dari Tanggal</label>
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
+                                                </div>
+                                             <div class="col-md-2 col-12">
+                                                    <label>Sampai Tanggal</label>
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateUntil' value="<?= $txtDateUntil ?>" aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                    <label>Metode</label>
+                                                    <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off">
+                                                        <option selected value="">All</option>
+                                                        <?php
+                                                        // panggil database
+                                                        $mySql  = "SELECT * from master_status where status_name = 'metode' group by status_sub_name order by status_sub_name asc";
+                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                                        while ($myData = mysqli_fetch_array($myQry)) {
+                                                            if ($myData['status_sub_name'] == $metode) {
+                                                                $cek = 'selected';
+                                                            } else {
+                                                                $cek = '';
+                                                            }
+                                                        ?>
+
+                                                            <option value="<?php echo $myData['status_sub_name']  ?>" <?= $cek ?>><?php echo $myData['status_sub_name'] ?></option>;
+                                                        <?php
+                                                        };
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-2">
+                                                    <br>
+                                                    <button type="submit" name="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Filter</button>
+                                                </div>
+                                                <?php 
+                                               
                                                 ?>
 
                                                     </div>
