@@ -182,6 +182,17 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                           </div>
                         </div>
 
+                           <div class="col-md-3 col-12">
+                                       <label>Metode Pembayaran</label>
+                                        <select class="select2 form-select" name="txtMetodePembayaran" aria-label="Default select example" autocomplete="off" required>
+                                          <option value="">Pilih</option>
+                                          <option value="Cash">Cash</option>
+                                          <option value="Transfer Bank">Transfer Bank</option>
+                                          <option value="QRIS">QRIS</option>
+                                        </select>
+                                   </div>
+                        </div>
+
                   
 
                         <div class="col-md-3 col-12">
