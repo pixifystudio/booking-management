@@ -278,11 +278,11 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 <div class="col-md-2 col-12 mt-2">
                                                     <label>Dari Tanggal</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
                                                 </div>
                                              <div class="col-md-2 col-12 mt-2">
                                                     <label>Sampai Tanggal</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateUntil' value="<?= $txtDateUntil ?>" aria-describedby="basic-addon-name" />
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateUntil' value="<?= $txtDateUntil ?>" aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12 mt-2">
                                                     <label>Metode</label>
