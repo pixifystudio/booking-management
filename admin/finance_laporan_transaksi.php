@@ -351,7 +351,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     }
                                     $mySql .= " order by `updated_date` desc";
 
-                                    echo $mySql;
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
