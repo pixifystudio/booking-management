@@ -118,7 +118,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                  // ambil pendapatan bulanan
                                               
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');
 
                                                 $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
@@ -147,7 +147,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         // ambil pendapatan QRIS
                                               
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');
 
                                                 $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
@@ -343,7 +343,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     $mySql   = "SELECT * FROM `transaction` WHERE keterangan !='DP' ";
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 24:00:00');;   
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');;   
                                         $mySql .= " AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                     }
                                     if ($metode != '') {
