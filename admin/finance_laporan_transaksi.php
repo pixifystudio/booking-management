@@ -85,6 +85,49 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         <div class="col-12">
                                             <div class="row">
+
+                                                                                            <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <h4 class="card-title mb-1">Pendapatan</h4>
+                                                            <span>
+                                                                <div class="font-small-2">Hari ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total, 0, ',', '.')?></h5>
+                                                            </span>
+                                                             <span>
+                                                                <div class="font-small-2">Bulan ini</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
+                                                            </span>
+                                                        
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+
+                                                    <div class="col-3">
+                                                            <h4 class="card-title mb-1">Metode</h4>
+
+                                                            <span>
+                                                                <div class="font-small-2">Qris</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
+                                                            </span>
+                                                             <span>
+                                                                <div class="font-small-2">Cash</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total4, 0, ',', '.')?></h5>
+                                                            </span>
+                                                            <span>
+                                                                <div class="font-small-2">Transfer</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total5, 0, ',', '.')?></h5>
+                                                            </span>
+                                                        
+                                                            <p class="card-text text-muted font-small-2">
+                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
+                                                             </p>
+                                                        </div>
+                                                   <div class="col-3">
+                                                  <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
+                                                </div>
+
                                                 <div class="col-md-2 col-12">
                                                     <label>Dari Tanggal</label>
                                                     <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
@@ -264,47 +307,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                                 ?>
-                                                <div class="col-12">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                                            <h4 class="card-title mb-1">Pendapatan</h4>
-                                                            <span>
-                                                                <div class="font-small-2">Hari ini</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total, 0, ',', '.')?></h5>
-                                                            </span>
-                                                             <span>
-                                                                <div class="font-small-2">Bulan ini</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
-                                                            </span>
-                                                        
-                                                            <p class="card-text text-muted font-small-2">
-                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
-                                                             </p>
-                                                        </div>
 
-                                                    <div class="col-3">
-                                                            <h4 class="card-title mb-1">Metode</h4>
-
-                                                            <span>
-                                                                <div class="font-small-2">Qris</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h5>
-                                                            </span>
-                                                             <span>
-                                                                <div class="font-small-2">Cash</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total4, 0, ',', '.')?></h5>
-                                                            </span>
-                                                            <span>
-                                                                <div class="font-small-2">Transfer</div>
-                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total5, 0, ',', '.')?></h5>
-                                                            </span>
-                                                        
-                                                            <p class="card-text text-muted font-small-2">
-                                                                <!-- <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span> -->
-                                                             </p>
-                                                        </div>
-                                                   <div class="col-3">
-                                                  <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
-                                                </div>
                                                     </div>
 
                                                 </div>
