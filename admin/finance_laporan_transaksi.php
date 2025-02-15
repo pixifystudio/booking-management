@@ -6,7 +6,8 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product";
 
 // filter
 
-$month = isset($_GET['m']) ? $_GET['m'] : '';
+$txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
+$txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;
 $year = isset($_GET['y']) ? $_GET['y'] : '';
 $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
@@ -85,8 +86,12 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Bulan Tahun</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $month ?>" aria-describedby="basic-addon-name" />
+                                                    <label>Dari Tanggal</label>
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $txtDateFrom ?>" aria-describedby="basic-addon-name" />
+                                                </div>
+                                             <div class="col-md-2 col-12">
+                                                    <label>Sampai Tanggal</label>
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateUntil' value="<?= $txtDateUntil ?>" aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <label>Metode</label>
@@ -144,12 +149,10 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                  // ambil pendapatan bulanan
                                               
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
 
-                                                $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$monthstart' and updated_date <='$monthend'";
+                                                $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
                                                 $sum_total2 = 0;
                                                 $sum_total_out2 = 0;
@@ -175,10 +178,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan QRIS
                                               
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
+                                                $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
+                                                $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;
 
                                                 $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
@@ -206,10 +207,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan CASH
                                               
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');  
 
                                                 $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='Cash'";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
@@ -238,10 +236,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan Transfer Bank
                                               
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;     
 
                                                 $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'   AND metode='Transfer Bank'";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
@@ -338,8 +333,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     <?php
                                     $mySql   = "SELECT * FROM `transaction` WHERE keterangan !='DP' ";
                                     if ($month != '') {
-                                        $monthstart = $month . '-01';
-                                        $monthend = $month . '-31';
+                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
+                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;   
                                         $mySql .= " AND updated_date >='$monthstart' and updated_date <='$monthend'";
                                     }
                                     if ($metode != '') {
