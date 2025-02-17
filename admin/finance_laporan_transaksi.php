@@ -240,8 +240,10 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                             <h4 class="card-title mb-1">Pendapatan</h4>
                                                             <div class="row">
                                                                 <div class="col-6">
-                                                                 <div class="font-small-2">Total</div>
-                                                                    <h5 class="mb-1"><?=  'Rp' . number_format($sum_total, 0, ',', '.')?></h5>
+                                                                </div>
+                                                                  <div class="col-6">
+                                                                <div class="font-small-2">Total</div>
+                                                            <h5 class="mb-1"><?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h5>
                                                                 </div>
                                                             </div>
                                                         
