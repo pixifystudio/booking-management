@@ -6,8 +6,8 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product";
 
 // filter
 
-$txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-$txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');;
+$txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+$txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');;
 $year = isset($_GET['y']) ? $_GET['y'] : '';
 $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
@@ -89,8 +89,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <?php 
                                             // query 
                                              // ambil pendapatan hari ini
-                                              $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');
+                                              $txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
                                                 $mySql1   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
                                                 $myQry1 = mysqli_query($koneksidb, $mySql1);
@@ -117,8 +117,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                  // ambil pendapatan bulanan
                                               
-                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');
+                                            $txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
                                                 $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
@@ -146,8 +146,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan QRIS
                                               
-                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');
+                                            $txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
                                                 $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS'";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
@@ -175,8 +175,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan CASH
                                               
-                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');  
+                                            $txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');  
 
                                                 $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Cash'";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
@@ -205,8 +205,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         // ambil pendapatan Transfer Bank
                                               
-                                         $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');  
+                                         $txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');  
 
                                                 $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Transfer Bank'";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
@@ -342,8 +342,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     <?php
                                     $mySql   = "SELECT * FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' ";
                                     if ($txtDateFrom != '') {
-                                            $txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
-                                            $txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');;   
+                                            $txtDateFrom  = isset($_POST['txtDateFrom']) ? $_POST['txtDateFrom'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_POST['txtDateUntil']) ? $_POST['txtDateUntil'] . ' 23:59:59' : date('Y-m-d 23:59:59');;   
                                         $mySql .= " AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                     }
                                     if ($metode != '') {
