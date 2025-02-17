@@ -6,8 +6,8 @@ $_SESSION['SES_PAGE'] = "?page=Master-Product";
 
 // filter
 
-$txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d');
-$txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d');;
+$txtDateFrom = isset($_GET['from']) ? $_GET['from'] : date('Y-m-d 00:00:00');
+$txtDateUntil = isset($_GET['until']) ? $_GET['until'] : date('Y-m-d 23:59:59');;
 $year = isset($_GET['y']) ? $_GET['y'] : '';
 $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
