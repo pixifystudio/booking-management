@@ -356,7 +356,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                     
-                                    $mySql .= " UNION ALL  SELECT transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date SELECT FROM  data_qr_detail WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' ";
+                                    $mySql .= " UNION ALL  SELECT transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date  FROM  data_qr_detail dd 
+                                    LEFT JOIN data_qr d ON (d.transaction_id = dd.transaction_id)
+                                    WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' ";
 
                                      if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
@@ -368,7 +370,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     }
 
 
-                                    echo $mySql;
 
 
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
