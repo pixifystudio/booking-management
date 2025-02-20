@@ -344,7 +344,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' ";
+                                    $mySql   = "SELECT transaction_id, keterangan, nominal, qty, booking_detail_id, metode,`status`, updated_date FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' ";
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');;   
@@ -353,8 +353,25 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     if ($metode != '') {
                                         $mySql .= " AND metode ='$metode' ";
                                     }
-                                    
+
                                     $mySql .= " order by `updated_date` desc";
+
+                                    
+                                    $mySql .= " UNION transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date SELECT FROM  data_qr_detail WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' ";
+
+                                     if ($txtDateFrom != '') {
+                                            $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
+                                            $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');;   
+                                        $mySql .= " AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
+                                    }
+                                    if ($metode != '') {
+                                        $mySql .= " AND metode_pembayaran ='$metode' ";
+                                    }
+
+                                    $mySql .= " order by `updated_date` desc";
+
+                                    echo $mySql;
+
 
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
