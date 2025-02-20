@@ -94,7 +94,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                                 $mySql1   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
                                                 $mySql1 .= " UNION SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
-                                                
+                                                echo $mySql1;
                                                 $myQry1 = mysqli_query($koneksidb, $mySql1);
                                                 $sum_total = 0;
                                                 $sum_total_out = 0;
