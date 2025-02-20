@@ -354,7 +354,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         $mySql .= " AND metode ='$metode' ";
                                     }
 
-                                    $mySql .= " order by `updated_date` desc";
 
                                     
                                     $mySql .= " UNION ALL  SELECT transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date SELECT FROM  data_qr_detail WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' ";
@@ -368,7 +367,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         $mySql .= " AND metode_pembayaran ='$metode' ";
                                     }
 
-                                    $mySql .= " order by `updated_date` desc";
 
                                     echo $mySql;
 
