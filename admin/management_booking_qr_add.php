@@ -56,14 +56,14 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
       $id_transaction = mysqli_insert_id($koneksidb);
 
       #tambah detail qr
-      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
-     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
+      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`,`metode_pembayaran`)
+     VALUES ('$id_transaction','$dataItem','$dataQty','$dataNominal','$stock_order_id','$dataMetodePembayaran')";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
       $nomor  = 0;
     } else {
       #tambah detail qr
-      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`)
-     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$stock_order_id')";
+      $mySql   = "INSERT INTO `data_qr_detail`( `transaction_id`, `item`,`qty`, `nominal`, `stock_order_id`, `metode_pembayaran`)
+     VALUES ('$id','$dataItem','$dataQty','$dataNominal','$stock_order_id'),'$dataMetodePembayaran'";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
       $nomor  = 0;
 
