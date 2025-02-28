@@ -336,6 +336,12 @@ if ($_GET) {
       break;
 
 
+    case 'Kas':
+      if (!file_exists("kas.php")) die("Sorry Empty Page!");
+      include "kas.php";
+      break;
+
+
 
     case 'Input-Pengeluaran-Add':
       if (!file_exists("input_pengeluaran_add.php")) die("Sorry Empty Page!");
