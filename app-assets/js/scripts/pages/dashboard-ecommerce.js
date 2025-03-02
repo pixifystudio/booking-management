@@ -347,9 +347,6 @@ $(window).on("load", function () {
   earningsChart = new ApexCharts($earningsChart, earningsChartOptions);
   earningsChart.render();
 
-  //------------ Revenue Report Chart ------------
-  //----------------------------------------------
-
   //---------------- Budget Chart ----------------
   //----------------------------------------------
   budgetChartOptions = {

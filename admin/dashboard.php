@@ -831,59 +831,92 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         ?>
     <!-- END: Page JS-->
      <script>
-        var revenueReportChartOptions = {
+        var 
+         revenueReportChartOptions = {
+
             chart: {
-                height: 230,
-                stacked: true,
-                type: "bar",
-                toolbar: { show: false },
+            height: 230,
+            stacked: true,
+            type: "bar",
+            toolbar: { show: false },
             },
             plotOptions: {
-                bar: {
-                    columnWidth: "17%",
-                    endingShape: "rounded",
-                },
-                distributed: true,
+            bar: {
+                columnWidth: "17%",
+                endingShape: "rounded",
             },
-            colors: ["#7367F0", "#FF9F43"], // Warna grafik
+            distributed: true,
+            },
+            colors: [window.colors.solid.primary, window.colors.solid.warning],
             series: [
-                {
-                    name: "Booking",
-                    data: <?php
-                        $data = [100, 200, 300, 400, 500]; // Contoh data PHP
-                        echo json_encode($data);
-                    ?>
-                },
-                    {
-                    name: "Inventory",
-                    data: <?php
-                        $data = [100, 200, 300, 400, 500]; // Contoh data PHP
-                        echo json_encode($data);
-                    ?>
-                },
-            ],
-            dataLabels: { enabled: false },
-            legend: { show: false },
-            grid: {
-                padding: { top: -20, bottom: -10 },
-                yaxis: { lines: { show: false } }
+            {
+                name: "Earning",
+                data: [95, 177, 284, 256, 105, 63, 168, 218, 72],
             },
-            xaxis: {
-                categories: ["Jan", "Feb", "Mar", "Apr", "May"],
-                labels: {
-                    style: { fontSize: "0.86rem" },
-                },
-                axisTicks: { show: false },
-                axisBorder: { show: false },
+            {
+                name: "Expense",
+                data: [200, -80, -60, -180, -100, -60, -85, -75, -100],
+            },
+            ],
+            dataLabels: {
+            enabled: false,
+            },
+            legend: {
+            show: false,
+            },
+            grid: {
+            padding: {
+                top: -20,
+                bottom: -10,
             },
             yaxis: {
-                labels: { style: { fontSize: "0.86rem" } }
-            }
+                lines: { show: false },
+            },
+            },
+            xaxis: {
+            categories: [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+            ],
+            labels: {
+                style: {
+                colors: $textMutedColor,
+                fontSize: "0.86rem",
+                },
+            },
+            axisTicks: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            },
+            },
+            yaxis: {
+            labels: {
+                style: {
+                colors: $textMutedColor,
+                fontSize: "0.86rem",
+                },
+            },
+            },
         };
+        revenueReportChart = new ApexCharts(
+            $revenueReportChart,
+            revenueReportChartOptions
+        );
+        revenueReportChart.render();
+         var revenueReportChartOptions;
 
-        // Render Chart
-        var chart = new ApexCharts(document.querySelector("#chart"), revenueReportChartOptions);
-        chart.render();
+        var $revenueReportChart = document.querySelector("#revenue-report-chart");
+        var revenueReportChart;
+
     </script>
 
     <script>
