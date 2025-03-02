@@ -77,6 +77,34 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php 
+
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='QRIS'";
+                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='QRIS' ";
+                                                
+                                                $myQry3 = mysqli_query($koneksidb, $mySql3);
+                                                $sum_total3 = 0;
+                                                $sum_total_out3 = 0;
+
+                                                while ($myData3 = mysqli_fetch_array($myQry3)) {
+                                                    $status3 =  $myData3['status'];
+                                                    if ($status3 =="IN") {
+                                                    $qty3 = $myData3['qty'];
+                                                    $nominal3 = $myData3['nominal'];
+
+                                                    $total3 = $nominal3 * $qty3;
+                                                    $sum_total3 += $total3;
+                                                    } else {
+                                                    $qty3 = $myData3['qty'];
+                                                    $nominal3 = $myData3['nominal'];
+
+                                                    $total3 = $nominal3 * $qty3;
+                                                    $sum_total_out3 += $total3;  
+                                                    }
+                                                }
+                                                $sum_total3 = $sum_total3 - $sum_total_out3;
+
+                                        ?>
                                         <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-info me-2">
@@ -85,7 +113,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">8.549k</h4>
+                                                    <h4 class="fw-bolder mb-0"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h4>
                                                     <p class="card-text font-small-3 mb-0">Dana</p>
                                                 </div>
                                             </div>
