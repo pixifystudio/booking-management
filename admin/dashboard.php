@@ -338,10 +338,10 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <div class="browser-states">
                                         <div class="d-flex">
-                                            <h6 class="align-self-center mb-0"><?= $myData['jenis'] ?></h6>
+                                            <h6 class="align-self-center mb-0"> <?= $myData['jenis'] ?></h6>
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <div class="fw-bold text-body-heading me-1"><?= $myData['jumlah_booking'] ?> Transaksi</div>
+                                            <div class="fw-bold text-body-heading me-1"> <?= $myData['jumlah_booking'] ?> Transaksi</div>
                                         </div>
                                     </div>
                                     <?php 
@@ -358,26 +358,29 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                         <h4 class="card-title">Top 3 Inventory Sales</h4>
                                         <p class="card-text font-small-2">February 2025</p>
                                     </div>
-                                    <div class="dropdown chart-dropdown">
-                                        <i data-feather="more-vertical" class="font-medium-3 cursor-pointer" data-bs-toggle="dropdown"></i>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#">Last 28 Days</a>
-                                            <a class="dropdown-item" href="#">Last Month</a>
-                                            <a class="dropdown-item" href="#">Last Year</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="card-body">
+                                                  <?php 
+                                      $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-01 00:00:00');
+                                     $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-31 23:59:59');  
+                                    $mySql = "SELECT mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' and mp.type='Inventory'
+                                     group by mp.name;";
+                                     $myQry = mysqli_query($koneksidb, $mySql);
+                                                $sum_total4 = 0;
+                                                $sum_total_out4 = 0;
+
+                                    while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <div class="browser-states">
                                         <div class="d-flex">
-                                            <img src="/app-assets/images/icons/google-chrome.png" class="rounded me-1" height="30" alt="Google Chrome" />
-                                            <h6 class="align-self-center mb-0">Google Chrome</h6>
+                                            <h6 class="align-self-center mb-0"><?= $myData['jenis'] ?></h6>
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <div class="fw-bold text-body-heading me-1">54.4%</div>
-                                            <div id="browser-state-chart-primary"></div>
+                                            <div class="fw-bold text-body-heading me-1"><?= $myData['jumlah_booking'] ?> Transaksi</div>
                                         </div>
                                     </div>
+                                    <?php 
+                                    }
+                                    ?>
                                 
                                 </div>
                             </div>
