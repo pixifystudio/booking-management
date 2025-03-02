@@ -231,7 +231,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     WHERE STATUS = 'Selesai' and no_wa !='-' and updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'
                                     GROUP BY no_wa
                                     ORDER BY jumlah_booking DESC";
-                                     $myQry4 = mysqli_query($koneksidb, $mySql);
+                                     $myQry = mysqli_query($koneksidb, $mySql);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;
 
@@ -270,7 +270,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     WHERE STATUS = 'Selesai' and no_wa !='-'
                                     GROUP BY no_wa
                                     ORDER BY jumlah_booking DESC";
-                                     $myQry4 = mysqli_query($koneksidb, $mySql);
+                                     $myQry = mysqli_query($koneksidb, $mySql);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;
 
