@@ -54,7 +54,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                         <!--/ Medal Card -->
 
                         <!-- Statistics Card -->
-                        <div class="col-xl-3 col-md-6 col-lg-3  col-6">
+                        <div class="col-xl-3 col-md-12 col-lg-3  col-12">
                             <div class="card card-statistics">
                                 <div class="card-header">
                                     <h4 class="card-title">Saldo</h4>
