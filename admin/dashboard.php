@@ -340,7 +340,6 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="fw-bold text-body-heading me-1"><?= $myData['jumlah_booking'] ?> Transaksi</div>
-                                            <div id="browser-state-chart-primary"></div>
                                         </div>
                                     </div>
                                     <?php 
