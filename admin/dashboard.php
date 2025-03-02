@@ -204,7 +204,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="revenue-report-chart"></div>
+                                        <div id="revenue-report"></div>
                                     </div>
                                     <div class="col-md-4 col-12 budget-wrapper">
                                         <div class="btn-group">
