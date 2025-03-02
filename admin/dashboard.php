@@ -913,9 +913,9 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         );
         revenueReportChart.render();
          var revenueReportChartOptions;
+    var revenueReportChart;
 
-        var $revenueReportChart = document.querySelector("#revenue-report-chart");
-        var revenueReportChart;
+    var $revenueReportChart = document.querySelector("#revenue-report-chart");
 
     </script>
 
