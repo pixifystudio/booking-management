@@ -806,7 +806,57 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 
     <!-- BEGIN: Page JS-->
     <script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+
+
     <!-- END: Page JS-->
+     <script>
+        var revenueReportChartOptions = {
+            chart: {
+                height: 230,
+                stacked: true,
+                type: "bar",
+                toolbar: { show: false },
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: "17%",
+                    endingShape: "rounded",
+                },
+                distributed: true,
+            },
+            colors: ["#7367F0", "#FF9F43"], // Warna grafik
+            series: [
+                {
+                    name: "Earning",
+                    data: <?php
+                        $data = [100, 200, 300, 400, 500]; // Contoh data PHP
+                        echo json_encode($data);
+                    ?>
+                }
+            ],
+            dataLabels: { enabled: false },
+            legend: { show: false },
+            grid: {
+                padding: { top: -20, bottom: -10 },
+                yaxis: { lines: { show: false } }
+            },
+            xaxis: {
+                categories: ["Jan", "Feb", "Mar", "Apr", "May"],
+                labels: {
+                    style: { fontSize: "0.86rem" },
+                },
+                axisTicks: { show: false },
+                axisBorder: { show: false },
+            },
+            yaxis: {
+                labels: { style: { fontSize: "0.86rem" } }
+            }
+        };
+
+        // Render Chart
+        var chart = new ApexCharts(document.querySelector("#chart"), revenueReportChartOptions);
+        chart.render();
+    </script>
 
     <script>
         $(window).on('load', function() {
@@ -832,3 +882,4 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 include "footer_v2.php";
 
 ?>
+
