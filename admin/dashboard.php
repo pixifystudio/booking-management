@@ -855,7 +855,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 include "footer_v2.php";
 
 ?>
-
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 
   <script>
