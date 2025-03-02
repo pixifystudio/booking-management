@@ -805,7 +805,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <!-- <script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
 
 
     <!-- transaksi dan booking -->
@@ -877,7 +877,7 @@ include "footer_v2.php";
             series: [
                 {
                     name: "Earning",
-                    data: <?php echo json_encode($databulan3); ?>
+                    data: <?php echo json_encode($datatotal3); ?>
                 }
             ],
             dataLabels: {
