@@ -27,7 +27,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 
     </div>
 
- <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+ <body class="" data-open="click" data-menu="vertical-menu-modern" data-col="">
 
     <!-- BEGIN: Header-->
 
@@ -48,7 +48,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
-                    <div class="row ">
+                    <div class="row match-height">
                         <!-- Medal Card -->
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="card card-congratulation-medal">
