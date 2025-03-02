@@ -204,7 +204,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="revenueReportChart"></div>
+                                        <div id="revenue-report-chart"></div>
                                     </div>
                                     <div class="col-md-4 col-12 budget-wrapper">
                                         <div class="btn-group">
@@ -805,7 +805,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <!-- <script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
+    <script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
 
 
     <!-- transaksi dan booking -->
@@ -814,20 +814,20 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         // $databulan3 = array();
 
 
-        $datatotal3 = array();
-        $mySql3   = "SELECT DATE_FORMAT(updated_date, '%Y-%m') AS bulan, 
-                COUNT(*) AS jumlah_booking
-            FROM booking
-            WHERE STATUS = 'Selesai'
-            GROUP BY bulan
-            ORDER BY bulan desc;
-            LIMIT 5";
+        // $datatotal3 = array();
+        // $mySql3   = "SELECT DATE_FORMAT(updated_date, '%Y-%m') AS bulan, 
+        //         COUNT(*) AS jumlah_booking
+        //     FROM booking
+        //     WHERE STATUS = 'Selesai'
+        //     GROUP BY bulan
+        //     ORDER BY bulan desc;
+        //     LIMIT 5";
         
-        $myQry3   = mysqli_query($koneksidb, $mySql3)  or die("Error query " . mysqli_error($koneksidb));
-        while ($myData3 = mysqli_fetch_array($myQry3)) {
-        $databulan3[] = date_format(new DateTime($myData3['bulan']), "d F");
-        $datatotal3[] = ($myData3['jumlah_booking']);
-        }
+        // $myQry3   = mysqli_query($koneksidb, $mySql3)  or die("Error query " . mysqli_error($koneksidb));
+        // while ($myData3 = mysqli_fetch_array($myQry3)) {
+        // $databulan3[] = date_format(new DateTime($myData3['bulan']), "d F");
+        // $datatotal3[] = ($myData3['jumlah_booking']);
+        // }
         ?>
     <!-- END: Page JS-->
 
@@ -855,73 +855,4 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 include "footer_v2.php";
 
 ?>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-
-  <script>
-        var revenueReportChartOptions = {
-            chart: {
-                height: 230,
-                stacked: true,
-                type: "bar",
-                toolbar: { show: false },
-            },
-            plotOptions: {
-                bar: {
-                    columnWidth: "17%",
-                    endingShape: "rounded",
-                },
-                distributed: true,
-            },
-            colors: ['#7367F0', '#FF9F43'],
-            series: [
-                {
-                    name: "Earning",
-                    data: <?php echo json_encode($datatotal3); ?>
-                }
-            ],
-            dataLabels: {
-                enabled: false,
-            },
-            legend: {
-                show: false,
-            },
-            grid: {
-                padding: {
-                    top: -20,
-                    bottom: -10,
-                },
-                yaxis: {
-                    lines: { show: false },
-                },
-            },
-            xaxis: {
-                categories: <?php echo json_encode($datatotal3); ?>,
-                labels: {
-                    style: {
-                        fontSize: "0.86rem",
-                    },
-                },
-                axisTicks: {
-                    show: false,
-                },
-                axisBorder: {
-                    show: false,
-                },
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        fontSize: "0.86rem",
-                    },
-                },
-            },
-        };
-
-        var revenueReportChart = new ApexCharts(
-            document.querySelector("#revenueReportChart"),
-            revenueReportChartOptions
-        );
-
-        revenueReportChart.render();
-    </script>

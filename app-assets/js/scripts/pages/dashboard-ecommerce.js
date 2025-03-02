@@ -347,6 +347,88 @@ $(window).on("load", function () {
   earningsChart = new ApexCharts($earningsChart, earningsChartOptions);
   earningsChart.render();
 
+  //------------ Revenue Report Chart ------------
+  //----------------------------------------------
+  revenueReportChartOptions = {
+    chart: {
+      height: 230,
+      stacked: true,
+      type: "bar",
+      toolbar: { show: false },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "17%",
+        endingShape: "rounded",
+      },
+      distributed: true,
+    },
+    colors: [window.colors.solid.primary, window.colors.solid.warning],
+    series: [
+      {
+        name: "Earning",
+        data: [95, 177, 284, 256, 105, 63, 168, 218, 72],
+      },
+      {
+        name: "Expense",
+        data: [200, -80, -60, -180, -100, -60, -85, -75, -100],
+      },
+    ],
+    dataLabels: {
+      enabled: false,
+    },
+    legend: {
+      show: false,
+    },
+    grid: {
+      padding: {
+        top: -20,
+        bottom: -10,
+      },
+      yaxis: {
+        lines: { show: false },
+      },
+    },
+    xaxis: {
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+      ],
+      labels: {
+        style: {
+          colors: $textMutedColor,
+          fontSize: "0.86rem",
+        },
+      },
+      axisTicks: {
+        show: false,
+      },
+      axisBorder: {
+        show: false,
+      },
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: $textMutedColor,
+          fontSize: "0.86rem",
+        },
+      },
+    },
+  };
+  revenueReportChart = new ApexCharts(
+    $revenueReportChart,
+    revenueReportChartOptions
+  );
+  revenueReportChart.render();
+
   //---------------- Budget Chart ----------------
   //----------------------------------------------
   budgetChartOptions = {
