@@ -90,7 +90,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 }
                                                 $sum_total2 = $sum_total2 - $sum_total_out2;
                                         ?>
-                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-xl-0">
+                                        <div class="col-xl-12 col-sm-12 col-12 mb-0 mb-xl-2">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-primary me-2">
                                                     <div class="avatar-content">
@@ -98,7 +98,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-2"> <?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h4>
+                                                    <h4 class="fw-bolder mb-0"> <?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h4>
                                                     <p class="card-text font-small-3 mb-0">Cash</p>
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 $sum_total3 = $sum_total3 - $sum_total_out3;
 
                                         ?>
-                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-xl-0">
+                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-xl-2">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-info me-2">
                                                     <div class="avatar-content">
@@ -172,7 +172,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 $sum_total4 = $sum_total4 - $sum_total_out4;
 
                                         ?>
-                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-sm-0">
+                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-sm-2">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-danger me-2">
                                                     <div class="avatar-content">
