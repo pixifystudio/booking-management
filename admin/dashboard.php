@@ -50,23 +50,11 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                 <section id="dashboard-ecommerce">
                     <div class="row match-height">
                         <!-- Medal Card -->
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="card card-congratulation-medal">
-                                <div class="card-body">
-                                    <h5>Congratulations 🎉 John!</h5>
-                                    <p class="card-text font-small-3">You have won gold medal</p>
-                                    <h3 class="mb-75 mt-2 pt-50">
-                                        <a href="#">$48.9k</a>
-                                    </h3>
-                                    <button type="button" class="btn btn-primary">View Sales</button>
-                                    <img src="/app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
-                                </div>
-                            </div>
-                        </div>
+                 
                         <!--/ Medal Card -->
 
                         <!-- Statistics Card -->
-                        <div class="col-xl-8 col-md-6 col-12">
+                        <div class="col-xl-4 col-md-6 col-lg-4  col-12">
                             <div class="card card-statistics">
                                 <div class="card-header">
                                     <h4 class="card-title">Saldo</h4>
@@ -128,6 +116,28 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col-xl-8 col-md-6 col-lg-8 col-12">
+                            <div class="card card-revenue-budget">
+                                <div class="row mx-0">
+                                    <div class="col-md-12 col-12 revenue-report-wrapper">
+                                        <div class="d-sm-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="card-title mb-50 mb-sm-0">Total Transaksi</h4>
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex align-items-center me-2">
+                                                    <span class="bullet bullet-primary font-small-3 me-50 cursor-pointer"></span>
+                                                    <span>Booking</span>
+                                                </div>
+                                                <div class="d-flex align-items-center ms-75">
+                                                    <span class="bullet bullet-warning font-small-3 me-50 cursor-pointer"></span>
+                                                    <span>Inventory</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="revenue-report-chart"></div>
                                     </div>
                                 </div>
                             </div>
