@@ -808,6 +808,27 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     <script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
 
 
+    <!-- transaksi dan booking -->
+    
+        <?php
+        // $databulan3 = array();
+
+
+        $datatotal3 = array();
+        $mySql3   = "SELECT DATE_FORMAT(updated_date, '%Y-%m') AS bulan, 
+                COUNT(*) AS jumlah_booking
+            FROM booking
+            WHERE STATUS = 'Selesai'
+            GROUP BY bulan
+            ORDER BY bulan desc;
+            LIMIT 5";
+        
+        $myQry3   = mysqli_query($koneksidb, $mySql3)  or die("Error query " . mysqli_error($koneksidb));
+        while ($myData3 = mysqli_fetch_array($myQry3)) {
+        $databulan3[] = date_format(new DateTime($myData3['bulan']), "d F");
+        $datatotal3[] = ($myData3['jumlah_booking']);
+        }
+        ?>
     <!-- END: Page JS-->
      <script>
         var revenueReportChartOptions = {
@@ -827,12 +848,19 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             colors: ["#7367F0", "#FF9F43"], // Warna grafik
             series: [
                 {
-                    name: "Earning",
+                    name: "Booking",
                     data: <?php
                         $data = [100, 200, 300, 400, 500]; // Contoh data PHP
                         echo json_encode($data);
                     ?>
-                }
+                },
+                    {
+                    name: "Inventory",
+                    data: <?php
+                        $data = [100, 200, 300, 400, 500]; // Contoh data PHP
+                        echo json_encode($data);
+                    ?>
+                },
             ],
             dataLabels: { enabled: false },
             legend: { show: false },
