@@ -64,7 +64,33 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
-                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-xl-0">
+                                        <?php 
+                                         $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='QRIS'";
+                                                $mySql2 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='QRIS' ";
+                                                
+                                                $myQry2 = mysqli_query($koneksidb, $mySql2);
+                                                $sum_total2 = 0;
+                                                $sum_total_out2 = 0;
+
+                                                while ($myData2 = mysqli_fetch_array($myQry2)) {
+                                                    $status2 =  $myData2['status'];
+                                                    if ($status2 =="IN") {
+                                                    $qty2 = $myData2['qty'];
+                                                    $nominal2 = $myData2['nominal'];
+
+                                                    $total2 = $nominal2 * $qty2;
+                                                    $sum_total2 += $total2;
+                                                    } else {
+                                                    $qty2 = $myData2['qty'];
+                                                    $nominal2 = $myData2['nominal'];
+
+                                                    $total2 = $nominal2 * $qty2;
+                                                    $sum_total_out2 += $total2;  
+                                                    }
+                                                }
+                                                $sum_total2 = $sum_total2 - $sum_total_out2;
+                                        ?>
+                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-primary me-2">
                                                     <div class="avatar-content">
@@ -72,7 +98,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">230k</h4>
+                                                    <h4 class="fw-bolder mb-0"> <?=  'Rp' . number_format($sum_total2, 0, ',', '.')?></h4>
                                                     <p class="card-text font-small-3 mb-0">Cash</p>
                                                 </div>
                                             </div>
@@ -105,7 +131,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 $sum_total3 = $sum_total3 - $sum_total_out3;
 
                                         ?>
-                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-xl-0">
+                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-info me-2">
                                                     <div class="avatar-content">
@@ -113,12 +139,40 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0"><?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h4>
+                                                    <h4 class="fw-bolder mb-0"> <?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h4>
                                                     <p class="card-text font-small-3 mb-0">Dana</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-sm-0">
+                                          <?php 
+
+                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='Transfer Bank'";
+                                                $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='Transfer Bank' ";
+                                                
+                                                $myQry4 = mysqli_query($koneksidb, $mySql4);
+                                                $sum_total4 = 0;
+                                                $sum_total_out4 = 0;
+
+                                                while ($myData4 = mysqli_fetch_array($myQry4)) {
+                                                    $status4 =  $myData4['status'];
+                                                    if ($status4 =="IN") {
+                                                    $qty4 = $myData4['qty'];
+                                                    $nominal4 = $myData4['nominal'];
+
+                                                    $total4 = $nominal4 * $qty4;
+                                                    $sum_total4 += $total4;
+                                                    } else {
+                                                    $qty4 = $myData4['qty'];
+                                                    $nominal4 = $myData4['nominal'];
+
+                                                    $total4 = $nominal4 * $qty4;
+                                                    $sum_total_out4 += $total4;  
+                                                    }
+                                                }
+                                                $sum_total4 = $sum_total4 - $sum_total_out4;
+
+                                        ?>
+                                        <div class="col-xl-12 col-sm-12 col-12 mb-2 mb-sm-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-danger me-2">
                                                     <div class="avatar-content">
@@ -126,7 +180,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">1.423k</h4>
+                                              <h4 class="fw-bolder mb-0"><?=  'Rp' . number_format($sum_total4, 0, ',', '.')?></h4>
                                                     <p class="card-text font-small-3 mb-0">Transfer</p>
                                                 </div>
                                             </div>
