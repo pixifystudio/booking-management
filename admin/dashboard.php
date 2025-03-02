@@ -103,19 +103,6 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-12">
-                                            <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-success me-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="dollar-sign" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">$9745</h4>
-                                                    <p class="card-text font-small-3 mb-0">Total</p>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
