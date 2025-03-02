@@ -287,7 +287,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                             <div class="transaction-percentage">
-                                                <h6 class="transaction-title"> <?= $myData['nama'] ?></h6>
+                                                <h6 class="transaction-title"> <?php echo $myData['nama'] ?></h6>
                                                 <small> <?= $myData['no_wa'] ?></small>
                                             </div>
                                         </div>
@@ -372,7 +372,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <div class="browser-states">
                                         <div class="d-flex">
-                                            <h6 class="align-self-center mb-0"><?= $myData['name'] ?></h6>
+                                            <h6 class="align-self-center mb-0"> <?= $myData['name'] ?></h6>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="fw-bold text-body-heading me-1"><?= $myData['qty'] ?> Item</div>
@@ -452,16 +452,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         ?>
     <!-- END: Page JS-->
 
-    <script>
-        $(window).on('load', function() {
-            if (feather) {
-                feather.replace({
-                    width: 14,
-                    height: 14
-                });
-            }
-        })
-    </script>
+   
 </body>
 
   </div>
