@@ -363,7 +363,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                   <?php 
                                       $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-01 00:00:00');
                                      $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-31 23:59:59');  
-                                    $mySql = "SELECT t.updated_date, mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' and mp.type='Inventory'
+                                    $mySql = "SELECT t.updated_date, mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and t.updated_date >='$txtDateFrom' and t.updated_date <='$txtDateUntil' and mp.type='Inventory'
                                      group by mp.name;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
                                                 $sum_total4 = 0;
