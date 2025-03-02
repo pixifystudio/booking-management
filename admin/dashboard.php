@@ -324,9 +324,11 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                                 <div class="card-body">
                                                   <?php 
+                                      $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-01 00:00:00');
+                                     $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-31 23:59:59');  
                                     $mySql = "SELECT jenis, COUNT(*) AS jumlah_booking
                                                 FROM booking
-                                                WHERE STATUS = 'Selesai' AND no_wa != '-'
+                                                WHERE STATUS = 'Selesai' AND no_wa != '-' and updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'
                                                 GROUP BY jenis
                                                 ORDER BY jumlah_booking DESC;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
