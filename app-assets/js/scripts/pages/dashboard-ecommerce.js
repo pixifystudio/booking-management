@@ -197,7 +197,12 @@ $(window).on("load", function () {
     colors: [window.colors.solid.info],
     series: [
       {
-        data: [0, 20, 5, 30, 15, 45],
+        name: "Uang Masuk",
+        data: [95, 177, 284, 256, 105, 63, 168, 218, 72],
+      },
+      {
+        name: "Uang Keluar",
+        data: [200, -80, -60, -180, -100, -60, -85, -75, -100],
       },
     ],
     markers: {
