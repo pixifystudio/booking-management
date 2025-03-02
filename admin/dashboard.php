@@ -140,7 +140,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                                 <div class="my-auto">
                                                     <h4 class="fw-bolder mb-0"> <?=  'Rp' . number_format($sum_total3, 0, ',', '.')?></h4>
-                                                    <p class="card-text font-small-3 mb-2">Dana</p>
+                                                    <p class="card-text font-small-3 mb-0">Dana</p>
                                                 </div>
                                             </div>
                                         </div>
