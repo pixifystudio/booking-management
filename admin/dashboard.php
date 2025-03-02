@@ -69,7 +69,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                         <div class="col-xl-8 col-md-6 col-12">
                             <div class="card card-statistics">
                                 <div class="card-header">
-                                    <h4 class="card-title">Statistics</h4>
+                                    <h4 class="card-title">Saldo</h4>
                                     <div class="d-flex align-items-center">
                                         <p class="card-text font-small-2 me-25 mb-0">Updated 1 month ago</p>
                                     </div>
@@ -80,12 +80,12 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-primary me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="trending-up" class="avatar-icon"></i>
+                                                        <i data-feather="dollar-sign" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
                                                     <h4 class="fw-bolder mb-0">230k</h4>
-                                                    <p class="card-text font-small-3 mb-0">Sales</p>
+                                                    <p class="card-text font-small-3 mb-0">Cash</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -93,12 +93,12 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-info me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="user" class="avatar-icon"></i>
+                                                        <i data-feather="dollar-sign" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
                                                     <h4 class="fw-bolder mb-0">8.549k</h4>
-                                                    <p class="card-text font-small-3 mb-0">Customers</p>
+                                                    <p class="card-text font-small-3 mb-0">Dana</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,12 +106,12 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-danger me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                        <i data-feather="dollar-sign" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
                                                     <h4 class="fw-bolder mb-0">1.423k</h4>
-                                                    <p class="card-text font-small-3 mb-0">Products</p>
+                                                    <p class="card-text font-small-3 mb-0">Transfer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                                 <div class="my-auto">
                                                     <h4 class="fw-bolder mb-0">$9745</h4>
-                                                    <p class="card-text font-small-3 mb-0">Revenue</p>
+                                                    <p class="card-text font-small-3 mb-0">Total</p>
                                                 </div>
                                             </div>
                                         </div>
