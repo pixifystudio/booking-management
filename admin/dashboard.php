@@ -133,7 +133,158 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                     </div>
 
                     <div class="row match-height">
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="card card-transaction">
+                                <div class="card-header">
+                                    <h4 class="card-title">Top Visitor (All Time)</h4>
+                                </div>
+                                <div class="card-body">
+                                    
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="d-flex">
+                                            <div class="avatar bg-light-primary rounded float-start">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="transaction-percentage">
+                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
+                                                <small>No Wa</small>
+                                            </div>
+                                        </div>
+                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="col-lg-6 col-md-6 col-12">
                             <div class="card card-transaction">
                                 <div class="card-header">
                                     <h4 class="card-title">Top Visitor (All Time)</h4>
