@@ -64,7 +64,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-primary me-2">
                                                     <div class="avatar-content">
@@ -77,7 +77,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-info me-2">
                                                     <div class="avatar-content">
@@ -90,7 +90,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                                        <div class="col-xl-4 col-sm-6 col-12 mb-2 mb-sm-0">
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-danger me-2">
                                                     <div class="avatar-content">
