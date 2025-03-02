@@ -146,6 +146,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                         </div>
                                           <?php 
 
+                               
+
                                                 $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='Transfer Bank'";
                                                 $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='Transfer Bank' ";
                                                 
@@ -215,12 +217,26 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                     </div>
 
                     <div class="row match-height">
-                        <div class="col-lg-6 col-md-6 col-12">
+                          <div class="col-lg-6 col-md-6 col-12">
                             <div class="card card-transaction">
                                 <div class="card-header">
                                     <h4 class="card-title">Top Visitor (Bulan Ini)</h4>
                                 </div>
                                 <div class="card-body">
+                                    <?php 
+                                     $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-01 00:00:00');
+                                     $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-31 23:59:59');  
+                                    $mySql = "SELECT nama, no_wa, COUNT(*) AS jumlah_booking
+                                    FROM booking
+                                    WHERE STATUS = 'Selesai' and no_wa !='-' and updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'
+                                    GROUP BY no_wa
+                                    ORDER BY jumlah_booking DESC";
+                                     $myQry4 = mysqli_query($koneksidb, $mySql);
+                                                $sum_total4 = 0;
+                                                $sum_total_out4 = 0;
+
+                                    while ($myData = mysqli_fetch_array($myQry)) {
+                                    ?>
                                     
                                     <div class="transaction-item">
                                         <div class="d-flex">
@@ -230,22 +246,36 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                             <div class="transaction-percentage">
-                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
-                                                <small>No Wa</small>
+                                                <h6 class="transaction-title"> <?= $myData['nama'] ?></h6>
+                                                <small> <?= $myData['no_wa'] ?></small>
                                             </div>
                                         </div>
-                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                        <div class="fw-bolder text-danger"> <?= $myData['jumlah_booking'] ?> Booking</div>
                                     </div>
+                                    <?php } 
+                                    ?>
 
                                 </div>
                             </div>
                         </div>
-                                                <div class="col-lg-6 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-12">
                             <div class="card card-transaction">
                                 <div class="card-header">
                                     <h4 class="card-title">Top Visitor (All Time)</h4>
                                 </div>
                                 <div class="card-body">
+                                    <?php 
+                                    $mySql = "SELECT nama, no_wa, COUNT(*) AS jumlah_booking
+                                    FROM booking
+                                    WHERE STATUS = 'Selesai' and no_wa !='-'
+                                    GROUP BY no_wa
+                                    ORDER BY jumlah_booking DESC";
+                                     $myQry4 = mysqli_query($koneksidb, $mySql);
+                                                $sum_total4 = 0;
+                                                $sum_total_out4 = 0;
+
+                                    while ($myData = mysqli_fetch_array($myQry)) {
+                                    ?>
                                     
                                     <div class="transaction-item">
                                         <div class="d-flex">
@@ -255,12 +285,14 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                             <div class="transaction-percentage">
-                                                <h6 class="transaction-title">[Nama Pelanggan]</h6>
-                                                <small>No Wa</small>
+                                                <h6 class="transaction-title"> <?= $myData['nama'] ?></h6>
+                                                <small> <?= $myData['no_wa'] ?></small>
                                             </div>
                                         </div>
-                                        <div class="fw-bolder text-danger"> 10 Booking</div>
+                                        <div class="fw-bolder text-danger"> <?= $myData['jumlah_booking'] ?> Booking</div>
                                     </div>
+                                    <?php } 
+                                    ?>
 
                                 </div>
                             </div>
