@@ -341,6 +341,11 @@ if ($_GET) {
       include "kas.php";
       break;
 
+    case 'Dashboard':
+      if (!file_exists("dashboard.php")) die("Sorry Empty Page!");
+      include "dashboard.php";
+      break;
+
 
 
     case 'Input-Pengeluaran-Add':

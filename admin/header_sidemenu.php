@@ -30,7 +30,7 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="layers"></i>Dashboard</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item xx" href="#" data-bs-toggle="">Dashboard</a>
+                            <a class="dropdown-item xx" href="?page=Dashboard" data-bs-toggle="">Dashboard</a>
                             <!-- <a class="dropdown-item" href="?page=Information" data-bs-toggle="">Information, News & Article</a> -->
                         </ul>
                     </li>
