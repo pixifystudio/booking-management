@@ -14,11 +14,11 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">Finance</h2>
+            <h2 class="content-header-title float-start mb-0">Dashboard</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a>Kas - Dashboard </a>
-                </li>
+                <!-- <li class="breadcrumb-item active"><a>Kas - Dashboard </a> -->
+                <!-- </li> -->
               </ol>
             </div>
           </div>
@@ -48,7 +48,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
-                    <div class="row match-height">
+                    <div class="row ">
                         <!-- Medal Card -->
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="card card-congratulation-medal">
