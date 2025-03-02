@@ -372,10 +372,10 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <div class="browser-states">
                                         <div class="d-flex">
-                                            <h6 class="align-self-center mb-0"><?= $myData['jenis'] ?></h6>
+                                            <h6 class="align-self-center mb-0"><?= $myData['name'] ?></h6>
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <div class="fw-bold text-body-heading me-1"><?= $myData['jumlah_booking'] ?> Transaksi</div>
+                                            <div class="fw-bold text-body-heading me-1"><?= $myData['qty'] ?> Item</div>
                                         </div>
                                     </div>
                                     <?php 
