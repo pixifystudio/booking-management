@@ -202,7 +202,7 @@ $(window).on("load", function () {
     series: [
       {
         name: "Data 1",
-        data: [0, 20, 5, 30, 15, 45],
+        data: [0, 1, 1, 1, 1, 1],
       },
       {
         name: "Data 2",
