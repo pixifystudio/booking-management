@@ -194,15 +194,23 @@ $(window).on("load", function () {
     stroke: {
       width: 3,
     },
-    colors: [window.colors.solid.info],
+    colors: [
+      window.colors.solid.info,
+      window.colors.solid.primary,
+      window.colors.solid.warning,
+    ],
     series: [
       {
-        name: "Uang Masuk",
-        data: [95, 177, 284, 256, 105, 63, 168, 218, 72],
+        name: "Data 1",
+        data: [0, 20, 5, 30, 15, 45],
       },
       {
-        name: "Uang Keluar",
-        data: [200, -80, -60, -180, -100, -60, -85, -75, -100],
+        name: "Data 2",
+        data: [10, 25, 8, 35, 18, 50],
+      },
+      {
+        name: "Data 3",
+        data: [5, 15, 10, 25, 12, 40],
       },
     ],
     markers: {
@@ -219,6 +227,20 @@ $(window).on("load", function () {
           dataPointIndex: 5,
           fillColor: "#ffffff",
           strokeColor: window.colors.solid.info,
+          size: 5,
+        },
+        {
+          seriesIndex: 1,
+          dataPointIndex: 5,
+          fillColor: "#ffffff",
+          strokeColor: window.colors.solid.primary,
+          size: 5,
+        },
+        {
+          seriesIndex: 2,
+          dataPointIndex: 5,
+          fillColor: "#ffffff",
+          strokeColor: window.colors.solid.warning,
           size: 5,
         },
       ],
@@ -251,6 +273,7 @@ $(window).on("load", function () {
       },
     },
   };
+
   statisticsProfitChart = new ApexCharts(
     $statisticsProfitChart,
     statisticsProfitChartOptions
