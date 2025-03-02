@@ -48,7 +48,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
-                    <div class="row">
+                    <div class="row match-height">
                         <!-- Medal Card -->
                  
                         <!--/ Medal Card -->
