@@ -65,8 +65,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 <div class="card-body statistics-body">
                                     <div class="row">
                                         <?php 
-                                         $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='QRIS'";
-                                                $mySql2 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='QRIS' ";
+                                         $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='Cash'";
+                                                $mySql2 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='Cash' ";
                                                 
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
                                                 $sum_total2 = 0;
@@ -105,8 +105,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                         </div>
                                         <?php 
 
-                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='Cash'";
-                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='Cash' ";
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode='QRIS'";
+                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00'  AND metode_pembayaran='QRIS' ";
                                                 
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
