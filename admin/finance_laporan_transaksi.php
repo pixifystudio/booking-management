@@ -353,7 +353,10 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT transaction_id, keterangan, nominal, qty, booking_detail_id, metode,`status`, updated_date FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' ";
+                                    $mySql   = "SELECT t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama FROM `transaction` t 
+                                    LEFT JOIN booking_detail bd ON bd.booking_detail_id = t.booking_detail_id
+                                    LEFT JOIN booking b ON b.booking_id = bd.booking_id
+                                     WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' ";
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');;   
@@ -365,7 +368,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                     
-                                    $mySql .= " UNION ALL  SELECT dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date  FROM  data_qr_detail dd 
+                                    $mySql .= " UNION ALL  SELECT dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama  FROM  data_qr_detail dd 
                                     LEFT JOIN data_qr d ON (d.transaction_id = dd.transaction_id)
                                     WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' ";
 
@@ -398,7 +401,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo 'Rp' . number_format(($myData['nominal'])) ?></td>
                                             <td><?php echo $myData['qty']; ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
-                                            <td><?php echo $myData['booking_detail_id']; ?></td>
+                                            <td><?php echo $myData['nama']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
 
