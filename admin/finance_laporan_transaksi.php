@@ -408,7 +408,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo 'Rp' . number_format(($myData['nominal'])) ?></td>
                                             <td><?php echo $myData['qty']; ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
-                                            <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $nama; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $date; ?></td>
 
