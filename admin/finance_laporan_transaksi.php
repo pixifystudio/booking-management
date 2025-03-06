@@ -395,6 +395,10 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         if ($nama=='') {
                                            $nama = 'INPUT MANUAL';
                                         }
+                                    
+                                        // tambah waktu 7 jam agar aktual (default niaga hoster UCT)
+
+                                        $date = strtotime("+7 HOUR", $myData['updated_date']);
                                     ?>
 
                                         <tr>
@@ -406,7 +410,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['metode']; ?></td>
                                             <td><?php echo $myData['nama']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <td><?php echo $myData['updated_date']; ?></td>
+                                            <td><?php echo $date; ?></td>
 
 
                                         </tr>
