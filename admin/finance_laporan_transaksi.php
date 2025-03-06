@@ -397,8 +397,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         }
                                     
                                         // tambah waktu 7 jam agar aktual (default niaga hoster UCT)
-
-                                        $date = strtotime("+7 HOUR", $myData['updated_date']);
+                                        $now= $myData['updated_date'];
+                                        $date = date("Y-m-d H:i:s", strtotime("$now +7 hours"));
                                     ?>
 
                                         <tr>
