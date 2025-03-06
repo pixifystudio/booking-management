@@ -345,8 +345,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>Nominal</th>
                                         <th>Qty</th>
                                         <th>Metode Pembayaran</th>
-                                        <th>Book Detail ID</th>
-                                        <th>Status</th>
+                                        <th>Nama Konsumen</th>
+                                        <th>OUT/IN</th>
                                         <th>Updated Date</th>
                                     </tr>
                                 </thead>
@@ -391,7 +391,10 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         $Code =  $myData['transaction_id'];
 
-
+                                        $nama = $myData['nama'];
+                                        if ($nama=='') {
+                                           $nama = 'INPUT MANUAL';
+                                        }
                                     ?>
 
                                         <tr>
