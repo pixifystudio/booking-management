@@ -355,7 +355,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     <?php
                                     $mySql   = "SELECT t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama FROM `transaction` t 
                                     LEFT JOIN booking_detail bd ON bd.booking_detail_id = t.booking_detail_id
-                                    LEFT JOIN booking b ON b.booking_id = bd.booking_id
+                                    LEFT JOIN booking b ON b.id = bd.booking_id
                                      WHERE t.keterangan !='DP' AND t.updated_date >='2025-03-07 00:00:00' ";
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
