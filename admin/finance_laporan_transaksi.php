@@ -356,14 +356,14 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     $mySql   = "SELECT t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama FROM `transaction` t 
                                     LEFT JOIN booking_detail bd ON bd.booking_detail_id = t.booking_detail_id
                                     LEFT JOIN booking b ON b.booking_id = bd.booking_id
-                                     WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' ";
+                                     WHERE t.keterangan !='DP' AND t.updated_date >='2025-03-07 00:00:00' ";
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');;   
-                                        $mySql .= " AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
+                                        $mySql .= " AND t.updated_date >='$txtDateFrom' and t.updated_date <='$txtDateUntil'";
                                     }
                                     if ($metode != '') {
-                                        $mySql .= " AND metode ='$metode' ";
+                                        $mySql .= " AND t.metode ='$metode' ";
                                     }
 
 
