@@ -92,8 +92,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                               $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
-                                                $mySql1   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
-                                                $mySql1 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
+                                                $mySql1   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
+                                                $mySql1 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
                                                 // echo $mySql1;
                                                 $myQry1 = mysqli_query($koneksidb, $mySql1);
                                                 $sum_total = 0;
@@ -122,8 +122,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
-                                                $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
-                                                $mySql2 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
+                                                $mySql2   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'";
+                                                $mySql2 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil' ";
                                                 
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
                                                 $sum_total2 = 0;
@@ -153,8 +153,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
-                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS'";
-                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS'";
+                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
                                                 
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
@@ -184,8 +184,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');  
 
-                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Cash'";
-                                                $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Cash' ";
+                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Cash'";
+                                                $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Cash' ";
                                                
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
@@ -216,8 +216,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                          $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');  
 
-                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Transfer Bank'";
-                                                $mySql5 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Transfer Bank' ";
+                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Transfer Bank'";
+                                                $mySql5 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Transfer Bank' ";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
                                                 $sum_total_out5 = 0;
@@ -353,7 +353,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT transaction_id, keterangan, nominal, qty, booking_detail_id, metode,`status`, updated_date FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-02-16 00:00:00' ";
+                                    $mySql   = "SELECT transaction_id, keterangan, nominal, qty, booking_detail_id, metode,`status`, updated_date FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' ";
                                     if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');;   
@@ -367,7 +367,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     
                                     $mySql .= " UNION ALL  SELECT dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date  FROM  data_qr_detail dd 
                                     LEFT JOIN data_qr d ON (d.transaction_id = dd.transaction_id)
-                                    WHERE item !='DP' AND updated_date >='2025-02-16 00:00:00' ";
+                                    WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' ";
 
                                      if ($txtDateFrom != '') {
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
