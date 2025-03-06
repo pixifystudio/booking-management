@@ -11,6 +11,8 @@ if (! $koneksidb) {
   echo "Failed Connection !";
 }
 
+date_default_timezone_set("Asia/Bangkok");
+
 
 # Memilih database pd MySQL Server
 mysqli_select_db($koneksidb, "u480352240_pixify") or die ("Database not Found !");

@@ -10,6 +10,7 @@ $koneksidb	= mysqli_connect($myHost, $myUser, $myPass);
 if (! $koneksidb) {
   echo "Failed Connection !";
 }
+date_default_timezone_set("Asia/Bangkok");
 
 
 # Memilih database pd MySQL Server
