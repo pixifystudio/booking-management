@@ -43,6 +43,11 @@ $id = $_GET['id'];
       }
     }
 
+    // jika tempat sebelum dan sesudah sama maka tidak bisa
+
+    if ($dataMetodeDari == $dataMetodeKe) {
+      $pesanError[] ="Tidak bisa memilih lokasi Kas yang sama.";
+    }
 
 
 
