@@ -65,12 +65,10 @@ $id = $_GET['id'];
 
                                      // ambil pendapatan QRIS
                                               
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
 
-                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND metode='QRIS'";
+
+                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:00'  AND metode='QRIS'";
+                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
                                                 $sum_total_out3 = 0;
@@ -95,13 +93,8 @@ $id = $_GET['id'];
 
 
                                         // ambil pendapatan CASH
-                                              
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
-
-                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND metode='Cash'";
+                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:00'  AND metode='Cash'";
+                                                $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Cash' ";
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;
@@ -128,12 +121,8 @@ $id = $_GET['id'];
 
                                         // ambil pendapatan Transfer Bank
                                               
-                                                $month1 = isset($_GET['m']) ? $_GET['m'] : date('Y-m');
-                                                $year1 = isset($_GET['y']) ? $_GET['y'] : date('y');  
-                                                $monthstart = $month1 . '-01';
-                                                $monthend = $month1 . '-31';     
-
-                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP'  AND metode='Transfer Bank'";
+                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:00'  AND metode='Cash'";
+                                                $mySql5 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Cash' ";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
                                                 $sum_total_out5 = 0;
