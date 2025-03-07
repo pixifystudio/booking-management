@@ -193,11 +193,11 @@ $id = $_GET['id'];
                         </div>
 
                         <div class="col-md-4 col-12">
-                          <label>QRIS</label>
+                          <label>Dana</label>
                           <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRIS'  value="<?=  'Rp' . number_format($sum_total3, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
                         </div>
 
-                        <div class="col-md-4 col-12">
+                        <div class="col-md-4 col-12 mt-2">
                           <label>Dari Metode</label>
                              <select class="select2 form-select" name="txtMetodeDari" aria-label="Default select example" autocomplete="off" required>
                                           <option value="">Pilih</option>
@@ -206,13 +206,13 @@ $id = $_GET['id'];
                                           <option value="QRIS">QRIS</option>
                                         </select>
                         </div>
-                        <div class="col-md-4 col-12">
+                        <div class="col-md-4 col-12 mt-2">
                           <label>Nominal</label>
                           <input type="number" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtNominalDari' aria-describedby="basic-addon-name" />
                         </div>
 
 
-                        <div class="col-md-4 col-12">
+                        <div class="col-md-4 col-12 mt-2">
                           <label>Ke Metode</label>
                              <select class="select2 form-select" name="txtMetodeKe" aria-label="Default select example" autocomplete="off" required>
                                           <option value="">Pilih</option>
@@ -221,7 +221,7 @@ $id = $_GET['id'];
                                           <option value="QRIS">QRIS</option>
                                         </select>
                         </div>
-                       <div class="col-md-12 col-12">
+                       <div class="col-md-12 col-12 mt-1">
                           <label>Keterangan</label>
                           <textarea id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtKeterangan' aria-describedby="basic-addon-name"></textarea>
                         </div>
