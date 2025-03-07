@@ -223,7 +223,7 @@ $id = $_GET['id'];
                         </div>
                        <div class="col-md-12 col-12 mt-1">
                           <label>Keterangan</label>
-                          <textarea id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtKeterangan' aria-describedby="basic-addon-name"></textarea>
+                          <textarea id="basic-addon-name" class="form-control" placeholder="Keterangan" aria-label="Keterangan" name='txtKeterangan' aria-describedby="basic-addon-name"></textarea>
                         </div>
                       </div>
 
