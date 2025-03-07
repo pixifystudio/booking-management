@@ -19,6 +19,31 @@ $id = $_GET['id'];
     $dataKeterangan  = $_POST['txtKeterangan'];
     $dataQty = 1;
     $dataStatus = "IN";
+    $dataCash  = $_POST['txtCash'];
+    $dataTransfer  = $_POST['txtTransfer'];
+    $dataQRIS  = $_POST['txtQRIS'];
+
+    #validasi
+    // metode cash
+    if ($dataMetodeDari == 'Cash') {
+      if ($dataNominalDari > $dataCash ) {
+        $pesanError[] = "Nominal Yang Ditransfer Melebihi Saldo Kas";
+      }
+    }
+    // metode Transfer
+    if ($dataMetodeDari == 'Transfer Bank') {
+      if ($dataNominalDari > $dataTransfer ) {
+        $pesanError[] = "Nominal Yang Ditransfer Melebihi Saldo Kas";
+      }
+    }
+    // Metode QRIS
+     if ($dataMetodeDari == 'QRIS') {
+      if ($dataNominalDari > $dataQRIS ) {
+        $pesanError[] = "Nominal Yang Ditransfer Melebihi Saldo Kas";
+      }
+    }
+
+
 
 
 
@@ -184,17 +209,21 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-4 col-12">
                           <label>Cash</label>
-                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtCash' value="<?=  'Rp' . number_format($sum_total4, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtCashDummy' value="<?=  'Rp' . number_format($sum_total4, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtCash' value="<?= $sum_total4 ?>" aria-describedby="basic-addon-name" readonly />
                         </div>
 
                         <div class="col-md-4 col-12">
                           <label>Transfer Bank</label>
-                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtTransfer'   value="<?=  'Rp' . number_format($sum_total5, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtTransferDummy'   value="<?=  'Rp' . number_format($sum_total5, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtTransfer' value="<?= $sum_total5 ?>" aria-describedby="basic-addon-name" readonly />
                         </div>
 
                         <div class="col-md-4 col-12">
                           <label>Dana</label>
-                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRIS'  value="<?=  'Rp' . number_format($sum_total3, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRISDummy'  value="<?=  'Rp' . number_format($sum_total3, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRIS' value="<?= $sum_total3 ?>" aria-describedby="basic-addon-name" readonly />
+
                         </div>
 
                         <div class="col-md-4 col-12 mt-2">
