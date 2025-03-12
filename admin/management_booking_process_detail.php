@@ -57,7 +57,7 @@ $id = $_GET['id'];
     # Baca variabel form
     $id   = $_GET['id'];
     $dataGdrive  = $_POST['txtGdrive'];
-    $dataDP  = $_POST['txtDP'];
+    $dataDP  = isset($_POST['txtDP']) ? $_POST['txtDP'] :0;
     $dataMetodeTransaksiDP  = $_POST['txtMetodeTransaksiDP'];
     # UPDATE KE DATABASE BOOKING
 
@@ -67,7 +67,7 @@ $id = $_GET['id'];
     $nomor  = 0;
 
     $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
-     VALUES ('DP','$dataDP','1','$dataMetodeTransaksiDP','$id','IN',now())";
+     VALUES ('DP)','$dataDP','1','$dataMetodeTransaksiDP','$id','IN',now())";
     $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
 
     $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
@@ -92,7 +92,11 @@ $id = $_GET['id'];
       $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`booking_detail_id`, `status`,`updated_date`,`booking_id`)
      VALUES ('$item','$nominal','$qty','$booking_detail_id','IN',now(),'$id')";
       $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
+
+     
     }
+
+   
 
 
 

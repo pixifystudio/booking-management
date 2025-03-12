@@ -20,6 +20,29 @@ $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_erro
 $mySql = "UPDATE `transaction` SET `metode`='$txtMetode' WHERE `booking_id`='$txtID'";
 $myQry = mysqli_query($koneksidb, $mySql) or die("ERROR BOOKING: " . mysqli_error($koneksidb));
 
+// cek DP 
+
+// #ambil DP
+//     $mySqlDP = "SELECT * FROM `booking` where id = '$txtID'";
+//     $myQryDP = mysqli_query($koneksidb, $mySqlDP) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+//     $DataDP = mysqli_fetch_array($myQryDP);
+
+//     $NominalDP = isset($DataDP['dp']) ? $DataDP['dp'] :0;
+//     $MetodePembayaranDP = $DataDP['metode_pembayaran_dp'];
+
+//     if ($NominalDP  >0) {
+//       // keluarkan nominal sesuai nominal DP
+//     $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
+//      VALUES ('Convert DP Booking ID : $txtID','$NominalDP','1','$txtMetode','$id','OUT',now())";
+//     $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
+
+//      $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
+//      VALUES ('Convert DP Booking ID : $txtID','$NominalDP','1','$MetodePembayaranDP','$id','IN',now())";
+//     $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
+//     }
+
+ 
+
 if ($myQry) {
     // Redirect ke halaman Management-Booking-Process
     echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking-Process&print=$txtID'>";
