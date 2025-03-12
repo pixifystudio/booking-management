@@ -2,8 +2,7 @@
 $_SESSION['SES_TITLE'] = "Management Admin";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-// $ses_group = $_SESSION['SES_GROUP'];
-$ses_group = 'Admin';
+$ses_group = $_SESSION['SES_GROUP'];
 if ($ses_group!='Super Admin') {
         echo "<meta http-equiv='refresh' content='0; url=?page=Dashboard-2'>";
 }
