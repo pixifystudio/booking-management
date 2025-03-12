@@ -345,7 +345,10 @@ if ($_GET) {
       if (!file_exists("dashboard.php")) die("Sorry Empty Page!");
       include "dashboard.php";
       break;
-
+    case 'Dashboard-2':
+      if (!file_exists("dashboard_2.php")) die("Sorry Empty Page!");
+      include "dashboard_2.php";
+      break;
 
 
     case 'Input-Pengeluaran-Add':
