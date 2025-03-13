@@ -551,15 +551,15 @@ ORDER BY bulan;";
     $result3 = $conn->query($sql3);
     
     $bulan = [];
-    $total_qty_IN = [];
-    $total_qty_OUT = [];
+    $total_nominal_IN = [];
+    $total_nominal_OUT = [];
     $selisih_nominal = [];
 
     
     while ($row = $result3->fetch_assoc()) {
         $bulan[] = $row["bulan"];
-        $total_qty_IN[] = $row["total_qty_IN"];
-        $total_qty_OUT[] = $row["total_qty_OUT"];
+        $total_nominal_IN[] = $row["total_nominal_IN"];
+        $total_nominal_OUT[] = $row["total_nominal_OUT"];
         $selisih_nominal[] = $row["selisih_nominal"];
     }
     
@@ -603,24 +603,23 @@ ORDER BY bulan;";
         });
     </script>
 
-      <script>
+<script>
     const ctx2 = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx2, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: <?php echo json_encode($bulan); ?>,
             datasets: [
                 {
                     label: 'Pemasukan (Rp)',
-                    data: <?php echo json_encode($total_qty_IN); ?>,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    data: <?php echo json_encode($total_nominal_IN); ?>,
                     borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
+                    borderWidth: 2,
+                    fill: false
                 },
                 {
                     label: 'Pengeluaran (Rp)',
-                    data: <?php echo json_encode($total_qty_OUT); ?>,
-                    type: 'line',
+                    data: <?php echo json_encode($total_nominal_OUT); ?>,
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 2,
                     fill: false
