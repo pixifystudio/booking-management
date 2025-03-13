@@ -11,6 +11,11 @@ if (! $koneksidb) {
   echo "Failed Connection !";
 }
 
+$conn = new mysqli($myHost, $myUser, $myPass, $myDbs);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 date_default_timezone_set("Asia/Bangkok");
 
 
