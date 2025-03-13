@@ -11,82 +11,114 @@ include "library/inc.connection.php";
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <canvas id="transaksiChart"></canvas>
+    <?php 
+$query = "
+WITH monthly_data AS (
+    SELECT 
+        DATE_FORMAT(updated_date, '%Y-%m') AS bulan,
+        SUM(qty) AS total_qty,
+        SUM(nominal) AS total_nominal,
+        status
+    FROM (
+        SELECT 
+            qty, 
+            nominal, 
+            status, 
+            updated_date
+        FROM transaction 
+        WHERE keterangan != 'DP' 
+            AND updated_date >= '2025-03-07 00:00:00'
 
-    <?php
-  
+        UNION ALL 
 
-  // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
-    $sql1 = "SELECT 
-                DATE_FORMAT(tanggal, '%Y-%m-%d') AS `date`,
-                COUNT(id) AS total_transaksi
-            FROM booking
-            WHERE tanggal >= CURDATE() - INTERVAL 10 DAY
-            GROUP BY `date`
-            ORDER BY `date` DESC;";
-    
-    $result1 = $conn->query($sql1);
-    
-    $labels = [];
-    $bookingData = [];
-    
-    while ($row = $result1->fetch_assoc()) {
-        $labels[] = $row["date"];
-        $bookingData[] = $row["total_transaksi"];
-    }
-    
-    // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
-    $sql2 = "SELECT 
-                DATE(t.updated_date) AS tanggal, 
-                SUM(t.qty) AS total_qty
-            FROM transaction t
-            LEFT JOIN master_product mp ON t.keterangan = mp.name
-            WHERE mp.type = 'inventory' 
-            AND t.updated_date >= CURDATE() - INTERVAL 10 DAY
-            GROUP BY DATE(t.updated_date)
-            ORDER BY tanggal;";
-    
-    $result2 = $conn->query($sql2);
-    
-    $inventoryData = [];
-    
-    while ($row = $result2->fetch_assoc()) {
-        $inventoryData[] = $row["total_qty"];
-    }
-    
-    $conn->close();
-    ?>
+        SELECT 
+            dd.qty AS qty, 
+            dd.nominal AS nominal, 
+            'IN' AS status, 
+            d.updated_date
+        FROM data_qr_detail dd 
+        LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
+        WHERE item != 'DP' 
+            AND d.updated_date >= '2025-03-07 00:00:00'
+    ) AS combined_data
+    GROUP BY bulan, status
+)
+SELECT 
+    bulan,
+    SUM(CASE WHEN status = 'IN' THEN total_qty ELSE 0 END) AS total_qty_IN,
+    SUM(CASE WHEN status = 'OUT' THEN total_qty ELSE 0 END) AS total_qty_OUT,
+    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) AS total_nominal_IN,
+    SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS total_nominal_OUT,
+    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) 
+      - SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS selisih_nominal
+FROM monthly_data
+GROUP BY bulan
+ORDER BY bulan;
+";
 
+$result = $connection->query($query);
+
+$data = [];
+while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+}
+
+$connection->close();
+echo json_encode($data); ?>
+
+    <canvas id="lineChart"></canvas>
     <script>
-        const ctx = document.getElementById('transaksiChart').getContext('2d');
-        const transaksiChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: <?php echo json_encode($labels); ?>,
-                datasets: [
-                    {
-                        label: 'Booking',
-                        data: <?php echo json_encode($bookingData); ?>,
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
+        document.addEventListener("DOMContentLoaded", async function () {
+            try {
+                const response = await fetch(window.location.href);
+                const data = await response.json();
+                
+                const labels = data.map(d => d.bulan);
+                const totalNominalIN = data.map(d => d.total_nominal_IN);
+                const totalNominalOUT = data.map(d => d.total_nominal_OUT);
+                const selisihNominal = data.map(d => d.selisih_nominal);
+                
+                const ctx = document.getElementById("lineChart").getContext("2d");
+                new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: "Total Nominal IN",
+                                data: totalNominalIN,
+                                borderColor: "green",
+                                fill: false
+                            },
+                            {
+                                label: "Total Nominal OUT",
+                                data: totalNominalOUT,
+                                borderColor: "red",
+                                fill: false
+                            },
+                            {
+                                label: "Selisih Nominal",
+                                data: selisihNominal,
+                                borderColor: "blue",
+                                fill: false
+                            }
+                        ]
                     },
-                    {
-                        label: 'Inventory',
-                        data: <?php echo json_encode($inventoryData); ?>,
-                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Trend Transaksi 5 Bulan Terakhir'
+                            }
+                        }
                     }
-                ]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+                });
+            } catch (error) {
+                console.error("Error fetching chart data:", error);
             }
         });
     </script>
