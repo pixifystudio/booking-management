@@ -311,7 +311,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                         <div class="card-body pb-50">
                                             <h6>Profit</h6>
                                         <div>
-                                            <canvas id="transaksiChart2"></canvas>
+                                            <canvas id="myChart"></canvas>
                                         </div>
                                         </div>
                                     </div>
@@ -545,26 +545,27 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         });
     </script>
 
-     <script>
-        const ctx2 = document.getElementById('transaksiChart2').getContext('2d');
-        const transaksiChart2 = new Chart(ctx, {
+        <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: <?php echo json_encode($labels); ?>,
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
                 datasets: [
                     {
-                        label: 'Booking',
-                        data: <?php echo json_encode($bookingData); ?>,
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
+                        label: 'Data Bar',
+                        data: [12, 19, 3, 5, 2],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     },
                     {
-                        label: 'Inventory',
-                        data: <?php echo json_encode($inventoryData); ?>,
-                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        label: 'Data Line',
+                        data: [10, 15, 7, 9, 4],
+                        type: 'line',
                         borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
+                        borderWidth: 2,
+                        fill: false
                     }
                 ]
             },
@@ -572,10 +573,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                 responsive: true,
                 scales: {
                     y: {
-                        beginAtZero: true,
-                        ticks: {
-                            precision: 0
-                        }
+                        beginAtZero: true
                     }
                 }
             }
