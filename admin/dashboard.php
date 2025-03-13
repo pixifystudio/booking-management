@@ -516,7 +516,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     $conn->close();
     ?>
 
-    <script>
+   <script>
         const ctx = document.getElementById('transaksiChart').getContext('2d');
         const transaksiChart = new Chart(ctx, {
             type: 'bar',
@@ -543,7 +543,10 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                 responsive: true,
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
                     }
                 }
             }
