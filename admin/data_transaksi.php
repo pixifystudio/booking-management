@@ -61,7 +61,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 $conn->close();
-echo json_encode($data);
+// echo json_encode($data);
 ?>
    
 
