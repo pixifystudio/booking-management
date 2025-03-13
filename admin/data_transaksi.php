@@ -14,12 +14,7 @@ include "library/inc.connection.php";
     <canvas id="transaksiChart"></canvas>
 
     <?php
-    // Koneksi ke database
-    $conn = new mysqli("localhost", "username", "password", "database_name");
-    
-    if ($conn->connect_error) {
-        die("Koneksi gagal: " . $conn->connect_error);
-    }
+  
 
     // Query untuk bar pertama (Booking)
     $sql1 = "SELECT 
