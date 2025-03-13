@@ -520,7 +520,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             updated_date
         FROM `transaction` 
         WHERE keterangan != 'DP' 
-            AND updated_date >= '2025-03-07 00:00:00'
+            AND updated_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 5 MONTH), '%Y-%m-01')
 
         UNION ALL 
 
@@ -532,7 +532,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         FROM `data_qr_detail` dd 
         LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
         WHERE item != 'DP' 
-            AND d.updated_date >= '2025-03-07 00:00:00'
+            AND d.updated_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 5 MONTH), '%Y-%m-01')
     ) AS combined_data
     GROUP BY bulan, `status`
 )
@@ -546,7 +546,8 @@ SELECT
       - SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS selisih_nominal
 FROM monthly_data
 GROUP BY bulan
-ORDER BY bulan;";
+ORDER BY bulan DESC
+LIMIT 5;";
     
     $result3 = $conn->query($sql3);
     
