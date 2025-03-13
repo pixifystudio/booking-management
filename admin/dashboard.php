@@ -310,8 +310,9 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     <div class="card card-tiny-line-stats">
                                         <div class="card-body pb-50">
                                             <h6>Profit</h6>
-                                            <h2 class="fw-bolder mb-1">6,24k</h2>
-                                            <div id="statistics-profit-chart"></div>
+                                        <div>
+                                            <canvas id="transaksiChart2"></canvas>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -510,6 +511,43 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
    <script>
         const ctx = document.getElementById('transaksiChart').getContext('2d');
         const transaksiChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?php echo json_encode($labels); ?>,
+                datasets: [
+                    {
+                        label: 'Booking',
+                        data: <?php echo json_encode($bookingData); ?>,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Inventory',
+                        data: <?php echo json_encode($inventoryData); ?>,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+     <script>
+        const ctx2 = document.getElementById('transaksiChart2').getContext('2d');
+        const transaksiChart2 = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: <?php echo json_encode($labels); ?>,
