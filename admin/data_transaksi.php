@@ -4,62 +4,55 @@
 include_once "library/inc.seslogin.php";
 include "library/inc.connection.php";
 ?>
-        <head>
+  
+
+
+<html lang="id">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chart dari Database</title>
+    <title>Line Chart dengan 3 Baris</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <canvas id="transaksiChart"></canvas>
-
-
-<?php
-    $sql = "SELECT 
-                MONTH(tanggal) AS bulan, 
-                YEAR(tanggal) AS tahun,
-                COUNT(id) AS total_transaksi
-            FROM booking
-            GROUP BY YEAR(tanggal), MONTH(tanggal)
-            ORDER BY tahun DESC, bulan DESC;";
-    
-    $result = $conn->query($sql);
-    
-    $labels = [];
-    $data = [];
-    
-    while ($row = $result->fetch_assoc()) {
-        $labels[] = $row["bulan"] . "-" . $row["tahun"];
-        $data[] = $row["total_transaksi"];
-    }
-    
-    $conn->close();
-    ?>
-
+    <canvas id="myChart"></canvas>
     <script>
-        const ctx = document.getElementById('transaksiChart').getContext('2d');
-        const transaksiChart = new Chart(ctx, {
-            type: 'bar',
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
             data: {
-                labels: <?php echo json_encode($labels); ?>,
-                datasets: [{
-                    label: 'Total Transaksi',
-                    data: <?php echo json_encode($data); ?>,
-                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni'],
+                datasets: [
+                    {
+                        label: 'Data 1',
+                        data: [10, 20, 15, 25, 30, 40],
+                        borderColor: 'red',
+                        fill: false
+                    },
+                    {
+                        label: 'Data 2',
+                        data: [5, 15, 10, 20, 25, 35],
+                        borderColor: 'blue',
+                        fill: false
+                    },
+                    {
+                        label: 'Data 3',
+                        data: [8, 18, 12, 22, 28, 38],
+                        borderColor: 'green',
+                        fill: false
+                    }
+                ]
             },
             options: {
                 responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
+                plugins: {
+                    legend: {
+                        position: 'top'
                     }
                 }
             }
         });
     </script>
 </body>
-
+</html>
         
