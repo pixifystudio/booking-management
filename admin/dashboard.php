@@ -546,7 +546,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     </script>
 
         <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
+        const ctx2 = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
