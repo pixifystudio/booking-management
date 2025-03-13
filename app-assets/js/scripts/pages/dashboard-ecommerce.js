@@ -353,9 +353,10 @@ $(window).on("load", function () {
   fetch("getRevenueData.php")
     .then((response) => response.json())
     .then((data) => {
-      const months = data.map((item) => item.month);
-      const earnings = data.map((item) => item.earning);
-      const expenses = data.map((item) => item.expense);
+      const bulan = data.map((item) => item.bulan);
+      const tahun = data.map((item) => item.tahun);
+      const total_transaksi = data.map((item) => item.total_transaksi);
+      console.log("Data dari server:", data); // Cek di console browser
 
       let revenueReportChartOptions = {
         chart: {
@@ -375,11 +376,11 @@ $(window).on("load", function () {
         series: [
           {
             name: "Earning",
-            data: earnings,
+            data: total_transaksi,
           },
           {
             name: "Expense",
-            data: expenses,
+            data: total_transaksi,
           },
         ],
         dataLabels: { enabled: false },
@@ -389,7 +390,7 @@ $(window).on("load", function () {
           yaxis: { lines: { show: false } },
         },
         xaxis: {
-          categories: months,
+          categories: bulan,
           labels: {
             style: { colors: $textMutedColor, fontSize: "0.86rem" },
           },
