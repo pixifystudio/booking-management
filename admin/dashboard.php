@@ -603,40 +603,45 @@ ORDER BY bulan;";
         });
     </script>
 
-        <script>
-        const ctx2 = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: <?php echo json_encode($bulan); ?>,
-                datasets: [
-                    {
-                        label: 'Data Bar',
-                        data: <?php echo json_encode($total_qty_IN); ?>,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Data Line',
-                        data: <?php echo json_encode($total_qty_OUT); ?>,
-                        type: 'line',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
+      <script>
+    const ctx2 = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($bulan); ?>,
+            datasets: [
+                {
+                    label: 'Pemasukan (Rp)',
+                    data: <?php echo json_encode($total_qty_IN); ?>,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Pengeluaran (Rp)',
+                    data: <?php echo json_encode($total_qty_OUT); ?>,
+                    type: 'line',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value, index, values) {
+                            return 'Rp ' + new Intl.NumberFormat('id-ID').format(value);
+                        }
                     }
                 }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
 <?php
 include "footer_v2.php";
