@@ -4,14 +4,11 @@
 include_once "library/inc.seslogin.php";
 include "library/inc.connection.php";
 ?>
-        <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chart dari Database</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <?php 
+
+<?php
+header('Content-Type: application/json');
+
+
 $query = "
 WITH monthly_data AS (
     SELECT 
@@ -64,8 +61,19 @@ while ($row = $result->fetch_assoc()) {
 }
 
 $conn->close();
-echo json_encode($data); ?>
+echo json_encode($data);
+?>
+   
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart with Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
     <canvas id="lineChart"></canvas>
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
@@ -123,5 +131,4 @@ echo json_encode($data); ?>
         });
     </script>
 </body>
-
         
