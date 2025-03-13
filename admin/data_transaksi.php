@@ -13,24 +13,48 @@ include "library/inc.connection.php";
 <body>
     <canvas id="transaksiChart"></canvas>
 
+    <?php
+    // Koneksi ke database
+    $conn = new mysqli("localhost", "username", "password", "database_name");
+    
+    if ($conn->connect_error) {
+        die("Koneksi gagal: " . $conn->connect_error);
+    }
 
-<?php
-    $sql = "SELECT 
-                MONTH(tanggal) AS bulan, 
-                YEAR(tanggal) AS tahun,
+    // Query untuk bar pertama (Booking)
+    $sql1 = "SELECT 
+                DATE_FORMAT(tanggal, '%Y-%m-%d') AS `date`,
                 COUNT(id) AS total_transaksi
             FROM booking
-            GROUP BY YEAR(tanggal), MONTH(tanggal)
-            ORDER BY tahun DESC, bulan DESC;";
+            GROUP BY `date`
+            ORDER BY `date` DESC;";
     
-    $result = $conn->query($sql);
+    $result1 = $conn->query($sql1);
     
     $labels = [];
-    $data = [];
+    $bookingData = [];
     
-    while ($row = $result->fetch_assoc()) {
-        $labels[] = $row["bulan"] . "-" . $row["tahun"];
-        $data[] = $row["total_transaksi"];
+    while ($row = $result1->fetch_assoc()) {
+        $labels[] = $row["date"];
+        $bookingData[] = $row["total_transaksi"];
+    }
+    
+    // Query untuk bar kedua (Inventory)
+    $sql2 = "SELECT 
+                DATE(t.updated_date) AS tanggal, 
+                SUM(t.qty) AS total_qty
+            FROM transaction t
+            LEFT JOIN master_product mp ON t.keterangan = mp.name
+            WHERE mp.type = 'inventory'
+            GROUP BY DATE(t.updated_date)
+            ORDER BY tanggal;";
+    
+    $result2 = $conn->query($sql2);
+    
+    $inventoryData = [];
+    
+    while ($row = $result2->fetch_assoc()) {
+        $inventoryData[] = $row["total_qty"];
     }
     
     $conn->close();
@@ -42,13 +66,22 @@ include "library/inc.connection.php";
             type: 'bar',
             data: {
                 labels: <?php echo json_encode($labels); ?>,
-                datasets: [{
-                    label: 'Total Transaksi',
-                    data: <?php echo json_encode($data); ?>,
-                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
+                datasets: [
+                    {
+                        label: 'Booking',
+                        data: <?php echo json_encode($bookingData); ?>,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Inventory',
+                        data: <?php echo json_encode($inventoryData); ?>,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
             },
             options: {
                 responsive: true,
