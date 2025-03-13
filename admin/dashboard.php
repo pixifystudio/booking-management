@@ -504,6 +504,64 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     while ($row = $result2->fetch_assoc()) {
         $inventoryData[] = $row["total_qty"];
     }
+
+    // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
+    $sql3 = "WITH monthly_data AS (
+    SELECT 
+        DATE_FORMAT(updated_date, '%Y-%m') AS bulan,
+        SUM(qty) AS total_qty,
+        SUM(nominal) AS total_nominal,
+        `status`
+    FROM (
+        SELECT 
+            qty, 
+            nominal, 
+            `status`, 
+            updated_date
+        FROM `transaction` 
+        WHERE keterangan != 'DP' 
+            AND updated_date >= '2025-03-07 00:00:00'
+
+        UNION ALL 
+
+        SELECT 
+            dd.qty AS qty, 
+            dd.nominal AS nominal, 
+            'IN' AS `status`, 
+            d.updated_date
+        FROM `data_qr_detail` dd 
+        LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
+        WHERE item != 'DP' 
+            AND d.updated_date >= '2025-03-07 00:00:00'
+    ) AS combined_data
+    GROUP BY bulan, `status`
+)
+SELECT 
+    bulan,
+    SUM(CASE WHEN status = 'IN' THEN total_qty ELSE 0 END) AS total_qty_IN,
+    SUM(CASE WHEN status = 'OUT' THEN total_qty ELSE 0 END) AS total_qty_OUT,
+    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) AS total_nominal_IN,
+    SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS total_nominal_OUT,
+    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) 
+      - SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS selisih_nominal
+FROM monthly_data
+GROUP BY bulan
+ORDER BY bulan;";
+    
+    $result3 = $conn->query($sql3);
+    
+    $bulan = [];
+    $total_qty_IN = [];
+    $total_qty_OUT = [];
+    $selisih_nominal = [];
+
+    
+    while ($row = $result3->fetch_assoc()) {
+        $bulan[] = $row["bulan"];
+        $total_qty_IN[] = $row["total_qty_IN"];
+        $total_qty_OUT[] = $row["total_qty_OUT"];
+        $selisih_nominal[] = $row["selisih_nominal"];
+    }
     
     $conn->close();
     ?>
@@ -550,18 +608,18 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
         const myChart = new Chart(ctx2, {
             type: 'bar',
             data: {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
+                labels: <?php echo json_encode($bulan); ?>,
                 datasets: [
                     {
                         label: 'Data Bar',
-                        data: [12, 19, 3, 5, 2],
+                        data: <?php echo json_encode($total_qty_IN); ?>,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Data Line',
-                        data: [10, 15, 7, 9, 4],
+                        data: <?php echo json_encode($total_qty_OUT); ?>,
                         type: 'line',
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 2,
