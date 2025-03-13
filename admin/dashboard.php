@@ -494,7 +494,7 @@ ORDER BY ds.date DESC;";
     }
     
     // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
-    $sql2 = "WITH RECURSIVE date_series AS ( SELECT CURDATE() - INTERVAL 20 DAY AS tanggal UNION ALL SELECT tanggal + INTERVAL 1 DAY FROM date_series WHERE tanggal < CURDATE() ) SELECT ds.tanggal, COALESCE(SUM(t.qty), 0) AS total_qty FROM date_series ds LEFT JOIN transaction t ON DATE(t.updated_date) = ds.tanggal LEFT JOIN master_product mp ON t.keterangan = mp.name AND mp.type = 'inventory' GROUP BY ds.tanggal ORDER BY ds.tanggal;";
+    $sql2 = "WITH RECURSIVE date_series AS ( SELECT CURDATE() - INTERVAL 20 DAY AS tanggal UNION ALL SELECT tanggal + INTERVAL 1 DAY FROM date_series WHERE tanggal < CURDATE() ) SELECT ds.tanggal, COALESCE(SUM(t.qty), 0) AS total_qty FROM date_series ds LEFT JOIN transaction t ON DATE(t.updated_date) = ds.tanggal LEFT JOIN master_product mp ON t.keterangan = mp.name AND mp.type = 'inventory' GROUP BY ds.tanggal ORDER BY ds.tanggal desc;";
     
     $result2 = $conn->query($sql2);
     
