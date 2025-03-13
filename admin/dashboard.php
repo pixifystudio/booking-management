@@ -474,7 +474,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 </div>
 </div>
 <!-- END: Content-->
-
+<?php
  // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
     $sql1 = "SELECT 
                 DATE_FORMAT(tanggal, '%Y-%m-%d') AS `date`,
