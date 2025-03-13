@@ -167,6 +167,12 @@ if ($_GET) {
       include "master_jadwal_delete.php";
       break;
 
+          case 'Data-Transaksi':
+      if (!file_exists("data_transaksi.php")) die("Sorry Empty Page!");
+      include "data_transaksi.php";
+      break;
+
+
 
       #MASTER Jadwal Hari
 

@@ -11,6 +11,8 @@ include "library/inc.connection.php";
                     FROM booking
                     GROUP BY YEAR(tanggal), MONTH(tanggal)
                     ORDER BY tahun DESC, bulan DESC;";
+                    echo $mySql;
+                    exit;
         $result = $conn->query($sql);
 
         $data = [];
