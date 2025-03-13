@@ -350,82 +350,66 @@ $(window).on("load", function () {
   //------------ Revenue Report Chart ------------
   //----------------------------------------------
 
-  fetch("data_transaksi.php")
-  .then((response) => response.json())
-  .then((data) => {
-    const bulan = data.map((item) => item.bulan);
-    const tahun = data.map((item) => item.tahun);
-    const total_transaksi = data.map((item) => item.total_transaksi);
+  fetch("getRevenueData.php")
+    .then((response) => response.json())
+    .then((data) => {
+      const months = data.map((item) => item.month);
+      const earnings = data.map((item) => item.earning);
+      const expenses = data.map((item) => item.expense);
 
-  revenueReportChartOptions = {
-    chart: {
-      height: 230,
-      stacked: true,
-      type: "bar",
-      toolbar: { show: false },
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: "17%",
-        endingShape: "rounded",
-      },
-      distributed: true,
-    },
-    colors: [window.colors.solid.primary, window.colors.solid.warning],
-    series: [
-      {
-        name: "Booking",
-        data: total_transaksi,
-      },
-      {
-        name: "Tahun",
-        data: tahun,
-      },
-    ],
-    dataLabels: {
-      enabled: false,
-    },
-    legend: {
-      show: false,
-    },
-    grid: {
-      padding: {
-        top: -20,
-        bottom: -10,
-      },
-      yaxis: {
-        lines: { show: false },
-      },
-    },
-    xaxis: {
-      categories: bulan,
-      labels: {
-        style: {
-          colors: $textMutedColor,
-          fontSize: "0.86rem",
+      let revenueReportChartOptions = {
+        chart: {
+          height: 230,
+          stacked: true,
+          type: "bar",
+          toolbar: { show: false },
         },
-      },
-      axisTicks: {
-        show: false,
-      },
-      axisBorder: {
-        show: false,
-      },
-    },
-    yaxis: {
-      labels: {
-        style: {
-          colors: $textMutedColor,
-          fontSize: "0.86rem",
+        plotOptions: {
+          bar: {
+            columnWidth: "17%",
+            endingShape: "rounded",
+          },
+          distributed: true,
         },
-      },
-    },
-  };
-  revenueReportChart = new ApexCharts(
-    $revenueReportChart,
-    revenueReportChartOptions
-  );
-  revenueReportChart.render();
+        colors: [window.colors.solid.primary, window.colors.solid.warning],
+        series: [
+          {
+            name: "Earning",
+            data: earnings,
+          },
+          {
+            name: "Expense",
+            data: expenses,
+          },
+        ],
+        dataLabels: { enabled: false },
+        legend: { show: false },
+        grid: {
+          padding: { top: -20, bottom: -10 },
+          yaxis: { lines: { show: false } },
+        },
+        xaxis: {
+          categories: months,
+          labels: {
+            style: { colors: $textMutedColor, fontSize: "0.86rem" },
+          },
+          axisTicks: { show: false },
+          axisBorder: { show: false },
+        },
+        yaxis: {
+          labels: {
+            style: { colors: $textMutedColor, fontSize: "0.86rem" },
+          },
+        },
+      };
+
+      let revenueReportChart = new ApexCharts(
+        $revenueReportChart,
+        revenueReportChartOptions
+      );
+      revenueReportChart.render();
+    })
+    .catch((error) => console.error("Error fetching data:", error));
 
   //---------------- Budget Chart ----------------
   //----------------------------------------------
