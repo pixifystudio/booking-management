@@ -602,7 +602,6 @@ ORDER BY bulan;";
             }
         });
     </script>
-
 <script>
     const ctx2 = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx2, {
@@ -623,6 +622,14 @@ ORDER BY bulan;";
                     borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 2,
                     fill: false
+                },
+                {
+                    label: 'Saldo (Rp)',
+                    data: <?php echo json_encode(array_map(function($in, $out) { return $in - $out; }, $total_nominal_IN, $total_nominal_OUT)); ?>,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    borderDash: [5, 5], // Garis putus-putus untuk saldo
+                    fill: false
                 }
             ]
         },
@@ -632,7 +639,7 @@ ORDER BY bulan;";
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        callback: function(value, index, values) {
+                        callback: function(value) {
                             return 'Rp ' + new Intl.NumberFormat('id-ID').format(value);
                         }
                     }
