@@ -3,26 +3,36 @@
 <?php
 include_once "library/inc.seslogin.php";
 include "library/inc.connection.php";
-
-        $sql = "SELECT 
+            $sql = "SELECT 
                         MONTH(tanggal) AS bulan, 
                         YEAR(tanggal) AS tahun,
                         COUNT(id) AS total_transaksi
                     FROM booking
                     GROUP BY YEAR(tanggal), MONTH(tanggal)
                     ORDER BY tahun DESC, bulan DESC;";
-                    echo $sql;
-                    exit;
-        $result = $conn->query($sql);
 
-        $data = [];
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
+            $result = $conn->query($sql);
 
-        echo json_encode($data);
-        $conn->close();
+            if (!$result) {
+                // Jika query gagal, kirim respon error dalam format JSON
+                echo json_encode([
+                    "error" => true,
+                    "message" => "Query error: " . $conn->error
+                ]);
+            } else {
+                // Jika query berhasil, proses hasilnya
+                $data = [];
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
 
+                echo json_encode([
+                    "error" => false,
+                    "data" => $data
+                ]);
+            }
+
+            $conn->close();
         ?>
 
         
