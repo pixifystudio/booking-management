@@ -2,6 +2,9 @@
 $_SESSION['SES_TITLE'] = "Management Admin";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
+
+
+
 $ses_group = $_SESSION['SES_GROUP'];
 if ($ses_group!='Super Admin') {
         echo "<meta http-equiv='refresh' content='0; url=?page=Dashboard-2'>";
@@ -9,6 +12,9 @@ if ($ses_group!='Super Admin') {
 
 $_SESSION['SES_PAGE'] = "?page=Management Admin";
 ?>
+
+<!-- tambah untuk chart -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- BEGIN: Content-->
 <div class="content ">
   <div class="content-overlay"></div>
@@ -195,10 +201,10 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                             </div>
                         </div>
-                       <div class="col-xl-9 col-md-6 col-lg-9 col-12">
+                        <div class="col-xl-9 col-md-6 col-lg-9 col-12">
                             <div class="card card-revenue-budget">
                                 <div class="row mx-0">
-                                    <div class="col-md-12 col-12 revenue-report-wrapper">
+                                    <div class="col-md-12 col-12">
                                         <div class="d-sm-flex justify-content-between align-items-center mb-3">
                                             <h4 class="card-title mb-50 mb-sm-0">Total Transaksi</h4>
                                             <div class="d-flex align-items-center">
@@ -212,7 +218,9 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="revenue-report-chart"></div>
+                                        <div>
+                                            <canvas id="transaksiChart"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -466,6 +474,81 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 </div>
 </div>
 <!-- END: Content-->
+
+ // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
+    $sql1 = "SELECT 
+                DATE_FORMAT(tanggal, '%Y-%m-%d') AS `date`,
+                COUNT(id) AS total_transaksi
+            FROM booking
+            WHERE tanggal >= CURDATE() - INTERVAL 10 DAY
+            GROUP BY `date`
+            ORDER BY `date` DESC;";
+    
+    $result1 = $conn->query($sql1);
+    
+    $labels = [];
+    $bookingData = [];
+    
+    while ($row = $result1->fetch_assoc()) {
+        $labels[] = $row["date"];
+        $bookingData[] = $row["total_transaksi"];
+    }
+    
+    // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
+    $sql2 = "SELECT 
+                DATE(t.updated_date) AS tanggal, 
+                SUM(t.qty) AS total_qty
+            FROM transaction t
+            LEFT JOIN master_product mp ON t.keterangan = mp.name
+            WHERE mp.type = 'inventory' 
+            AND t.updated_date >= CURDATE() - INTERVAL 10 DAY
+            GROUP BY DATE(t.updated_date)
+            ORDER BY tanggal;";
+    
+    $result2 = $conn->query($sql2);
+    
+    $inventoryData = [];
+    
+    while ($row = $result2->fetch_assoc()) {
+        $inventoryData[] = $row["total_qty"];
+    }
+    
+    $conn->close();
+    ?>
+
+    <script>
+        const ctx = document.getElementById('transaksiChart').getContext('2d');
+        const transaksiChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?php echo json_encode($labels); ?>,
+                datasets: [
+                    {
+                        label: 'Booking',
+                        data: <?php echo json_encode($bookingData); ?>,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Inventory',
+                        data: <?php echo json_encode($inventoryData); ?>,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 <?php
 include "footer_v2.php";
