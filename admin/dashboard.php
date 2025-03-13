@@ -547,7 +547,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 
         <script>
         const ctx2 = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
+        const myChart = new Chart(ctx2, {
             type: 'bar',
             data: {
                 labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
