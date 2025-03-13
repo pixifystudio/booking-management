@@ -64,71 +64,52 @@ $conn->close();
 // echo json_encode($data);
 ?>
    
-
-<!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Line Chart with Chart.js</title>
+    <title>Line Chart dengan 3 Baris</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <canvas id="lineChart"></canvas>
+    <canvas id="myChart"></canvas>
     <script>
-        document.addEventListener("DOMContentLoaded", async function () {
-            try {
-                const response = await fetch(window.location.href);
-                const data = await response.json();
-                
-                const labels = data.map(d => d.bulan);
-                const totalNominalIN = data.map(d => d.total_nominal_IN);
-                const totalNominalOUT = data.map(d => d.total_nominal_OUT);
-                const selisihNominal = data.map(d => d.selisih_nominal);
-                
-                const ctx = document.getElementById("lineChart").getContext("2d");
-                new Chart(ctx, {
-                    type: "line",
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: "Total Nominal IN",
-                                data: totalNominalIN,
-                                borderColor: "green",
-                                fill: false
-                            },
-                            {
-                                label: "Total Nominal OUT",
-                                data: totalNominalOUT,
-                                borderColor: "red",
-                                fill: false
-                            },
-                            {
-                                label: "Selisih Nominal",
-                                data: selisihNominal,
-                                borderColor: "blue",
-                                fill: false
-                            }
-                        ]
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni'],
+                datasets: [
+                    {
+                        label: 'Data 1',
+                        data: [10, 20, 15, 25, 30, 40],
+                        borderColor: 'red',
+                        fill: false
                     },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: 'Trend Transaksi 5 Bulan Terakhir'
-                            }
-                        }
+                    {
+                        label: 'Data 2',
+                        data: [5, 15, 10, 20, 25, 35],
+                        borderColor: 'blue',
+                        fill: false
+                    },
+                    {
+                        label: 'Data 3',
+                        data: [8, 18, 12, 22, 28, 38],
+                        borderColor: 'green',
+                        fill: false
                     }
-                });
-            } catch (error) {
-                console.error("Error fetching chart data:", error);
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
             }
         });
     </script>
 </body>
+</html>
         
