@@ -468,13 +468,20 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 <!-- END: Content-->
 <?php
  // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
-    $sql1 = "SELECT 
-                DATE_FORMAT(tanggal, '%Y-%m-%d') AS `date`,
-                COUNT(id) AS total_transaksi
-            FROM booking
-            WHERE tanggal >= CURDATE() - INTERVAL 10 DAY
-            GROUP BY `date`
-            ORDER BY `date` DESC;";
+    $sql1 = "WITH RECURSIVE date_series AS (
+    SELECT CURDATE() - INTERVAL 20 DAY AS date
+    UNION ALL
+    SELECT date + INTERVAL 1 DAY 
+    FROM date_series 
+    WHERE date < CURDATE()
+)
+SELECT 
+    ds.date, 
+    COALESCE(COUNT(b.id), 0) AS total_transaksi
+FROM date_series ds
+LEFT JOIN booking b ON DATE(b.tanggal) = ds.date
+GROUP BY ds.date
+ORDER BY ds.date DESC;";
     
     $result1 = $conn->query($sql1);
     
@@ -487,15 +494,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
     }
     
     // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
-    $sql2 = "SELECT 
-                DATE(t.updated_date) AS tanggal, 
-                SUM(t.qty) AS total_qty
-            FROM transaction t
-            LEFT JOIN master_product mp ON t.keterangan = mp.name
-            WHERE mp.type = 'inventory' 
-            AND t.updated_date >= CURDATE() - INTERVAL 10 DAY
-            GROUP BY DATE(t.updated_date)
-            ORDER BY tanggal;";
+    $sql2 = "WITH RECURSIVE date_series AS ( SELECT CURDATE() - INTERVAL 10 DAY AS tanggal UNION ALL SELECT tanggal + INTERVAL 1 DAY FROM date_series WHERE tanggal < CURDATE() ) SELECT ds.tanggal, COALESCE(SUM(t.qty), 0) AS total_qty FROM date_series ds LEFT JOIN transaction t ON DATE(t.updated_date) = ds.tanggal LEFT JOIN master_product mp ON t.keterangan = mp.name AND mp.type = 'inventory' GROUP BY ds.tanggal ORDER BY ds.tanggal;";
     
     $result2 = $conn->query($sql2);
     
