@@ -67,7 +67,7 @@ $id = $_GET['id'];
     $nomor  = 0;
 
     $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
-     VALUES ('DP)','$dataDP','1','$dataMetodeTransaksiDP','$id','IN',now())";
+     VALUES ('DP','$dataDP','1','$dataMetodeTransaksiDP','$id','IN',now())";
     $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR INPUT TRANSACTION:  " . mysqli_error($koneksidb));
 
     $mySql1   = "INSERT INTO `transaction`( `keterangan`,`nominal`,`qty`,`metode`,`booking_detail_id`, `status`,`updated_date`)
