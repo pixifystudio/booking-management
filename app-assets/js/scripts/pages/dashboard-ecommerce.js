@@ -349,6 +349,14 @@ $(window).on("load", function () {
 
   //------------ Revenue Report Chart ------------
   //----------------------------------------------
+
+  fetch("data_transaksi.php")
+  .then((response) => response.json())
+  .then((data) => {
+    const bulan = data.map((item) => item.bulan);
+    const tahun = data.map((item) => item.tahun);
+    const total_transaksi = data.map((item) => item.total_transaksi);
+
   revenueReportChartOptions = {
     chart: {
       height: 230,
@@ -366,12 +374,12 @@ $(window).on("load", function () {
     colors: [window.colors.solid.primary, window.colors.solid.warning],
     series: [
       {
-        name: "Earning",
-        data: [95, 177, 284, 256, 105, 63, 168, 218, 72],
+        name: "Booking",
+        data: total_transaksi,
       },
       {
-        name: "Expense",
-        data: [200, -80, -60, -180, -100, -60, -85, -75, -100],
+        name: "Tahun",
+        data: tahun,
       },
     ],
     dataLabels: {
@@ -390,17 +398,7 @@ $(window).on("load", function () {
       },
     },
     xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-      ],
+      categories: bulan,
       labels: {
         style: {
           colors: $textMutedColor,
