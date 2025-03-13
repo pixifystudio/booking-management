@@ -4,19 +4,23 @@
 include_once "library/inc.seslogin.php";
 include "library/inc.connection.php";
 
-        $mySql   = "SELECT * FROM booking order by tanggal desc";
-        $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
-        $nomor  = 0;
-        $data = array();
-        while ($myData = mysqli_fetch_array($myQry)) {
-            $nomor++;
-            $Code = $myData['id'];
-            $nama[] = $myData['nama'];
-            $tanggal[] = $myData['tanggal'];
-            $jam[] = $myData['jam'];
-            $no_wa[] = $myData['nama'];
-            $paket[] = $myData['nama'];
-            $background[] = $myData['background'];
-            $status[] = $myData['status'];
+        $sql = "SELECT 
+                        MONTH(tanggal) AS bulan, 
+                        YEAR(tanggal) AS tahun,
+                        COUNT(id) AS total_transaksi
+                    FROM booking
+                    GROUP BY YEAR(tanggal), MONTH(tanggal)
+                    ORDER BY tahun DESC, bulan DESC;";
+        $result = $conn->query($sql);
+
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
         }
+
+        echo json_encode($data);
+        $conn->close();
+
         ?>
+
+        
