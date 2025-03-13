@@ -16,11 +16,12 @@ include "library/inc.connection.php";
     <?php
   
 
-    // Query untuk bar pertama (Booking)
+  // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
     $sql1 = "SELECT 
                 DATE_FORMAT(tanggal, '%Y-%m-%d') AS `date`,
                 COUNT(id) AS total_transaksi
             FROM booking
+            WHERE tanggal >= CURDATE() - INTERVAL 10 DAY
             GROUP BY `date`
             ORDER BY `date` DESC;";
     
@@ -34,13 +35,14 @@ include "library/inc.connection.php";
         $bookingData[] = $row["total_transaksi"];
     }
     
-    // Query untuk bar kedua (Inventory)
+    // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
     $sql2 = "SELECT 
                 DATE(t.updated_date) AS tanggal, 
                 SUM(t.qty) AS total_qty
             FROM transaction t
             LEFT JOIN master_product mp ON t.keterangan = mp.name
-            WHERE mp.type = 'inventory'
+            WHERE mp.type = 'inventory' 
+            AND t.updated_date >= CURDATE() - INTERVAL 10 DAY
             GROUP BY DATE(t.updated_date)
             ORDER BY tanggal;";
     
