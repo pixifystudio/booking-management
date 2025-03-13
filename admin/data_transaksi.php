@@ -56,14 +56,14 @@ GROUP BY bulan
 ORDER BY bulan;
 ";
 
-$result = $connection->query($query);
+$result = $conn->query($query);
 
 $data = [];
 while ($row = $result->fetch_assoc()) {
     $data[] = $row;
 }
 
-$connection->close();
+$conn->close();
 echo json_encode($data); ?>
 
     <canvas id="lineChart"></canvas>
