@@ -188,44 +188,44 @@ $id = $_GET['id'];
                         <hr>
                         <h3>Detail Transaksi</h3>
 
-                       div class="col-md-3 col-12">
-    <div class="form-group">
-        <label>Product</label>
-        <select id="productSelect" class="js-example-basic-single form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required onchange="toggleNominalField()">
-            <option selected value="">Pilih</option>
-            <?php
-            $mySql  = "SELECT * from master_product group by `name` order by `name` asc";
-            $myQry  = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-            while ($myData = mysqli_fetch_array($myQry)) {
-                echo '<option value="' . $myData['id'] . '" data-type="' . $myData['type'] . '">' . $myData['name'] . '</option>';
-            }
-            ?>
-        </select>
-    </div>
-</div>
+                       <div class="col-md-3 col-12">
+                          <div class="form-group">
+                              <label>Product</label>
+                              <select id="productSelect" class="js-example-basic-single form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required onchange="toggleNominalField()">
+                                  <option selected value="">Pilih</option>
+                                  <?php
+                                  $mySql  = "SELECT * from master_product group by `name` order by `name` asc";
+                                  $myQry  = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                  while ($myData = mysqli_fetch_array($myQry)) {
+                                      echo '<option value="' . $myData['id'] . '" data-type="' . $myData['type'] . '">' . $myData['name'] . '</option>';
+                                  }
+                                  ?>
+                              </select>
+                          </div>
+                        </div>
 
-<!-- Field Nominal (disembunyikan secara default) -->
-<div class="col-md-3 col-12" id="nominalField" style="display: none;">
-    <div class="form-group">
-        <label>Nominal</label>
-        <input type="text" class="form-control" name="txtNominal" placeholder="Masukkan nominal">
-    </div>
-</div>
+                        <!-- Field Nominal (disembunyikan secara default) -->
+                        <div class="col-md-3 col-12" id="nominalField" style="display: none;">
+                          <div class="form-group">
+                              <label>Nominal</label>
+                              <input type="text" class="form-control" name="txtNominal" placeholder="Masukkan nominal">
+                          </div>
+                        </div>
 
-<script>
-    function toggleNominalField() {
-        var productSelect = document.getElementById('productSelect');
-        var selectedOption = productSelect.options[productSelect.selectedIndex];
-        var productType = selectedOption.getAttribute('data-type');
-        var nominalField = document.getElementById('nominalField');
-        
-        if (productType === 'jasa') {
-            nominalField.style.display = 'block';
-        } else {
-            nominalField.style.display = 'none';
-        }
-    }
-</script>
+                        <script>
+                          function toggleNominalField() {
+                              var productSelect = document.getElementById('productSelect');
+                              var selectedOption = productSelect.options[productSelect.selectedIndex];
+                              var productType = selectedOption.getAttribute('data-type');
+                              var nominalField = document.getElementById('nominalField');
+                              
+                              if (productType === 'jasa') {
+                                  nominalField.style.display = 'block';
+                              } else {
+                                  nominalField.style.display = 'none';
+                              }
+                          }
+                        </script>
 
 
 
