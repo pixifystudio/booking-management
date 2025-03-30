@@ -359,7 +359,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 <div class="card-header">
                                     <div>
                                         <h4 class="card-title">Top 3 Booking Type</h4>
-                                        <p class="card-text font-small-2"><?php $bulan . ' ' . $tahun ?></p>
+                                        <p class="card-text font-small-2"><?php echo $bulan . ' ' . $tahun ?></p>
                                  
                                     </div>
                                 </div>
@@ -397,7 +397,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 <div class="card-header">
                                     <div>
                                         <h4 class="card-title">Top 3 Inventory Sales</h4>
-                                        <p class="card-text font-small-2"><?php $bulan . ' ' . $tahun ?></p>
+                                        <p class="card-text font-small-2"><?php echo $bulan . ' ' . $tahun ?></p>
                                     </div>
                                 </div>
                                 <div class="card-body">
