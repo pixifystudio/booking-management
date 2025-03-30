@@ -314,7 +314,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 <?php 
                                                $txtMonth  = isset($_GET['month']) ? $_GET['month'] : date('m');
                                                $txtYear  = isset($_GET['year']) ? $_GET['year']  : date('Y');
-                                               echo $defaultFilter = $txtMonth . '-' . $txtYear;
+                                               $defaultFilter = $txtYear . '-' . $txtMonth;
                                                 ?>
                                                 <div class="col-md-2 col-12 mt-2">
                                                     <label>Bulan</label>
