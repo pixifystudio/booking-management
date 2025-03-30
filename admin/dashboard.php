@@ -363,7 +363,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                        
                                     $mySql = "SELECT jenis, COUNT(*) AS jumlah_booking
                                                 FROM booking
-                                                WHERE STATUS = 'Selesai' AND no_wa != '-' and month(updated_date) ='$txtMonth' and year(updated_date) <='$txtYear'
+                                                WHERE STATUS = 'Selesai' AND no_wa != '-' and month(updated_date) ='$txtMonth' and year(updated_date) ='$txtYear'
                                                 GROUP BY jenis
                                                 ORDER BY jumlah_booking DESC;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
