@@ -308,15 +308,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                     <div>
                                 <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
-
                                         <div class="col-12">
                                             <div class="row">
-
-
-                                                     <div class="col-12">
-                                                    <div class="row">
-
-                                            
 
                                                 <?php 
                                                $txtMonth  = isset($_GET['month']) ? $_GET['month'] : date('m');
@@ -324,34 +317,9 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 ?>
                                                 <div class="col-md-2 col-12 mt-2">
                                                     <label>Bulan</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $txtMonth ?>" aria-describedby="basic-addon-name" />
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonthYear' value="<?= $txtMonth ?>" aria-describedby="basic-addon-name" />
                                                 </div>
-                                             <div class="col-md-2 col-12 mt-2">
-                                                    <label>Tahun /label>
-                                                    <input type="year" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtYear' value="<?= $txtYear ?>" aria-describedby="basic-addon-name" />
-                                                </div>
-                                                <div class="col-md-2 col-12 mt-2">
-                                                    <label>Metode</label>
-                                                    <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off">
-                                                        <option selected value="">All</option>
-                                                        <?php
-                                                        // panggil database
-                                                        $mySql  = "SELECT * from master_status where status_name = 'metode' group by status_sub_name order by status_sub_name asc";
-                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                        while ($myData = mysqli_fetch_array($myQry)) {
-                                                            if ($myData['status_sub_name'] == $metode) {
-                                                                $cek = 'selected';
-                                                            } else {
-                                                                $cek = '';
-                                                            }
-                                                        ?>
-
-                                                            <option value="<?php echo $myData['status_sub_name']  ?>" <?= $cek ?>><?php echo $myData['status_sub_name'] ?></option>;
-                                                        <?php
-                                                        };
-                                                        ?>
-                                                    </select>
-                                                </div>
+                                                
                                                 <div class="col-2 mt-2">
                                                     <br>
                                                     <button type="submit" name="btnDashboard" style="width: 100%;" class="btn btn-success">Filter</button>
@@ -359,15 +327,14 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 <?php 
                                                
                                                 ?>
-
-                                                    </div>
-
                                                 </div>
                                             </div>
                                         </div> 
                                     </div>
                                 </form>
                     </div>
+                    <br>
+                    
 
                     <div class="row match-height">
                  <div class="col-lg-4 col-md-3 col-6">
