@@ -350,11 +350,16 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
 
                         <div class="col-lg-4 col-md-6 col-12">
+                              <?php 
+                            $originalDate = $txtYear . '-' . $txtMonth . '-' . '01';
+                            $bulan = date("F", strtotime($originalDate));
+                            $tahun = date("Y", strtotime($originalDate));
+                            ?>
                             <div class="card card-browser-states">
                                 <div class="card-header">
                                     <div>
                                         <h4 class="card-title">Top 3 Booking Type</h4>
-                                        <p class="card-text font-small-2">February 2025</p>
+                                        <p class="card-text font-small-2"><?php $bulan . ' ' . $tahun ?></p>
                                  
                                     </div>
                                 </div>
@@ -387,11 +392,12 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                             </div>
                         </div>
                          <div class="col-lg-4 col-md-6 col-12">
+                          
                             <div class="card card-browser-states">
                                 <div class="card-header">
                                     <div>
                                         <h4 class="card-title">Top 3 Inventory Sales</h4>
-                                        <p class="card-text font-small-2">February 2025</p>
+                                        <p class="card-text font-small-2"><?php $bulan . ' ' . $tahun ?></p>
                                     </div>
                                 </div>
                                 <div class="card-body">
