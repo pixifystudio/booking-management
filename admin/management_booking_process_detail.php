@@ -16,6 +16,8 @@ $id = $_GET['id'];
     #data post
     $dataProduct  = $_POST['txtProduct'];
     $dataQty  = $_POST['txtQty'];
+    $dataNominal  = isset($_POST['txtNominal']) ? $_POST['txtNominal'] : '';
+   
 
     
     $ses_nama = $_SESSION['SES_NAMA'];
@@ -25,7 +27,9 @@ $id = $_GET['id'];
     $myQryPrice = mysqli_query($koneksidb, $mySqlPrice) or die("Query Insert Salah : " . mysqli_error($koneksidb));
     $DataPrice = mysqli_fetch_array($myQryPrice);
 
-    $dataNominal = $DataPrice['price'];
+    if ($dataNominal =='') {
+          $dataNominal = $DataPrice['price'];
+    }
     $dataItem = $DataPrice['name'];
     $dataType = $DataPrice['type'];
 
