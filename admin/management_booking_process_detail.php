@@ -17,7 +17,7 @@ $id = $_GET['id'];
     $dataProduct  = $_POST['txtProduct'];
     $dataQty  = $_POST['txtQty'];
 
-
+    
     $ses_nama = $_SESSION['SES_NAMA'];
 
     #ambil harga
@@ -190,28 +190,41 @@ $id = $_GET['id'];
 
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Product</label>
-                            <select class="js-example-basic-single form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
-                              <option selected value="">Pilih</option>
-                              <?php
-                              // deklarasi selected
-                              $cek = '';
-                              // panggil database
-                              $mySql  = "SELECT * from master_product 
-                                group by `name` order by `name` asc";
-                              $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                              while ($myData = mysqli_fetch_array($myQry)) {
-
-                              ?>
-
-
-                                <option value="<?php echo $myData['id']  ?>"><?php echo $myData['name'] ?></option>;
-                              <?php
-                              };
-                              ?>
-                            </select>
+                              <label>Product</label>
+                              <select id="productSelect" class="js-example-basic-single form-select" name="txtProduct" aria-label="Default select example" autocomplete="off" required>
+                                  <option selected value="">Pilih</option>
+                                  <?php
+                                  $mySql  = "SELECT * from master_product group by `name` order by `name` asc";
+                                  $myQry  = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                  while ($myData = mysqli_fetch_array($myQry)) {
+                                      echo '<option value="' . $myData['id'] . '" data-type="' . $myData['type'] . '">' . $myData['name'] . '</option>';
+                                  }
+                                  ?>
+                              </select>
                           </div>
-                        </div>
+                      </div>
+
+              <!-- Field Nominal (disembunyikan secara default) -->
+              <div class="col-md-3 col-12" id="nominalField" style="display: none;">
+                  <div class="form-group">
+                      <label>Nominal</label>
+                      <input type="text" class="form-control" name="txtNominal" placeholder="Masukkan nominal">
+                  </div>
+              </div>
+
+              <script>
+                  document.getElementById('productSelect').addEventListener('change', function () {
+                      var selectedOption = this.options[this.selectedIndex];
+                      var productType = selectedOption.getAttribute('data-type');
+                      var nominalField = document.getElementById('nominalField');
+                      
+                      if (productType === 'jasa') {
+                          nominalField.style.display = 'block';
+                      } else {
+                          nominalField.style.display = 'none';
+                      }
+                  });
+              </script>
 
 
                         <div class="col-md-3 col-12">
