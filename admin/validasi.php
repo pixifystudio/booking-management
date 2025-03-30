@@ -20,3 +20,7 @@ if (isset($_POST['btnHistory'])) {
 if (isset($_POST['btnLaporanTransaksi'])) {
   echo "<meta http-equiv='refresh' content='0; url=?page=Finance-Laporan-Transaksi&from=" . $txtDateFrom  . "&until=" . $txtDateUntil  . "&mtd=" . $txtMetode   . "'>";
 }
+
+if (isset($_POST['btnDashboard'])) {
+  echo "<meta http-equiv='refresh' content='0; url=?page=Dashboard&month=" . $txtMonth  . "&year=" . $txtYear  . "'>";
+}

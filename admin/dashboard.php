@@ -305,6 +305,70 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                         
                     </div>
 
+                    <div>
+                                <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <div class="row">
+
+
+                                                     <div class="col-12">
+                                                    <div class="row">
+
+                                            
+
+                                                <?php 
+                                               $txtMonth  = isset($_GET['month']) ? $_GET['month'] : date('m');
+                                               $txtYear  = isset($_GET['year']) ? $_GET['year']  : date('Y');
+                                                ?>
+                                                <div class="col-md-2 col-12 mt-2">
+                                                    <label>Bulan</label>
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonth' value="<?= $txtMonth ?>" aria-describedby="basic-addon-name" />
+                                                </div>
+                                             <div class="col-md-2 col-12 mt-2">
+                                                    <label>Tahun /label>
+                                                    <input type="year" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtYear' value="<?= $txtYear ?>" aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-md-2 col-12 mt-2">
+                                                    <label>Metode</label>
+                                                    <select class="form-select" name="txtMetode" aria-label="Default select example" autocomplete="off">
+                                                        <option selected value="">All</option>
+                                                        <?php
+                                                        // panggil database
+                                                        $mySql  = "SELECT * from master_status where status_name = 'metode' group by status_sub_name order by status_sub_name asc";
+                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                                        while ($myData = mysqli_fetch_array($myQry)) {
+                                                            if ($myData['status_sub_name'] == $metode) {
+                                                                $cek = 'selected';
+                                                            } else {
+                                                                $cek = '';
+                                                            }
+                                                        ?>
+
+                                                            <option value="<?php echo $myData['status_sub_name']  ?>" <?= $cek ?>><?php echo $myData['status_sub_name'] ?></option>;
+                                                        <?php
+                                                        };
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-2 mt-2">
+                                                    <br>
+                                                    <button type="submit" name="btnDashboard" style="width: 100%;" class="btn btn-success">Filter</button>
+                                                </div>
+                                                <?php 
+                                               
+                                                ?>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </form>
+                    </div>
+
                     <div class="row match-height">
                  <div class="col-lg-4 col-md-3 col-6">
                                     <div class="card card-tiny-line-stats">
@@ -328,11 +392,10 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                                 <div class="card-body">
                                                   <?php 
-                                      $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-01 00:00:00');
-                                     $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-31 23:59:59');  
+                                       
                                     $mySql = "SELECT jenis, COUNT(*) AS jumlah_booking
                                                 FROM booking
-                                                WHERE STATUS = 'Selesai' AND no_wa != '-' and updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'
+                                                WHERE STATUS = 'Selesai' AND no_wa != '-' and month(updated_date) ='$txtMonth' and year(updated_date) <='$txtYear'
                                                 GROUP BY jenis
                                                 ORDER BY jumlah_booking DESC;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
@@ -365,9 +428,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                                 <div class="card-body">
                                                   <?php 
-                                      $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-01 00:00:00');
-                                     $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-31 23:59:59');  
-                                    $mySql = "SELECT t.updated_date, mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and t.updated_date >='$txtDateFrom' and t.updated_date <='$txtDateUntil' and mp.type='Inventory'
+                                     
+                                    $mySql = "SELECT t.updated_date, mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and month(t.updated_date) ='$txtMonth' and year(t.updated_date) ='$txtYear' and mp.type='Inventory'
                                      group by mp.name;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
                                                 $sum_total4 = 0;
