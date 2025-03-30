@@ -314,10 +314,11 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 <?php 
                                                $txtMonth  = isset($_GET['month']) ? $_GET['month'] : date('m');
                                                $txtYear  = isset($_GET['year']) ? $_GET['year']  : date('Y');
+                                               $defaultFilter = $txtMonth.'-'.$txtYear;
                                                 ?>
                                                 <div class="col-md-2 col-12 mt-2">
                                                     <label>Bulan</label>
-                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonthYear' value="<?= $txtMonth ?>" aria-describedby="basic-addon-name" />
+                                                    <input type="month" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtMonthYear' value="<?= $defaultFilter ?>" aria-describedby="basic-addon-name" />
                                                 </div>
                                                 
                                                 <div class="col-2 mt-2">
@@ -334,7 +335,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </form>
                     </div>
                     <br>
-                    
+
 
                     <div class="row match-height">
                  <div class="col-lg-4 col-md-3 col-6">
