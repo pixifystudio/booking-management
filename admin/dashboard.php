@@ -399,7 +399,11 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                             <div class="card card-browser-states">
                                 <div class="card-header">
                                     <div>
+                                        <a href="?page=Inventory-Sales-Detail&bulan=<?php echo $bulan ?>&tahun=<?php echo $tahun ?>">
+
                                         <h4 class="card-title">Top 3 Inventory Sales</h4>
+                                        </a>
+
                                         <p class="card-text font-small-2"><?php echo $bulan . ' ' . $tahun ?></p>
                                     </div>
                                 </div>
@@ -407,7 +411,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                   <?php 
                                      
                                     $mySql = "SELECT t.updated_date, mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and month(t.updated_date) ='$txtMonth' and year(t.updated_date) ='$txtYear' and mp.type='Inventory'
-                                     group by mp.name order by qty desc;";
+                                     group by mp.name order by qty desc limit 3;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;

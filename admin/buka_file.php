@@ -356,6 +356,13 @@ if ($_GET) {
       include "dashboard_2.php";
       break;
 
+      // detail dashboard
+
+    case 'Inventory-Sales-Detail':
+      if (!file_exists("inventory_sales_detail.php")) die("Sorry Empty Page!");
+      include "inventory_sales_detail.php";
+      break;
+
 
     case 'Input-Pengeluaran-Add':
       if (!file_exists("input_pengeluaran_add.php")) die("Sorry Empty Page!");
