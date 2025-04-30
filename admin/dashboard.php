@@ -349,6 +349,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                         </div> 
                                 </form>
                              </div>
+            </div>
+                    <br>
                     <br>
 
                         <div class="col-lg-6 col-md-6 col-12 mt-2">
