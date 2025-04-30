@@ -392,7 +392,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                             </div>
                         </div>
-                         <div class="col-lg-4 col-md-6 col-12">
+                         <div class="col-lg-6 col-md-6 col-12">
                           
                             <div class="card card-browser-states">
                                 <div class="card-header">
