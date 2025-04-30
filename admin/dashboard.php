@@ -399,7 +399,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                             <div class="card card-browser-states">
                                 <div class="card-header">
                                     <div>
-                                        <a href="?page=Inventory-Sales-Detail&bulan=<?php echo $bulan ?>&tahun=<?php echo $tahun ?>">
+                                        <a href="?page=Inventory-Sales-Detail&bulan=<?php echo $txtMonth ?>&tahun=<?php echo $txtYear ?>">
 
                                         <h4 class="card-title">Top 3 Inventory Sales</h4>
                                         </a>
