@@ -306,7 +306,22 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                         
                     </div>
 
-                    <div>
+                    
+
+
+            <div class="row match-height">
+                 <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="card card-tiny-line-stats">
+                                        <div class="card-body pb-50">
+                                            <h6>Profit</h6>
+                                        <div>
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
                                 <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
@@ -332,23 +347,9 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                 </div>
                                             </div>
                                         </div> 
-                                    </div>
                                 </form>
-                    </div>
+                             </div>
                     <br>
-
-
-            <div class="row match-height">
-                 <div class="col-lg-12 col-md-12 col-12">
-                                    <div class="card card-tiny-line-stats">
-                                        <div class="card-body pb-50">
-                                            <h6>Profit</h6>
-                                        <div>
-                                            <canvas id="myChart"></canvas>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                         <div class="col-lg-6 col-md-6 col-12">
                               <?php 
