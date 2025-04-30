@@ -353,7 +353,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                     <br>
                     <br>
 
-                        <div class="col-lg-6 col-md-6 col-12 mt-2">
+                        <div class="col-lg-6 col-md-6 col-xs-12 mt-2">
                               <?php 
                             $originalDate = $txtYear . '-' . $txtMonth . '-' . '01';
                             $bulan = date("F", strtotime($originalDate));
@@ -395,7 +395,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                             </div>
                         </div>
-                         <div class="col-lg-6 col-md-6 col-12">
+                         <div class="col-lg-6 col-md-6 col-xs-12 ">
                           
                             <div class="card card-browser-states">
                                 <div class="card-header">
