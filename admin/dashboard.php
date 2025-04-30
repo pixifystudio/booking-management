@@ -405,7 +405,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                                   <?php 
                                      
                                     $mySql = "SELECT t.updated_date, mp.name, sum(qty) as qty FROM transaction t LEFT JOIN master_product mp ON (mp.name = t.keterangan) WHERE mp.name is not null  and month(t.updated_date) ='$txtMonth' and year(t.updated_date) ='$txtYear' and mp.type='Inventory'
-                                     group by mp.name;";
+                                     group by mp.name order by qty desc;";
                                      $myQry = mysqli_query($koneksidb, $mySql);
                                                 $sum_total4 = 0;
                                                 $sum_total_out4 = 0;
