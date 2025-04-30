@@ -401,8 +401,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                     <div>
                                         <a href="?page=Inventory-Sales-Detail&bulan=<?php echo $txtMonth ?>&tahun=<?php echo $txtYear ?>">
 
-                                        <h4 class="card-title">Top 3 Inventory Sales <i><h5>(Klik untuk detail lengkap)</h5></i>                                
-                                                    </h4>
+                                        <h4 class="card-title" style="color:purple">Top 3 Inventory Sales </h4>
 
                                         </a>
 
