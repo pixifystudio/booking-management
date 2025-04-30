@@ -351,9 +351,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                              </div>
             </div>
                     <br>
-                    <br>
             <div class="row match-height">
-                        <div class="col-lg-6 col-md-6 col-xs-12 mt-2">
+                        <div class="col-lg-6 col-md-6 col-xs-12">
                               <?php 
                             $originalDate = $txtYear . '-' . $txtMonth . '-' . '01';
                             $bulan = date("F", strtotime($originalDate));
