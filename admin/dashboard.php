@@ -352,7 +352,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
             </div>
                     <br>
                     <br>
-
+            <div class="row match-height">
                         <div class="col-lg-6 col-md-6 col-xs-12 mt-2">
                               <?php 
                             $originalDate = $txtYear . '-' . $txtMonth . '-' . '01';
@@ -429,6 +429,7 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                                 </div>
                             </div>
                         </div>
+            </div>
                         <!--/ Developer Meetup Card -->
 
                       
