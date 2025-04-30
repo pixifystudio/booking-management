@@ -145,18 +145,7 @@ function hari_ini($tanggal)
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
-                                        $Code = $myData['id'];
-                                        $Jam = $myData['jam'];
-
-                                        // ganti format jam
-                                        $Jam = $Jam;
-                                        $Jam = date("G:i", strtotime($Jam));
-                                        // set hari
-                                        $tanggal = $myData['tanggal'];
-                                        $hari = hari_ini($tanggal);
-                                        $no_wa = $myData['no_wa'];
-                                        $instagram = $myData['instagram'];
-                                        $no_wa_baru = "62" . substr($no_wa, 1);
+                                    
 
                                     ?>
 
