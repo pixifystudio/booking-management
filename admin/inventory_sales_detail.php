@@ -120,6 +120,7 @@ function hari_ini($tanggal)
                                         <div class="col-md-3 col-12 px-25">
                                         </div>
                                         <div class="col-md-4 col-12 ps-25">
+                                                  <a type="button" href="?page=Dashboard" style="width: 100%;" class="btn btn-warning">Kembali</a>
                                         </div>
                                     </div>
                                 </form>
