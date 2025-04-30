@@ -338,8 +338,8 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
                     <br>
 
 
-                    <div class="row match-height">
-                 <div class="col-lg-4 col-md-3 col-6">
+            <div class="row match-height">
+                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="card card-tiny-line-stats">
                                         <div class="card-body pb-50">
                                             <h6>Profit</h6>
