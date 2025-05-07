@@ -160,7 +160,7 @@ $username = isset($myData['username']) ? $myData['username'] : '';
                             <p>Selanjutnya yang harus kamu lakukan:</p>
                             <ol style="margin-left: 15px; line-height: 1.8;">
                               <li>Cek email kamu untuk detail pemesanan</li>
-                              <li>Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BRI 409101008799535 a.n Dicky Pramana Sukma</li>
+                              <li>Melakukan pembayaran DP sebesar Rp20.000 melalui rekening BCA 7550349935 a.n Frandika Herbawan</li>
                               <li>Kirim bukti pembayaran melalui no WhatsApp: 08517121209</li>
                             </ol>
                             <p>Sampai berjumpa di Pixify Studio :)</p>
