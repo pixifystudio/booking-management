@@ -387,7 +387,6 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
 
-                                    echo $mySql;
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -403,6 +402,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         // tambah waktu 7 jam agar aktual (default niaga hoster UCT)
                                         $now= $myData['updated_date'];
                                         $date = date("Y-m-d H:i:s", strtotime("$now +7 hours"));
+                                        $transaction_id = $myData['transaction_id'];
                                     ?>
 
                                         <tr>
@@ -417,30 +417,12 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $date; ?></td>
                                        <?php if ($ses_group =='Super Admin') { ?>
                                              <td nowrap>
-                                                <?php
-                                                //  if ($myData['purchase_status'] != "PO Cancelled" || $_SESSION['SES_DEPT'] == 'Super Admin') {
-                                                echo "<a href='?page=PDF-Purchase-New&id=$Code&v=$Version' target='_blank' alt='Print Data' > <i data-feather='printer'></i></a> <span class='mx-25'>|</span> ";
-                                                // }
-                                                if ($myData['purchase_date'] > $dapick_pembelian) {
-                                                    // if ($myData['purchase_status'] != "PO Approved" && $myData['purchase_status'] != "PO Closed") {
-                                                ?>
-                                                    <a href="?page=Laporan-Transaksi-Edit&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a>
+                                                    <a href="?page=Laporan-Transaksi-Edit&id=<?= $transaction_id;?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a>
                                                     <span class="mx-25">|</span>
-                                                    <a href="?page=Laporan-Transaksi-Delete&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='x-octagon'></i> </a>
+                                                    <a href="?page=Laporan-Transaksi-Delete&id=<?= $transaction_id;?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='x-octagon'></i> </a>
                                                     <span class="mx-25">|</span>
-                                                    <!-- <a href="?page=Purchase-Delete&code=Closed&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Close Data" onclick="return confirm('Apakah Anda yakin ingin menutup PO ini?')"><i data-feather='lock'></i> </a> -->
-                                                    <?php
-                                                    // } else { 
-                                                    ?>
-                                                    <!-- <a href="?page=Purchase-Detail&code=closed&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a> -->
-                                                <?php }
-                                                // }
-                                                ?> <!-- <span class="mx-25">|</span> -->
-                                                <!-- <a href="?page=Purchase-Delete&id=<?= $Code; ?>&v=<?= $Version; ?>&code=close" target="_self" alt="Close Data" onclick="return confirm('Apakah Anda yakin ingin menutup <?= $Code ?> ini?')"><i data-feather='lock'></i></a> -->
                                             </td>
                                         <?php } ?>
-
-
                                         </tr>
                                     <?php }
                                     ?>
