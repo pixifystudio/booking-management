@@ -634,6 +634,13 @@ LIMIT 5;";
                         backgroundColor: 'rgba(255, 99, 132, 0.6)',
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1
+                    },
+                                        {
+                        label: 'Jasa',
+                        data: <?php echo json_encode($inventoryData); ?>,
+                        backgroundColor: 'rgba(18, 194, 89, 0.8))',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
                     }
                 ]
             },
