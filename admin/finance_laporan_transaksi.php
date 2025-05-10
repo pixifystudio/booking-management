@@ -349,7 +349,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>Metode Pembayaran</th>
                                         <th>OUT/IN</th>
                                         <th>Updated Date</th>
-                                        <?php if ($ses_group =='SUPER ADMIN') { ?>
+                                        <?php if ($ses_group =='Super Admin') { ?>
                                         <th>Action</th>
                                         <?php } ?>
                                     </tr>
@@ -415,6 +415,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['metode']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $date; ?></td>
+                                       <?php if ($ses_group =='Super Admin') { ?>
                                              <td nowrap>
                                                 <?php
                                                 //  if ($myData['purchase_status'] != "PO Cancelled" || $_SESSION['SES_DEPT'] == 'Super Admin') {
@@ -437,6 +438,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 ?> <!-- <span class="mx-25">|</span> -->
                                                 <!-- <a href="?page=Purchase-Delete&id=<?= $Code; ?>&v=<?= $Version; ?>&code=close" target="_self" alt="Close Data" onclick="return confirm('Apakah Anda yakin ingin menutup <?= $Code ?> ini?')"><i data-feather='lock'></i></a> -->
                                             </td>
+                                        <?php } ?>
 
 
                                         </tr>
