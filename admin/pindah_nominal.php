@@ -85,7 +85,7 @@ $id = $_GET['id'];
 
 
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Finance-Laporan-Transaksi'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Input-Pengeluaran'>";
       }
       exit;
     }
