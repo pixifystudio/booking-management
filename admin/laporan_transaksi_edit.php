@@ -47,8 +47,7 @@ $booking_detail_id = 0;
     $dataQty  = $_POST['txtQty'];
     $dataMetode  = $_POST['txtMetode'];
     $dataStatus = "OUT";
-    echo $dataType;
-    exit;
+
 
 
 
