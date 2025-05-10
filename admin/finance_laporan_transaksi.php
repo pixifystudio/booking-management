@@ -357,7 +357,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama FROM `transaction` t 
+                                    $mySql   = "SELECT 
+                                    t.id as detail_id, 
+                                    t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama FROM `transaction` t 
                                     LEFT JOIN booking_detail bd ON bd.booking_detail_id = t.booking_detail_id
                                     LEFT JOIN booking b ON b.id = bd.booking_id
                                      WHERE t.keterangan !='DP' AND t.updated_date >='2025-03-07 00:00:01' ";
@@ -372,7 +374,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                     
-                                    $mySql .= " UNION ALL  SELECT dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama  FROM  data_qr_detail dd 
+                                    $mySql .= " UNION ALL  SELECT dd.id as detail_id, dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama  FROM  data_qr_detail dd 
                                     LEFT JOIN data_qr d ON (d.transaction_id = dd.transaction_id)
                                     WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' ";
 
@@ -403,6 +405,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         $now= $myData['updated_date'];
                                         $date = date("Y-m-d H:i:s", strtotime("$now +7 hours"));
                                         $transaction_id = $myData['transaction_id'];
+                                        $detail_id = $myData['detail_id'];
                                     ?>
 
                                         <tr>
@@ -417,9 +420,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $date; ?></td>
                                        <?php if ($ses_group =='Super Admin') { ?>
                                              <td nowrap>
-                                                    <a href="?page=Laporan-Transaksi-Edit&id=<?= $transaction_id;?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a>
+                                                    <a href="?page=Laporan-Transaksi-Edit&detailid=<?= $detail_id;?>&id=<?= $transaction_id;?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a>
                                                     <span class="mx-25">|</span>
-                                                    <a href="?page=Laporan-Transaksi-Delete&id=<?= $transaction_id;?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='trash'></i> </a>
+                                                    <a href="?page=Laporan-Transaksi-Delete&detailid=<?= $detail_id;?>&id=<?= $transaction_id;?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='trash'></i> </a>
                                             </td>
                                         <?php } ?>
                                         </tr>
