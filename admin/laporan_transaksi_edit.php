@@ -91,7 +91,7 @@ $booking_detail_id = 0;
 
 
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Finance-Laporan-Transaksi&s=ok'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Finance-Laporan-Transaksi&s=edited'>";
       }
       exit;
     }
