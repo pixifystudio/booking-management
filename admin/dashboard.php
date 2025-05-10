@@ -549,6 +549,17 @@ ORDER BY ds.date DESC;";
         $inventoryData[] = $row["total_qty"];
     }
 
+        // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
+    $sql3 = "WITH RECURSIVE date_series AS ( SELECT CURDATE() - INTERVAL 30 DAY AS tanggal UNION ALL SELECT tanggal + INTERVAL 1 DAY FROM date_series WHERE tanggal < CURDATE() ) SELECT ds.tanggal, COALESCE(SUM(t.qty), 0) AS total_qty FROM date_series ds LEFT JOIN transaction t ON DATE(t.updated_date) = ds.tanggal LEFT JOIN master_product mp ON t.keterangan = mp.name AND mp.type = 'jasa' GROUP BY ds.tanggal ORDER BY ds.tanggal desc;";
+    
+    $result3 = $conn->query($sql3);
+    
+    $jasaData = [];
+    
+    while ($row = $result3->fetch_assoc()) {
+        $jasaData[] = $row["total_qty"];
+    }
+
     // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
     $sql3 = "WITH monthly_data AS (
     SELECT 
@@ -637,9 +648,9 @@ LIMIT 5;";
                     },
                                         {
                         label: 'Jasa',
-                        data: <?php echo json_encode($inventoryData); ?>,
+                        data: <?php echo json_encode($jasaData); ?>,
                         backgroundColor: 'rgba(6, 245, 101, 0.8)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderColor: 'rgba(6, 245, 101, 0.8)',
                         borderWidth: 1
                     }
                 ]
