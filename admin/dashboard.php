@@ -638,7 +638,7 @@ LIMIT 5;";
                                         {
                         label: 'Jasa',
                         data: <?php echo json_encode($inventoryData); ?>,
-                        backgroundColor: 'rgba(18, 194, 89, 0.8))',
+                        backgroundColor: 'rgba(6, 245, 101, 0.8)',
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1
                     }
