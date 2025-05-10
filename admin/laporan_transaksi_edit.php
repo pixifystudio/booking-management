@@ -7,7 +7,7 @@ $detailid = $_GET['detailid'];
 $id = $_GET['id'];
 $booking_detail_id = 0;
 // jika $id = 0 ambil dari transaction
-  if ($detailid==0) {
+  if ($id==0) {
   $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
   $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
   $myData = mysqli_fetch_array($myQry);
