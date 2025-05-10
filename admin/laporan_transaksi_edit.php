@@ -68,8 +68,7 @@ $booking_detail_id = 0;
 
       if ($dataType =='Transaction') {
          // Record Stock InOut
-    echo  $mySql   = "UPDATE `transaction` SET keterangan= '$dataItem', nominal = '$dataNominal', qty = '$dataQty', metode ='$dataMetode' WHERE `id` = '$detailid'";
-    exit;
+      $mySql   = "UPDATE `transaction` SET keterangan= '$dataItem', nominal = '$dataNominal', qty = '$dataQty', metode ='$dataMetode' WHERE `id` = '$detailid'";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
         if ($dataBookingDetailID >0) {
           # code...
@@ -77,7 +76,7 @@ $booking_detail_id = 0;
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
         }
       } else {
-      $mySql   = "UPDATE `data_qr_detail` SET item= '$dataItem',  nominal = '$dataNominal', qty = '$dataQty', metode_pembayaran ='$dataMetode' WHERE `id` = '$dataBookingDetailID'";
+      $mySql   = "UPDATE `data_qr_detail` SET item= '$dataItem',  nominal = '$dataNominal', qty = '$dataQty', metode_pembayaran ='$dataMetode' WHERE `id` = '$detailid'";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
 
