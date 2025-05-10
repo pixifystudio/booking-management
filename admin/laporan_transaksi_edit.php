@@ -47,7 +47,8 @@ $booking_detail_id = 0;
     $dataQty  = $_POST['txtQty'];
     $dataMetode  = $_POST['txtMetode'];
     $dataStatus = "OUT";
-
+    echo $dataType;
+    exit;
 
 
 
@@ -68,7 +69,8 @@ $booking_detail_id = 0;
 
       if ($dataType =='Transaction') {
          // Record Stock InOut
-      $mySql   = "UPDATE `transaction` SET keterangan= '$dataItem', nominal = '$dataNominal', qty = '$dataQty', metode ='$dataMetode' WHERE `id` = '$id'";
+    echo  $mySql   = "UPDATE `transaction` SET keterangan= '$dataItem', nominal = '$dataNominal', qty = '$dataQty', metode ='$dataMetode' WHERE `id` = '$detailid'";
+    exit;
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
         if ($dataBookingDetailID >0) {
           # code...
