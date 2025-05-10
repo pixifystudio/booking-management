@@ -3,6 +3,7 @@ $_SESSION['SES_TITLE'] = "Product";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Master-Product";
+$ses_group = $_SESSION['SES_GROUP'];
 
 // filter
 
@@ -348,6 +349,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                         <th>Metode Pembayaran</th>
                                         <th>OUT/IN</th>
                                         <th>Updated Date</th>
+                                        <?php if ($ses_group =='SUPER ADMIN') { ?>
+                                        <th>Action</th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -383,7 +387,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
 
-
+                                    echo $mySql;
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -411,6 +415,28 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['metode']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
                                             <td><?php echo $date; ?></td>
+                                             <td nowrap>
+                                                <?php
+                                                //  if ($myData['purchase_status'] != "PO Cancelled" || $_SESSION['SES_DEPT'] == 'Super Admin') {
+                                                echo "<a href='?page=PDF-Purchase-New&id=$Code&v=$Version' target='_blank' alt='Print Data' > <i data-feather='printer'></i></a> <span class='mx-25'>|</span> ";
+                                                // }
+                                                if ($myData['purchase_date'] > $dapick_pembelian) {
+                                                    // if ($myData['purchase_status'] != "PO Approved" && $myData['purchase_status'] != "PO Closed") {
+                                                ?>
+                                                    <a href="?page=Laporan-Transaksi-Edit&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a>
+                                                    <span class="mx-25">|</span>
+                                                    <a href="?page=Laporan-Transaksi-Delete&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='x-octagon'></i> </a>
+                                                    <span class="mx-25">|</span>
+                                                    <!-- <a href="?page=Purchase-Delete&code=Closed&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Close Data" onclick="return confirm('Apakah Anda yakin ingin menutup PO ini?')"><i data-feather='lock'></i> </a> -->
+                                                    <?php
+                                                    // } else { 
+                                                    ?>
+                                                    <!-- <a href="?page=Purchase-Detail&code=closed&id=<?= $Code; ?>&v=<?= $Version; ?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a> -->
+                                                <?php }
+                                                // }
+                                                ?> <!-- <span class="mx-25">|</span> -->
+                                                <!-- <a href="?page=Purchase-Delete&id=<?= $Code; ?>&v=<?= $Version; ?>&code=close" target="_self" alt="Close Data" onclick="return confirm('Apakah Anda yakin ingin menutup <?= $Code ?> ini?')"><i data-feather='lock'></i></a> -->
+                                            </td>
 
 
                                         </tr>

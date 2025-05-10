@@ -430,7 +430,14 @@ if ($_GET) {
       include "finance_laporan_transaksi.php";
       break;
 
-
+    case 'Laporan-Transaksi-Edit':
+      if (!file_exists("laporan_transaksi_edit.php")) die("Sorry Empty Page!");
+      include "laporan_transaksi_edit.php";
+      break;
+    case 'Laporan-Transaksi-Delete':
+      if (!file_exists("laporan_transaksi_delete.php")) die("Sorry Empty Page!");
+      include "laporan_transaksi_delete.php";
+      break;
 
 
 
