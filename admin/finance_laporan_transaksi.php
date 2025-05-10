@@ -419,8 +419,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                              <td nowrap>
                                                     <a href="?page=Laporan-Transaksi-Edit&id=<?= $transaction_id;?>" target="_self" alt="Edit Data"><i data-feather='edit'></i> </a>
                                                     <span class="mx-25">|</span>
-                                                    <a href="?page=Laporan-Transaksi-Delete&id=<?= $transaction_id;?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='x-octagon'></i> </a>
-                                                    <span class="mx-25">|</span>
+                                                    <a href="?page=Laporan-Transaksi-Delete&id=<?= $transaction_id;?>" target="_self" alt="Cancel Data" onclick="return confirm('Apakah Anda yakin ingin membatalkan PO ini?')"><i data-feather='trash'></i> </a>
                                             </td>
                                         <?php } ?>
                                         </tr>
