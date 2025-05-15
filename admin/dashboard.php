@@ -580,66 +580,54 @@ ORDER BY ds.tanggal DESC;";
     }
 
     // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
-    $sql3 = "WITH monthly_data AS (
+    $sql3 = "WITH combined_data AS (
     SELECT 
         DATE_FORMAT(updated_date, '%Y-%m') AS bulan,
-        SUM(qty) AS total_qty,
-        SUM(nominal) AS total_nominal,
+        qty,
+        nominal,
         `status`
-    FROM (
-        SELECT 
-            qty, 
-            nominal, 
-            `status`, 
-            updated_date
-        FROM `transaction` 
-        WHERE keterangan != 'DP' 
-        AND updated_date >= '2025-03-07 00:00:00'
-            AND updated_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 5 MONTH), '%Y-%m-01')
+    FROM `transaction` 
+    WHERE keterangan != 'DP' 
+      AND updated_date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 MONTH), '%Y-%m-01')
 
-        UNION ALL 
+    UNION ALL 
 
-        SELECT 
-            dd.qty AS qty, 
-            dd.nominal AS nominal, 
-            'IN' AS `status`, 
-            d.updated_date
-        FROM `data_qr_detail` dd 
-        LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
-        WHERE item != 'DP' 
-            AND d.updated_date >= '2025-03-07 00:00:00'
-         
-            AND d.updated_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 5 MONTH), '%Y-%m-01')
-    ) AS combined_data
-    GROUP BY bulan, `status`
+    SELECT 
+        DATE_FORMAT(d.updated_date, '%Y-%m') AS bulan,
+        dd.qty,
+        dd.nominal,
+        'IN' AS status
+    FROM data_qr_detail dd
+    LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
+    WHERE dd.item != 'DP'
+      AND d.updated_date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 MONTH), '%Y-%m-01')
 )
 SELECT 
     bulan,
-    SUM(CASE WHEN status = 'IN' THEN total_qty ELSE 0 END) AS total_qty_IN,
-    SUM(CASE WHEN status = 'OUT' THEN total_qty ELSE 0 END) AS total_qty_OUT,
-    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) AS total_nominal_IN,
-    SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS total_nominal_OUT,
-    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) 
-      - SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS selisih_nominal
-FROM monthly_data
+    SUM(CASE WHEN status = 'IN' THEN qty ELSE 0 END) AS total_qty_IN,
+    SUM(CASE WHEN status = 'OUT' THEN qty ELSE 0 END) AS total_qty_OUT,
+    SUM(CASE WHEN status = 'IN' THEN nominal ELSE 0 END) AS total_nominal_IN,
+    SUM(CASE WHEN status = 'OUT' THEN nominal ELSE 0 END) AS total_nominal_OUT,
+    SUM(CASE WHEN status = 'IN' THEN nominal ELSE 0 END) - 
+    SUM(CASE WHEN status = 'OUT' THEN nominal ELSE 0 END) AS selisih_nominal
+FROM combined_data
 GROUP BY bulan
 ORDER BY bulan DESC
 LIMIT 5;";
     
     $result3 = $conn->query($sql3);
     
-    $bulan = [];
-    $total_nominal_IN = [];
-    $total_nominal_OUT = [];
-    $selisih_nominal = [];
+$bulan = [];
+$total_nominal_IN = [];
+$total_nominal_OUT = [];
+$selisih_nominal = [];
 
-    
-    while ($row = $result3->fetch_assoc()) {
-        $bulan[] = $row["bulan"];
-        $total_nominal_IN[] = $row["total_nominal_IN"];
-        $total_nominal_OUT[] = $row["total_nominal_OUT"];
-        $selisih_nominal[] = $row["selisih_nominal"];
-    }
+while ($row = $result3->fetch_assoc()) {
+    $bulan[] = $row["bulan"];
+    $total_nominal_IN[] = (int)$row["total_nominal_IN"];
+    $total_nominal_OUT[] = (int)$row["total_nominal_OUT"];
+    $selisih_nominal[] = (int)$row["selisih_nominal"];
+}
     
     $conn->close();
     ?>
@@ -710,7 +698,7 @@ LIMIT 5;";
                 },
                 {
                     label: 'Saldo (Rp)',
-                    data: <?php echo json_encode(array_map(function($in, $out) { return $in - $out; }, $total_nominal_IN, $total_nominal_OUT)); ?>,
+                  data: <?php echo json_encode($selisih_nominal); ?>,
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 2,
                     borderDash: [5, 5], // Garis putus-putus untuk saldo
