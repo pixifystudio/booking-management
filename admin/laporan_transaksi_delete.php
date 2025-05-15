@@ -8,7 +8,7 @@ $id = $_GET['id'];
 $booking_detail_id = 0;
 // jika $id = 0 ambil dari transaction
   if ($id==0) {
-  $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
+  echo $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
   $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
   $myData = mysqli_fetch_array($myQry);
   $type = 'Transaction';
@@ -72,7 +72,7 @@ $booking_detail_id = 0;
 
 
       }
-      echo $mySql;
+      // echo $mySql;
       exit;
 
       if ($myQry) {
