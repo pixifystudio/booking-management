@@ -5,6 +5,7 @@ include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock-Adjusment";
 $detailid = $_GET['detailid'];
 echo $id = $_GET['id'];
+echo "oke";
 exit;
 $booking_detail_id = 0;
 // jika $id = 0 ambil dari transaction
