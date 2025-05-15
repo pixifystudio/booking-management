@@ -587,17 +587,18 @@ LIMIT 5;";
     
     $result3 = $conn->query($sql3);
     
-  $bulan = [];
-$total_nominal_IN = [];
-$total_nominal_OUT = [];
-$selisih_nominal = [];
+    $bulan = [];
+    $total_nominal_IN = [];
+    $total_nominal_OUT = [];
+    $selisih_nominal = [];
 
-while ($row = $result3->fetch_assoc()) {
-    $bulan[] = $row["bulan"];
-    $total_nominal_IN[] = (int)$row["total_nominal_IN"];
-    $total_nominal_OUT[] = (int)$row["total_nominal_OUT"];
-    $selisih_nominal[] = (int)$row["selisih_nominal"];
-}
+    
+    while ($row = $result3->fetch_assoc()) {
+        $bulan[] = $row["bulan"];
+        $total_nominal_IN[] = $row["total_nominal_IN"];
+        $total_nominal_OUT[] = $row["total_nominal_OUT"];
+        $selisih_nominal[] = $row["selisih_nominal"];
+    }
     
     $conn->close();
     ?>
@@ -668,7 +669,7 @@ while ($row = $result3->fetch_assoc()) {
                 },
                 {
                     label: 'Saldo (Rp)',
-                 data: <?php echo json_encode($selisih_nominal); ?>,
+                    data: <?php echo json_encode(array_map(function($in, $out) { return $in - $out; }, $total_nominal_IN, $total_nominal_OUT)); ?>,
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 2,
                     borderDash: [5, 5], // Garis putus-putus untuk saldo
