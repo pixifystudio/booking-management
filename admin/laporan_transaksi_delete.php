@@ -60,8 +60,7 @@ $booking_detail_id = 0;
       echo "</div>";
     } else {
       # SIMPAN DATA KE DATABASE. 
-echo $type;
-exit;
+
 
       if ($type =='Transaction') {
          // Record Stock InOut
@@ -78,7 +77,7 @@ exit;
 
 
       }
-      // echo $mySql;
+      echo $mySql;
       exit;
 
       if ($myQry) {
