@@ -57,7 +57,7 @@ $booking_detail_id = 0;
     } else {
       # SIMPAN DATA KE DATABASE. 
 
-      if ($dataType =='Transaction') {
+      if ($type =='Transaction') {
          // Record Stock InOut
       $mySql   = "DELETE FROM `transaction` WHERE`id` = '$detailid'";
       // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR TRANSACTION:  " . mysqli_error($koneksidb));
