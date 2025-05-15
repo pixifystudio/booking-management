@@ -6,7 +6,7 @@ include_once "library/inc.seslogin.php";
 // $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock-Adjusment";
 
 $detailid = $_GET['detailid'];
- $id = $_GET['id'];
+ echo $id = $_GET['id'];
 echo "oke";
 exit;
 $booking_detail_id = 0;
