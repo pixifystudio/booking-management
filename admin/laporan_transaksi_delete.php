@@ -8,14 +8,14 @@ $id = $_GET['id'];
 $booking_detail_id = 0;
 // jika $id = 0 ambil dari transaction
   if ($id==0) {
-  echo $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
+  $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
   $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
   $myData = mysqli_fetch_array($myQry);
   $type = 'Transaction';
   $booking_detail_id = $myData['booking_detail_id'];
   $item = $myData['keterangan'];
   $metodepembayaran = $myData['metode'];
-exit;
+
   }
   else {
   $mySql = "SELECT * FROM `data_qr_detail` t WHERE t.id='" . $detailid . "'";
@@ -56,8 +56,8 @@ exit;
       echo "</div>";
     } else {
       # SIMPAN DATA KE DATABASE. 
-echo $type;
-      if ($type =='Transaction') {
+
+      if ($dataType =='Transaction') {
          // Record Stock InOut
       $mySql   = "DELETE FROM `transaction` WHERE`id` = '$detailid'";
       // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR TRANSACTION:  " . mysqli_error($koneksidb));
