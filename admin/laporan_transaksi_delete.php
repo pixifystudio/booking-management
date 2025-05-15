@@ -5,12 +5,11 @@ include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock-Adjusment";
 $detailid = $_GET['detailid'];
 echo $id = $_GET['id'];
-echo "oke";
-exit;
+
 $booking_detail_id = 0;
 // jika $id = 0 ambil dari transaction
   if ($id==0) {
-  echo $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
+   $mySql = "SELECT * FROM `transaction` t WHERE t.id='" . $detailid . "'";
   $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
   $myData = mysqli_fetch_array($myQry);
   $type = 'Transaction';
@@ -58,6 +57,8 @@ $booking_detail_id = 0;
       echo "</div>";
     } else {
       # SIMPAN DATA KE DATABASE. 
+echo "oke";
+exit;
 
       if ($dataType =='Transaction') {
          // Record Stock InOut
