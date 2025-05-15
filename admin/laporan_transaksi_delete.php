@@ -56,7 +56,7 @@ $booking_detail_id = 0;
       echo "</div>";
     } else {
       # SIMPAN DATA KE DATABASE. 
-
+echo $type;
       if ($type =='Transaction') {
          // Record Stock InOut
       $mySql   = "DELETE FROM `transaction` WHERE`id` = '$detailid'";
