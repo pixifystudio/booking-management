@@ -550,37 +550,78 @@ ORDER BY ds.date DESC;";
     }
 
         // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
-    $sql3 = "WITH combined_data AS (
+    $sql3 = "WITH RECURSIVE date_series AS (
+    SELECT CURDATE() - INTERVAL 20 DAY AS tanggal
+    UNION ALL
+    SELECT tanggal + INTERVAL 1 DAY
+    FROM date_series
+    WHERE tanggal < CURDATE()
+)
+SELECT
+    ds.tanggal,
+    COALESCE(SUM(t.qty), 0) AS total_qty
+FROM
+    date_series ds
+LEFT JOIN (
+    SELECT t.qty, DATE(t.updated_date) AS tgl
+    FROM transaction t
+    JOIN master_product mp ON t.keterangan = mp.name
+    WHERE mp.type = 'jasa'
+) t ON ds.tanggal = t.tgl
+GROUP BY ds.tanggal
+ORDER BY ds.tanggal DESC;";
+    
+    $result3 = $conn->query($sql3);
+    
+    $jasaData = [];
+    
+    while ($row = $result3->fetch_assoc()) {
+        $jasaData[] = $row["total_qty"];
+    }
+
+    // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
+    $sql3 = "WITH monthly_data AS (
     SELECT 
         DATE_FORMAT(updated_date, '%Y-%m') AS bulan,
-        qty,
-        nominal,
+        SUM(qty) AS total_qty,
+        SUM(nominal) AS total_nominal,
         `status`
-    FROM `transaction` 
-    WHERE keterangan != 'DP' 
-      AND updated_date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 MONTH), '%Y-%m-01')
+    FROM (
+        SELECT 
+            qty, 
+            nominal, 
+            `status`, 
+            updated_date
+        FROM `transaction` 
+        WHERE keterangan != 'DP' 
+        AND updated_date >= '2025-03-07 00:00:00'
+            AND updated_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 5 MONTH), '%Y-%m-01')
 
-    UNION ALL 
+        UNION ALL 
 
-    SELECT 
-        DATE_FORMAT(d.updated_date, '%Y-%m') AS bulan,
-        dd.qty,
-        dd.nominal,
-        'IN' AS status
-    FROM data_qr_detail dd
-    LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
-    WHERE dd.item != 'DP'
-      AND d.updated_date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 MONTH), '%Y-%m-01')
+        SELECT 
+            dd.qty AS qty, 
+            dd.nominal AS nominal, 
+            'IN' AS `status`, 
+            d.updated_date
+        FROM `data_qr_detail` dd 
+        LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
+        WHERE item != 'DP' 
+            AND d.updated_date >= '2025-03-07 00:00:00'
+         
+            AND d.updated_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 5 MONTH), '%Y-%m-01')
+    ) AS combined_data
+    GROUP BY bulan, `status`
 )
 SELECT 
     bulan,
-    SUM(CASE WHEN status = 'IN' THEN qty ELSE 0 END) AS total_qty_IN,
-    SUM(CASE WHEN status = 'OUT' THEN qty ELSE 0 END) AS total_qty_OUT,
-    SUM(CASE WHEN status = 'IN' THEN nominal ELSE 0 END) AS total_nominal_IN,
-    SUM(CASE WHEN status = 'OUT' THEN nominal ELSE 0 END) AS total_nominal_OUT,
-    SUM(CASE WHEN status = 'IN' THEN nominal ELSE 0 END) - 
-    SUM(CASE WHEN status = 'OUT' THEN nominal ELSE 0 END) AS selisih_nominal
-FROM combined_data
+    SUM(CASE WHEN status = 'IN' THEN total_qty ELSE 0 END) AS total_qty_IN,
+    SUM(CASE WHEN status = 'OUT' THEN total_qty ELSE 0 END) AS total_qty_OUT,
+    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) AS total_nominal_IN,
+    SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS total_nominal_OUT,
+    SUM(CASE WHEN status = 'IN' THEN total_nominal ELSE 0 END) 
+      - SUM(CASE WHEN status = 'OUT' THEN total_nominal ELSE 0 END) AS selisih_nominal
+FROM monthly_data
 GROUP BY bulan
 ORDER BY bulan DESC
 LIMIT 5;";
