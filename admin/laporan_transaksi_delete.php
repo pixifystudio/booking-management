@@ -6,9 +6,9 @@ include_once "library/inc.seslogin.php";
 // $_SESSION['SES_PAGE'] = "?page=Master-Product-Stock-Adjusment";
 
 $detailid = $_GET['detailid'];
- echo $id = $_GET['id'];
-echo "oke";
-exit;
+ $id = $_GET['id'];
+// echo "oke";
+// exit;
 $booking_detail_id = 0;
 // jika $id = 0 ambil dari transaction
   if ($id==0) {
@@ -60,10 +60,10 @@ $booking_detail_id = 0;
       echo "</div>";
     } else {
       # SIMPAN DATA KE DATABASE. 
-echo "oke";
+echo $type;
 exit;
 
-      if ($dataType =='Transaction') {
+      if ($type =='Transaction') {
          // Record Stock InOut
       $mySql   = "DELETE FROM `transaction` WHERE`id` = '$detailid'";
       // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR TRANSACTION:  " . mysqli_error($koneksidb));
