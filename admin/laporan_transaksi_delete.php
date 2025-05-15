@@ -65,20 +65,20 @@ $booking_detail_id = 0;
       if ($type =='Transaction') {
          // Record Stock InOut
       $mySql   = "DELETE FROM `transaction` WHERE`id` = '$detailid'";
-      // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR TRANSACTION:  " . mysqli_error($koneksidb));
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR TRANSACTION:  " . mysqli_error($koneksidb));
         if ($dataBookingDetailID >0) {
           # code...
       $mySql   = "DELETE FROM `booking_detail` WHERE `booking_detail_id` = '$dataBookingDetailID'";
-      // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
         }
       } else {
       $mySql   = "DELETE FROM `data_qr_detail`  WHERE `id` = '$detailid'";
-      // $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR QR DETAIL:  " . mysqli_error($koneksidb));
+      $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR QR DETAIL:  " . mysqli_error($koneksidb));
 
 
       }
-      echo $mySql;
-      exit;
+      // echo $mySql;
+      // exit;
 
       if ($myQry) {
         echo "<meta http-equiv='refresh' content='0; url=?page=Finance-Laporan-Transaksi&s=deleted'>";
