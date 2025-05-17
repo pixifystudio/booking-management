@@ -90,8 +90,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     <br>
                                                     <a type="button" href="?page=Input-Pemasukkan-Add"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-success">Input Pemasukkan</a>
                                                 </div>
-                                                    <br>
                                                  <div class="col-2">
+                                                    <br>
+
                                                   <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
                                                 </div>
 
