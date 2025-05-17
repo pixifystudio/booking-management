@@ -212,24 +212,27 @@ $id = $_GET['id'];
                   <div class="row">
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-md-4 col-12">
+                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtCash' value="<?= $sum_total4 ?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtTransfer' value="<?= $sum_total5 ?>" aria-describedby="basic-addon-name" readonly />
+                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRIS' value="<?= $sum_total3 ?>" aria-describedby="basic-addon-name" readonly />
+                       
+                           <?php if ($_SESSION['SES_GROUP'] =='Super Admin') { ?>
+                          <div class="col-md-4 col-12">
                           <label>Cash</label>
                           <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtCashDummy' value="<?=  'Rp' . number_format($sum_total4, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
-                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtCash' value="<?= $sum_total4 ?>" aria-describedby="basic-addon-name" readonly />
                         </div>
 
                         <div class="col-md-4 col-12">
                           <label>Transfer Bank</label>
                           <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtTransferDummy'   value="<?=  'Rp' . number_format($sum_total5, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
-                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtTransfer' value="<?= $sum_total5 ?>" aria-describedby="basic-addon-name" readonly />
                         </div>
 
                         <div class="col-md-4 col-12">
                           <label>Dana</label>
                           <input type="text" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRISDummy'  value="<?=  'Rp' . number_format($sum_total3, 0, ',', '.')?>" aria-describedby="basic-addon-name" readonly />
-                          <input type="hidden" id="basic-addon-name" class="form-control" placeholder="Jumlah" aria-label="Jumlah" name='txtQRIS' value="<?= $sum_total3 ?>" aria-describedby="basic-addon-name" readonly />
 
                         </div>
+                         <?php } ?>
 
                         <div class="col-md-4 col-12 mt-2">
                           <label>Dari Metode</label>
