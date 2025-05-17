@@ -23,7 +23,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Test</h2>
+                        <h2 class="content-header-title float-start mb-0">Finance</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a>Transaksi Non-Struk</a>
@@ -95,7 +95,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                   <a type="button" href="?page=Pindah-Nominal"ame="btnLaporanTransaksi" style="width: 100%;" class="btn btn-warning">Pindah Nominal</a>
                                                 </div>
 
-                        <?php if ($_SESSION['SES_GROUP'] !='Super Admin') { ?>
+                        <?php if ($_SESSION['SES_GROUP'] =='Super Admin') { ?>
 
                                                 <?php 
                                                 // ambil pendapatan hari ini
