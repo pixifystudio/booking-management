@@ -4,6 +4,8 @@
     // $ygMati = $_SESSION['SES_BRANCH'];
     //$mati = 'Depo Sunter';
     $mati = '';
+
+    $_SESSION['SES_GROUP'] = 'Admin';
     ?>
 
 
