@@ -5,7 +5,6 @@
     //$mati = 'Depo Sunter';
     $mati = '';
 
-    $_SESSION['SES_GROUP'] = 'Super Admin';
     ?>
 
 
