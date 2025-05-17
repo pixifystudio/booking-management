@@ -85,7 +85,7 @@ $id = $_GET['id'];
 
 
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Input-Pengeluaran'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Input-Pengeluaran&s=ok'>";
       }
       exit;
     }
@@ -266,7 +266,7 @@ $id = $_GET['id'];
 
                     </div>
                     <div class="col-7 my-5">
-                      <a type="button" href="?page=Finance-Laporan-Transaksi" class="btn btn-warning me-2">Kembali</a>
+                      <a type="button" href="?page=Input-Pengeluaran" class="btn btn-warning me-2">Kembali</a>
                       <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
                     </div>
                   </div>
