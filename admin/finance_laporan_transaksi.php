@@ -289,6 +289,9 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                     $formattedDateUntil = date('Y-m-d', strtotime($txtDateUntil));
                                                 ?>
                                                 <div class="col-md-2 col-12 mt-2">
+
+                                                </div>
+                                                <div class="col-md-2 col-12 mt-2">
                                                     <label>Dari Tanggal</label>
                                                     <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDateFrom' value="<?= $formattedDateFrom ?>" aria-describedby="basic-addon-name" />
                                                 </div>
