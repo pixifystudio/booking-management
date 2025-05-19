@@ -72,7 +72,7 @@ $booking_detail_id = 0;
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
         if ($dataBookingDetailID >0) {
           # code...
-      $mySql   = "UPDATE `booking_detail` SET item= '$dataItem',  nominal = '$dataNominal', qty = '$dataQty', metode ='$dataMetode' WHERE `booking_detail_id` = '$dataBookingDetailID'";
+      $mySql   = "UPDATE `booking_detail` SET item= '$dataItem',  nominal = '$dataNominal', qty = '$dataQty', metode_pembayaran ='$dataMetode' WHERE `booking_detail_id` = '$dataBookingDetailID'";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
         }
       } else {
