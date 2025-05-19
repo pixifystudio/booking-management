@@ -130,7 +130,6 @@
                             <ul class="dropdown-menu" data-bs-popper="none">
                                 <a class="dropdown-item" href="#" data-bs-toggle="">Kas</a>
                                 <a class="dropdown-item" href="?page=Input-Pengeluaran" data-bs-toggle="">Input Transaksi Non-Struk</a>
-
                             </ul>
                         </li>
 
@@ -158,6 +157,7 @@
                             <a class="dropdown-item" href="?page=Book-Management-Expiry" data-bs-toggle="">Expiry</a>
                         </ul>
                     </li>
+                    
                 </ul> -->
 
             </div>

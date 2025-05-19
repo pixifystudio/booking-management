@@ -30,6 +30,9 @@ $booking_detail_id = 0;
   $metodepembayaran = $myData['metode_pembayaran'];
   }
 
+  echo $type;
+  exit;
+
   
   $nominal = $myData['nominal'];
   $qty = $myData['qty'];
