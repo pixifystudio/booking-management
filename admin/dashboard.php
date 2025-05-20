@@ -576,25 +576,31 @@ ORDER BY
 
         // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
     $sql3 = "WITH RECURSIVE date_series AS (
-    SELECT CURDATE() - INTERVAL 20 DAY AS tanggal
-    UNION ALL
-    SELECT tanggal + INTERVAL 1 DAY
-    FROM date_series
-    WHERE tanggal < CURDATE()
-)
-SELECT
-    ds.tanggal,
-    COALESCE(SUM(t.qty), 0) AS total_qty
-FROM
-    date_series ds
-LEFT JOIN (
-    SELECT t.qty, DATE(t.updated_date) AS tgl
-    FROM transaction t
-    JOIN master_product mp ON t.keterangan = mp.name
-    WHERE mp.type = 'jasa'
-) t ON ds.tanggal = t.tgl
-GROUP BY ds.tanggal
-ORDER BY ds.tanggal DESC;";
+  SELECT 
+    CURDATE() - INTERVAL 20 DAY AS tanggal 
+  UNION ALL 
+  SELECT 
+    tanggal + INTERVAL 1 DAY 
+  FROM 
+    date_series 
+  WHERE 
+    tanggal < CURDATE()
+) 
+SELECT 
+  ds.tanggal, 
+  COALESCE(
+    SUM(t.qty), 
+    0
+  ) AS total_qty 
+FROM 
+  date_series ds 
+  LEFT JOIN transaction t ON DATE(t.updated_date) = ds.tanggal  AND t.booking_id != 0
+  LEFT JOIN master_product mp ON t.keterangan = mp.name 
+  AND mp.type = 'jasa' 
+GROUP BY 
+  ds.tanggal 
+ORDER BY 
+  ds.tanggal desc;";
     
     $result3 = $conn->query($sql3);
     
