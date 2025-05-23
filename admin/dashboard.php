@@ -522,9 +522,9 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 )
 SELECT 
     ds.date, 
-    COALESCE(COUNT(b.id), 0) AS total_transaksi
+    COALESCE(SUM(b.qty), 0) AS total_transaksi
 FROM date_series ds
-LEFT JOIN booking b ON DATE(b.tanggal) = ds.date
+LEFT JOIN booking_detail b ON DATE(b.updated_date) = ds.date
 GROUP BY ds.date
 ORDER BY ds.date DESC;";
     
