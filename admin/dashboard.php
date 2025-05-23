@@ -567,11 +567,12 @@ ORDER BY ds.tanggal desc";
 
 
 data_product  as (SELECT 
-  sum(t.qty) as qty, 
+  sum(td.qty) as qty, 
 Date(t.updated_date) as `date`
 FROM 
-  `transaction` t 
-  JOIN master_product mp ON t.keterangan = mp.name 
+  `data_qr_detail` td 
+JOIN data_qr t ON td.transaction_id = t.transaction_id
+  JOIN master_product mp ON td.item = mp.name 
 WHERE mp.type ='Inventory'
 group by date(t.updated_date)
 order by date(t.updated_date) desc
