@@ -549,22 +549,23 @@ ORDER BY ds.date DESC;";
     date_series 
   WHERE 
     tanggal < CURDATE()
-) 
-SELECT 
-  ds.tanggal, 
-  COALESCE(
-    SUM(t.qty), 
-    0
-  ) AS total_qty 
+),
+
+
+data_product  as (SELECT 
+  sum(t.qty) as qty, 
+Date(t.updated_date) as `date`
 FROM 
-  date_series ds 
-  LEFT JOIN transaction t ON DATE(t.updated_date) = ds.tanggal  AND t.booking_id != 0
-  LEFT JOIN master_product mp ON t.keterangan = mp.name 
-  AND mp.type = 'inventory' 
-GROUP BY 
-  ds.tanggal 
-ORDER BY 
-  ds.tanggal desc;";
+  `transaction` t 
+  JOIN master_product mp ON t.keterangan = mp.name 
+WHERE mp.type ='Inventory'
+group by date(t.updated_date)
+order by date(t.updated_date) desc
+
+)
+
+SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` 
+";
     
     $result2 = $conn->query($sql2);
     
