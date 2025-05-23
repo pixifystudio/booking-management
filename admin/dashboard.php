@@ -528,14 +528,14 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 
 data_product  as (SELECT 
   sum(t.qty) as qty, 
-Date(t.updated_date) as `date`
+Date(b.tanggal) as `date`
 FROM 
   `booking_detail` t 
   JOIN master_product mp ON t.item = mp.name 
   JOIN booking b ON b.id = t.booking_id
 WHERE mp.type ='Booking'
-group by date(t.updated_date)
-order by date(t.updated_date) desc
+group by date(b.tanggal)
+order by date(b.tanggal) desc
 
 )
 
