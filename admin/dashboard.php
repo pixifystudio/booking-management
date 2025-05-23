@@ -532,6 +532,7 @@ Date(t.updated_date) as `date`
 FROM 
   `booking_detail` t 
   JOIN master_product mp ON t.item = mp.name 
+  JOIN booking b ON b.id = t.booking_id
 WHERE mp.type ='Booking'
 group by date(t.updated_date)
 order by date(t.updated_date) desc
