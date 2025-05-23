@@ -514,19 +514,32 @@ $_SESSION['SES_PAGE'] = "?page=Management Admin";
 <?php
  // Query untuk bar pertama (Booking) - Hanya 10 hari terakhir
     $sql1 = "WITH RECURSIVE date_series AS (
-    SELECT CURDATE() - INTERVAL 20 DAY AS date
-    UNION ALL
-    SELECT date + INTERVAL 1 DAY 
-    FROM date_series 
-    WHERE date < CURDATE()
+  SELECT 
+    CURDATE() - INTERVAL 20 DAY AS tanggal 
+  UNION ALL 
+  SELECT 
+    tanggal + INTERVAL 1 DAY 
+  FROM 
+    date_series 
+  WHERE 
+    tanggal < CURDATE()
+),
+
+
+data_product  as (SELECT 
+  sum(t.qty) as qty, 
+Date(t.updated_date) as `date`
+FROM 
+  `booking_detail` t 
+  JOIN master_product mp ON t.item = mp.name 
+WHERE mp.type ='Booking'
+group by date(t.updated_date)
+order by date(t.updated_date) desc
+
 )
-SELECT 
-    ds.date, 
-    COALESCE(SUM(b.qty), 0) AS total_transaksi
-FROM date_series ds
-LEFT JOIN booking_detail b ON DATE(b.updated_date) = ds.date
-GROUP BY ds.date
-ORDER BY ds.date DESC;";
+
+SELECT ifnull(dp.qty, 0) as total_transaksi, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` 
+ORDER BY ds.tanggal desc";
     
     $result1 = $conn->query($sql1);
     
@@ -534,7 +547,7 @@ ORDER BY ds.date DESC;";
     $bookingData = [];
     
     while ($row = $result1->fetch_assoc()) {
-        $labels[] = $row["date"];
+        $labels[] = $row["tanggal"];
         $bookingData[] = $row["total_transaksi"];
     }
     
