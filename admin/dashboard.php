@@ -564,7 +564,8 @@ order by date(t.updated_date) desc
 
 )
 
-SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` order by ds.date desc
+SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` 
+
 ";
     
     $result2 = $conn->query($sql2);
