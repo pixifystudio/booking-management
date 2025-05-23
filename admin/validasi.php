@@ -10,8 +10,11 @@ $dateto  = isset($_POST['txtTo']) ?  $_POST['txtTo'] : '';
 $txtYear  = isset($_POST['txtYear']) ?  $_POST['txtYear'] : '';
 $txtMonthYear  = isset($_POST['txtMonthYear']) ?  $_POST['txtMonthYear'] : '';
 $pecahMonthYear =  (explode("-",$txtMonthYear));
+if ($pecahMonthYear !='') {
  $txtMonth2  = $pecahMonthYear[1];
 $txtYear2  = $pecahMonthYear[0];
+}
+
 $txtMetode  = isset($_POST['txtMetode']) ?  $_POST['txtMetode'] : '';
 $txtDateFrom  = isset($_POST['txtDateFrom']) ?  $_POST['txtDateFrom'] : '';
 $txtDateUntil  = isset($_POST['txtDateUntil']) ?  $_POST['txtDateUntil'] : '';
