@@ -564,7 +564,7 @@ order by date(t.updated_date) desc
 
 )
 
-SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` 
+SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` order by ds.date desc
 ";
     
     $result2 = $conn->query($sql2);
@@ -576,26 +576,33 @@ SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN dat
     }
 
         // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
-    $sql3 = "WITH RECURSIVE date_series AS (
-    SELECT CURDATE() - INTERVAL 20 DAY AS tanggal
-    UNION ALL
-    SELECT tanggal + INTERVAL 1 DAY
-    FROM date_series
-    WHERE tanggal < CURDATE()
+    $sql3 ="WITH RECURSIVE date_series AS (
+  SELECT 
+    CURDATE() - INTERVAL 20 DAY AS tanggal 
+  UNION ALL 
+  SELECT 
+    tanggal + INTERVAL 1 DAY 
+  FROM 
+    date_series 
+  WHERE 
+    tanggal < CURDATE()
+),
+
+
+data_product  as (SELECT 
+  sum(t.qty) as qty, 
+Date(t.updated_date) as `date`
+FROM 
+  `transaction` t 
+  JOIN master_product mp ON t.keterangan = mp.name 
+WHERE mp.type ='Jasa'
+group by date(t.updated_date)
+order by date(t.updated_date) desc
+
 )
-SELECT
-    ds.tanggal,
-    COALESCE(SUM(t.qty), 0) AS total_qty
-FROM
-    date_series ds
-LEFT JOIN (
-    SELECT t.qty, DATE(t.updated_date) AS tgl
-    FROM transaction t
-    JOIN master_product mp ON t.keterangan = mp.name
-    WHERE mp.type = 'jasa'
-) t ON ds.tanggal = t.tgl
-GROUP BY ds.tanggal
-ORDER BY ds.tanggal DESC;";
+
+SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` order by dp.date desc 
+";
     
     $result3 = $conn->query($sql3);
     
