@@ -587,8 +587,7 @@ FROM
   JOIN master_product mp ON t.keterangan = mp.name 
 WHERE mp.type ='Inventory'
 group by date(t.updated_date)
-order by date(t.updated_date) desc;
-
+order by date(t.updated_date) desc
 )
 
 
