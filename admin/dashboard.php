@@ -577,10 +577,29 @@ WHERE mp.type ='Inventory'
 group by date(t.updated_date)
 order by date(t.updated_date) desc
 
+),
+
+data_product_2  as (SELECT 
+  sum(t.qty) as qty, 
+Date(t.updated_date) as `date`
+FROM 
+  `transaction` t
+  JOIN master_product mp ON t.keterangan = mp.name 
+WHERE mp.type ='Inventory'
+group by date(t.updated_date)
+order by date(t.updated_date) desc;
+
 )
 
-SELECT ifnull(dp.qty, 0) as total_qty, tanggal from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` 
-ORDER BY ds.tanggal desc
+
+SELECT 
+ifnull(dp.qty, 0) as total_qty,
+ifnull(dp2.qty, 0) as total_qty_2,
+(ifnull(dp.qty, 0) + ifnull(dp2.qty, 0)) as total_qty_real,
+tanggal 
+from date_series ds LEFT JOIN data_product dp ON ds.tanggal = dp.`date` 
+LEFT JOIN data_product_2 dp2 ON ds.tanggal = dp2.`date` 
+ORDER BY ds.tanggal desc;
 
 ";
     
@@ -589,7 +608,7 @@ ORDER BY ds.tanggal desc
     $inventoryData = [];
     
     while ($row = $result2->fetch_assoc()) {
-        $inventoryData[] = $row["total_qty"];
+        $inventoryData[] = $row["total_qty_real"];
     }
 
         // Query untuk bar kedua (Inventory) - Hanya 10 hari terakhir
