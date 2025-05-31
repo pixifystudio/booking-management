@@ -673,7 +673,8 @@ ORDER BY ds.tanggal desc;
         DATE_FORMAT(updated_date, '%Y-%m') AS bulan,
         qty,
         nominal,
-        `status`
+        `status`,
+        is_pindah_nominal
     FROM `transaction` 
     WHERE keterangan != 'DP' 
       AND updated_date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 MONTH), '%Y-%m-01')
@@ -684,7 +685,8 @@ ORDER BY ds.tanggal desc;
         DATE_FORMAT(d.updated_date, '%Y-%m') AS bulan,
         dd.qty,
         dd.nominal,
-        'IN' AS status
+        'IN' AS status,
+        '0' AS is_pindah_nominal
     FROM data_qr_detail dd
     LEFT JOIN data_qr d ON dd.transaction_id = d.transaction_id 
     WHERE dd.item != 'DP'
