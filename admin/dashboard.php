@@ -703,7 +703,7 @@ SELECT
     SUM(CASE WHEN status = 'OUT' THEN nominal ELSE 0 END) AS selisih_nominal
 FROM combined_data
 GROUP BY bulan
-ORDER BY bulan ASC
+ORDER BY bulan DESC
 LIMIT 6;";
     
     $result3 = $conn->query($sql3);
@@ -714,10 +714,26 @@ $total_nominal_OUT = [];
 $selisih_nominal = [];
 
 while ($row = $result3->fetch_assoc()) {
-    $bulan[] = $row["bulan"];
-    $total_nominal_IN[] = (int)$row["total_nominal_IN"];
-    $total_nominal_OUT[] = (int)$row["total_nominal_OUT"];
-    $selisih_nominal[] = (int)$row["selisih_nominal"];
+    $data[] = [
+        'bulan' => $row["bulan"],
+        'total_nominal_IN' => (int)$row["total_nominal_IN"],
+        'total_nominal_OUT' => (int)$row["total_nominal_OUT"],
+        'selisih_nominal' => (int)$row["selisih_nominal"]
+    ];
+}
+
+// Sort by 'bulan' ascending
+usort($data, function ($a, $b) {
+    return strcmp($a['bulan'], $b['bulan']);
+});
+
+$bulan = $total_nominal_IN = $total_nominal_OUT = $selisih_nominal = [];
+
+foreach ($data as $item) {
+    $bulan[] = $item['bulan'];
+    $total_nominal_IN[] = $item['total_nominal_IN'];
+    $total_nominal_OUT[] = $item['total_nominal_OUT'];
+    $selisih_nominal[] = $item['selisih_nominal'];
 }
     
     $conn->close();
