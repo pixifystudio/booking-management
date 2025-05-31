@@ -69,13 +69,14 @@ $id = $_GET['id'];
       # SIMPAN DATA KE DATABASE. 
 
       // Record Stock OUT
-      $mySql   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
-     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeDari','','OUT',now())";
+      // Add new field is_pindah_nominal to flag the transaction is just a trx migration account
+      $mySql   = "INSERT INTO `transaction`(`keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `is_pindah_nominal`, `updated_date`)
+     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeDari','','OUT', '1',now())";
       $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
        // Record Stock IN
-      $mySql2   = "INSERT INTO `transaction`( `keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `updated_date`)
-     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeKe','','IN',now())";
+      $mySql2   = "INSERT INTO `transaction`(`keterangan`, `nominal`,`qty`,`metode`,`booking_detail_id`, `status`, `is_pindah_nominal`, `updated_date`)
+     VALUES ('$dataKeterangan','$dataNominalDari','$dataQty','$dataMetodeKe','','IN', '1',now())";
       $myQry2   = mysqli_query($koneksidb, $mySql2)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 
     //   // Jika tidak menemukan error, update data ke database
