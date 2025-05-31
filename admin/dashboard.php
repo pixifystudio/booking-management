@@ -703,8 +703,8 @@ SELECT
     SUM(CASE WHEN status = 'OUT' THEN nominal ELSE 0 END) AS selisih_nominal
 FROM combined_data
 GROUP BY bulan
-ORDER BY bulan DESC
-LIMIT 5;";
+ORDER BY bulan ASC
+LIMIT 6;";
     
     $result3 = $conn->query($sql3);
     
