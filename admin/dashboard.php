@@ -678,6 +678,7 @@ ORDER BY ds.tanggal desc;
     FROM `transaction` 
     WHERE keterangan != 'DP' 
       AND updated_date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 5 MONTH), '%Y-%m-01')
+      AND is_pindah_nominal != '1'
 
     UNION ALL 
 
