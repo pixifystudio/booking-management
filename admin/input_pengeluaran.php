@@ -103,7 +103,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $todaystart = date('Y-m-d 00:00:00');
                                                 $todayend = date('Y-m-d 23:59:59');
 
-                                                $mySql1   = "SELECT qty,nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$todaystart' and updated_date <='$todayend' and `status` = 'IN' ";
+                                                $mySql1   = "SELECT qty,nominal,is_pindah_nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$todaystart' and updated_date <='$todayend' and `status` = 'IN' ";
                                                 $myQry1 = mysqli_query($koneksidb, $mySql1);
                                                 $sum_total = 0;
 
@@ -123,7 +123,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                                 $monthstart = $month1 . '-01';
                                                 $monthend = $month1 . '-31';     
 
-                                                $mySql2   = "SELECT qty,nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$monthstart' and updated_date <='$monthend' ";
+                                                $mySql2   = "SELECT qty,nominal,is_pindah_nominal  FROM `transaction` WHERE transaction_id !='' AND updated_date >='$monthstart' and updated_date <='$monthend' ";
                                                 $myQry2 = mysqli_query($koneksidb, $mySql2);
                                                 $sum_total2 = 0;
 
@@ -179,7 +179,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
                                         $Code =  $myData['transaction_id'];
 
-
+                                        $status = $myData['is_pindah_nominal'] ? 'Pindah Saldo '.$myData['status'] : $myData['status'];
                                     ?>
 
                                         <tr>
@@ -188,7 +188,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo $myData['keterangan']; ?></td>
                                             <td><?php echo 'Rp' . number_format(($myData['nominal'])) ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
+                                            <td><?php echo $status; ?></td>
                                             <td><?php echo $myData['updated_date']; ?></td>
 
 
