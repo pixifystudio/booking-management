@@ -788,8 +788,8 @@ while ($row = $result3->fetch_assoc()) {
                     fill: false
                 },
                 {
-                    label: 'Saldo (Rp)',
-                  data: <?php echo json_encode($selisih_nominal); ?>,
+                    label: 'Profit (Rp)',
+                    data: <?php echo json_encode($selisih_nominal); ?>,
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 2,
                     borderDash: [5, 5], // Garis putus-putus untuk saldo
