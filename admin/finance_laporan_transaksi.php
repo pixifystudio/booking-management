@@ -154,8 +154,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
-                                                $mySql3   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS'";
-                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
+                                                $mySql3   = "SELECT qty,nominal,`status`,is_pindah_nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS' AND is_pindah_nominal != '1'";
+                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status, '0' as is_pindah_nominal  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
                                                 
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
@@ -185,8 +185,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');  
 
-                                                $mySql4   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Cash'";
-                                                $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Cash' ";
+                                                $mySql4   = "SELECT qty,nominal,`status`,is_pindah_nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Cash' AND is_pindah_nominal !='1'";
+                                                $mySql4 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`, '0' AS is_pindah_nominal  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Cash' ";
                                                
                                                 $myQry4 = mysqli_query($koneksidb, $mySql4);
                                                 $sum_total4 = 0;
@@ -217,8 +217,8 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                          $txtDateFrom  = isset($_GET['from']) ? $_GET['from'] . ' 00:00:00' : date('Y-m-d 00:00:00');
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');  
 
-                                                $mySql5   = "SELECT qty,nominal,`status`  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Transfer Bank'";
-                                                $mySql5 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Transfer Bank' ";
+                                                $mySql5   = "SELECT qty,nominal,`status`,is_pindah_nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode='Transfer Bank' AND is_pindah_nominal !='1'";
+                                                $mySql5 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`, '0' AS is_pindah_nominal  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='Transfer Bank' ";
                                                 $myQry5 = mysqli_query($koneksidb, $mySql5);
                                                 $sum_total5 = 0;
                                                 $sum_total_out5 = 0;
@@ -360,7 +360,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                     <?php
                                     $mySql   = "SELECT 
                                     t.id as detail_id, 
-                                    t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama FROM `transaction` t 
+                                    t.transaction_id, t.keterangan, t.nominal, t.qty, t.booking_detail_id, t.metode,t.`status`, t.updated_date, b.nama, t.is_pindah_nominal FROM `transaction` t 
                                     LEFT JOIN booking_detail bd ON bd.booking_detail_id = t.booking_detail_id
                                     LEFT JOIN booking b ON b.id = bd.booking_id
                                      WHERE t.keterangan !='DP' AND t.updated_date >='2025-03-07 00:00:01' ";
@@ -375,7 +375,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                     
-                                    $mySql .= " UNION ALL  SELECT dd.id as detail_id, dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama  FROM  data_qr_detail dd 
+                                    $mySql .= " UNION ALL  SELECT dd.id as detail_id, dd.transaction_id, item as keterangan, '0' As is_pindah_nominal, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama  FROM  data_qr_detail dd 
                                     LEFT JOIN data_qr d ON (d.transaction_id = dd.transaction_id)
                                     WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' ";
 
@@ -417,7 +417,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo 'Rp' . number_format(($myData['nominal'])) ?></td>
                                             <td><?php echo $myData['qty']; ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
+                                            <td><?php echo $myData['is_pindah_nominal'] ? 'Pindah Saldo' : $myData['status']; ?></td>
                                             <td><?php echo $date; ?></td>
                                        <?php if ($ses_group =='Super Admin') { ?>
                                              <td nowrap>
