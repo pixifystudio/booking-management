@@ -417,7 +417,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             <td><?php echo 'Rp' . number_format(($myData['nominal'])) ?></td>
                                             <td><?php echo $myData['qty']; ?></td>
                                             <td><?php echo $myData['metode']; ?></td>
-                                            <td><?php echo $myData['is_pindah_nominal'] ? 'Pindah Saldo' : $myData['status']; ?></td>
+                                            <td><?php echo $myData['is_pindah_nominal'] == '1' ? 'Pindah Saldo' : $myData['status']; ?></td>
                                             <td><?php echo $date; ?></td>
                                        <?php if ($ses_group =='Super Admin') { ?>
                                              <td nowrap>
