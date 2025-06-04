@@ -375,7 +375,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
 
 
                                     
-                                    $mySql .= " UNION ALL  SELECT dd.id as detail_id, dd.transaction_id, item as keterangan, '0' As is_pindah_nominal, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama  FROM  data_qr_detail dd 
+                                    $mySql .= " UNION ALL  SELECT dd.id as detail_id, dd.transaction_id, item as keterangan, nominal, qty, stock_order_id as booking_detail_id, metode_pembayaran as metode, 'IN' as `status`, updated_date, 'INPUT MANUAL' as nama, '0' AS is_pindah_nominal  FROM  data_qr_detail dd 
                                     LEFT JOIN data_qr d ON (d.transaction_id = dd.transaction_id)
                                     WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' ";
 
