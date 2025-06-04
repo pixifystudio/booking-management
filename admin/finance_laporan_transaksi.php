@@ -155,7 +155,7 @@ $metode = isset($_GET['mtd']) ? $_GET['mtd'] : '';
                                             $txtDateUntil  = isset($_GET['until']) ? $_GET['until'] . ' 23:59:59' : date('Y-m-d 23:59:59');
 
                                                 $mySql3   = "SELECT qty,nominal,`status`,is_pindah_nominal  FROM `transaction` WHERE keterangan !='DP' AND updated_date >='2025-03-07 00:00:01'  AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'  AND metode='QRIS' AND is_pindah_nominal != '1'";
-                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status, '0' as is_pindah_nominal  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
+                                                $mySql3 .= " UNION ALL SELECT dd.qty as qty ,dd.nominal as nominal,'IN' as `status`, '0' AS is_pindah_nominal  FROM `data_qr_detail` dd LEFT JOIN data_qr d ON (dd.transaction_id = d.transaction_id) WHERE item !='DP' AND updated_date >='2025-03-07 00:00:01' AND updated_date >='$txtDateFrom' and updated_date <='$txtDateUntil'   AND metode_pembayaran='QRIS' ";
                                                 
                                                 $myQry3 = mysqli_query($koneksidb, $mySql3);
                                                 $sum_total3 = 0;
