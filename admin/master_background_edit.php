@@ -15,51 +15,70 @@ $id = $_GET['id'];
     $pesanError = array();
     $dataBackground  = $_POST['txtBackground'];
     $dataJenis  = $_POST['txtJenis'];
+    $ses_nama = $_SESSION['SES_NAMA'];
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
 
-    $mySqlCek  = "SELECT background FROM master_background WHERE  jenis ='$dataJenis' and background ='$dataBackground' ";
-    $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
-    $JumlahDataCek = mysqli_num_rows($myQryCek);
-    if ($JumlahDataCek >= 1) {
-      $pesanError[] = "data tersebut sudah diset sebelumnya";
-    }
+    # OLD QUERY EDIT & UPDATE
+    // $mySqlCek  = "SELECT background FROM master_background WHERE  jenis ='$dataJenis' and background ='$dataBackground' ";
+    // $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
+    // $JumlahDataCek = mysqli_num_rows($myQryCek);
+    // if ($JumlahDataCek >= 1) {
+    //   $pesanError[] = "data tersebut sudah diset sebelumnya";
+    // }
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
-    if (count($pesanError) >= 1) {
-      echo "&nbsp;<div class='alert alert-warning'>";
-      $noPesan = 0;
-      foreach ($pesanError as $indeks => $pesan_tampil) {
-        $noPesan++;
-        echo "&nbsp;&nbsp; $pesan_tampil<br>";
-      }
-      echo "</div>";
-    } else {
-      # SIMPAN DATA KE DATABASE. 
-      // Jika tidak menemukan error, update data ke database
-      $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_background set background ='$dataBackground' where id='$id'";
-      $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
+    // if (count($pesanError) >= 1) {
+    //   echo "&nbsp;<div class='alert alert-warning'>";
+    //   $noPesan = 0;
+    //   foreach ($pesanError as $indeks => $pesan_tampil) {
+    //     $noPesan++;
+    //     echo "&nbsp;&nbsp; $pesan_tampil<br>";
+    //   }
+    //   echo "</div>";
+    // } else {
+    //   # SIMPAN DATA KE DATABASE. 
+    //   // Jika tidak menemukan error, update data ke database
+    //   $ses_nama  = $_SESSION['SES_NAMA'];
+    //   $mySql    = "UPDATE master_background set background ='$dataBackground' where id='$id'";
+    //   $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
 
     
-      if ($myQry) {
+    //   if ($myQry) {
+    //     echo "<meta http-equiv='refresh' content='0; url=?page=Master-Background&s=edited'>";
+    //   }
+    //   exit;
+    // }
+
+    //Delete & Create New Data
+    $mySqlDelete = "DELETE FROM master_background WHERE background='$dataBackground'";
+    $myQry = mysqli_query($koneksidb, $mySqlDelete) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+
+    $mySql = "";
+    foreach ($dataJenis as $paket) {//looping paket
+      $mySql .= "INSERT INTO `master_background`( `background`,`jenis`, `updated_by`, `updated_date`)
+     VALUES ('$dataBackground','$paket','$ses_nama', now());";//Query insert     
+    }
+    $myQry   = $conn->multi_query($mySql)  or die("ERROR BACKGROUND:  " . mysqli_error($koneksidb));    
+    if ($myQry === TRUE) {
         echo "<meta http-equiv='refresh' content='0; url=?page=Master-Background&s=edited'>";
-      }
-      exit;
     }
   } // Penutup Tombol Submit
 
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
-  $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
-  $mySql  = "SELECT * FROM master_background WHERE id='$Code'";
-  $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
-  $myData = mysqli_fetch_array($myQry);
+  // $Code  = isset($_GET['id']) ?  $_GET['id'] : '';//Old
+  $Code  = isset($_GET['id']) ?  str_replace(['_'], ' ',  $_GET['id']) : '';
+  $mySql  = "SELECT background, JSON_ARRAYAGG(jenis) AS jenis from master_background mb
+WHERE
+background='$Code'
+group by background";
+  $myQryBackground  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
+  $myData = mysqli_fetch_array($myQryBackground);
   # MASUKKAN DATA KE VARIABEL
-  $dataCode    = $myData['id'];
-  $dataJenis    = $myData['jenis'];
- $dataBackground   = $myData['background'];
+  $dataBackground   = $myData['background'];
+  $jenis         = isset($myData['jenis']) && $myData['jenis'] ? json_decode($myData['jenis']) : [];
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
@@ -97,14 +116,14 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <label>Jenis</label>
-                          <select class="form-select" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                          <select class="form-select select2" name="txtJenis[]" aria-label="Default select example" multiple autocomplete="off" required>
                             <option value="">Pilih Jenis</option>
                             <?php
                             // panggil database
                             $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                             while ($myData = mysqli_fetch_array($myQry)) {
-                              if ($myData['paket'] == $dataJenis ) {
+                              if (in_array($myData['paket'], $jenis)) {
                                 $cek = 'Selected';
                               } else {
                                 $cek = '';

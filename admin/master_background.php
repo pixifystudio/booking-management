@@ -77,8 +77,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
                                                     <label>Paket</label>
-                                                    <select class="form-select" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
-                                                        <option value="">Pilih Paket</option>
+                                                    <select class="form-select select2" name="txtJenis[]" aria-label="Default select example" autocomplete="off" multiple required placeholder="Pilih Paket">
                                                         <?php
                                                         // panggil database
                                                         $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
@@ -113,8 +112,8 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Paket</th>
                                         <th>Nama Background</th>
+                                        <th>Nama Paket</th>
                                         <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
@@ -122,19 +121,28 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM master_background order by jenis desc";
+                                    $mySql   = "SELECT background, JSON_ARRAYAGG(
+                                                            JSON_OBJECT(
+                                                                'jenis', jenis,
+                                                                'id', id
+                                                            )
+                                                        ) AS paket from master_background mb 
+                                                group by background  order by background asc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
-                                        $Code =  $myData['id'];
+                                        $Code =  str_replace([' '], '_', strtolower($myData['background']));//Use Background name as id edit
+                                        // $Code =  $myData['id'];//Old
 
                                     ?>
-
+                                        <?php $paketNames = array_map(function($arr) {
+                                            return $arr->jenis; //return only name of paket without id
+                                        }, json_decode($myData['paket']) ?? []) ?>
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['jenis']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
+                                            <td><?php echo implode(', ', $paketNames); ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
