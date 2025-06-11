@@ -52,7 +52,7 @@ $id = $_GET['id'];
     // }
 
     //Delete & Create New Data
-    $mySqlDelete = "DELETE FROM master_background WHERE background='$dataBackground'";
+    $mySqlDelete = "DELETE FROM master_background WHERE background='$id'";
     $myQry = mysqli_query($koneksidb, $mySqlDelete) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 
     $mySql = "";
