@@ -138,7 +138,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                     ?>
                                         <?php $paketNames = array_map(function($arr) {
                                             return $arr->jenis; //return only name of paket without id
-                                        }, json_decode($myData['paket']) ?? []) ?>
+                                        }, json_decode($myData['paket']) ?? []); sort($paketNames) ?>
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
